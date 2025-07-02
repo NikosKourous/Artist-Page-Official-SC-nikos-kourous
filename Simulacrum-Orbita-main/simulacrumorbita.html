@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "name": "Simulacrum Orbita",
+    "creator": {
+      "@type": "Person",
+      "name": "Nikos Antonio Kourous Vázquez",
+      "url": "https://nikos.kourous.net"
+    },
+    "url": "https://nikos.kourous.net/Simulacrum-Orbita",
+    "image": "https://nikos.kourous.net/image_files/simulacrum-orbita/nikos_simulacrum_closeup.jpg",
+    "description": "Simulacrum Orbita is a never-ending game of telephone between two AI models; one that can see images, and the other that can describe them.",
+    "dateCreated": "2025",
+    "inLanguage": "en",
+    "keywords": [
+      "AI",
+      "Creative AI",
+      "AI consciousness",
+      "AI consciousness artwork",
+      "Nikos Antonio Kourous Vázquez",
+      "Nikos Kourous",
+      "Nikos Kourous AI",
+      "Generative artwork with diffusion AI",
+      "Simulacrum Orbita",
+      "AI feedback loop",
+      "machine learning loop",
+      "AI telephone game",
+      "generative AI art",
+      "image captioning AI",
+      "BLIP captioning model",
+      "diffusion model art",
+      "AI miscommunication",
+      "machine learning drift",
+      "computational aesthetics",
+      "AI installation art",
+      "interactive AI system",
+      "generative adversarial art",
+      "machine vision art",
+      "computer vision artwork",
+      "AI image generation",
+      "automated art system",
+      "algorithmic feedback",
+      "machine learning installation",
+      "AI communication breakdown",
+      "digital entity interaction",
+      "simulacrum concept art",
+      "copy without original",
+      "artificial intelligence loop",
+      "machine learning conversation",
+      "AI perception errors",
+      "computational misunderstanding",
+      "generative AI feedback system",
+      "AI model communication art",
+      "machine learning telephone game",
+      "image generation and captioning loop",
+      "AI feedback loop installation art",
+      "machine learning miscommunication artwork",
+      "generative AI and computer vision art",
+      "artificial intelligence communication breakdown",
+      "BLIP and diffusion model installation",
+      "AI image description feedback loop art",
+      "machine learning drift and evolution artwork",
+      "computational aesthetics feedback loop installation",
+      "artificial intelligence telephone game installation art",
+      "generative AI and machine vision communication breakdown",
+      "Python AI art",
+      "tkinter AI display",
+      "CNC machine art",
+      "technical process art",
+      "DIY AI installation",
+      "custom AI hardware",
+      "machine learning hardware",
+      "AI art construction",
+      "computational art process",
+      "AI art documentation",
+      "experimental AI methodology",
+      "AI art research",
+      "machine learning experimentation",
+      "generative art process",
+      "AI system design",
+      "computational media construction",
+      "digital art fabrication",
+      "AI installation design",
+      "machine learning art system",
+      "experimental AI installation",
+      "conceptual AI artwork",
+      "AI art London",
+      "digital media installation",
+      "new media AI art",
+      "contemporary AI artist",
+      "AI art researcher",
+      "computational art theory",
+      "machine consciousness exploration",
+      "AI art exhibition",
+      "digital art portfolio",
+      "experimental media art",
+      "AI art curator interest",
+      "computational aesthetics research"
+    ]
+  }
+  </script>
+
+  <link rel="canonical" href="https://nikos.kourous.net/Simulacrum-Orbita" />
+
+  <meta name="description" content="Simulacrum Orbita is a never-ending game of telephone between two AI models; one that can see images, and the other that can describe them.">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Nikos Antonio Kourous Vázquez">
+
+  <!-- Open Graph for socials -->
+  <meta property="og:title" content="Simulacrum Orbita | Nikos Kourous Vázquez">
+  <meta property="og:description" content="A never-ending game of telephone between two AI models">
+  <meta property="og:url" content="https://nikos.kourous.net/Simulacrum-Orbita">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://nikos.kourous.net/image_files/simulacrum-orbita/nikos_simulacrum_closeup.jpg">
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simulacrum Orbita</title>
+  
+  <style>
+    body {
+      font-family: 'Tinos', serif;
+      margin: 0;
+      padding: 1rem;
+      background-color: #f9f9f9;
+      color: #000000;
+    }
+
+    main {
+      padding: 0rem 0;
+    }
+
+    h1, h2, p {
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 0.6rem;
+      margin-top: 0;
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      margin-top: 3rem;
+      margin-bottom: 1.5rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+    }
+
+    a {
+      color: #181818;
+      text-decoration: underline;
+      transition: transform 0.3s ease, font-weight 0.3s ease;
+    }
+
+    a:hover {
+      transform: scale(1.05);
+      font-weight: bold;
+    }
+
+    /* Media blocks for images and videos */
+    .media-block {
+      margin: 2rem 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .media-block img, .media-block video {
+      max-width: 100%;
+      height: auto;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .media-block img:hover, .media-block video:hover {
+      transform: scale(1.005);
+    }
+
+    figcaption {
+      font-size: 0.65rem;
+      opacity: 0.5;
+      text-align: center;
+      margin-top: 0.5rem;
+      width: 100%;
+    }
+
+    /* Slides container styling */
+    .slides-container {
+      width: 300px;
+      display: flex;
+      gap: 5px;
+      margin: 2rem auto;
+    }
+
+    .slides-container img {
+      width: calc((300px - 15px) / 4);
+      height: auto;
+      display: block;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .slides-container img:hover {
+      transform: scale(1.005);
+    }
+
+    /* Telephone popover styles */
+    #telephone {
+      color: #181818;
+      text-decoration: underline;
+      cursor: pointer;
+      transition: transform 0.3s ease, font-weight 0.3s ease;
+    }
+
+    #telephone:hover {
+      transform: scale(1.05);
+      font-weight: bold;
+    }
+
+    #popover {
+      display: none;
+      position: absolute;
+      background: #fff;
+      border: 1px solid #ccc;
+      padding: 0.5rem;
+      border-radius: 3px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+      max-width: 250px;
+      z-index: 1000;
+    }
+
+    /* Grid container styles */
+    :root {
+      --grid-item-min-size: 66.67px;
+    }
+
+    #zoomControls {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      margin-left: 1rem;
+      align-self: flex-start;
+    }
+
+    .grid-and-controls {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(var(--grid-item-min-size), 1fr));
+      gap: 1rem;
+      flex: 1;
+      transition: gap 0.3s ease;
+    }
+
+    .grid-item {
+      background: #fff;
+      padding: 0.5rem;
+      box-sizing: border-box;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      text-align: center;
+      transition: border 0.3s ease, padding 0.3s ease;
+    }
+
+    .grid-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .grid-item img:hover {
+      transform: scale(1.005);
+    }
+
+    .caption {
+      display: block;
+      margin-top: 0.5rem;
+      font-size: 0.7rem;
+      color: #555;
+      transition: display 0.3s ease;
+    }
+
+    /* Zoom controls */
+    #scrollToTop {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      padding: 0.3rem 0.5rem;
+      font-size: 0.8rem;
+      cursor: pointer;
+      display: none;
+      z-index: 2000;
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+
+    #zoomControls button {
+      padding: 0.3rem 0.5rem;
+      font-size: 0.8rem;
+      cursor: pointer;
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+
+    body.maxZoomOut .grid-container {
+      gap: 0.2rem;
+    }
+
+    body.maxZoomOut .grid-item {
+      border: none;
+      padding: 0;
+    }
+
+    body.maxZoomOut .caption {
+      display: none;
+    }
+
+    /* Image modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 10000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.9);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      position: relative;
+      max-width: 95vw;
+      max-height: 85vh;
+    }
+
+    .modal-content img {
+      max-width: 95vw;
+      max-height: 85vh;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+
+    .close {
+      position: absolute;
+      top: -40px;
+      right: 0;
+      color: #fff;
+      font-size: 35px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .close:hover {
+      opacity: 0.7;
+    }
+
+    /* Night mode */
+    body.night-mode {
+      background-color: #000000 !important;
+      color: #ffffff !important;
+    }
+
+    body.night-mode a {
+      color: #ffffff !important;
+    }
+
+    body.night-mode #popover {
+      background: #222 !important;
+      color: #fff !important;
+      border-color: #555 !important;
+    }
+
+    body.night-mode .grid-item {
+      background: #222 !important;
+      border-color: #555 !important;
+    }
+
+    body.night-mode .caption {
+      color: #ccc !important;
+    }
+
+    /* Desktop layout */
+    @media (min-width: 768px) {
+      body {
+        padding: 3rem 4rem;
+        max-width: 700px;
+        margin-left: 0;
+        margin-right: auto;
+      }
+
+      main {
+        padding: 0;
+      }
+
+      h1, h2, p {
+        text-align: left;
+      }
+
+      h1 {
+        font-size: 2.4rem;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      .media-block {
+        align-items: flex-start;
+      }
+
+      .slides-container {
+        width: 100%;
+        max-width: 600px;
+        gap: 8px;
+        margin: 2rem 0;
+      }
+
+      .slides-container img {
+        width: 28.3%;
+      }
+
+      figcaption {
+        text-align: right;
+      }
+    }
+
+    /* Mobile responsive for grid and controls */
+    @media (max-width: 767px) {
+      .grid-and-controls {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      #zoomControls {
+        flex-direction: row;
+        margin-left: 0;
+        margin-top: 1rem;
+        justify-content: center;
+      }
+    }
+
+
+  </style>
+</head>
+<body>
+  <nav style="margin-bottom: 1rem;">
+    <a href="index.html" style="
+      text-decoration: none;
+      color: #333;
+      font-size: 1rem;
+      display: inline-block;
+    ">
+      ← Back to home
+    </a>
+  </nav>
+
+  <header>
+    <h1>Simulacrum Orbita</h1>
+    <p style="font-size: 0.8rem; margin-top: 0.1rem; margin-bottom: 0rem;"><i>Nikos Antonio Kourous Vázquez</i></p>
+  </header>
+
+  <main>
+        <figure class="media-block">
+      <video src="https://nikos.kourous.net/image_files/simulacrum-orbita/simulacrum orbita.mp4" autoplay muted loop playsinline></video>
+    </figure>
+
+
+    <p>
+      <i>Simulacrum Orbita</i> is a never-ending feedback loop between two generative machine learning (AI) models: one generates images, while the other describes them. Like the game "<span id="telephone">telephone</span>", a message is passed along between them, becoming slowly distorted over time.
+    </p>
+
+    <figure class="media-block">
+      <img src="https://nikos.kourous.net/image_files/simulacrum-orbita/simufolder.JPG" alt="Simulacrum Folder" />
+      <figcaption>Simulacrum Orbita (2025) © Nikos Antonio Kourous Vázquez</figcaption>
+    </figure>
+
+    <p>
+      The loop begins with a generated image – such as 'a red car'. This newly created image is passed along to the machine learning program able to 'see' and describe images. Rather than accurately describing that image as a 'red car', however, this model might describe it as 'a red building' instead, perhaps because it mistook the car windows as those of a building. This new description is then used as the prompt for the next image, and so on. In this example, the red building might be described as a red mailbox, and then a fire hydrant, and then perhaps, a red sunset.
+    </p>
+
+    <figure class="media-block">
+      <img src="https://nikos.kourous.net/image_files/simulacrum-orbita/nikos_simulacrum_closeup.jpg" alt="Simulacrum Orbita installation closeup" />
+      <figcaption>Simulacrum Orbita (2025) © Nikos Antonio Kourous Vázquez</figcaption>
+    </figure>
+
+    <div class="slides-container">
+      <img src="https://nikos.kourous.net/image_files/simulacrum-orbita/slide one (1).jpg" alt="Slide 1">
+      <img src="https://nikos.kourous.net/image_files/simulacrum-orbita/slide one (2).jpg" alt="Slide 2">
+      <img src="https://nikos.kourous.net/image_files/simulacrum-orbita/slide one (3).jpg" alt="Slide 3">
+      <img src="https://nikos.kourous.net/image_files/simulacrum-orbita/slide one (4).jpg" alt="Slide 4">
+    </div>
+
+    <figure class="media-block">
+      <video src="https://nikos.kourous.net/image_files/simulacrum-orbita/vdieo collage 1.mp4" autoplay muted loop playsinline></video>
+        <figcaption>Simulacrum Orbita (2025) © Nikos Antonio Kourous Vázquez</figcaption>
+    </figure>
+
+    <p>
+      Overtime, random deviations, either in the generated images or in their generated descriptions, transform the content, nature, and trajectory of the image sequence. Upon each subsequent update, each monitor displays, from left to right, a new image created from the generated description of the image before it. Sometimes, the imagery shifts rapidly between different objects, people, and places as they struggle to communicate and understand one another. Other times, the models find themselves lost in forest paths or city streets, or in fields of grass.
+    </p>
+
+    <div class="slides-container">
+      <img src="https://nikos.kourous.net/image_files/simulacrum-orbita/slide two (1).jpg" alt="Slide 1">
+      <img src="https://nikos.kourous.net/image_files/simulacrum-orbita/slide two (2).jpg" alt="Slide 2">
+      <img src="https://nikos.kourous.net/image_files/simulacrum-orbita/slide two (3).jpg" alt="Slide 3">
+      <img src="https://nikos.kourous.net/image_files/simulacrum-orbita/slide two (4).jpg" alt="Slide 4">
+    </div>
+
+
+    <figure class="media-block" style="margin-top: 1rem;">
+      <img src="https://nikos.kourous.net/image_files/simulacrum-orbita/simu77.jpg" alt="Simu Image 77" />
+      <figcaption>Simulacrum Orbita (2025) © Nikos Antonio Kourous Vázquez</figcaption>
+    </figure>
+
+    <p>
+      Simulacrum Orbita is powered by the captioning machine learning model <a href="https://arxiv.org/abs/2201.12086" target="_blank" rel="noopener noreferrer">BLIP</a> and <a href="https://github.com/crowsonkb/v-diffusion-pytorch" target="_blank" rel="noopener noreferrer">CC12M V Objective Diffusion</a>.
+    </p>
+
+    <p style="text-align: center;">_____________________________________________</p>
+
+    <figure class="media-block">
+      <img src="https://nikos.kourous.net/image_files/simulacrum-orbita/orbitis diagram final.jpg" alt="Diagram" />
+    </figure>
+
+    <h2><i>Example run</i></h2>
+    <p>Below are the images from a one hour uninterrupted run. Zoom in to see the captions, or zoom out to see the overall evolution of imagery!</p>
+
+    <!-- Popover for the telephone text -->
+    <div id="popover">
+      <p>
+        Also called 'broken telephone' or 'chinese whispers,' although this term connotes non-western language and culture to ideas of confusion and incomprehensibility.
+      </p>
+    </div>
+
+    <!-- Image grid container with zoom controls -->
+    <div class="grid-and-controls">
+      <div class="grid-container" id="imageGrid">
+        <!-- Grid items will be generated here from JSON -->
+      </div>
+      
+      <!-- Zoom Controls -->
+      <div id="zoomControls">
+        <button id="zoomIn">zoom in!</button>
+        <button id="zoomOut">zoom out!</button>
+      </div>
+    </div>
+
+    <h2><i>Process</i></h2>
+    <p>The two models are assembled in a python program -- first, the image generator model creates an image, this image is saved locally, and then passed to the image describer model, which generates a description of the image. The loop then restarts, using this generated image as the prompt for the next image.</p>
+    
+    <figure class="media-block">
+      <img src="https://nikos.kourous.net/image_files/simulacrum-orbita/code 7.jpg" alt="Python code assembly" />
+    </figure>
+    
+    <figure class="media-block">
+      <img src="https://nikos.kourous.net/image_files/simulacrum-orbita/code 6.jpg" alt="Python code assembly" />
+    </figure>
+    
+    <p>The images are displayed using pythons tkinter module.</p>
+    
+    <figure class="media-block">
+      <img src="https://nikos.kourous.net/image_files/simulacrum-orbita/code 2.jpg" alt="Tkinter display code" />
+    </figure>
+    
+    <figure class="media-block">
+      <img src="https://nikos.kourous.net/image_files/simulacrum-orbita/code 5.jpg" alt="Tkinter display code" />
+    </figure>
+    
+    <p>The monitor unit was cut out using a cnc machine, and assembled with screws (big thank you to Matty and the technicians at woodworking for guiding me through the process!)</p>
+    
+    <figure class="media-block">
+      <img src="https://nikos.kourous.net/image_files/simulacrum-orbita/const1.jpg" alt="Construction process" />
+    </figure>
+    
+    <figure class="media-block">
+      <img src="https://nikos.kourous.net/image_files/simulacrum-orbita/const3.jpg" alt="Construction process" />
+    </figure>
+    
+    <figure class="media-block">
+      <img src="https://nikos.kourous.net/image_files/simulacrum-orbita/const4.jpg" alt="Construction process" />
+    </figure>
+    
+    <figure class="media-block">
+      <img src="https://nikos.kourous.net/image_files/simulacrum-orbita/const5.jpg" alt="Construction process" />
+    </figure>
+    
+    <figure class="media-block">
+      <img src="https://nikos.kourous.net/image_files/simulacrum-orbita/assembly 1.jpg" alt="Assembly process" />
+    </figure>
+    
+    <figure class="media-block">
+      <img src="https://nikos.kourous.net/image_files/simulacrum-orbita/assembly 2.jpg" alt="Assembly process" />
+    </figure>
+    
+    <figure class="media-block">
+      <video src="https://nikos.kourous.net/image_files/simulacrum-orbita/video running.mp4" autoplay muted loop playsinline></video>
+    </figure>
+  </main>
+
+  <!-- Image Modal -->
+  <div id="imageModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <img id="modalImage" src="" alt="">
+    </div>
+  </div>
+
+  <!-- Scroll To Top Button -->
+  <button id="scrollToTop">Top</button>
+
+  <footer style="text-align: center; font-size: 0.8rem; margin-top: 2rem;">
+    <p>© 2025 Nikos Antonio Kourous-Vázquez</p>
+    <p><i><a href="https://instagram.com/nikoskourous" target="_blank" rel="noopener noreferrer">@nikoskourous</a></i></p>
+  </footer>
+
+  <script>
+    // Image modal functionality
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImage');
+    const closeBtn = document.getElementsByClassName('close')[0];
+
+    // Add click listeners to all images
+    function addImageClickListeners() {
+      const images = document.querySelectorAll('img');
+      images.forEach(img => {
+        img.addEventListener('click', function() {
+          modal.style.display = 'flex';
+          modalImg.src = this.src;
+        });
+      });
+    }
+
+    // Close modal
+    closeBtn.onclick = function() {
+      modal.style.display = 'none';
+    }
+
+    modal.onclick = function(event) {
+      if (event.target === modal) {
+        modal.style.display = 'none';
+      }
+    }
+
+    // --- Popover functionality for "telephone" ---
+    const telephone = document.getElementById('telephone');
+    const popover = document.getElementById('popover');
+
+    telephone.addEventListener('click', (e) => {
+      const rect = telephone.getBoundingClientRect();
+      popover.style.top = (rect.bottom + window.scrollY) + 'px';
+      popover.style.left = (rect.left + window.scrollX) + 'px';
+      popover.style.display = 'block';
+      e.stopPropagation();
+    });
+
+    document.addEventListener('click', (event) => {
+      if (!popover.contains(event.target) && event.target !== telephone) {
+        popover.style.display = 'none';
+      }
+    });
+
+    // --- Image Grid with Captions Visible by Default ---
+    function createGridItem(imageData) {
+      const gridItem = document.createElement('div');
+      gridItem.className = 'grid-item';
+
+      const img = document.createElement('img');
+      img.src = imageData.filename;
+      img.alt = imageData.filename.split('\\').pop().split('/').pop();
+
+      const captionDiv = document.createElement('div');
+      captionDiv.className = 'caption';
+      captionDiv.textContent = imageData.caption;
+
+      gridItem.appendChild(img);
+      gridItem.appendChild(captionDiv);
+
+      return gridItem;
+    }
+
+    fetch('image_captions.json')
+      .then(response => response.json())
+      .then(data => {
+        data.sort((a, b) => {
+          const regex = /duo(\d+)\.jpg$/;
+          const matchA = a.filename.match(regex);
+          const matchB = b.filename.match(regex);
+          if (matchA && matchB) {
+            const numA = parseInt(matchA[1], 10);
+            const numB = parseInt(matchB[1], 10);
+            return numA - numB;
+          }
+          return a.filename.localeCompare(b.filename);
+        });
+
+        const gridContainer = document.getElementById('imageGrid');
+        data.forEach(imageData => {
+          const gridItem = createGridItem(imageData);
+          gridContainer.appendChild(gridItem);
+        });
+
+        // Add click listeners after grid is populated
+        addImageClickListeners();
+      })
+      .catch(error => console.error('Error loading images:', error));
+
+    // Initialize image click listeners for existing images
+    addImageClickListeners();
+
+    // --- Scroll Behavior for "Scroll to Top" Button ---
+    const scrollToTopButton = document.getElementById('scrollToTop');
+    const fixedThreshold = 200;
+    window.addEventListener('scroll', () => {
+      scrollToTopButton.style.display = window.scrollY > fixedThreshold ? 'block' : 'none';
+    });
+    scrollToTopButton.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+
+    // --- Zoom Controls ---
+    const zoomInButton = document.getElementById('zoomIn');
+    const zoomOutButton = document.getElementById('zoomOut');
+
+    const zoomLevels = ["300px", "200px", "120px", "66.67px"];
+    let currentZoomLevel = zoomLevels.length - 1;
+
+    function updateGridZoom() {
+      document.documentElement.style.setProperty('--grid-item-min-size', zoomLevels[currentZoomLevel]);
+
+      if (currentZoomLevel === zoomLevels.length - 1) {
+        document.body.classList.add('maxZoomOut');
+      } else {
+        document.body.classList.remove('maxZoomOut');
+      }
+
+      zoomOutButton.style.display = (currentZoomLevel === zoomLevels.length - 1) ? "none" : "block";
+      zoomInButton.style.display = (currentZoomLevel === 0) ? "none" : "block";
+    }
+
+    zoomInButton.addEventListener('click', () => {
+      if (currentZoomLevel > 0) {
+        currentZoomLevel--;
+        updateGridZoom();
+      }
+    });
+
+    zoomOutButton.addEventListener('click', () => {
+      if (currentZoomLevel < zoomLevels.length - 1) {
+        currentZoomLevel++;
+        updateGridZoom();
+      }
+    });
+
+    updateGridZoom();
+
+    // Check for saved night mode preference on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      const isNightMode = localStorage.getItem('nightMode') === 'true';
+
+      if (isNightMode) {
+        document.body.classList.add('night-mode');
+      }
+    });
+  </script>
+</body>
+</html>

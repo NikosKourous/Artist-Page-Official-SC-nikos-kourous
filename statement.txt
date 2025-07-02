@@ -1,0 +1,11 @@
+My work stems from a desire to challenge and expand prevailing narratives around machine learning: what it is, how it functions, and how it might evolve. As ‘machine learning’ becomes the mythologized term ‘artificial intelligence,’ as user-machine relationships become engraved, and as companies scramble to innovate and incorporate it, I feel compelled to create space for the technology to define itself. 
+
+In the early days of generative adversarial networks, I probed the latent space of generative media, extracting hidden patterns and aesthetics through film. At the time, these spaces were mysterious and unknown; exploring them felt like a collaboration between the machines and myself. 
+
+Today, the latent space of artificial intelligence is a familiar one. Machine hallucinations and distortions have become culturally familiar and are no longer mysterious and uncanny. Furthermore, the underlying mechanisms behind machine learning have been increasingly obscure, replaced with polished products and user interfaces. My practice, then, evolved as a response to this shift. 
+
+Rather than working collaboratively with machine learning tools, I now work in observation of them. By confining them within self-evolving environments and feedback loops, I place this technology inside a fishbowl, allowing viewers, and myself, to engage with, observe, analyze, and critique it. Thus, my role as an artist has transformed into being more of an interpreter, or a conductor. 
+
+As a result of my new role, my work allows viewers to confront artificial intelligence, and challenges them to question their own preconceptions of autonomy, agency, and consciousness – urgent questions in a world increasingly populated by computational entities. 
+
+I am Paraguayan // American // Greek but based in London, United Kingdom. I studied Fine Arts: Computational Arts (with Creative Computing) at the University of the Arts London // Camberwell College of the Arts (Creative Computing done at the Creative Computing Institute).

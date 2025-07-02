@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <link rel="canonical" href="https://nikos.kourous.net/simu-proto-writing.html"/>
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Nikos Antonio Kourous Vázquez">
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Writing on my an early prototype of Simulacrum Orbita</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Tinos', serif;
+      margin: 0;
+      padding: 1rem;
+      background-color: #f9f9f9;
+      color: #000000;
+    }
+
+    main {
+      padding: 1rem 0;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      text-align: left;
+      font-size: 1.8rem;
+    }
+
+    .essay {
+      white-space: pre-wrap;
+      line-height: 1.6;
+      font-size: 1rem;
+      margin-top: 2rem;
+    }
+
+    .image-container {
+      width: 100%;
+      margin-top: 1.5rem;
+    }
+
+    .image-container img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    @media (min-width: 768px) {
+      body {
+        padding: 3rem 6rem;
+      }
+      body.night-mode {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+body.night-mode * {
+  color: #fff !important;
+}
+
+body.night-mode a {
+  color: #fff !important;
+}
+
+body.night-mode .background-image {
+  filter: invert(1);
+}
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <nav style="margin-bottom: 1rem;">
+      <a href="index.html" style="
+        text-decoration: none;
+        color: #333;
+        font-size: 1rem;
+        display: inline-block;
+      ">
+        ← Back to home
+      </a>
+    </nav>
+
+    <h1>Writing on my an early prototype of Simulacrum Orbita</h1>
+
+    <div class="image-container">
+      <img src="image_files/simu-earlyloop.jpg" alt="Simulacrum early loop image">
+    </div>
+
+    <div class="essay">
+      <!-- Essay content will be loaded here via JavaScript -->
+      Loading writing...
+    </div>
+  </main>
+
+  <script>
+    fetch('image_files/writing/comp_futures.txt')
+      .then(response => response.text())
+      .then(text => {
+        document.querySelector('.essay').textContent = text;
+      })
+      .catch(error => {
+        document.querySelector('.essay').textContent = 'Failed to load essay.';
+        console.error(error);
+      });
+  </script>
+  <script>
+// Check for saved night mode preference on page load
+document.addEventListener('DOMContentLoaded', function() {
+  const isNightMode = localStorage.getItem('nightMode') === 'true';
+  
+  if (isNightMode) {
+    document.body.classList.add('night-mode');
+  }
+});
+</script>
+</body>
+</html>

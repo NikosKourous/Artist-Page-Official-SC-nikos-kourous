@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="canonical" href="https://nikos.kourous.net/3d-reconstruction-peckham" />
+  <meta name="description" content="A 3D reconstrucion of Rye Lane, Peckham, using archival Google Street View data to explore the past history of shops.">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Nikos Antonio Kourous Vázquez">
+
+  <!-- Open Graph for socials -->
+  <meta property="og:title" content="Rye Lane: a 3D archival exploration | Nikos Kourous Vázquez">
+  <meta property="og:description" content="A 3D reconstrucion of Rye Lane, Peckham, using archival Google Street View data to explore the past history of shops.">
+  <meta property="og:url" content="https://nikos.kourous.net/3d-reconstruction-peckham">
+  <meta property="og:type" content="website">
+  <script type="application/ld+json">
+
+  {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "name": "Rye Lane: a 3D archival exploration",
+    "creator": {
+      "@type": "Person",
+      "name": "Nikos Antonio Kourous Vázquez",
+      "url": "https://nikos.kourous.net"
+    },
+    "url": "https://nikos.kourous.net/3d-reconstruction-peckham",
+    "image": "https://nikos.kourous.net/image_files/peckham_digital_construction/khans-top.jpg",
+    "description": "A 3D reconstruction of Rye Lane, Peckham, using archival Google Street View data to explore the past history of shops.",
+    "dateCreated": "2022",
+    "inLanguage": "en",
+    "keywords": [
+      "Nikos Antonio Kourous Vázquez",
+      "Nikos Kourous",
+      "Nikos Kourous 3D reconstruction",
+      "Nikos Kourous Peckham",
+      "3D reconstruction Peckham",
+      "Rye Lane 3D model",
+      "archival Google Street View",
+      "digital archaeology",
+      "3D urban history",
+      "shop history documentation",
+      "high street archaeology",
+      "Peckham history",
+      "Rye Lane history",
+      "shopfront evolution",
+      "urban change documentation",
+      "3D street reconstruction",
+      "Google Earth 3D modeling",
+      "animated texture mapping",
+      "temporal 3D visualization",
+      "community history documentation",
+      "local history 3D art",
+      "urban memory project",
+      "digital heritage preservation",
+      "street view archaeology",
+      "3D archival research",
+      "gentrification documentation",
+      "high street transformation",
+      "community space evolution",
+      "urban anthropology 3D",
+      "Peckham community documentation",
+      "archival Google Street View data exploration",
+      "3D reconstruction of Rye Lane Peckham high street history",
+      "digital archaeology project using Google Street View archives for urban documentation",
+      "animated texture mapping for revealing shop history and community change over time",
+      "3D modeling project documenting Peckham Rye Lane shopfront evolution and gentrification",
+      "archival research and 3D visualization exploring local community history through street documentation",
+      "Google Earth and Street View data used for 3D reconstruction of high street transformation",
+      "digital heritage preservation project documenting Peckham community spaces through 3D archaeology",
+      "temporal 3D visualization exploring shop history and urban change in Rye Lane Peckham",
+      "community history documentation through 3D reconstruction and archival Google Street View analysis",
+      "urban memory project using 3D modeling to explore high street evolution and local community change",
+      "Ash Meat Fish Centre",
+      "Peckham Audio",
+      "K&A Food Centre", 
+      "Big Girl Clothing Company",
+      "Yadas Green Kitchen",
+      "Café Spice",
+      "KFC Peckham",
+      "Rye Lane shops",
+      "Peckham businesses",
+      "South London shops",
+      "local business history",
+      "community business documentation",
+      "shopfront archaeology",
+      "retail history Peckham",
+      "high street businesses",
+      "local commerce history",
+      "Google Earth modeling",
+      "Street View archives",
+      "3D urban modeling",
+      "temporal mapping",
+      "historical visualization",
+      "digital heritage",
+      "archival visualization",
+      "community mapping",
+      "urban documentation",
+      "3D history project",
+      "digital preservation",
+      "archival technology",
+      "historical 3D modeling",
+      "Peckham research",
+      "South London history",
+      "London community documentation",
+      "urban history London",
+      "local history art",
+      "community art project",
+      "social documentary 3D",
+      "ethnographic 3D art",
+      "digital community archive",
+      "participatory mapping",
+      "grassroots documentation",
+      "alternative archive",
+      "community memory project",
+      "3D art research",
+      "digital humanities 3D",
+      "urban studies art",
+      "geographic art project",
+      "spatial art practice",
+      "experimental documentation",
+      "3D art methodology",
+      "digital art research",
+      "contemporary 3D art",
+      "experimental art practice",
+      "art research documentation",
+      "3D art portfolio",
+      "digital arts research",
+      "art curator interest",
+      "experimental media art",
+      "community-engaged art"
+    ]
+  }
+
+</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rye Lane: a 3D archival exploration</title>
+  <style>
+body {
+  font-family: 'Tinos', serif;
+  margin: 0;
+  padding: 1rem;
+  background-color: #f9f9f9;
+  color: #000000;
+}
+  
+    main {
+      padding: 0rem 0;
+    }
+  
+    h1, h2, h3, p {
+      text-align: center;
+    }
+  
+    .media-block {
+      margin: 2rem 0;
+      display: flex;
+      justify-content: center;
+    }
+  
+    .media-row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+  
+    .media-row img {
+      max-width: 100%;
+      height: auto;
+      flex: 1 1 45%;
+    }
+  
+    img, video {
+      max-width: 100%;
+      height: auto;
+    }
+  
+    video {
+      display: block;
+    }
+  
+    /* Desktop layout */
+    @media (min-width: 768px) {
+      body {
+        padding: 3rem 6rem;
+      }
+  
+      main, header, footer {
+        max-width: 700px;
+        margin-left: 0;
+        margin-right: auto;
+      }
+  
+      h1, h2, h3, p {
+        text-align: left;
+      }
+  
+      .media-block {
+        justify-content: flex-start;
+      }
+  
+      .media-row {
+        justify-content: flex-start;
+      }
+  
+      video {
+        width: 100%;
+      }
+
+      body.night-mode {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+body.night-mode * {
+  color: #fff !important;
+}
+
+body.night-mode a {
+  color: #fff !important;
+}
+
+body.night-mode .background-image {
+  filter: invert(1);
+}
+    }
+  </style>
+  
+</head>
+<body>
+
+    <nav style="margin-bottom: 1rem;">
+        <a href="index.html" style="
+          text-decoration: none;
+          color: #333;
+          font-size: 1rem;
+          display: inline-block;
+        ">
+          ← Back to home
+        </a>
+      </nav>
+  <main>
+    <h1>Rye Lane: a 3D archival exploration</h1>
+
+    <div class="media-block">
+      <img src="image_files/peckham_digital_construction/khans-top.jpg" alt="Khans Top" />
+    </div>
+
+    <p>
+      In this project, I explored both the past and present of Rye Lane Peckham using
+      archival Google Street View. With this data, I created a 3D reconstruction of the high-street
+      with animated textures to reveal the history of current day shops.
+    </p>
+
+    <div class="media-row">
+      <img src="image_files/peckham_digital_construction/streetview1.jpg" alt="Street View 1" />
+      <img src="image_files/peckham_digital_construction/streetview2.jpg" alt="Street View 2" />
+    </div>
+
+    <div class="media-block">
+      <video src="image_files/peckham_digital_construction/video3.mp4" autoplay muted loop playsinline></video>
+    </div>
+
+    <h2>Compiling shopfronts</h2>
+    <p>
+      My process began with exploring and photographing locations along the highstreet,
+      taking screenshots of the same location from various years.
+    </p>
+
+    <h2>Ash Meat & Fish Centre – Peckham Audio / workspace / market</h2>
+    <div class="media-block">
+      <img src="image_files/peckham_digital_construction/ash-official-cover-image-1-706x1024.jpg" alt="Ash Cover" />
+    </div>
+
+    <h2>K & A – shop to let</h2>
+    <div class="media-block">
+      <img src="image_files/peckham_digital_construction/k-n-a-top-534x2048.jpg" alt="K&A Top" />
+    </div>
+
+    <h2>KFC</h2>
+    <div class="media-block">
+      <img src="image_files/peckham_digital_construction/kfc-top-1024x786.jpg" alt="KFC Top" />
+    </div>
+
+    <h2>K & A Food Centre</h2>
+    <div class="media-block">
+      <img src="image_files/peckham_digital_construction/fish-ka-top.jpg" alt="Fish K&A" />
+    </div>
+
+    <h2>Big Girl Clothing Company – Yadas Green Kitchen</h2>
+    <div class="media-block">
+      <img src="image_files/peckham_digital_construction/bg-top.jpg" alt="BG Top" />
+    </div>
+
+    <h2>Café Spice</h2>
+    <div class="media-block">
+      <img src="image_files/peckham_digital_construction/cafe-spice-top.jpg" alt="Cafe Spice" />
+    </div>
+
+    <h2>3D Modeling Rye Lane</h2>
+    <p>
+      A 3D construction of Rye Lane and the streets / rails around it were compiled using
+      Google Earth data.
+    </p>
+<!-- One image per line -->
+<div class="media-block">
+    <img src="image_files/peckham_digital_construction/prerender.jpg" alt="Pre-render" />
+  </div>
+  <div class="media-block">
+    <img src="image_files/peckham_digital_construction/process-people-1024x557.jpg" alt="Process People" />
+  </div>
+  <div class="media-block">
+    <img src="image_files/peckham_digital_construction/screenshot3-1024x537.jpg" alt="Screenshot 3" />
+  </div>
+  <div class="media-block">
+    <img src="image_files/peckham_digital_construction/screenshot2-1024x509.jpg" alt="Screenshot 2" />
+  </div>
+  
+  <!-- One video per line -->
+  <div class="media-block">
+    <video src="image_files/peckham_digital_construction/khans-final-export.mp4" controls autoplay muted loop playsinline></video>
+  </div>
+  <div class="media-block">
+    <video src="image_files/peckham_digital_construction/final-ace-export.mp4" controls autoplay muted loop playsinline></video>
+  </div>
+  <div class="media-block">
+    <video src="image_files/peckham_digital_construction/video4.mp4" controls autoplay muted loop playsinline></video>
+  </div>
+  <nav style="margin-bottom: 1rem;">
+    <a href="index.html" style="
+      text-decoration: none;
+      color: #333;
+      font-size: 1rem;
+      display: inline-block;
+    ">
+      ← Back to home
+    </a>
+  </nav>
+  </main>
+
+  <footer style="text-align: center; font-size: 0.8rem; margin-top: 2rem;">
+    <p>© 2025 Nikos Antonio Kourous-Vázquez</p>
+    <p><i><a href="https://instagram.com/nikoskourous" target="_blank" rel="noopener noreferrer">@nikoskourous</a></i></p>
+  </footer>
+  <script>
+// Check for saved night mode preference on page load
+document.addEventListener('DOMContentLoaded', function() {
+  const isNightMode = localStorage.getItem('nightMode') === 'true';
+  
+  if (isNightMode) {
+    document.body.classList.add('night-mode');
+  }
+});
+</script>
+</body>
+</html>

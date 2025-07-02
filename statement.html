@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="canonical" href="https://nikos.kourous.net/about-nikos-kourous-vazquez"/>
+  <meta name="description" content="Nikos Antonio Kourous Vázquez is an artist who with machine learning and creative computational methods.">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Nikos Antonio Kourous Vázquez">
+
+  <!-- Open Graph for socials -->
+  <meta property="og:title" content="About | Nikos Antonio Kourous Vázquez">
+  <meta property="og:url" content="https://nikos.kourous.net/about-nikos-kourous-vazquez">
+  <meta property="og:type" content="website">
+
+
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Nikos Antonio Kourous Vázquez</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* Make sure newlines from statement.txt appear correctly */
+    .bio {
+  white-space: pre-wrap;
+  background-color: rgba(249, 249, 249, 0.9);
+  padding: 1.5rem;
+  border-radius: 8px; /* optional: adds rounded corners */
+}
+    /* Optional image styling */
+    .portrait {
+      max-width: 550px;
+      width: 100%;
+      height: auto;
+      display: block;
+      margin-bottom: 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .portrait {
+        margin-left: 0;
+        margin-right: auto;
+      }
+body.night-mode {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+body.night-mode * {
+  color: #fff !important;
+}
+
+body.night-mode a {
+  color: #fff !important;
+}
+
+body.night-mode .background-image {
+  filter: invert(1);
+}
+
+body.night-mode .bio {
+  background-color: rgba(34, 34, 34, 0.9) !important;
+}
+      
+    }
+  </style>
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Nikos Antonio Kourous Vázquez",
+    "alternateName": [
+      "Nikos Kourous",
+      "Nikos Antonio Kourous Vazquez"
+    ],
+    "url": "https://nikos.kourous.net/about-nikos-kourous-vazquez",
+    "image": "https://nikos.kourous.net/image_files/me.jpg",
+    "sameAs": [
+      "https://instagram.com/nikoskourous",
+      "https://nikos.kourous.net"
+    ],
+    "jobTitle": "Artist",
+    "description": "Nikos Antonio Kourous Vázquez is an artist working with machine learning and creative computational methods.",
+    "knowsAbout": [
+      "Machine Learning",
+      "Creative Computation",
+      "AI Art",
+      "Digital Art",
+      "Interactive Art",
+      "Experimental Art"
+    ],
+    "hasOccupation": {
+      "@type": "Occupation",
+      "name": "Artist",
+      "occupationLocation": {
+        "@type": "Place",
+        "name": "London"
+      }
+    },
+    "keywords": [
+      "Nikos Antonio Kourous Vázquez",
+      "Nikos Kourous",
+      "Nikos Antonio Kourous Vazquez",
+      "Nikos Kourous artist",
+      "Nikos Kourous biography",
+      "Nikos Antonio Kourous Vázquez biography",
+      "Nikos Kourous about",
+      "AI artist biography",
+      "machine learning artist",
+      "creative computational artist",
+      "digital artist London",
+      "contemporary artist",
+      "experimental artist",
+      "technology artist",
+      "computational art practitioner",
+      "AI art practitioner",
+      "interactive media artist",
+      "digital media artist",
+      "artist statement",
+      "contemporary digital artist",
+      "London based artist",
+      "British artist",
+      "UK artist",
+      "emerging artist",
+      "digital arts researcher",
+      "computational artist background",
+      "machine learning art specialist",
+      "AI consciousness artist",
+      "experimental media practitioner",
+      "technology art specialist",
+      "digital art innovator",
+      "computational creativity artist",
+      "algorithmic artist",
+      "human-machine collaboration artist",
+      "interdisciplinary artist",
+      "new media artist",
+      "electronic artist",
+      "bio-art practitioner",
+      "psychogeography artist",
+      "installation artist",
+      "video artist",
+      "sound artist",
+      "performance artist",
+      "conceptual artist",
+      "research-based artist",
+      "process-based artist",
+      "time-based media artist",
+      "documentary artist",
+      "social practice artist",
+      "community engaged artist",
+      "participatory artist",
+      "collaborative artist",
+      "cross-disciplinary artist",
+      "transdisciplinary artist",
+      "artist educator",
+      "art researcher",
+      "creative technologist",
+      "artist portfolio",
+      "artist CV",
+      "artist website",
+      "professional artist",
+      "practicing artist",
+      "visual artist",
+      "media artist",
+      "digital creative",
+      "art practice",
+      "artistic practice",
+      "creative practice",
+      "studio practice",
+      "artist background",
+      "artistic background",
+      "creative background",
+      "artist information",
+      "artist bio",
+      "artist profile"
+    ]
+  }
+  </script>
+</head>
+<body>
+  <canvas id="antBackground" style="
+  position: fixed;
+  top: 10;
+  left: -100;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  opacity: 0.3;
+  pointer-events: none;
+"></canvas>
+
+  <main class="container">
+    <h1>About</h1>
+
+    <!-- Portrait Image -->
+    <img src="image_files/me.jpg" alt="Portrait of Nikos" class="portrait" />
+
+    <!-- Artist statement will be loaded into this <div> -->
+    <div id="artist-statement" class="bio">
+      Loading artist statement...
+    </div>  
+
+    <!-- Link back to homepage -->
+    <p style="margin-top: 2rem;">
+      <a href="index.html">← Back to home</a>
+    </p>
+  </main>
+
+  <!-- Load artist statement from statement.txt -->
+  <script>
+    fetch("statement.txt")
+      .then(response => response.text())
+      .then(text => {
+        document.getElementById("artist-statement").textContent = text;
+      })
+      .catch(error => {
+        document.getElementById("artist-statement").textContent =
+          "Failed to load artist statement.";
+        console.error(error);
+      });
+  </script>
+  <script src="ants.js"></script>
+<script>
+// Check for saved night mode preference on page load
+document.addEventListener('DOMContentLoaded', function() {
+  const isNightMode = localStorage.getItem('nightMode') === 'true';
+  
+  if (isNightMode) {
+    document.body.classList.add('night-mode');
+  }
+});
+</script>
+</body>
+</html>

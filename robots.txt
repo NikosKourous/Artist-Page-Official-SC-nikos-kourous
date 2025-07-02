@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+# Block access to admin/private areas (if you have any)
+# Disallow: /admin/
+# Disallow: /private/
+
+# Allow all image files to be crawled
+Allow: /image_files/
+
+# Sitemap location
+Sitemap: https://nikos.kourous.net/sitemap.xml

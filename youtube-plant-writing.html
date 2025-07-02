@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="canonical" href="https://nikos.kourous.net/youtube-plant-writing.html"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Video platforms as search engines – a plant’s exploration of online interfaces</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Tinos', serif;
+      margin: 0;
+      padding: 1rem;
+      background-color: #f9f9f9;
+      color: #000000;
+    }
+
+    main {
+      padding: 1rem 0;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      text-align: left;
+      font-size: 1.8rem;
+    }
+
+    .essay-content {
+      white-space: pre-wrap;
+      line-height: 1.6;
+      font-size: 1rem;
+      margin-top: 2rem;
+    }
+
+    .video-container {
+      margin: 2rem 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    video {
+      width: 80%;
+      height: auto;
+    }
+
+    @media (min-width: 768px) {
+      body {
+        padding: 3rem 6rem;
+      }
+      body.night-mode {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+body.night-mode * {
+  color: #fff !important;
+}
+
+body.night-mode a {
+  color: #fff !important;
+}
+
+body.night-mode .background-image {
+  filter: invert(1);
+}
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <a href="index.html">← Back to home</a>
+    <h1>Video platforms as search engines – a plant’s exploration of online interfaces</h1>
+
+    <div class="video-container">
+      <video id="yt-plant-video" src="image_files/yt_plant/yt_plant_demonstration_compressed.mp4" controls autoplay muted playsinline loop></video>
+    </div>
+
+    <div id="essay-text" class="essay-content">Loading essay...</div>
+  </main>
+
+  <script>
+    const video = document.getElementById("yt-plant-video");
+    video.addEventListener("loadedmetadata", function () {
+      video.currentTime = 48;
+    });
+    video.addEventListener("timeupdate", function () {
+      if (video.currentTime < 48) {
+        video.currentTime = 48;
+      }
+    });
+
+    fetch("image_files/writing/youtube-plant.txt")
+      .then(response => response.text())
+      .then(text => {
+        document.getElementById("essay-text").textContent = text;
+      })
+      .catch(error => {
+        document.getElementById("essay-text").textContent = "Failed to load essay.";
+        console.error(error);
+      });
+  </script>
+  <script>
+// Check for saved night mode preference on page load
+document.addEventListener('DOMContentLoaded', function() {
+  const isNightMode = localStorage.getItem('nightMode') === 'true';
+  
+  if (isNightMode) {
+    document.body.classList.add('night-mode');
+  }
+});
+</script>
+</body>
+</html>

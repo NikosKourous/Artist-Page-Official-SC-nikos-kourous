@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="/flickr-reflections-main/">
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CreativeWork",
+      "name": "Flickr Reflections // and in the midst",
+      "creator": {
+        "@type": "Person",
+        "name": "Nikos Antonio Kourous Vázquez",
+        "url": "https://nikos.kourous.net"
+      },
+      "url": "https://nikos.kourous.net/Flickr-Reflections",
+      "image": "https://nikos.kourous.net/image_files/flickr-reflections/flickr-reflections-TPG.jpg",
+      "description": "Two digital entities, one that hallucinates images, and the other that finds them, stuck in conversation. Made for the Flickr Foundation event at The Photographers Gallery.",
+      "dateCreated": "2025-03-09",
+      "inLanguage": "en",
+      "keywords": [
+      "AI", 
+      "Creative AI", 
+      "AI consciousness", 
+      "AI consciousness artwork", 
+      "Nikos Antonio Kourous Vázquez", 
+      "Nikos Kourous", 
+      "Nikos Kourous AI", 
+      "Generative artwork with diffusion AI",
+      "digital entities",
+      "AI feedback loop",
+      "machine dialogue",
+      "AI to AI communication",
+      "generative AI art",
+      "image hallucination",
+      "AI subconscious",
+      "computational entities",
+      "machine learning art",
+      "algorithmic conversation",
+      "AI image generation",
+      "found imagery AI",
+      "Flickr training data",
+      "memory and AI",
+      "digital consciousness",
+      "artificial minds",
+      "AI perception",
+      "machine imagination",
+      "computational aesthetics",
+      "AI art installation",
+      "digital entity dialogue",
+      "AI consciousness exploration",
+      "machine learning consciousness",
+      "generative AI conversation",
+      "AI image search dialogue",
+      "computational narrative systems",
+      "AI memory and imagination",
+      "machine learning feedback loops",
+      "AI generated vs found images",
+      "digital entity consciousness artwork",
+      "AI perception and communication art",
+      "machine learning hallucination art",
+      "computational consciousness installation",
+      "AI training data reflection artwork",
+      "generative AI and found imagery dialogue",
+      "artificial intelligence consciousness exploration",
+      "machine learning entity communication art",
+      "AI consciousness art Photographers Gallery",
+      "digital entity feedback loop installation",
+      "AI image generation and search dialogue",
+      "computational entity consciousness artwork",
+      "machine learning memory and imagination art",
+      "Flickr Foundation AI consciousness artwork",
+      "generative AI dialogue with found imagery",
+      "AI entity communication and perception art",
+      "computational consciousness feedback loop art",
+      "machine learning hallucination and reality art",
+      "artificial intelligence entity dialogue installation",
+      "AI consciousness artwork Photographers Gallery London",
+      "digital entity conversation between memory and imagination",
+      "computational aesthetics",
+      "posthuman digital art",
+      "AI art London",
+      "experimental AI installation", 
+      "conceptual AI artwork",
+      "digital media art",
+      "new media consciousness",
+      "AI art curator",
+      "digital art research",
+      "computational art theory",
+      "AI art exhibition",
+      "machine consciousness art",
+      "digital humanities AI",
+      "experimental media art",
+      "AI art portfolio",
+      "contemporary AI artist",
+      "digital art researcher",
+      "computational media artist"
+    ]
+      }
+    </script>
+
+    
+  <link rel="canonical" href="https://nikos.kourous.net/Flickr-Reflections" />
+  <meta name="description" content="Two digital entities, one that hallucinates images, and the other that finds them, stuck in conversation. Made for the Flickr Foundation event at The Photographers Gallery.">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Nikos Antonio Kourous Vázquez">
+
+  <!-- Open Graph for socials -->
+  <meta property="og:title" content="Flickr Reflections | Nikos Kourous Vázquez">
+  <meta property="og:description" content="Two digital entities, one that hallucinates images, and the other that finds them, stuck in conversation.">
+  <meta property="og:url" content="https://nikos.kourous.net/Flickr-Reflections">
+  <meta property="og:type" content="website">
+
+
+
+  <meta charset="UTF-8" />
+  <!-- The viewport meta tag is essential for responsive design on mobile devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flickr Reflections</title>
+  <style>
+    :root {
+      /* This CSS variable will be updated via JS */
+      --grid-item-min-size: 300px;
+    }
+    
+    /* Style for the clickable telephone text */
+    #telephone {
+      color: blue;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+    
+    /* Popover container styling */
+    #popover {
+      display: none; /* Hidden by default */
+      position: absolute;
+      background: #fff;
+      border: 1px solid #ccc;
+      padding: 0.0rem 0.5rem;
+      border-radius: 3px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+      max-width: 250px;
+      z-index: 1000;
+    }
+    
+    /* Base styles for mobile-first design */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 1rem;
+      background-color: #f9f9f9;
+      color: #333;
+      transition: padding 0.3s ease;
+    }
+    
+    main {
+      padding: 1rem 0;
+    }
+    
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      justify-content: space-around;
+    }
+    
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    
+    @media (min-width: 600px) {
+      body {
+        max-width: 600px;
+        margin: 0 auto;
+      }
+    }
+    
+    /* --- Styles for the image grid --- */
+    .grid-container {
+      display: grid;
+      /* The grid uses the CSS variable for the minimum width */
+      grid-template-columns: repeat(auto-fit, minmax(var(--grid-item-min-size), 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+      transition: gap 0.3s ease;
+    }
+    
+    .grid-item {
+      background: #fff;
+      padding: 0.5rem;
+      box-sizing: border-box;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      text-align: center;
+      transition: border 0.3s ease, padding 0.3s ease;
+    }
+    
+    .grid-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    
+    /* Captions are visible by default */
+    .caption {
+      display: block;
+      margin-top: 0.5rem;
+      font-size: 0.7rem;
+      color: #555;
+      transition: display 0.3s ease;
+    }
+    
+    /* --- Scroll to Top Button --- */
+    #scrollToTop {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      padding: 0.3rem 0.5rem;
+      font-size: 0.8rem;
+      cursor: pointer;
+      display: none;
+      z-index: 2000;
+    }
+    
+    /* --- Zoom Controls Container --- */
+    #zoomControls {
+      position: fixed;
+      bottom: 1rem;
+      right: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      z-index: 2000;
+    }
+    
+    #zoomControls button {
+      padding: 0.3rem 0.5rem;
+      font-size: 0.8rem;
+      cursor: pointer;
+    }
+    
+    /* --- Styles for max zoom out (Level 3) --- */
+    body.maxZoomOut .grid-container {
+      gap: 0.2rem; /* Very small gap between images */
+    }
+    
+    body.maxZoomOut .grid-item {
+      border: none;
+      padding: 0;  /* Remove extra padding */
+    }
+    
+    body.maxZoomOut .caption {
+      display: none; /* Hide captions */
+    }
+
+    .slides-container {
+      width: 650px;
+      display: flex;
+      gap: 5px; /* 5px gutter between images */
+    }
+
+    .slides-container img {
+      /* Calculate each image's width: (300px - 3*5px) / 4 */
+      width: calc((650px - 15px) / 4);
+      height: auto; /* maintains aspect ratio */
+      display: block;
+    }
+
+    .line-image {
+      width: 300px;
+      display: block;  /* ensures the image is treated as a block element */
+      margin: 0 auto;  /* centers the image horizontally if desired */
+    }
+
+    /* === Desktop Layout Overrides === */
+@media (min-width: 768px) {
+  body {
+    max-width: none;
+    margin: 0;
+    padding: 3rem 6rem;
+    background-color: #f9f9f9;
+    color: #111;
+  }
+
+  main, header, footer {
+    max-width: 900px;
+    margin-left: 0;
+    margin-right: auto;
+  }
+
+  h1, h2, p, .slides-container, .grid-container {
+    text-align: left !important;
+  }
+
+  .slides-container {
+    width: 100%;
+    max-width: 600px;
+    gap: 8px;
+  }
+
+  .slides-container img {
+    width: calc((100% - 24px) / 2); /* 2 images per row, equal spacing */
+  }
+
+  .line-image,
+  img[style*="width: 330px"],
+  img[style*="width: 320px"] {
+    width: 600px !important;
+    margin-left: 0;
+    margin-right: auto;
+  }
+
+  video {
+    width: 600px !important;
+    margin-left: 0;
+    margin-right: auto;
+  }
+
+  footer {
+    padding-top: 2rem;
+  }
+
+  body.night-mode {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+body.night-mode * {
+  color: #fff !important;
+}
+
+body.night-mode a {
+  color: #fff !important;
+}
+
+body.night-mode .background-image {
+  filter: invert(1);
+}
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <nav style="margin-bottom: 1rem;">
+      <a href="/index.html" style="
+        text-decoration: none;
+        color: #333;
+        font-size: 1rem;
+        display: inline-block;
+      ">
+        ← Back to home
+      </a>
+    </nav>
+    <h1 style="margin-bottom: 0.6rem;">and in the mist // flickr reflections</h1>
+    <p style="font-size:1.0rem; margin-top: 0.1rem; margin-bottom:0rem;"><i>Nikos Antonio Kourous Vázquez</i></p>
+  </header>
+  <main>
+
+    <p>
+      <i>Flickr Reflections</i> is a never-ending feedback loop between two digital entities: one that can see and create images, and another that can see and scavenge for them.
+    </p>
+    
+    <p>
+      Both entities have the ability to perceive and describe images, and both possess a desire to express what they see to one another.
+    </p>
+    
+    <div class="slides-container">
+      <img src="slide (1).jpg" alt="Slide 1">
+      <img src="slide (2).jpg" alt="Slide 2">
+    </div>
+
+<p> </p>
+    <div class="slides-container">
+      <img src="slide (3).jpg" alt="Slide 3">
+      <img src="slide (4).jpg" alt="Slide 4">
+    </div>
+    
+    <p>
+      One attempts to communicate by searching for similar images on the web, uncovering photographs grounded in the real world, in people’s forgotten memories and lived experiences.
+    </p>
+    
+    <p>
+      The other, in its attempt to respond, hallucinates. It conjures dreams from its subconscious, a subconcious rooted in the distant images it trained from. It does not search; it imagines.
+    </p>
+    
+    <div class="slides-container">
+      <img src="slide two (1).jpg" alt="Slide 1">
+      <img src="slide two (2).jpg" alt="Slide 2">
+    </div>
+
+    <p> </p>
+
+
+    <div class="slides-container">   
+      <img src="slide two (3).jpg" alt="Slide 3">
+      <img src="slide two (4).jpg" alt="Slide 4">
+    </div>
+    
+    <p>
+      The result is a back-and-forth conversation between forgotten memories and their dreamlike reflections -- between real, found images, and distorted, generated ones.
+    </p>
+    <p>
+      The Flickr photographs, once used as training data for image generation models, echo within these hallucinations. Even if only in a few pixels, the weight of real experience persists in the fabric of the generated image.
+    </p>
+    
+    <p>
+      As this endless dialogue unfolds, new stories are told. By weaving together what is lost and what is imagined, these entities form unexpected connections -- and from those connections, new narratives emerge.
+    </p>
+    <p></p>
+    <p>Shown at the Flickr Foundation 25th Anniversary Event at The Photographers Gallery (2025).</p>
+    
+  
+    
+  
+    <!-- Image grid container -->
+    <div class="grid-container" id="imageGrid">
+      <!-- Grid items will be generated here from JSON -->
+    </div>
+
+  </main>
+  
+  <!-- Scroll To Top Button -->
+  <button id="scrollToTop">Top</button>
+  
+
+  <script>
+    // --- Popover functionality for "telephone" ---
+    const telephone = document.getElementById('telephone');
+    const popover = document.getElementById('popover');
+  
+    telephone.addEventListener('click', (e) => {
+      const rect = telephone.getBoundingClientRect();
+      popover.style.top = (rect.bottom + window.scrollY) + 'px';
+      popover.style.left = (rect.left + window.scrollX) + 'px';
+      popover.style.display = 'block';
+      e.stopPropagation();
+    });
+  
+    document.addEventListener('click', (event) => {
+      if (!popover.contains(event.target) && event.target !== telephone) {
+        popover.style.display = 'none';
+      }
+    });
+  
+    // --- Image Grid with Captions Visible by Default ---
+    function createGridItem(imageData) {
+      const gridItem = document.createElement('div');
+      gridItem.className = 'grid-item';
+      
+      const img = document.createElement('img');
+      img.src = imageData.filename;
+      img.alt = imageData.filename.split('\\').pop().split('/').pop();
+      
+      const captionDiv = document.createElement('div');
+      captionDiv.className = 'caption';
+      captionDiv.textContent = imageData.caption;
+      
+      gridItem.appendChild(img);
+      gridItem.appendChild(captionDiv);
+      
+      return gridItem;
+    }
+    
+    fetch('image_captions.json')
+      .then(response => response.json())
+      .then(data => {
+        data.sort((a, b) => {
+          const regex = /duo(\d+)\.jpg$/;
+          const matchA = a.filename.match(regex);
+          const matchB = b.filename.match(regex);
+          if (matchA && matchB) {
+            const numA = parseInt(matchA[1], 10);
+            const numB = parseInt(matchB[1], 10);
+            return numA - numB;
+          }
+          return a.filename.localeCompare(b.filename);
+        });
+        
+        const gridContainer = document.getElementById('imageGrid');
+        data.forEach(imageData => {
+          const gridItem = createGridItem(imageData);
+          gridContainer.appendChild(gridItem);
+        });
+      })
+      .catch(error => console.error('Error loading images:', error));
+  
+    // --- Scroll Behavior for "Scroll to Top" Button ---
+    const scrollToTopButton = document.getElementById('scrollToTop');
+    const fixedThreshold = 200;
+    window.addEventListener('scroll', () => {
+      scrollToTopButton.style.display = window.scrollY > fixedThreshold ? 'block' : 'none';
+    });
+    scrollToTopButton.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  
+    // --- Zoom Controls ---
+    const zoomInButton = document.getElementById('zoomIn');
+    const zoomOutButton = document.getElementById('zoomOut');
+    
+    // Define four zoom levels:
+    // Level 0: ~1 image per row (max zoom in) => "300px"
+    // Level 1: ~3 images per row           => "200px"
+    // Level 2: ~5 images per row           => "120px"
+    // Level 3: ~9 images per row (max zoom out) => "66.67px"
+    const zoomLevels = ["300px", "200px", "120px", "66.67px"];
+    // Start at maximum zoom out (level 3)
+    let currentZoomLevel = zoomLevels.length - 1;
+    
+    function updateGridZoom() {
+      document.documentElement.style.setProperty('--grid-item-min-size', zoomLevels[currentZoomLevel]);
+      
+      // Toggle the "maxZoomOut" class on body at level 3 (max zoom out)
+      if (currentZoomLevel === zoomLevels.length - 1) {
+        document.body.classList.add('maxZoomOut');
+      } else {
+        document.body.classList.remove('maxZoomOut');
+      }
+      
+      // Show/hide buttons accordingly:
+      // At max zoom out, hide the Zoom Out button;
+      // at max zoom in, hide the Zoom In button.
+      zoomOutButton.style.display = (currentZoomLevel === zoomLevels.length - 1) ? "none" : "block";
+      zoomInButton.style.display = (currentZoomLevel === 0) ? "none" : "block";
+    }
+    
+    zoomInButton.addEventListener('click', () => {
+      if (currentZoomLevel > 0) {
+        currentZoomLevel--;
+        updateGridZoom();
+      }
+    });
+    
+    zoomOutButton.addEventListener('click', () => {
+      if (currentZoomLevel < zoomLevels.length - 1) {
+        currentZoomLevel++;
+        updateGridZoom();
+      }
+    });
+    
+    // Initialize zoom level on page load
+    updateGridZoom();
+  
+    // --- Hide Zoom Controls When Scrolling Past the Grid ---
+    const zoomControlsDiv = document.getElementById('zoomControls');
+    window.addEventListener('scroll', () => {
+      const gridRect = document.getElementById('imageGrid').getBoundingClientRect();
+      // If the bottom of the grid is above the viewport (i.e. scrolled past), hide zoom controls.
+      if (gridRect.bottom < 0) {
+        zoomControlsDiv.style.display = 'none';
+      } else {
+        zoomControlsDiv.style.display = 'flex';
+      }
+    });
+  </script>
+  
+  <footer>
+    <p> Nikos Antonio Kourous-Vázquez, 2025</p>
+    <p style="font-size: 0.8rem"><i><a href="https://instagram.com/nikoskourous" target="_blank" rel="noopener noreferrer">@nikoskourous</a> </i></p>
+
+  </footer>
+  <script>
+// Check for saved night mode preference on page load
+document.addEventListener('DOMContentLoaded', function() {
+  const isNightMode = localStorage.getItem('nightMode') === 'true';
+  
+  if (isNightMode) {
+    document.body.classList.add('night-mode');
+  }
+});
+</script>
+</body>
+</html>

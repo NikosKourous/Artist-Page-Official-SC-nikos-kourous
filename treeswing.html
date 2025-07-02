@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="canonical" href="https://nikos.kourous.net/photoshop-neural-animation-two"/>
+  <meta name="author" content="Nikos Antonio Kourous Vázquez">
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>tree swing</title>
+  <style>
+body {
+  font-family: 'Tinos', serif;
+  margin: 0;
+  padding: 1rem;
+  background-color: #f9f9f9;
+  color: #000000;
+}
+
+    main {
+      padding: 0rem 0;
+    }
+
+    h1, p {
+      text-align: center;
+    }
+
+    .gif-container {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      align-items: center;
+      margin-top: 2rem;
+    }
+
+    .gif-container img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* Desktop override */
+    @media (min-width: 768px) {
+      body {
+        padding: 1rem 6rem;
+      }
+
+      main, header, footer {
+        max-width: 900px;
+        margin-left: 0;
+        margin-right: auto;
+      }
+
+      h1, p {
+        text-align: left;
+      }
+
+      .gif-container {
+        align-items: flex-start;
+      }
+      body.night-mode {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+body.night-mode * {
+  color: #fff !important;
+}
+
+body.night-mode a {
+  color: #fff !important;
+}
+
+body.night-mode .background-image {
+  filter: invert(1);
+}
+    }
+  </style>
+</head>
+<body>
+
+  <nav style="margin-bottom: 1rem;">
+    <a href="index.html" style="
+      text-decoration: none;
+      color: #333;
+      font-size: 1rem;
+      display: inline-block;
+    ">
+      ← Back to home
+    </a>
+  </nav>
+  <header>
+    <h1>Tree Swing // neural filter experimentation</h1>
+  </header>
+
+  <main>
+    <div class="gif-container">
+      <img src="image_files/original_intro.gif" alt="original intro" />
+
+      <img src="image_files/export_test_full.gif" alt="export test full" />
+    </div>
+
+    <p style="font-size: 0.9rem;">
+    </p>
+  </main>
+
+  <footer style="text-align: center; font-size: 0.8rem; margin-top: 2rem;">
+    <p>© 2025 Nikos Antonio Kourous-Vázquez</p>
+    <p><i><a href="https://instagram.com/nikoskourous" target="_blank" rel="noopener noreferrer">@nikoskourous</a></i></p>
+  </footer>
+  <script>
+// Check for saved night mode preference on page load
+document.addEventListener('DOMContentLoaded', function() {
+  const isNightMode = localStorage.getItem('nightMode') === 'true';
+  
+  if (isNightMode) {
+    document.body.classList.add('night-mode');
+  }
+});
+</script>
+</body>
+</html>

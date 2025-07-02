@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta name="author" content="Nikos Antonio Kourous Vázquez">
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Corrupted Polygraph</title>
+  <style>
+body {
+  font-family: 'Tinos', serif;
+  margin: 0;
+  padding: 1rem;
+  background-color: #f9f9f9;
+  color: #000000;
+}
+
+    main {
+      padding: 0rem 0;
+    }
+
+    h1, p {
+      text-align: center;
+    }
+
+    .media-block {
+      margin: 2rem 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    video {
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* Desktop layout */
+    @media (min-width: 768px) {
+      body {
+        padding: 3rem 6rem;
+      }
+
+      main, header, footer {
+        max-width: 900px;
+        margin-left: 0;
+        margin-right: auto;
+      }
+
+      h1, p {
+        text-align: left;
+      }
+
+      .media-block {
+        justify-content: flex-start;
+      }
+      body.night-mode {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+body.night-mode * {
+  color: #fff !important;
+}
+
+body.night-mode a {
+  color: #fff !important;
+}
+
+body.night-mode .background-image {
+  filter: invert(1);
+}
+    }
+  </style>
+</head>
+<body>
+
+  <nav style="margin-bottom: 1rem;">
+    <a href="index.html" style="
+      text-decoration: none;
+      color: #333;
+      font-size: 1rem;
+      display: inline-block;
+    ">
+      ← Back to home
+    </a>
+  </nav>
+  <header>
+    <h1>Corrupted polygraph</h1>
+  </header>
+
+  <main>
+    <!-- 1. pen normal slide -->
+    <div class="media-block">
+      <video src="image_files/pen_heartbeat/pen normal slide 1.mp4" autoplay muted loop playsinline></video>
+    </div>
+
+    <p>
+      Using my own code I reprogrammed a pen plotter to work like a polygraph by converting live heartbeat sensor data to x and y movement.<br>
+
+      The first video shows it working without interference. The video below, however, shows the polygraph working while simultaneously processing data from a prisoner violence database.
+    </p>
+
+    <!-- 2. pen corrupted slide -->
+    <div class="media-block">
+      <video src="image_files/pen_heartbeat/pen_corrupted_slide_2_compressed.mp4" autoplay muted loop playsinline></video>
+    </div>
+
+    <p>
+      Time and time again, cases arise of the police force using manipulative and illegal strategies to create false confessions and evidence within the legal system. The polygraph test is often seen as scientifically accurate and used as valid evidence. In reality, it's a scientific conduit for exploitation – its validity is extremely debated and there’s stronger consensus around it not being accurate.
+      <br>
+      My polygraph’s functions and accuracy is corrupted using data representing the shared anxiety that minority groups bear towards the police and prison system to highlight its role in perpetuating systemic imprisonment in the US.    </p>
+
+    <!-- 3. slide 3 -->
+    <div class="media-block">
+      <video src="image_files/pen_heartbeat/slide 3.mp4" autoplay muted loop playsinline></video>
+    </div>
+  </main>
+
+  <footer style="text-align: center; font-size: 0.8rem; margin-top: 2rem;">
+    <p>© 2025 Nikos Antonio Kourous-Vázquez</p>
+    <p><i><a href="https://instagram.com/nikoskourous" target="_blank" rel="noopener noreferrer">@nikoskourous</a></i></p>
+  </footer>
+  <script>
+// Check for saved night mode preference on page load
+document.addEventListener('DOMContentLoaded', function() {
+  const isNightMode = localStorage.getItem('nightMode') === 'true';
+  
+  if (isNightMode) {
+    document.body.classList.add('night-mode');
+  }
+});
+</script>
+</body>
+
+</html>

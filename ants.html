@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Langston's Ant</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: white;
+      overflow: hidden;
+    }
+    canvas {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+<canvas id="antCanvas"></canvas>
+
+<script>
+  // === TRANSPARENCY CONTROL ===
+  const OVERALL_TRANSPARENCY = 0.3; // Change this value (0.0 = invisible, 1.0 = fully opaque)
+  
+  const ANT_COUNT = 1;
+  const ANT_SPEED = 5;
+  const ANT_ALPHA = 0.8;
+  const START_X = 300;
+  const START_Y = 300;
+  const CELL_SIZE = 2;
+  const COLORS = ['white', 'black'];
+  const BREAK_PROBABILITY = 0.9;
+  const STREAK_CHECK_LENGTH = 4;
+  const MIN_CYCLE_LENGTH = 2; // Reduced minimum cycle length
+  const MIN_PATTERN_STRENGTH = 0.8; // How much of recent history should show pattern
+
+  const canvas = document.getElementById('antCanvas');
+  const ctx = canvas.getContext('2d');
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  // Apply overall transparency to canvas
+  canvas.style.opacity = OVERALL_TRANSPARENCY;
+
+  const cols = Math.floor(canvas.width / CELL_SIZE);
+  const rows = Math.floor(canvas.height / CELL_SIZE);
+
+  const grid = Array.from({ length: cols }, () => Array(rows).fill(0));
+
+  const ants = [];
+  for (let i = 0; i < ANT_COUNT; i++) {
+    ants.push({
+      x: START_X,
+      y: START_Y,
+      dir: 0,
+      streakHistory: []
+    });
+  }
+
+  function drawCell(x, y, state) {
+    ctx.fillStyle = COLORS[state];
+    ctx.globalAlpha = ANT_ALPHA;
+    ctx.fillRect(x * CELL_SIZE, y * CELL_SIZE, CELL_SIZE, CELL_SIZE);
+    ctx.globalAlpha = 1;
+  }
+
+  function rebound(ant) {
+    const bounceOptions = [
+      (ant.dir + 1) % 4,
+      (ant.dir + 3) % 4
+    ];
+    ant.dir = bounceOptions[Math.floor(Math.random() * 2)];
+
+    if (ant.x < 0) ant.x = 1;
+    if (ant.y < 0) ant.y = 1;
+    if (ant.x >= cols) ant.x = cols - 2;
+    if (ant.y >= rows) ant.y = rows - 2;
+
+    if (ant.dir === 0) ant.y--;
+    else if (ant.dir === 1) ant.x++;
+    else if (ant.dir === 2) ant.y++;
+    else if (ant.dir === 3) ant.x--;
+  }
+
+  // Improved pattern detection using sliding window approach
+  function findRepeatingPattern(arr) {
+    if (arr.length < MIN_CYCLE_LENGTH * 3) return null;
+    
+    const recentLength = Math.min(30, arr.length); // Look at recent 30 steps
+    const recent = arr.slice(-recentLength);
+    
+    // Try different cycle lengths
+    for (let cycleLength = MIN_CYCLE_LENGTH; cycleLength <= Math.floor(recentLength / 3); cycleLength++) {
+      let totalMatches = 0;
+      let totalPossible = 0;
+      
+      // Use sliding window to count pattern matches
+      for (let start = 0; start <= recent.length - cycleLength * 2; start++) {
+        const pattern = recent.slice(start, start + cycleLength);
+        
+        // Check how many times this pattern repeats in the following positions
+        for (let pos = start + cycleLength; pos <= recent.length - cycleLength; pos += cycleLength) {
+          const candidate = recent.slice(pos, pos + cycleLength);
+          totalPossible++;
+          
+          if (arraysEqual(pattern, candidate)) {
+            totalMatches++;
+          }
+        }
+      }
+      
+      // If we found a strong pattern (high match ratio)
+      if (totalPossible > 0 && (totalMatches / totalPossible) >= MIN_PATTERN_STRENGTH) {
+        return cycleLength;
+      }
+    }
+    
+    return null;
+  }
+
+  function arraysEqual(a, b) {
+    if (a.length !== b.length) return false;
+    for (let i = 0; i < a.length; i++) {
+      if (a[i] !== b[i]) return false;
+    }
+    return true;
+  }
+
+  function stepAnt(ant) {
+    if (ant.x < 0 || ant.y < 0 || ant.x >= cols || ant.y >= rows) {
+      rebound(ant);
+    }
+
+    const x = ant.x;
+    const y = ant.y;
+
+    const current = grid[x][y];
+    grid[x][y] = 1 - current;
+    drawCell(x, y, grid[x][y]);
+
+    const cycleLength = findRepeatingPattern(ant.streakHistory);
+    const streaking = cycleLength !== null;
+    
+    // Log the streak status
+    console.log(`Streak check: ${streaking ? 'ON' : 'OFF'} | Cycle length: ${cycleLength || 'none'} | Recent pattern:`, ant.streakHistory.slice(-12));
+
+    if (streaking && Math.random() < BREAK_PROBABILITY) {
+      console.log('BREAKING STREAK! Cycle length was:', cycleLength);
+      ant.dir = (ant.dir + (Math.random() < 0.5 ? 1 : 3)) % 4;
+      // Clear most of history when breaking to avoid immediate re-detection
+      ant.streakHistory = ant.streakHistory.slice(-Math.floor(MIN_CYCLE_LENGTH));
+    } else {
+      if (current === 0) {
+        ant.dir = (ant.dir + 1) % 4;
+      } else {
+        ant.dir = (ant.dir + 3) % 4;
+      }
+    }
+
+    ant.streakHistory.push(ant.dir);
+    if (ant.streakHistory.length > STREAK_CHECK_LENGTH) {
+      ant.streakHistory.shift();
+    }
+
+    if (ant.dir === 0) ant.y--;
+    else if (ant.dir === 1) ant.x++;
+    else if (ant.dir === 2) ant.y++;
+    else if (ant.dir === 3) ant.x--;
+  }
+
+  function animate() {
+    for (let i = 0; i < ANT_SPEED; i++) {
+      ants.forEach(stepAnt);
+    }
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+</script>
+</body>
+</html>

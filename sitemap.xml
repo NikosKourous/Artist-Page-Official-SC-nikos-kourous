@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+  
+<!-- Sitemap for nikos.kourous.net – last updated 2025-06-21 -->
+  <url>
+    <loc>https://nikos.kourous.net/</loc>
+    <lastmod>2025-06-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <url>
+    <loc>https://nikos.kourous.net/about-nikos-kourous-vazquez</loc>
+    <lastmod>2025-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://nikos.kourous.net/AI-roaming-street-view</loc>
+    <lastmod>2025-06-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://nikos.kourous.net/image_files/then_we_sat/Image%2022.jpg</image:loc>
+      <image:caption>Then We Sat For Some Time and Observed (2025) by Nikos Antonio Kourous Vázquez</image:caption>
+      <image:title>Then We Sat For Some Time and Observed (2025)</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://nikos.kourous.net/image_files/then_we_sat/Image%2041%20(1).jpg</image:loc>
+      <image:caption>Then We Sat For Some Time and Observed (2025) by Nikos Antonio Kourous Vázquez</image:caption>
+      <image:title>Then We Sat For Some Time and Observed - Installation View</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://nikos.kourous.net/image_files/then_we_sat/[light%20vertical%20behind]%20THEN%20WE%20SAT%20FOR%20SOME%20TIME%20AND%20OBSERVED-1.jpg</image:loc>
+      <image:caption>Then We Sat For Some Time and Observed (2025) by Nikos Antonio Kourous Vázquez</image:caption>
+      <image:title>Then We Sat For Some Time and Observed - Vertical View</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://nikos.kourous.net/image_files/then_we_sat/[people%20hugging%20horizontal]%20THEN%20WE%20SAT%20FOR%20SOME%20TIME%20AND%20OBSERVED%202025.jpg</image:loc>
+      <image:caption>Then We Sat For Some Time and Observed (2025) by Nikos Antonio Kourous Vázquez</image:caption>
+      <image:title>Then We Sat For Some Time and Observed - People Viewing</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://nikos.kourous.net/image_files/then_we_sat/Image%2017.jpg</image:loc>
+      <image:caption>Then We Sat For Some Time and Observed (2025) by Nikos Antonio Kourous Vázquez</image:caption>
+      <image:title>Then We Sat For Some Time and Observed - Word Web Visualization</image:title>
+    </image:image>
+    <video:video>
+      <video:content_loc>https://nikos.kourous.net/image_files/then_we_sat/maps_timelapse_90mb.mp4</video:content_loc>
+      <video:thumbnail_loc>https://nikos.kourous.net/image_files/then_we_sat/thumbnailvideo.png</video:thumbnail_loc>
+      <video:title>Timelapse – Then We Sat For Some Time and Observed</video:title>
+      <video:description>A timelapse video showing the AI entity exploring Google Street View, part of the installation Then We Sat For Some Time and Observed (2025) by Nikos Antonio Kourous Vázquez.</video:description>
+      <video:publication_date>2025-06-27T08:00:00+01:00</video:publication_date>
+    </video:video>
+  </url>
+
+  
+<url>
+  <loc>https://nikos.kourous.net/democratic-ai-constitution-workshop</loc>
+  <lastmod>2025-06-27</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.9</priority>
+  <image:image>
+    <image:loc>https://nikos.kourous.net/image_files/workshop-tate/workshop5.jpg</image:loc>
+    <image:caption>The first democratic AI constitution workshop hosted at Tate Modern, 2025</image:caption>
+    <image:title>Democratic AI Constitution Workshop - First Session</image:title>
+  </image:image>
+  <image:image>
+    <image:loc>https://nikos.kourous.net/image_files/workshop-tate/workshop4.jpg</image:loc>
+    <image:caption>Democratic writing workshop, Tate Modern (2025)</image:caption>
+    <image:title>Democratic Writing Workshop - Group Session</image:title>
+  </image:image>
+  <image:image>
+    <image:loc>https://nikos.kourous.net/image_files/workshop-tate/workshop1.jpg</image:loc>
+    <image:caption>Democratic writing workshop, Tate Modern (2025)</image:caption>
+    <image:title>Democratic Writing Workshop - Post-it Reflections 1</image:title>
+  </image:image>
+  <image:image>
+    <image:loc>https://nikos.kourous.net/image_files/workshop-tate/workshop2.jpg</image:loc>
+    <image:caption>Democratic writing workshop, Tate Modern (2025)</image:caption>
+    <image:title>Democratic Writing Workshop - Post-it Reflections 2</image:title>
+  </image:image>
+  <image:image>
+    <image:loc>https://nikos.kourous.net/image_files/workshop-tate/workshop3.jpg</image:loc>
+    <image:caption>Democratic writing workshop, Tate Modern (2025)</image:caption>
+    <image:title>Democratic Writing Workshop - Post-it Reflections 3</image:title>
+  </image:image>
+  <image:image>
+    <image:loc>https://nikos.kourous.net/image_files/workshop-tate/workshop7.jpg</image:loc>
+    <image:caption>Democratic writing workshop, Tate Modern (2025)</image:caption>
+    <image:title>Democratic Writing Workshop - Participant Notes</image:title>
+  </image:image>
+  <image:image>
+    <image:loc>https://nikos.kourous.net/image_files/workshop-tate/workshop6.jpg</image:loc>
+    <image:caption>Democratic writing workshop, Tate Modern (2025)</image:caption>
+    <image:title>Democratic Writing Workshop - Closing Discussion</image:title>
+  </image:image>
+</url>
+
+  
+  <url>
+    <loc>https://nikos.kourous.net/Simulacrum-Orbita</loc>
+    <lastmod>2025-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+<url>
+  <loc>https://nikos.kourous.net/reginald-gilbert-iii</loc>
+  <lastmod>2025-06-27</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.9</priority>
+  <image:image>
+    <image:loc>https://nikos.kourous.net/image_files/reginald/reginald.png</image:loc>
+    <image:caption>Reginald Gilbert the Third (2025), Tate Modern © Nikos Antonio Kourous Vázquez</image:caption>
+    <image:title>Reginald Gilbert the Third - Primary Portrait</image:title>
+  </image:image>
+  <image:image>
+    <image:loc>https://nikos.kourous.net/image_files/reginald/installpic.jpg</image:loc>
+    <image:caption>Reginald Gilbert the Third (2025), Tate Modern © Nikos Antonio Kourous Vázquez</image:caption>
+    <image:title>Reginald Gilbert the Third - Installation View</image:title>
+  </image:image>
+  <image:image>
+    <image:loc>https://nikos.kourous.net/image_files/reginald/Screenshot%20from%202025-05-26%2023-28-42.png</image:loc>
+    <image:caption>Reginald Gilbert the Third (2025), Tate Modern © Nikos Antonio Kourous Vázquez</image:caption>
+    <image:title>Reginald Gilbert the Third - Reddit Interaction Screenshot</image:title>
+  </image:image>
+  <image:image>
+    <image:loc>https://nikos.kourous.net/image_files/reginald/viewersreginald.png</image:loc>
+    <image:caption>Reginald Gilbert the Third (2025), Tate Modern © Nikos Antonio Kourous Vázquez</image:caption>
+    <image:title>Reginald Gilbert the Third - Viewer Interaction</image:title>
+  </image:image>
+  <image:image>
+    <image:loc>https://nikos.kourous.net/image_files/reginald/holdingrecipet.png</image:loc>
+    <image:caption>Reginald Gilbert the Third (2025), Tate Modern © Nikos Antonio Kourous Vázquez</image:caption>
+    <image:title>Reginald Gilbert the Third - Physical Record of Being</image:title>
+  </image:image>
+</url>
+
+  
+  <url>
+    <loc>https://nikos.kourous.net/Flickr-Reflections</loc>
+    <lastmod>2025-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <url>
+    <loc>https://nikos.kourous.net/and-i-image</loc>
+    <lastmod>2025-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://nikos.kourous.net/field-sky-body-mind</loc>
+    <lastmod>2025-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://nikos.kourous.net/i-feel-so-alone-in-this-house</loc>
+    <lastmod>2025-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://nikos.kourous.net/flickr-generative-collages</loc>
+    <lastmod>2025-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://nikos.kourous.net/psychogeographic-navigation-device</loc>
+    <lastmod>2025-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://nikos.kourous.net/plant-scrolling-youtube</loc>
+    <lastmod>2025-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://nikos.kourous.net/pen-polygraph</loc>
+    <lastmod>2025-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  
+  <url>
+    <loc>https://nikos.kourous.net/3d-reconstruction-peckham</loc>
+    <lastmod>2025-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://nikos.kourous.net/collaberative-ai-portrait</loc>
+    <lastmod>2025-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://nikos.kourous.net/gaugan-animations</loc>
+    <lastmod>2025-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  
+  <url>
+    <loc>https://nikos.kourous.net/narration-writing.html</loc>
+    <lastmod>2025-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://nikos.kourous.net/simu-proto-writing.html</loc>
+    <lastmod>2025-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://nikos.kourous.net/hyper-commercialization.html</loc>
+    <lastmod>2025-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  
+  <url>
+    <loc>https://nikos.kourous.net/rat-writing.html</loc>
+    <lastmod>2025-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.1</priority>
+  </url>
+  
+  <url>
+    <loc>https://nikos.kourous.net/youtube-plant-writing.html</loc>
+    <lastmod>2025-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  
+  <url>
+    <loc>https://nikos.kourous.net/maude-the-anti-chatbot</loc>
+    <lastmod>2025-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  
+  <url>
+    <loc>https://nikos.kourous.net/local-llm-experiment</loc>
+    <lastmod>2025-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  
+  <url>
+    <loc>https://nikos.kourous.net/photoshop-neural-animation-one</loc>
+    <lastmod>2025-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  
+  <url>
+    <loc>https://nikos.kourous.net/photoshop-neural-animation-two</loc>
+    <lastmod>2025-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  
+</urlset>
