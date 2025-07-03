@@ -342,3 +342,23 @@ body.night-mode .night-toggle-btn {
   background: rgba(255, 89, 247, 0.9);
   color: #000000;
 }
+
+body.night-mode .link-with-tooltip .tooltip-text {
+  color: #000 !important;
+}
+
+/* Mobile only: hide night toggle by default */
+@media (max-width: 767px) {
+  .night-toggle-btn {
+    opacity: 0;
+    transform: translateY(100%); /* Off screen */
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .night-toggle-btn.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+}

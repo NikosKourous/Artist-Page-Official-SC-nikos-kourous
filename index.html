@@ -411,6 +411,30 @@ document.getElementById('night-mode-toggle').addEventListener('click', function(
   this.textContent = isNightMode ? 'Light Mode' : 'Night Mode';
 });
 </script>
+<script>
+// Only apply on mobile
+if (window.matchMedia("(max-width: 767px)").matches) {
+  const nightBtn = document.getElementById('night-mode-toggle');
+  let hideTimeout;
+
+  function showButton() {
+    // Show the button
+    nightBtn.classList.add('visible');
+
+    // Clear any previous hide timer
+    clearTimeout(hideTimeout);
+
+    // Hide again after 3 seconds
+    hideTimeout = setTimeout(() => {
+      nightBtn.classList.remove('visible');
+    }, 3000);
+  }
+
+  // Show on scroll or touch
+  window.addEventListener('scroll', showButton, { passive: true });
+  window.addEventListener('touchstart', showButton, { passive: true });
+}
+</script>
 
 </body>
 </html>
