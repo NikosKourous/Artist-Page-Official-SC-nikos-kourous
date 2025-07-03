@@ -6,21 +6,21 @@
 <!-- Sitemap for nikos.kourous.net – last updated 2025-06-21 -->
   <url>
     <loc>https://nikos.kourous.net/</loc>
-    <lastmod>2025-06-21</lastmod>
+    <lastmod>2025-07-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   
   <url>
     <loc>https://nikos.kourous.net/about-nikos-kourous-vazquez</loc>
-    <lastmod>2025-06-21</lastmod>
+    <lastmod>2025-07-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
     <loc>https://nikos.kourous.net/AI-roaming-street-view</loc>
-    <lastmod>2025-06-27</lastmod>
+    <lastmod>2025-07-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -60,7 +60,7 @@
   
 <url>
   <loc>https://nikos.kourous.net/democratic-ai-constitution-workshop</loc>
-  <lastmod>2025-06-27</lastmod>
+  <lastmod>2025-07-03</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.9</priority>
   <image:image>
@@ -103,14 +103,14 @@
   
   <url>
     <loc>https://nikos.kourous.net/Simulacrum-Orbita</loc>
-    <lastmod>2025-06-21</lastmod>
+    <lastmod>2025-07-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   
 <url>
   <loc>https://nikos.kourous.net/reginald-gilbert-iii</loc>
-  <lastmod>2025-06-27</lastmod>
+  <lastmod>2025-07-03</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.9</priority>
   <image:image>
@@ -150,7 +150,7 @@
   
   <url>
     <loc>https://nikos.kourous.net/and-i-image</loc>
-    <lastmod>2025-06-21</lastmod>
+    <lastmod>2025-07-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -222,14 +222,14 @@
     <loc>https://nikos.kourous.net/narration-writing.html</loc>
     <lastmod>2025-06-21</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.8</priority>
   </url>
   
   <url>
     <loc>https://nikos.kourous.net/simu-proto-writing.html</loc>
     <lastmod>2025-06-21</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.7</priority>
   </url>
   
   <url>
@@ -257,7 +257,7 @@
     <loc>https://nikos.kourous.net/maude-the-anti-chatbot</loc>
     <lastmod>2025-06-21</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.6</priority>
   </url>
   
   <url>
