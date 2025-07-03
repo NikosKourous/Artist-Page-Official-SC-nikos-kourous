@@ -13,7 +13,25 @@
   <meta property="og:url" content="https://nikos.kourous.net/about-nikos-kourous-vazquez">
   <meta property="og:type" content="website">
 
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://nikos.kourous.net/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "About | Nikos Antonio Kourous Vázquez"
+    }
+  ]
+}
+</script>
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -23,18 +41,30 @@
   <style>
     /* Make sure newlines from statement.txt appear correctly */
     .bio {
-  white-space: pre-wrap;
   background-color: rgba(249, 249, 249, 0.9);
   padding: 1.5rem;
+  margin: 0 -1.5rem;
   border-radius: 8px; /* optional: adds rounded corners */
 }
+
+    .bio p {
+      margin-bottom: 1rem;
+      line-height: 1.6;
+      text-align: justify;
+    }
+
+    .bio p:last-child {
+      margin-bottom: 0;
+    }
+
     /* Optional image styling */
     .portrait {
-      max-width: 550px;
+      max-width: 562px;
       width: 100%;
       height: auto;
       display: block;
-      margin-bottom: 1.5rem;
+      margin-bottom: 0rem;
+      margin-top: 1.5rem;
     }
 
     @media (min-width: 768px) {
@@ -60,7 +90,7 @@ body.night-mode .background-image {
 }
 
 body.night-mode .bio {
-  background-color: rgba(34, 34, 34, 0.9) !important;
+  background-color: rgba(34, 34, 34, 0.0) !important;
 }
       
     }
@@ -192,35 +222,35 @@ body.night-mode .bio {
 "></canvas>
 
   <main class="container">
+        <p style="margin-top: 2rem;">
+      <a href="index.html">← Back to home</a>
+    </p>
+
     <h1>About</h1>
 
     <!-- Portrait Image -->
-    <img src="image_files/me.jpg" alt="Portrait of Nikos" class="portrait" />
+    <img src="image_files/me.jpg" alt="Portrait of Nikos Antonio Kourous Vázquez" class="portrait" />
 
-    <!-- Artist statement will be loaded into this <div> -->
-    <div id="artist-statement" class="bio">
-      Loading artist statement...
-    </div>  
+    <!-- Artist statement -->
+    <section class="bio">
+      <p>My work stems from a desire to challenge and expand prevailing narratives around machine learning: what it is, how it functions, and how it might evolve. As 'machine learning' becomes the mythologized term 'artificial intelligence,' as user-machine relationships become engraved, and as companies scramble to innovate and incorporate it, I feel compelled to create space for the technology to define itself.</p>
 
-    <!-- Link back to homepage -->
+      <p>In the early days of generative adversarial networks, I probed the latent space of generative media, extracting hidden patterns and aesthetics through film. At the time, these spaces were mysterious and unknown; exploring them felt like a collaboration between the machines and myself.</p>
+
+      <p>Today, the latent space of artificial intelligence is a familiar one. Machine hallucinations and distortions have become culturally familiar and are no longer mysterious and uncanny. Furthermore, the underlying mechanisms behind machine learning have been increasingly obscure, replaced with polished products and user interfaces. My practice, then, evolved as a response to this shift.</p>
+
+      <p>Rather than working collaboratively with machine learning tools, I now work in observation of them. By confining them within self-evolving environments and feedback loops, I place this technology inside a fishbowl, allowing viewers, and myself, to engage with, observe, analyze, and critique it. Thus, my role as an artist has transformed into being more of an interpreter, or a conductor.</p>
+
+      <p>As a result of my new role, my work allows viewers to confront artificial intelligence, and challenges them to question their own preconceptions of autonomy, agency, and consciousness – urgent questions in a world increasingly populated by computational entities.</p>
+
+      <p>I am Paraguayan // American // Greek but based in London, United Kingdom. I studied Fine Arts: Computational Arts (with Creative Computing) at the University of the Arts London // Camberwell College of the Arts (Creative Computing done at the Creative Computing Institute).</p>
+    </section>
+
     <p style="margin-top: 2rem;">
       <a href="index.html">← Back to home</a>
     </p>
   </main>
 
-  <!-- Load artist statement from statement.txt -->
-  <script>
-    fetch("statement.txt")
-      .then(response => response.text())
-      .then(text => {
-        document.getElementById("artist-statement").textContent = text;
-      })
-      .catch(error => {
-        document.getElementById("artist-statement").textContent =
-          "Failed to load artist statement.";
-        console.error(error);
-      });
-  </script>
   <script src="ants.js"></script>
 <script>
 // Check for saved night mode preference on page load
