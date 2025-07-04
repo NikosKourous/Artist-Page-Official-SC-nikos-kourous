@@ -3,6 +3,9 @@
 <head>
   <base href="/flickr-reflections-main/">
 <link rel="stylesheet" href="style.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 
   <script type="application/ld+json">
     {
@@ -144,15 +147,16 @@
       z-index: 1000;
     }
     
-    /* Base styles for mobile-first design */
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 1rem;
-      background-color: #f9f9f9;
-      color: #333;
-      transition: padding 0.3s ease;
-    }
+body {
+  font-family: 'Tinos', serif;
+  margin: 0;
+  padding: 1rem;
+  background-color: #f9f9f9;
+  color: #000;
+  transition: padding 0.3s ease;
+  font-size: 1.1rem; /* make text one size bigger overall */
+}
+
     
     main {
       padding: 1rem 0;
@@ -256,18 +260,28 @@
       display: none; /* Hide captions */
     }
 
-    .slides-container {
-      width: 650px;
-      display: flex;
-      gap: 5px; /* 5px gutter between images */
-    }
+.slides-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem 0;
+}
 
-    .slides-container img {
-      /* Calculate each image's width: (300px - 3*5px) / 4 */
-      width: calc((650px - 15px) / 4);
-      height: auto; /* maintains aspect ratio */
-      display: block;
-    }
+.slides-container img {
+  width: 300px; /* or smaller, adjust as needed */
+  height: auto;
+  display: block;
+  border-radius: 4px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.slides-container img:hover {
+  transform: scale(1.02);
+}
+
 
     .line-image {
       width: 300px;
@@ -295,15 +309,6 @@
     text-align: left !important;
   }
 
-  .slides-container {
-    width: 100%;
-    max-width: 600px;
-    gap: 8px;
-  }
-
-  .slides-container img {
-    width: calc((100% - 24px) / 2); /* 2 images per row, equal spacing */
-  }
 
   .line-image,
   img[style*="width: 330px"],
@@ -339,6 +344,32 @@ body.night-mode a {
 body.night-mode .background-image {
   filter: invert(1);
 }
+figure {
+  margin: 2rem 0;
+  text-align: center;
+}
+
+figure img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+figure img:hover {
+  transform: scale(1.005);
+}
+
+figcaption {
+  font-size: 0.65rem;
+  opacity: 0.5;
+  text-align: right;
+  margin-top: 0.3rem;
+}
+
+
 }
 
   </style>
@@ -367,6 +398,19 @@ body.night-mode .background-image {
     <p>
       Both entities have the ability to perceive and describe images, and both possess a desire to express what they see to one another.
     </p>
+<figure>
+  <img src="https://nikos.kourous.net/image_files/flickr-reflections/flickr-reflections-TPG.jpg" 
+       alt="Flickr Reflections by Nikos Antonio Kourous Vázquez, a never-ending feedback loop between two digital entities: one that can see and create images, and another that can see and scavenge for them.">
+  <figcaption>Flickr Reflections, 2025. Exhibited at The Photographer's Gallery, London © Nikos Antonio Kourous Vázquez</figcaption>
+</figure>
+
+
+<figure>
+  <img src="https://nikos.kourous.net/image_files/flickr-reflections/flickr-reflections-tpg-nikos2.jpg" 
+       alt="Flickr Reflections by Nikos Antonio Kourous Vázquez, a never-ending feedback loop between two digital entities: one that can see and create images, and another that can see and scavenge for them.">
+  <figcaption>Flickr Reflections, 2025. Exhibited at The Photographer's Gallery, London © Nikos Antonio Kourous Vázquez</figcaption>
+</figure>
+
     
     <div class="slides-container">
       <img src="slide (1).jpg" alt="Slide 1">
@@ -414,7 +458,12 @@ body.night-mode .background-image {
     <p>Shown at the Flickr Foundation 25th Anniversary Event at The Photographers Gallery (2025).</p>
     
   
-    
+    <figure>
+  <img src="https://nikos.kourous.net/image_files/flickr-reflections/flickr-reflections-tpg-nikos1.jpg" 
+       alt="Flickr Reflections by Nikos Antonio Kourous Vázquez, a never-ending feedback loop between two digital entities: one that can see and create images, and another that can see and scavenge for them.">
+  <figcaption>Flickr Reflections, 2025. Exhibited at The Photographer's Gallery, London © Nikos Antonio Kourous Vázquez</figcaption>
+</figure>
+
   
     <!-- Image grid container -->
     <div class="grid-container" id="imageGrid">
