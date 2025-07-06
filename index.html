@@ -258,10 +258,14 @@
 <body>
   <!-- Background image container -->
   <div class="background-image"></div>
+    <!--<div id="cubeContainer"></div> --> 
 
 
 
-  <main class="container">
+
+
+ <main class="container">
+
     <h1><a href="about-nikos-kourous-vazquez">Nikos Antonio Kourous Vázquez </a></h1>
     <p class="bio">
     <span class="floating-about"><a href="https://nikos.kourous.net/about-nikos-kourous-vazquez">About me</a></span>
@@ -364,8 +368,13 @@
 </script>
 <div id="object-tooltip">Then we sat for some time and observed (2025)</div>
 
+<!--
+3D CUBE WITH TEXTURES, DISABLED CURRENTLY
+<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+<script src="cube.js"></script>-->
 
 <script>
+
 function togglePeriphery() {
   const list = document.getElementById("periphery-list");
   const toggle = document.getElementById("periphery-toggle");
@@ -383,7 +392,7 @@ function togglePeriphery() {
     toggle.textContent = "−";
   }
 }
-</script>
+</script> 
 
 
 
@@ -435,6 +444,8 @@ if (window.matchMedia("(max-width: 767px)").matches) {
   window.addEventListener('scroll', showButton, { passive: true });
   window.addEventListener('touchstart', showButton, { passive: true });
 }
+
+
 </script>
 
 </body>
