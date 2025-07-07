@@ -67,15 +67,19 @@
       margin-top: 1.5rem;
     }
 
+    body.night-mode {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+body.night-mode .bio {
+  background-color: rgba(34, 34, 34, 0.0) !important;
+}
+
     @media (min-width: 768px) {
       .portrait {
         margin-left: 0;
         margin-right: auto;
       }
-body.night-mode {
-  background-color: #000 !important;
-  color: #fff !important;
-}
 
 body.night-mode * {
   color: #fff !important;
@@ -89,9 +93,7 @@ body.night-mode .background-image {
   filter: invert(1);
 }
 
-body.night-mode .bio {
-  background-color: rgba(34, 34, 34, 0.0) !important;
-}
+
 #cubeContainer {
   position: fixed;
   top: 50%;                /* Vertical center */

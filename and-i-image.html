@@ -152,7 +152,6 @@ body {
   color: #000000;
 }
 
-
     main {
       padding: 0rem 0;
     }
@@ -161,15 +160,25 @@ body {
       text-align: center;
     }
 
+    /* Media blocks for images and videos */
     .media-block {
       margin: 2rem 0;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
+      align-items: center;
     }
 
     .media-block img {
       max-width: 100%;
       height: auto;
+    }
+
+    figcaption {
+      font-size: 0.65rem;
+      opacity: 0.5;
+      text-align: center;
+      margin-top: 0.5rem;
+      width: 100%;
     }
 
     /* Desktop layout */
@@ -189,25 +198,30 @@ body {
       }
 
       .media-block {
-        justify-content: flex-start;
+        align-items: flex-start;
+      }
+
+      figcaption {
+        text-align: right;
       }
     }
+
     body.night-mode {
-  background-color: #000 !important;
-  color: #fff !important;
-}
+      background-color: #000 !important;
+      color: #fff !important;
+    }
 
-body.night-mode * {
-  color: #fff !important;
-}
+    body.night-mode * {
+      color: #fff !important;
+    }
 
-body.night-mode a {
-  color: #fff !important;
-}
+    body.night-mode a {
+      color: #fff !important;
+    }
 
-body.night-mode .background-image {
-  filter: invert(1);
-}
+    body.night-mode .background-image {
+      filter: invert(1);
+    }
   </style>
 </head>
 <body>
@@ -230,9 +244,10 @@ body.night-mode .background-image {
 
   <main>
     <!-- 1. gallery watch -->
-    <div class="media-block">
-      <img src="image_files/and-i-image/gallery watch.jpg" alt="gallery watch" />
-    </div>
+    <figure class="media-block">
+      <img src="image_files/and-i-image/gallery watch.jpg" alt="And I Image by Nikos Antonio Kourous Vázquez - digital entity web scraping art installation" />
+      <figcaption>And I Image (2025) © Nikos Antonio Kourous Vázquez</figcaption>
+    </figure>
 
     <!-- 2. text block -->
     <p>
@@ -252,20 +267,24 @@ body.night-mode .background-image {
       shared memories, and returned an accurate reflection of collective human experience.
     </p>
     <p>Developed in response to <em><a href="/Simulacrum-Orbita">Simulacrum Orbita (2025)</a></em> and as part of <em><a href="/Flickr-Reflections">and in the mist // Flickr Reflections (2025)</em></a> made for the <a href= "https://thephotographersgallery.org.uk/whats-on/flickr-foundation-x-camberwell-computational-arts-takeover">Flickr Foundation anniversary event at the Photographer's Gallery.</a> </em> </em></p>
+    
     <!-- 3. closeup 4 -->
-    <div class="media-block">
-      <img src="image_files/and-i-image/closeup 4.jpg" alt="closeup 4" />
-    </div>
+    <figure class="media-block">
+      <img src="image_files/and-i-image/closeup 4.jpg" alt="And I Image by Nikos Antonio Kourous Vázquez - close-up view of AI web scraping installation" />
+      <figcaption>And I Image (2025) © Nikos Antonio Kourous Vázquez</figcaption>
+    </figure>
 
     <!-- 4. IMG_1320 -->
-    <div class="media-block">
-      <img src="image_files/and-i-image/IMG_1320.jpg" alt="IMG_1320" />
-    </div>
+    <figure class="media-block">
+      <img src="image_files/and-i-image/IMG_1320.jpg" alt="And I Image by Nikos Antonio Kourous Vázquez - digital entities conversation through scraped imagery" />
+      <figcaption>And I Image (2025) © Nikos Antonio Kourous Vázquez</figcaption>
+    </figure>
 
     <!-- 5. vert 3 -->
-    <div class="media-block">
-      <img src="image_files/and-i-image/vert 3_.jpg" alt="vert 3" />
-    </div>
+    <figure class="media-block">
+      <img src="image_files/and-i-image/vert 3_.jpg" alt="And I Image by Nikos Antonio Kourous Vázquez - vertical view of web scraping art installation" />
+      <figcaption>And I Image (2025) © Nikos Antonio Kourous Vázquez</figcaption>
+    </figure>
   </main>
 
   <footer style="text-align: center; font-size: 0.8rem; margin-top: 2rem;">

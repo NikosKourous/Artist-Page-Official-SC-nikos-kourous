@@ -101,12 +101,32 @@
 </url>
 
   
-  <url>
-    <loc>https://nikos.kourous.net/Simulacrum-Orbita</loc>
-    <lastmod>2025-07-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
+<url>
+  <loc>https://nikos.kourous.net/Simulacrum-Orbita</loc>
+  <lastmod>2025-07-07</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.9</priority>
+  <image:image>
+    <image:loc>https://nikos.kourous.net/image_files/simulacrum-orbita/simufolder.JPG</image:loc>
+    <image:caption>Simulacrum Orbita (2025) by Nikos Antonio Kourous Vázquez - AI art installation featuring 4 monitors in wooden cabinet showing never-ending feedback loop between two machine learning models at Folder02 gallery. Visitors watching interactive AI telephone game artwork.</image:caption>
+    <image:title>Simulacrum Orbita AI Art Installation - Gallery View at Folder02</image:title>
+  </image:image>
+  <image:image>
+    <image:loc>https://nikos.kourous.net/image_files/simulacrum-orbita/nikos_simulacrum_closeup.jpg</image:loc>
+    <image:caption>Simulacrum Orbita (2025) by Nikos Antonio Kourous Vázquez - Close-up view of AI machine learning art installation with 4 monitors displaying generative feedback loop between image generation and captioning models. Contemporary digital art piece exploring AI communication.</image:caption>
+    <image:title>Simulacrum Orbita AI Installation - Close-up Detail View</image:title>
+  </image:image>
+  <image:image>
+    <image:loc>https://nikos.kourous.net/image_files/simulacrum-orbita/simu77.jpg</image:loc>
+    <image:caption>Simulacrum Orbita (2025) by Nikos Antonio Kourous Vázquez - AI art installation showing continuous feedback loop between BLIP captioning model and diffusion model. Four-monitor setup demonstrating machine learning communication breakdown and drift.</image:caption>
+    <image:title>Simulacrum Orbita - AI Feedback Loop Installation Art</image:title>
+  </image:image>
+  <image:image>
+    <image:loc>https://nikos.kourous.net/image_files/simulacrum-orbita/orbitis%20diagram%20final.jpg</image:loc>
+    <image:caption>Simulacrum Orbita evolution diagram by Nikos Kourous showing AI image transformation sequence - red hallway evolves to building with red sky to sunset. Demonstrates machine learning drift and AI telephone game concept in generative art.</image:caption>
+    <image:title>Simulacrum Orbita - AI Image Evolution Diagram</image:title>
+  </image:image>
+</url>
   
 <url>
   <loc>https://nikos.kourous.net/reginald-gilbert-iii</loc>
@@ -148,12 +168,32 @@
     <priority>0.9</priority>
   </url>
   
-  <url>
-    <loc>https://nikos.kourous.net/and-i-image</loc>
-    <lastmod>2025-07-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
+<url>
+  <loc>https://nikos.kourous.net/and-i-image</loc>
+  <lastmod>2025-07-03</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+  <image:image>
+    <image:loc>https://nikos.kourous.net/image_files/and-i-image/gallery%20watch.jpg</image:loc>
+    <image:caption>And I Image (2025) by Nikos Antonio Kourous Vázquez - AI web scraping art installation featuring digital entities in conversation through found internet imagery. Contemporary digital art exploring collective human experience versus generated AI content.</image:caption>
+    <image:title>And I Image - AI Web Scraping Art Installation Gallery View</image:title>
+  </image:image>
+  <image:image>
+    <image:loc>https://nikos.kourous.net/image_files/and-i-image/closeup%204.jpg</image:loc>
+    <image:caption>And I Image (2025) by Nikos Antonio Kourous Vázquez - Close-up detail of digital entities communication artwork using web scraped imagery. AI art installation contrasting found images with generated content for Flickr Foundation exhibition.</image:caption>
+    <image:title>And I Image - Digital Entity Communication Close-up Detail</image:title>
+  </image:image>
+  <image:image>
+    <image:loc>https://nikos.kourous.net/image_files/and-i-image/IMG_1320.jpg</image:loc>
+    <image:caption>And I Image (2025) by Nikos Antonio Kourous Vázquez - AI web scraping installation showing digital entities sharing scraped internet images to convey meaning and emotion. Contemporary AI art exploring collective memory and digital archaeology.</image:caption>
+    <image:title>And I Image - Digital Entities Sharing Web Scraped Imagery</image:title>
+  </image:image>
+  <image:image>
+    <image:loc>https://nikos.kourous.net/image_files/and-i-image/vert%203_.jpg</image:loc>
+    <image:caption>And I Image (2025) by Nikos Antonio Kourous Vázquez - Vertical view of AI web scraping art installation demonstrating digital entity conversation through found imagery. Part of Flickr Foundation anniversary exhibition at The Photographer's Gallery.</image:caption>
+    <image:title>And I Image - Vertical Installation View AI Web Scraping Art</image:title>
+  </image:image>
+</url>
   
   <url>
     <loc>https://nikos.kourous.net/field-sky-body-mind</loc>
