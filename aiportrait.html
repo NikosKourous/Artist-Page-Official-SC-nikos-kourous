@@ -12,7 +12,20 @@
       "url": "https://nikos.kourous.net"
     },
     "url": "https://nikos.kourous.net/collaberative-ai-portrait",
-    "image": "https://nikos.kourous.net/image_files/portrait/drawn-ai-portrait.jpeg",
+    "image": [
+      {
+        "@type": "ImageObject",
+        "url": "https://nikos.kourous.net/image_files/portrait/drawnportrait.jpeg",
+        "name": "Hand-Drawn Self Portrait Base",
+        "description": "Hand-drawn ink self portrait by Nikos Kourous before AI collaboration"
+      },
+      {
+        "@type": "ImageObject", 
+        "url": "https://nikos.kourous.net/image_files/portrait/drawn-ai-portrait.jpeg",
+        "name": "Collaborative AI Enhanced Self Portrait",
+        "description": "Hand-drawn ink self portrait by Nikos Kourous using a collaberative AI process"
+      }
+    ],
     "description": "Self-portrait using a human-computing method to collaborate with an generated portrait.",
     "dateCreated": "2021",
     "inLanguage": "en",
@@ -108,9 +121,18 @@
   <link rel="canonical" href="https://nikos.kourous.net/collaberative-ai-portrait"/>
   <link rel="stylesheet" href="style.css" />
 
-  <meta name="description" content="Self-portrait using a human-computing method to collaberate with an generated portrait.">
+  <meta name="description" content="Self-portrait using a human-computing method to collaborate with an AI generated portrait.">
   <meta name="robots" content="index, follow">
   <meta name="author" content="Nikos Antonio Kourous Vázquez">
+
+  <!-- Open Graph for socials -->
+  <meta property="og:title" content="Collaborative AI Self Portrait | Nikos Kourous Vázquez">
+  <meta property="og:description" content="Human-AI collaboration self portrait using human-computing methodology to merge hand-drawn and AI generated imagery">
+  <meta property="og:url" content="https://nikos.kourous.net/collaberative-ai-portrait">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://nikos.kourous.net/image_files/portrait/drawn-ai-portrait.jpeg">
+  <meta property="og:image:alt" content="Collaborative AI Self Portrait by Nikos Antonio Kourous Vázquez">
+  <meta property="og:image" content="https://nikos.kourous.net/image_files/portrait/drawnportrait.jpeg">
 
    <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -132,15 +154,25 @@
       text-align: center;
     }
 
+    /* Media blocks for images and videos */
     .media-block {
       margin: 2rem 0;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
+      align-items: center;
     }
 
-    img {
+    .media-block img {
       max-width: 100%;
       height: auto;
+    }
+
+    figcaption {
+      font-size: 0.65rem;
+      opacity: 0.0;
+      text-align: center;
+      margin-top: 0.5rem;
+      width: 100%;
     }
 
     /* Desktop layout */
@@ -160,25 +192,29 @@
       }
 
       .media-block {
-        justify-content: flex-start;
+        align-items: flex-start;
+      }
+
+      figcaption {
+        text-align: right;
       }
 
       body.night-mode {
-  background-color: #000 !important;
-  color: #fff !important;
-}
+        background-color: #000 !important;
+        color: #fff !important;
+      }
 
-body.night-mode * {
-  color: #fff !important;
-}
+      body.night-mode * {
+        color: #fff !important;
+      }
 
-body.night-mode a {
-  color: #fff !important;
-}
+      body.night-mode a {
+        color: #fff !important;
+      }
 
-body.night-mode .background-image {
-  filter: invert(1);
-}
+      body.night-mode .background-image {
+        filter: invert(1);
+      }
     }
   </style>
 </head>
@@ -190,19 +226,20 @@ body.night-mode .background-image {
 
   <main>
     <!-- First image: drawnportrait -->
-    <div class="media-block">
-      <img src="image_files/portrait/drawnportrait.jpeg" alt="Hand-drawn portrait" />
-    </div>
+    <figure class="media-block">
+      <img src="image_files/portrait/drawnportrait.jpeg" alt="Collaborative AI Self Portrait by Nikos Antonio Kourous Vázquez - original hand-drawn self portrait before AI collaboration" />
+      <figcaption>Collaborative AI Self Portrait (2021) © Nikos Antonio Kourous Vázquez</figcaption>
+    </figure>
 
     <!-- Second image: drawn-ai-portrait -->
-    <div class="media-block">
-      <img src="image_files/portrait/drawn-ai-portrait.jpeg" alt="AI-enhanced portrait" />
-    </div>
+    <figure class="media-block">
+      <img src="image_files/portrait/drawn-ai-portrait.jpeg" alt="Collaborative AI Self Portrait by Nikos Antonio Kourous Vázquez - final human-AI collaboration combining hand-drawn and generated imagery" />
+      <figcaption>Collaborative AI Self Portrait (2021) © Nikos Antonio Kourous Vázquez</figcaption>
+    </figure>
   </main>
 
   <footer style="text-align: center; font-size: 0.8rem; margin-top: 2rem;">
     <p>© 2025 Nikos Antonio Kourous-Vázquez</p>
-    <p><i><a href="https://instagram.com/nikoskourous" target="_blank" rel="noopener noreferrer">@nikoskourous</a></i></p>
   </footer>
 
 <script>
