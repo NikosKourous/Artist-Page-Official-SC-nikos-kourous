@@ -11,12 +11,42 @@
     <priority>1.0</priority>
   </url>
   
-  <url>
-    <loc>https://nikos.kourous.net/about-nikos-kourous-vazquez</loc>
-    <lastmod>2025-07-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-  </url>
+<url>
+  <loc>https://nikos.kourous.net/about-nikos-kourous-vazquez</loc>
+  <lastmod>2025-07-07</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>1.0</priority>
+  <image:image>
+    <image:loc>https://nikos.kourous.net/image_files/me.jpg</image:loc>
+    <image:caption>Portrait of Nikos Antonio Kourous Vázquez - Contemporary AI and machine learning artist based in London, working with creative computational methods to explore artificial intelligence consciousness. Digital artist specializing in experimental AI installations and generative art.</image:caption>
+    <image:title>Nikos Antonio Kourous Vázquez - AI Artist Portrait</image:title>
+  </image:image>
+  <image:image>
+    <image:loc>https://nikos.kourous.net/image_files/simulacrum-orbita/simufolder.JPG</image:loc>
+    <image:caption>Simulacrum Orbita (2025) by Nikos Antonio Kourous Vázquez - AI feedback loop installation at Folder02 gallery showing machine learning communication breakdown. Contemporary AI art exploring autonomous systems and computational consciousness through never-ending feedback loops.</image:caption>
+    <image:title>Simulacrum Orbita - AI Feedback Loop Installation by Nikos Kourous</image:title>
+  </image:image>
+  <image:image>
+    <image:loc>https://nikos.kourous.net/image_files/field,sky,body,mind/fieldimage3.jpg</image:loc>
+    <image:caption>field, sky, body, mind (2022) by Nikos Antonio Kourous Vázquez - Early generative AI artwork exploring latent space aesthetics through animated film. Pioneering exploration of generative adversarial networks and machine learning creativity by contemporary digital artist.</image:caption>
+    <image:title>field, sky, body, mind - Early Generative AI Film by Nikos Kourous</image:title>
+  </image:image>
+  <image:image>
+    <image:loc>https://nikos.kourous.net/image_files/so-alone/so-alone1.png</image:loc>
+    <image:caption>i feel so alone in this house (2022) by Nikos Antonio Kourous Vázquez - VQGAN CLIP generative AI film exploring machine consciousness and artificial loneliness. Early AI art examining synthetic emotion and digital solitude through experimental computational methods.</image:caption>
+    <image:title>i feel so alone in this house - AI Consciousness Film by Nikos Kourous</image:title>
+  </image:image>
+  <image:image>
+    <image:loc>https://nikos.kourous.net/image_files/flickr-reflections/flickr-reflections-TPG.jpg</image:loc>
+    <image:caption>Flickr Reflections (2025) by Nikos Antonio Kourous Vázquez - AI web scraping installation at The Photographer's Gallery exploring found imagery versus generated content. Contemporary digital art examining relationship between AI-generated and human-created imagery through web scraping methodology.</image:caption>
+    <image:title>Flickr Reflections - AI Web Scraping Installation by Nikos Kourous</image:title>
+  </image:image>
+  <image:image>
+    <image:loc>https://nikos.kourous.net/image_files/then_we_sat/Image%2022.jpg</image:loc>
+    <image:caption>Then we sat for some time and observed (2025) by Nikos Antonio Kourous Vázquez - AI consciousness installation with entity exploring Google Street View and developing personality. Experimental AI art examining machine agency, memory formation, and artificial consciousness through autonomous geographical exploration.</image:caption>
+    <image:title>Then we sat for some time and observed - AI Street View Consciousness by Nikos Kourous</image:title>
+  </image:image>
+</url>
 
 <url>
   <loc>https://nikos.kourous.net/AI-roaming-street-view</loc>

@@ -1,17 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="style.css" />
 
   <link rel="canonical" href="https://nikos.kourous.net/about-nikos-kourous-vazquez"/>
-  <meta name="description" content="Nikos Antonio Kourous Vázquez is an artist who with machine learning and creative computational methods.">
+  <meta name="description" content="Nikos Antonio Kourous Vázquez is a contemporary AI and machine learning artist based in London, working with creative computational methods to explore artificial intelligence consciousness.">
   <meta name="robots" content="index, follow">
   <meta name="author" content="Nikos Antonio Kourous Vázquez">
 
   <!-- Open Graph for socials -->
   <meta property="og:title" content="About | Nikos Antonio Kourous Vázquez">
+  <meta property="og:description" content="Contemporary AI and machine learning artist based in London, exploring artificial intelligence consciousness through creative computational methods">
   <meta property="og:url" content="https://nikos.kourous.net/about-nikos-kourous-vazquez">
   <meta property="og:type" content="website">
+  <meta property="og:image" content="https://nikos.kourous.net/image_files/me.jpg">
+  <meta property="og:image:alt" content="Portrait of Nikos Antonio Kourous Vázquez - AI and machine learning artist">
+  <meta property="og:image" content="https://nikos.kourous.net/image_files/simulacrum-orbita/simufolder.JPG">
+  <meta property="og:image" content="https://nikos.kourous.net/image_files/field,sky,body,mind/fieldimage3.jpg">
+  <meta property="og:image" content="https://nikos.kourous.net/image_files/so-alone/so-alone1.png">
+  <meta property="og:image" content="https://nikos.kourous.net/image_files/flickr-reflections/flickr-reflections-TPG.jpg">
+  <meta property="og:image" content="https://nikos.kourous.net/image_files/then_we_sat/Image%2022.jpg">
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <script type="application/ld+json">
 {
@@ -67,12 +74,50 @@
       margin-top: 1.5rem;
     }
 
+    /* Artwork tooltip styles */
+    .artwork-link {
+      position: relative;
+      text-decoration: underline;
+      color: inherit;
+    }
+
+    .artwork-tooltip {
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      margin-bottom: 5px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      z-index: 1000;
+    }
+
+    .artwork-link:hover .artwork-tooltip {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .tooltip-image {
+      width: 200px;
+      height: 150px;
+      object-fit: cover;
+      display: block;
+      border: 2px solid #ccc;
+      border-radius: 4px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
     body.night-mode {
   background-color: #000 !important;
   color: #fff !important;
 }
 body.night-mode .bio {
   background-color: rgba(34, 34, 34, 0.0) !important;
+}
+
+body.night-mode .tooltip-image {
+  border-color: #555;
 }
 
     @media (min-width: 768px) {
@@ -129,7 +174,44 @@ body.night-mode .background-image {
       "Nikos Antonio Kourous Vazquez"
     ],
     "url": "https://nikos.kourous.net/about-nikos-kourous-vazquez",
-    "image": "https://nikos.kourous.net/image_files/me.jpg",
+    "image": [
+      {
+        "@type": "ImageObject",
+        "url": "https://nikos.kourous.net/image_files/me.jpg",
+        "name": "Portrait of Nikos Antonio Kourous Vázquez",
+        "description": "Artist portrait of Nikos Antonio Kourous Vázquez, contemporary AI and machine learning artist based in London"
+      },
+      {
+        "@type": "ImageObject",
+        "url": "https://nikos.kourous.net/image_files/simulacrum-orbita/simufolder.JPG",
+        "name": "Simulacrum Orbita (2025) by Nikos Antonio Kourous Vázquez",
+        "description": "AI feedback loop installation at Folder02 gallery showing machine learning communication breakdown by Nikos Antonio Kourous Vázquez"
+      },
+      {
+        "@type": "ImageObject",
+        "url": "https://nikos.kourous.net/image_files/field,sky,body,mind/fieldimage3.jpg",
+        "name": "field, sky, body, mind (2022) by Nikos Antonio Kourous Vázquez",
+        "description": "Early generative AI artwork exploring latent space aesthetics through animated film by Nikos Antonio Kourous Vázquez"
+      },
+      {
+        "@type": "ImageObject",
+        "url": "https://nikos.kourous.net/image_files/so-alone/so-alone1.png",
+        "name": "i feel so alone in this house (2022) by Nikos Antonio Kourous Vázquez", 
+        "description": "VQGAN CLIP generative AI film exploring machine consciousness and artificial loneliness by Nikos Antonio Kourous Vázquez"
+      },
+      {
+        "@type": "ImageObject",
+        "url": "https://nikos.kourous.net/image_files/flickr-reflections/flickr-reflections-TPG.jpg",
+        "name": "Flickr Reflections (2025) by Nikos Antonio Kourous Vázquez",
+        "description": "AI web scraping installation at The Photographer's Gallery exploring found imagery versus generated content by Nikos Antonio Kourous Vázquez"
+      },
+      {
+        "@type": "ImageObject",
+        "url": "https://nikos.kourous.net/image_files/then_we_sat/Image%2022.jpg",
+        "name": "Then we sat for some time and observed (2025) by Nikos Antonio Kourous Vázquez",
+        "description": "AI consciousness installation with entity exploring Google Street View and developing personality by Nikos Antonio Kourous Vázquez"
+      }
+    ],
     "sameAs": [
       "https://instagram.com/nikoskourous",
       "https://nikos.kourous.net"
@@ -260,11 +342,38 @@ body.night-mode .background-image {
     <section class="bio">
       <p>My work stems from a desire to challenge and expand prevailing narratives around machine learning: what it is, how it functions, and how it might evolve. As 'machine learning' becomes the mythologized term 'artificial intelligence,' as user-machine relationships become engraved, and as companies scramble to innovate and incorporate it, I feel compelled to create space for the technology to define itself.</p>
 
-      <p>In the early days of generative adversarial networks, I probed the latent space of generative media, extracting hidden patterns and aesthetics through film. At the time, these spaces were mysterious and unknown; exploring them felt like a collaboration between the machines and myself.</p>
+      <p>In the early days of generative adversarial networks, I probed the latent space of generative media, extracting hidden patterns and aesthetics through animated short films like<a href="/field-sky-body-mind" class="artwork-link">
+        <em>field, sky, body, mind</em> (2022),
+        <span class="artwork-tooltip">
+          <img src="https://nikos.kourous.net/image_files/field,sky,body,mind/fieldimage3.jpg" alt="field, sky, body, mind (2022) by Nikos Antonio Kourous Vázquez - early generative AI artwork exploring latent space aesthetics" class="tooltip-image" />
+        </span>
+      </a>and<a href="/i-feel-so-alone-in-this-house" class="artwork-link">
+      <em>i feel so alone in this house</em> (2022).
+        <span class="artwork-tooltip">
+          <img src="https://nikos.kourous.net/image_files/so-alone/so-alone1.png" alt="i feel so alone in this house (2022) by Nikos Antonio Kourous Vázquez - VQGAN CLIP generative AI film exploring machine consciousness" class="tooltip-image" />
+        </span>
+      </a>At the time, these spaces were mysterious and unknown; exploring them felt like a collaboration between the machines and myself.</p>
 
       <p>Today, the latent space of artificial intelligence is a familiar one. Machine hallucinations and distortions have become culturally familiar and are no longer mysterious and uncanny. Furthermore, the underlying mechanisms behind machine learning have been increasingly obscure, replaced with polished products and user interfaces. My practice, then, evolved as a response to this shift.</p>
 
       <p>Rather than working collaboratively with machine learning tools, I now work in observation of them. By confining them within self-evolving environments and feedback loops, I place this technology inside a fishbowl, allowing viewers, and myself, to engage with, observe, analyze, and critique it. Thus, my role as an artist has transformed into being more of an interpreter, or a conductor.</p>
+
+      <p>By creating machine learning systems to run autonomously, I allow them to diffract, and reveal their embedded functions.<a href="/Simulacrum-Orbita" class="artwork-link">
+        <em>Simulacrum Orbita</em> (2025),
+        <span class="artwork-tooltip">
+          <img src="https://nikos.kourous.net/image_files/simulacrum-orbita/simufolder.JPG" alt="Simulacrum Orbita (2025) by Nikos Antonio Kourous Vázquez - AI feedback loop installation at Folder02 gallery" class="tooltip-image" />
+        </span>
+      </a>for example, created a never ending feedback loop between a machine vision model and a generative image model, resulting in a thorough exploration into its latent imagery, and its weights and biases.<a href="/Flickr-Reflections" class="artwork-link">
+        <em>Flickr Reflections</em> (2025)
+        <span class="artwork-tooltip">
+          <img src="https://nikos.kourous.net/image_files/flickr-reflections/flickr-reflections-TPG.jpg" alt="Flickr Reflections (2025) by Nikos Antonio Kourous Vázquez - AI web scraping installation at The Photographer's Gallery" class="tooltip-image" />
+        </span>
+      </a>extended this setup by introducing images scraped from the web, initiating a conversation between hallucinated generative imagery and its training dataset of real images.<a href="/AI-roaming-street-view" class="artwork-link">
+        <em>Then we sat for some time and observed</em> (2025)
+        <span class="artwork-tooltip">
+          <img src="https://nikos.kourous.net/image_files/then_we_sat/Image%2022.jpg" alt="Then we sat for some time and observed (2025) by Nikos Antonio Kourous Vázquez - AI consciousness installation exploring Google Street View" class="tooltip-image" />
+        </span>
+      </a>lent agency to an AI agent through the autonomous exploration of Google Street View, allowing it to develop its own memories and personality.</p>
 
       <p>As a result of my new role, my work allows viewers to confront artificial intelligence, and challenges them to question their own preconceptions of autonomy, agency, and consciousness – urgent questions in a world increasingly populated by computational entities.</p>
 

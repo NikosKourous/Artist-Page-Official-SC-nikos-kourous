@@ -58,7 +58,7 @@ body {
   }
   
   a:hover {
-    transform: scale(1.05);
+    transform: scale(1.002);
     font-weight: bold;
   }
   
