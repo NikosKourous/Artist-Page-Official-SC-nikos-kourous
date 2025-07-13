@@ -229,13 +229,30 @@
   </image:image>
 </url>
   
-  <url>
-    <loc>https://nikos.kourous.net/field-sky-body-mind</loc>
-    <lastmod>2025-07-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  
+<url>
+  <loc>https://nikos.kourous.net/field-sky-body-mind</loc>
+  <lastmod>2025-07-07</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+  <image:image>
+    <image:loc>https://nikos.kourous.net/image_files/field,sky,body,mind/fieldimage3.jpg</image:loc>
+    <image:caption>field, sky, body, mind (2022) by Nikos Antonio Kourous Vázquez - Early AI collaborative film exhibition at Copeland Gallery with viewers watching VQGAN CLIP processed video art. Pioneering exploration of human-AI creative partnership using pre-ChatGPT text generation and custom video processing pipeline.</image:caption>
+    <image:title>field, sky, body, mind - Early AI Collaborative Film Exhibition</image:title>
+  </image:image>
+  <image:image>
+    <image:loc>https://nikos.kourous.net/image_files/field,sky,body,mind/fieldimage2.jpg</image:loc>
+    <image:caption>field, sky, body, mind (2022) by Nikos Antonio Kourous Vázquez - Gallery installation view of experimental AI film using custom text-to-image animation pipeline. Early generative AI video art exploring machine consciousness and human-AI collaborative writing at Copeland Gallery exhibition.</image:caption>
+    <image:title>field, sky, body, mind - AI Video Art Installation Gallery View</image:title>
+  </image:image>
+  <video:video>
+    <video:content_loc>https://www.youtube.com/embed/7fITTXEnsKQ</video:content_loc>
+    <video:thumbnail_loc>https://nikos.kourous.net/image_files/field-sky-body-mind/field-sky-thumbnail.jpg</video:thumbnail_loc>
+    <video:title>field, sky, body, mind - Early AI Collaborative Film (2022)</video:title>
+    <video:description>Experimental short film co-written with pre-ChatGPT AI using custom VQGAN CLIP video processing pipeline. Early exploration of human-machine consciousness and collaborative AI writing by Nikos Antonio Kourous Vázquez examining the nature of human and AI consciousness through collaborative filmmaking.</video:description>
+    <video:publication_date>2022-01-01T00:00:00+00:00</video:publication_date>
+  </video:video>
+</url>
+
   <url>
     <loc>https://nikos.kourous.net/i-feel-so-alone-in-this-house</loc>
     <lastmod>2025-07-03</lastmod>
