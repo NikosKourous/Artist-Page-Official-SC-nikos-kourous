@@ -12,6 +12,39 @@
   </url>
   
 <url>
+  <loc>https://nikos.kourous.net/chorus-inutil</loc>
+  <lastmod>2025-08-13</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.90</priority>
+
+  <image:image>
+    <image:loc>https://nikos.kourous.net/image_files/chorus-inutil/chorus.jpg</image:loc>
+    <image:caption>Chorus Inútil (2025) © Nikos Antonio Kourous Vázquez</image:caption>
+    <image:title>Chorus Inútil, artwork using AI and ChatGPT, shown at 'BitRot' by The Phreaking Collective in Copeland Gallery</image:title>
+  </image:image>
+
+  <image:image>
+    <image:loc>https://nikos.kourous.net/image_files/chorus-inutil/chorus-inutil-medium%20shot-cropped.jpg</image:loc>
+    <image:caption>Chorus Inútil (2025) © Nikos Antonio Kourous Vázquez</image:caption>
+    <image:title>Photograph of Chorus Inútil artwork using AI and ChatGPT, by Nikos Kourous</image:title>
+  </image:image>
+
+  <image:image>
+    <image:loc>https://nikos.kourous.net/image_files/chorus-inutil/person-walking-chorus-inutil.jpg</image:loc>
+    <image:caption>Chorus Inútil (2025) © Nikos Antonio Kourous Vázquez</image:caption>
+    <image:title>Person walking Chorus Inútil, ai artwork shown at 'BitRot' by The Phreaking Collective in Copeland Gallery</image:title>
+  </image:image>
+
+  <image:image>
+    <image:loc>https://nikos.kourous.net/image_files/chorus-inutil/chorus-inutil-in-gallery.jpg</image:loc>
+    <image:caption>Chorus Inútil (2025) © Nikos Antonio Kourous Vázquez</image:caption>
+    <image:title>Chorus Inútil in Copeland Gallery, artwork by Nikos Kourous</image:title>
+  </image:image>
+</url>
+
+
+
+<url>
   <loc>https://nikos.kourous.net/about-nikos-kourous-vazquez</loc>
   <lastmod>2025-07-07</lastmod>
   <changefreq>monthly</changefreq>
