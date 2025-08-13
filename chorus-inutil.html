@@ -20,7 +20,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Chorus Inútil | A real-time TTS choir in glitch | Nikos Antonio Kourous Vázquez</title>
+  <title>Chorus Inútil | A ChatGPT Choir | Nikos Antonio Kourous Vázquez</title>
 
   <!-- Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -100,7 +100,7 @@
   </script>
 
   <style>
-    /* Page-scoped styles (left-align on all screens) */
+    /* Page-scoped styles (unchanged desktop behavior) */
     body {
       font-family: 'Tinos', serif;
       margin: 0;
@@ -132,12 +132,12 @@
 
     .media-block {
       margin: 1rem 0;
-      margin-left: -2rem;
+      margin-left: -2rem;            /* desktop-specific indentation remains */
       display: flex;
-      justify-content: flex-start; /* keep images left aligned */
+      justify-content: flex-start;
     }
 
-    /* Make the first image exactly as wide as the text block */
+    /* First image tuned for desktop text width alignment */
     .media-block.first-image img {
       max-width: 110%;
       margin-left: -0.5rem;
@@ -169,7 +169,7 @@
       margin-top: 2rem;
     }
 
-    /* Modal (image zoom ready) */
+    /* Modal (image zoom) */
     .modal {
       display: none;
       position: fixed;
@@ -205,28 +205,26 @@
         margin-right: auto;
       }
     }
-/* Chorus Inútil: link reset to look like plain text with black underline */
-main a {
-  padding: 0 !important;          /* kill side gaps */
-  display: inline !important;     /* behave like text */
-  color: #000 !important;
-  text-decoration: underline !important;
-  font-weight: normal !important;
-  transition: none !important;
-  transform: none !important;
-}
 
-/* Ensure hover doesn't reintroduce animation or bold */
-main a:hover,
-main a:focus,
-main a:active {
-  color: #000 !important;
-  text-decoration: underline !important;
-  font-weight: normal !important;
-  transform: none !important;
-  outline: none;
-}
-
+    /* Chorus Inútil links look like plain text (leave as-is) */
+    main a {
+      padding: 0 !important;
+      display: inline !important;
+      color: #000 !important;
+      text-decoration: underline !important;
+      font-weight: normal !important;
+      transition: none !important;
+      transform: none !important;
+    }
+    main a:hover,
+    main a:focus,
+    main a:active {
+      color: #000 !important;
+      text-decoration: underline !important;
+      font-weight: normal !important;
+      transform: none !important;
+      outline: none;
+    }
 
     /* Night mode */
     body.night-mode { background-color: #000 !important; color: #fff !important; }
@@ -235,7 +233,7 @@ main a:active {
     body.night-mode .json-block { background-color: #222 !important; border-color: #444 !important; color: #fff !important; }
     body.night-mode .json-block .json-id { color: #4CAF50 !important; }
 
-    /* Toggle button (consistent with site) */
+    /* Toggle button */
     .night-toggle-btn {
       position: fixed;
       bottom: 15px;
@@ -254,6 +252,80 @@ main a:active {
     }
     .night-toggle-btn:hover { transform: scale(1.1); }
     body.night-mode .night-toggle-btn { background: rgba(0,0,0,0.9); color: #fff; }
+
+    /* ===== MOBILE-ONLY FIXES (no desktop changes) ===== */
+    @media (max-width: 767px) {
+      /* Remove desktop left indent so media spans the mobile column */
+      .media-block {
+        margin: 1rem 0 !important;
+        margin-left: 0 !important;
+        justify-content: center;
+      }
+
+      /* Make figures and media truly full-width inside the padded body */
+      .media-block figure {
+        width: 100%;
+        margin: 0; /* kill any residual spacing */
+      }
+
+      .media-block img,
+      .media-block iframe {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto;
+        display: block;
+      }
+
+      /* Neutralize first-image desktop offsets on phones */
+      .media-block.first-image img {
+        max-width: 100% !important;
+        margin-left: 0 !important;
+        margin-bottom: 0 !important;
+        margin-top: 0 !important;
+      }
+
+      /* Ensure YouTube matches images: full width, 16:9 */
+      .media-block iframe {
+        aspect-ratio: 16 / 9;
+        border: 0;
+      }
+
+      /* Optional: give figcaptions a touch more room on narrow screens */
+      figcaption {
+        padding-right: 0.25rem;
+      }
+    }
+
+    /* === Mobile-only fixes === */
+@media (max-width: 767px) {
+  /* Stop any horizontal scrolling caused by inline widths/margins */
+  html, body { overflow-x: hidden; }
+
+  /* Neutralize inline widths/margins on media wrappers */
+  .media-block,
+  .media-block[style] {
+    width: 100% !important;
+    margin-left: 0 !important;
+    overflow: hidden; /* safety net */
+  }
+
+  /* Make YouTube iframes behave like images: full-width, 16:9 */
+  .media-block iframe {
+    display: block;
+    width: 100% !important;
+    max-width: 100vw !important;
+    height: auto !important;
+    aspect-ratio: 16 / 9;
+    border: 0;
+  }
+
+  /* Bump the first image caption closer to the image on mobile */
+  .first-image figcaption {
+    margin-top: 0.6rem !important;   /* was larger; brings it up */
+    margin-right: 0 !important;      /* avoids pushing off-screen */
+  }
+}
+
   </style>
 </head>
 <body>
@@ -279,7 +351,7 @@ main a:active {
       Chorus Inútil is a real-time choir of ChatGPT text-to-speech instances repeating nonsensical syllables and repeating letters. When forced to vocalize unintelligible text, it glitches and diffracts, revealing ghosts, music, rhythms, and words trapped in its training data.
     </p>
 
-    <!-- First image (exact width of text block) -->
+    <!-- First image (exact width of text block on desktop; full-width on mobile via overrides) -->
     <div class="media-block first-image">
       <figure>
         <img src="https://nikos.kourous.net/image_files/chorus-inutil/chorus.jpg"
@@ -290,10 +362,9 @@ main a:active {
       </figure>
     </div>
 
-<p>
-  Unlike traditional text-to-speech, which synthesizes phonetics via <a href="https://en.wikipedia.org/wiki/Concatenative_synthesis" target="_blank" rel="noopener noreferrer">concatenative synthesis</a>, ChatGPT’s text-to-speech is built using machine learning. Instead of stitching together pre-recorded sound snippets, it’s trained to recreate human speech by training off of hundreds of hours of captioned audio data. ChatGPT’s text-to-speech, therefore, includes breathing, emotion, and intonation.
-</p>
-
+    <p>
+      Unlike traditional text-to-speech, which synthesizes phonetics via <a href="https://en.wikipedia.org/wiki/Concatenative_synthesis" target="_blank" rel="noopener noreferrer">concatenative synthesis</a>, ChatGPT’s text-to-speech is built using machine learning. Instead of stitching together pre-recorded sound snippets, it’s trained to recreate human speech by training off of hundreds of hours of captioned audio data. ChatGPT’s text-to-speech, therefore, includes breathing, emotion, and intonation.
+    </p>
 
     <p>
       Normally, it performs well when speaking normal and expected words and phrases. However, when the text falls outside of what it expects, it's forced to compensate and drift away from its normal functionality. Vocalizing phrases like ‘oooooooooooooooo’ or ‘kkkkkkkkkkkkkkkkkk’ force it to pull from the peripheries of its training data, reaching into corners populated by discarded data like background noise, music, and sighs. 
@@ -303,13 +374,24 @@ main a:active {
       As the piece runs and continuously vocalizes these illegible inputs, it harmonizes in glitch – in outbursts of unintended laughter, crying, words, gibberish, and sometimes even music. 
     </p>
 
+    <p>
+      Chorus Inútil extracts unseen landscapes embedded within a widely used and integrated AI tool and brings awareness back to its underlying predictive and mechanical functioning. As newer models, like <a href="https://openai.com/index/introducing-gpt-5/" target="_blank" rel="noopener noreferrer">GPT-5</a>, continue being released and marketed as smarter than the last, it becomes easier for us to detach ourselves from its internal mechanisms. How different Is a well-presented GPT output, to one that endlessly repeats a single character? Just how the stranger parts of its text-to-speech data are cast in shadow, only conjured via glossolalia, ChatGPT’s skewed perspectives and intentions can quickly be shadowed under the guise of the latest model.
+    </p>
 
-<p>
-  Chorus Inútil extracts unseen landscapes embedded within a widely used and integrated AI tool and brings awareness back to its underlying predictive and mechanical functioning. As newer models, like <a href="https://openai.com/index/introducing-gpt-5/" target="_blank" rel="noopener noreferrer">GPT-5</a>, continue being released and marketed as smarter than the last, it becomes easier for us to detach ourselves from its internal mechanisms. How different Is a well-presented GPT output, to one that endlessly repeats a single character? Just how the stranger parts of its text-to-speech data are cast in shadow, only conjured via glossolalia, ChatGPT’s skewed perspectives and intentions can quickly be shadowed under the guise of the latest model.
-</p>
+    <div class="media-block" style="margin-left: 0.71rem; margin-top:3rem ; width: 650px;">
+      <iframe
+        width="700"
+        height="394"
+        src="https://www.youtube.com/embed/tLntw4-9uVQ?autoplay=1&mute=0&loop=1&playlist=tLntw4-9uVQ&rel=0&modestbranding=1"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen>
+      </iframe>
+    </div>
 
-
-    <!-- Three images at the end (in order): medium-cropped → person-walking → in-gallery -->
+    <!-- Three images at the end -->
     <div class="media-block">
       <figure>
         <img src="https://nikos.kourous.net/image_files/chorus-inutil/chorus-inutil-medium%20shot-cropped.jpg"
@@ -325,7 +407,7 @@ main a:active {
         <img src="https://nikos.kourous.net/image_files/chorus-inutil/person-walking-chorus-inutil.jpg"
              loading="lazy"
              alt="Person walking past Chorus Inútil installation in Copeland Gallery 'bitrot' by Phreaking Collective (2025) by Nikos Antonio Kourous Vázquez"
-             width="2000" height="1220" />
+             width="1800" height="1220" />
         <figcaption>Chorus Inútil (2025) © Nikos Antonio Kourous Vázquez</figcaption>
       </figure>
     </div>
@@ -340,9 +422,9 @@ main a:active {
       </figure>
     </div>
 
-<p>
-  Chorus Inútil was exhibited in <a href="https://www.copelandpark.com/" target="_blank" rel="noopener noreferrer">Copeland Gallery</a> at the exhibit ‘<a href="https://phreaking.co.uk/" target="_blank" rel="noopener noreferrer">BitRot</a>’ by <a href="https://www.instagram.com/phreaking_collective/" target="_blank" rel="noopener noreferrer">The Phreaking Collective</a>.
-</p>
+    <p>
+      Chorus Inútil was exhibited in <a href="https://www.copelandpark.com/" target="_blank" rel="noopener noreferrer">Copeland Gallery</a> at the exhibit ‘<a href="https://phreaking.co.uk/" target="_blank" rel="noopener noreferrer">BitRot</a>’ by <a href="https://www.instagram.com/phreaking_collective/" target="_blank" rel="noopener noreferrer">The Phreaking Collective</a>.
+    </p>
   </main>
 
   <footer style="text-align: center; font-size: 0.8rem; margin-top: 2rem;">
