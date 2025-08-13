@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Canonical + meta -->
+  <link rel="canonical" href="https://nikos.kourous.net/chorus-inutil"/>
+  <meta name="description" content="Chorus Inútil is a real-time choir of ChatGPT text-to-speech voices vocalizing nonsensical syllables—revealing glitches, ghosts, rhythms, and unintended music inside the model’s training data.">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Nikos Antonio Kourous Vázquez">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Chorus Inútil (2025) | Nikos Kourous Vázquez">
+  <meta property="og:description" content="A real-time choir of ChatGPT text-to-speech instances that glitch and diffract when vocalizing illegible text, exposing rhythms and ghosts inside training data.">
+  <meta property="og:url" content="https://nikos.kourous.net/chorus-inutil">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://nikos.kourous.net/image_files/chorus-inutil/chorus-inutil-medium%20shot-cropped.jpg">
+
+  <!-- Basic -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Chorus Inútil | A real-time TTS choir in glitch | Nikos Antonio Kourous Vázquez</title>
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+  <!-- Schema.org CreativeWork -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "name": "Chorus Inútil",
+    "creator": {
+      "@type": "Person",
+      "name": "Nikos Antonio Kourous Vázquez",
+      "url": "https://nikos.kourous.net"
+    },
+    "url": "https://nikos.kourous.net/chorus-inutil",
+    "image": "https://nikos.kourous.net/image_files/chorus-inutil/chorus.jpg",
+    "description": "Chorus Inútil is a real-time choir of ChatGPT text-to-speech instances repeating illegible syllables and letters. Forced to vocalize nonsensical text, the model glitches and diffracts, exposing rhythms, ghosts, and traces of its training data.",
+    "dateCreated": "2025",
+    "inLanguage": "en",
+    "keywords": [
+      "Chorus Inútil",
+      "Nikos Antonio Kourous Vázquez",
+      "Nikos Kourous",
+      "AI sound art",
+      "AI audio installation",
+      "ChatGPT text-to-speech",
+      "TTS choir",
+      "glossolalia",
+      "nonsensical syllables",
+      "repeating letters",
+      "machine learning voice",
+      "latent space audio",
+      "training data artifacts",
+      "audio glitches",
+      "model hallucination",
+      "breathing and intonation in TTS",
+      "phonetics vs machine learning",
+      "concatenative synthesis critique",
+      "AI rhythm and music",
+      "AI ghosts and noise",
+      "emergent sound",
+      "voice synthesis art",
+      "computational sound",
+      "experimental audio installation",
+      "real-time generative audio",
+      "AI performance",
+      "AI model diffracting",
+      "AI internals awareness",
+      "predictive mechanical functioning",
+      "GPT-5 discourse",
+      "AI opacity and legibility",
+      "glitch aesthetics",
+      "machine residue",
+      "AI sonic textures",
+      "AI voices laughter crying",
+      "accidental music in AI",
+      "AI art portfolio",
+      "London AI art",
+      "contemporary AI art"
+    ]
+  }
+  </script>
+
+  <!-- Breadcrumbs (optional for consistency) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://nikos.kourous.net/" },
+      { "@type": "ListItem", "position": 2, "name": "Chorus Inútil | A real-time TTS choir in glitch | Nikos Antonio Kourous Vázquez" }
+    ]
+  }
+  </script>
+
+  <style>
+    /* Page-scoped styles (left-align on all screens) */
+    body {
+      font-family: 'Tinos', serif;
+      margin: 0;
+      padding: 1rem;
+      background-color: #f9f9f9;
+      color: #000000;
+    }
+
+    main { padding: 0; }
+
+    h1 {
+      text-align: left;
+      font-size: 2rem;
+      margin-top: 0;
+      margin-bottom: 0.8rem;
+    }
+
+    p {
+      text-align: justify;
+      font-size: 1.1rem;
+      line-height: 1.55;
+    }
+
+    h2 {
+      text-align: left;
+      margin: 3rem 0 1.5rem 0;
+      font-size: 1.4rem;
+    }
+
+    .media-block {
+      margin: 1rem 0;
+      margin-left: -2rem;
+      display: flex;
+      justify-content: flex-start; /* keep images left aligned */
+    }
+
+    /* Make the first image exactly as wide as the text block */
+    .media-block.first-image img {
+      max-width: 110%;
+      margin-left: -0.5rem;
+      margin-bottom: -2rem;
+      margin-top: -1rem;
+      display: block;
+    }
+
+    img, video {
+      max-width: 100%;
+      height: auto;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+      display: block;
+    }
+    img:hover { transform: scale(1.005); }
+
+    figcaption {
+      font-size: 0.65rem;
+      opacity: 0.5;
+      text-align: right;
+      margin-top: 0rem;
+    }
+
+    figcaptionfirst {
+      font-size: 0.65rem;
+      opacity: 0.5;
+      text-align: right;
+      margin-top: 2rem;
+    }
+
+    /* Modal (image zoom ready) */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      inset: 0;
+      background: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content img {
+      max-width: 95vw;
+      max-height: 85vh;
+      object-fit: contain;
+      border-radius: 4px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    }
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 35px;
+      color: #fff;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    /* Desktop container width */
+    @media (min-width: 768px) {
+      body { padding: 3rem 4rem; }
+      main, header, footer {
+        max-width: 700px;
+        margin-left: 0;
+        margin-right: auto;
+      }
+    }
+/* Chorus Inútil: link reset to look like plain text with black underline */
+main a {
+  padding: 0 !important;          /* kill side gaps */
+  display: inline !important;     /* behave like text */
+  color: #000 !important;
+  text-decoration: underline !important;
+  font-weight: normal !important;
+  transition: none !important;
+  transform: none !important;
+}
+
+/* Ensure hover doesn't reintroduce animation or bold */
+main a:hover,
+main a:focus,
+main a:active {
+  color: #000 !important;
+  text-decoration: underline !important;
+  font-weight: normal !important;
+  transform: none !important;
+  outline: none;
+}
+
+
+    /* Night mode */
+    body.night-mode { background-color: #000 !important; color: #fff !important; }
+    body.night-mode * { color: #fff !important; }
+    body.night-mode a { color: #fff !important; }
+    body.night-mode .json-block { background-color: #222 !important; border-color: #444 !important; color: #fff !important; }
+    body.night-mode .json-block .json-id { color: #4CAF50 !important; }
+
+    /* Toggle button (consistent with site) */
+    .night-toggle-btn {
+      position: fixed;
+      bottom: 15px;
+      left: 15px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(255, 255, 255, 0.9);
+      color: #000;
+      font-size: 16px;
+      cursor: pointer;
+      z-index: 1000;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+    .night-toggle-btn:hover { transform: scale(1.1); }
+    body.night-mode .night-toggle-btn { background: rgba(0,0,0,0.9); color: #fff; }
+  </style>
+</head>
+<body>
+
+  <!-- Modal for images -->
+  <div id="image-modal" class="modal" onclick="closeImageModal()">
+    <span class="close">&times;</span>
+    <div class="modal-content">
+      <img id="modal-img" src="" alt="Expanded view" />
+    </div>
+  </div>
+
+  <main>
+    <nav style="margin-bottom: 1rem;">
+      <a href="index.html" style="text-decoration: none; color: #333; font-size: 1rem; display: inline-block;">← Back to home</a>
+    </nav>
+
+    <header>
+      <h1>Chorus Inútil</h1>
+    </header>
+
+    <p>
+      Chorus Inútil is a real-time choir of ChatGPT text-to-speech instances repeating nonsensical syllables and repeating letters. When forced to vocalize unintelligible text, it glitches and diffracts, revealing ghosts, music, rhythms, and words trapped in its training data.
+    </p>
+
+    <!-- First image (exact width of text block) -->
+    <div class="media-block first-image">
+      <figure>
+        <img src="https://nikos.kourous.net/image_files/chorus-inutil/chorus.jpg"
+             loading="lazy"
+             alt="Chorus Inútil (2025) by Nikos Antonio Kourous Vázquez"
+             width="2000" height="1384" />
+        <figcaption style="margin-top: 2.1rem; margin-right: -1.3rem;">Chorus Inútil (2025) © Nikos Antonio Kourous Vázquez</figcaption>
+      </figure>
+    </div>
+
+<p>
+  Unlike traditional text-to-speech, which synthesizes phonetics via <a href="https://en.wikipedia.org/wiki/Concatenative_synthesis" target="_blank" rel="noopener noreferrer">concatenative synthesis</a>, ChatGPT’s text-to-speech is built using machine learning. Instead of stitching together pre-recorded sound snippets, it’s trained to recreate human speech by training off of hundreds of hours of captioned audio data. ChatGPT’s text-to-speech, therefore, includes breathing, emotion, and intonation.
+</p>
+
+
+    <p>
+      Normally, it performs well when speaking normal and expected words and phrases. However, when the text falls outside of what it expects, it's forced to compensate and drift away from its normal functionality. Vocalizing phrases like ‘oooooooooooooooo’ or ‘kkkkkkkkkkkkkkkkkk’ force it to pull from the peripheries of its training data, reaching into corners populated by discarded data like background noise, music, and sighs. 
+    </p>
+
+    <p>
+      As the piece runs and continuously vocalizes these illegible inputs, it harmonizes in glitch – in outbursts of unintended laughter, crying, words, gibberish, and sometimes even music. 
+    </p>
+
+
+<p>
+  Chorus Inútil extracts unseen landscapes embedded within a widely used and integrated AI tool and brings awareness back to its underlying predictive and mechanical functioning. As newer models, like <a href="https://openai.com/index/introducing-gpt-5/" target="_blank" rel="noopener noreferrer">GPT-5</a>, continue being released and marketed as smarter than the last, it becomes easier for us to detach ourselves from its internal mechanisms. How different Is a well-presented GPT output, to one that endlessly repeats a single character? Just how the stranger parts of its text-to-speech data are cast in shadow, only conjured via glossolalia, ChatGPT’s skewed perspectives and intentions can quickly be shadowed under the guise of the latest model.
+</p>
+
+
+    <!-- Three images at the end (in order): medium-cropped → person-walking → in-gallery -->
+    <div class="media-block">
+      <figure>
+        <img src="https://nikos.kourous.net/image_files/chorus-inutil/chorus-inutil-medium%20shot-cropped.jpg"
+             loading="lazy"
+             alt="Chorus Inútil medium shot installed in Copeland Gallery 'bitrot' by Phreaking Collective, 2025 by Nikos Antonio Kourous Vázquez"
+             width="2000" height="1497" />
+        <figcaption>Chorus Inútil (2025) © Nikos Antonio Kourous Vázquez</figcaption>
+      </figure>
+    </div>
+
+    <div class="media-block">
+      <figure>
+        <img src="https://nikos.kourous.net/image_files/chorus-inutil/person-walking-chorus-inutil.jpg"
+             loading="lazy"
+             alt="Person walking past Chorus Inútil installation in Copeland Gallery 'bitrot' by Phreaking Collective (2025) by Nikos Antonio Kourous Vázquez"
+             width="2000" height="1220" />
+        <figcaption>Chorus Inútil (2025) © Nikos Antonio Kourous Vázquez</figcaption>
+      </figure>
+    </div>
+
+    <div class="media-block">
+      <figure>
+        <img src="https://nikos.kourous.net/image_files/chorus-inutil/chorus-inutil-in-gallery.jpg"
+             loading="lazy"
+             alt="Chorus Inútil in in Copeland Gallery 'bitrot' by Phreaking Collective (2025) by Nikos Antonio Kourous Vázquez"
+             width="2000" height="1145" />
+        <figcaption>Chorus Inútil in BitRot at Copeland Gallery (2025) © Nikos Antonio Kourous Vázquez, photograph by Xach Hill</figcaption>
+      </figure>
+    </div>
+
+<p>
+  Chorus Inútil was exhibited in <a href="https://www.copelandpark.com/" target="_blank" rel="noopener noreferrer">Copeland Gallery</a> at the exhibit ‘<a href="https://phreaking.co.uk/" target="_blank" rel="noopener noreferrer">BitRot</a>’ by <a href="https://www.instagram.com/phreaking_collective/" target="_blank" rel="noopener noreferrer">The Phreaking Collective</a>.
+</p>
+  </main>
+
+  <footer style="text-align: center; font-size: 0.8rem; margin-top: 2rem;">
+    <p>© 2025 Nikos Antonio Kourous-Vázquez</p>
+    <p><i><a href="https://instagram.com/nikoskourous" target="_blank" rel="noopener noreferrer">@nikoskourous</a></i></p>
+  </footer>
+
+  <button id="night-mode-toggle" class="night-toggle-btn">🌙</button>
+
+  <script>
+    // Image modal activation
+    document.addEventListener("DOMContentLoaded", function () {
+      const modal = document.getElementById("image-modal");
+      const modalImg = document.getElementById("modal-img");
+
+      document.querySelectorAll("img").forEach((img) => {
+        img.addEventListener("click", function () {
+          if (this.closest('figure')) {
+            modal.style.display = "flex";
+            modalImg.src = img.src;
+            modalImg.alt = img.alt || "Expanded image";
+          }
+        });
+      });
+    });
+
+    function closeImageModal() {
+      document.getElementById("image-modal").style.display = "none";
+    }
+  </script>
+
+  <!-- Night mode persistence (exact script) -->
+  <script>
+  // Check for saved night mode preference on page load
+  document.addEventListener('DOMContentLoaded', function() {
+    const isNightMode = localStorage.getItem('nightMode') === 'true';
+    const toggleBtn = document.getElementById('night-mode-toggle');
+
+    if (isNightMode) {
+      document.body.classList.add('night-mode');
+      toggleBtn.textContent = '☀️';
+    } else {
+      toggleBtn.textContent = '🌙';
+    }
+  });
+
+  // Toggle night mode and save preference
+  document.getElementById('night-mode-toggle').addEventListener('click', function() {
+    const isNightMode = document.body.classList.toggle('night-mode');
+
+    // Save preference to localStorage
+    localStorage.setItem('nightMode', isNightMode);
+
+    // Update button icon
+    this.textContent = isNightMode ? '☀️' : '🌙';
+  });
+  </script>
+</body>
+</html>
