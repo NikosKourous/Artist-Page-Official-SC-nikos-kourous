@@ -1,0 +1,143 @@
+/* ===== Desktop-only Homepage Diagram ===== */
+.diagram-home {
+  position: relative;
+  width: clamp(1180px, 95vw, 1900px);
+  height: clamp(760px, 82vh, 1200px);
+  margin: 2.4rem auto 1.2rem auto; /* lifted slightly */
+  z-index: 2;
+  font-family: 'Tinos', serif;
+}
+
+/* SVG arrows behind nodes */
+.diagram-home .diagram-arrows {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Node layer */
+.diagram-home .diagram-nodes {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+
+/* Base rectangle node */
+.diagram-home .diagram-node {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  text-decoration: none;
+  color: inherit;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.96);
+  border: 1px solid #222;
+  padding: 10px 14px;
+  min-width: 190px;
+  max-width: 360px;
+  text-align: center;
+  line-height: 1.25;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  outline-offset: 3px;
+  opacity: 1;
+  transition: opacity 140ms linear, transform 260ms ease;
+}
+
+.diagram-home .diagram-node:focus-visible { outline: 2px solid #6b8cff; }
+.diagram-home .node-title { font-size: 0.98rem; }
+
+/* Thumbnails for importance: high */
+.diagram-home .node-thumb {
+  width: 232px;
+  height: 130px; /* ~16:9 */
+  margin: 0 auto 8px auto;
+  border: 1px solid #222;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #e9e9e9;
+  display: none;
+}
+.diagram-home .diagram-node.has-thumb .node-thumb { display: block; }
+.diagram-home .node-thumb img { width: 100%; height: 100%; object-fit: cover; }
+
+/* Cluster hubs (clickable; collapsed by default) */
+.diagram-home .diagram-hub {
+  font-weight: 700;
+  background: #fffefc;
+  border: 2px solid #222;
+  padding: 12px 16px;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Hub toggle (+/−) */
+.diagram-home .hub-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 1px solid #222;
+  background: #ffffff;
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+}
+.diagram-home .hub-toggle:focus-visible { outline: 2px solid #6b8cff; }
+
+/* Circular “+ bubble” used inside Work fan-out */
+.diagram-home .plus-bubble {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid #222;
+  background: #fff;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  cursor: pointer;
+  z-index: 3;
+  transition: transform 220ms ease, opacity 160ms linear;
+}
+.diagram-home .plus-bubble:hover { transform: translate(-50%, -50%) scale(1.06); }
+
+/* Appear animation: subtle “bubble rising” */
+@keyframes bubbleRise {
+  0%   { opacity: 0; transform: translate(-50%, -50%) scale(0.72) translateY(10px); }
+  100% { opacity: 1; transform: translate(-50%, -50%) scale(1) translateY(0); }
+}
+.diagram-home .appearing {
+  animation: bubbleRise 260ms ease-out both;
+}
+
+/* Arrow styling */
+.diagram-home .diagram-arrows line {
+  stroke: #1c1c1c;
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+/* Thin connector arrows (for + relations) */
+.diagram-home .diagram-arrows line.thin {
+  stroke-width: 1;
+  opacity: 0.95;
+}
+
+/* Visually hide original lists on desktop, keep accessible */
+@media (min-width: 768px) {
+  .seo-section {
+    position: absolute !important;
+    left: -10000px !important;
+    top: auto !important;
+    width: 1px !important;
+    height: 1px !important;
+    overflow: hidden !important;
+  }
+}

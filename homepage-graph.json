@@ -1,0 +1,41 @@
+{
+  "schema": "v2",
+  "clusters": [
+    { "id": "work", "label": "Work" },
+    { "id": "peripheral", "label": "Peripheral work" },
+    { "id": "writing", "label": "Writing" }
+  ],
+  "nodes": [
+    { "id": "chorus-inutil", "title": "Chorus Inútil (2025)", "href": "/chorus-inutil", "cluster": "work", "importance": "high", "thumbnail": "https://nikos.kourous.net/image_files/chorus-inutil/chorus-inutil-medium%20shot-cropped.jpg", "tags": ["big","recent"] },
+    { "id": "ai-roaming-street-view", "title": "Then we sat for some time and observed (2025)", "href": "/AI-roaming-street-view", "cluster": "work", "importance": "high", "thumbnail": "https://nikos.kourous.net/image_files/then_we_sat/Image%2017.jpg" },
+    { "id": "reginald-gilbert-iii", "title": "Reginald Gilbert the Third (2025)", "href": "/reginald-gilbert-iii", "cluster": "work", "importance": "high", "thumbnail": "https://nikos.kourous.net/image_files/reginald/holdingrecipet.png" },
+
+    { "id": "democratic-ai-constitution-workshop", "title": "Democratic AI constitution workshop (2025)", "href": "/democratic-ai-constitution-workshop", "cluster": "work", "importance": "normal" },
+    { "id": "simulacrum-orbita", "title": "Simulacrum Orbita (2025)", "href": "/Simulacrum-Orbita", "cluster": "work", "importance": "normal" },
+    { "id": "flickr-reflections", "title": "And in the Mist // Flickr Reflections (2025)", "href": "/Flickr-Reflections", "cluster": "work", "importance": "normal" },
+    { "id": "flickr-generative-collages", "title": "Generative found-image collages (2025)", "href": "/flickr-generative-collages", "cluster": "work", "importance": "normal" },
+    { "id": "and-i-image", "title": "And I image (2025)", "href": "/and-i-image", "cluster": "work", "importance": "normal" },
+    { "id": "psychogeographic-navigation-device", "title": "Psychogeographical navigation device (2024)", "href": "/psychogeographic-navigation-device", "cluster": "work", "importance": "normal" },
+    { "id": "plant-scrolling-youtube", "title": "Plant scrolling on YouTube (2023)", "href": "/plant-scrolling-youtube", "cluster": "work", "importance": "normal" },
+    { "id": "field-sky-body-mind", "title": "Field, sky, body, mind (2022)", "href": "/field-sky-body-mind", "cluster": "work", "importance": "normal" },
+    { "id": "alone-floating", "title": "alone, floating (2022)", "href": "/alone-floating", "cluster": "work", "importance": "normal" },
+    { "id": "3d-reconstruction-peckham", "title": "Rye Lane: a 3D archival exploration (2022)", "href": "/3d-reconstruction-peckham", "cluster": "work", "importance": "normal" },
+    { "id": "i-feel-so-alone-in-this-house", "title": "i feel so alone in this house (2021)", "href": "/i-feel-so-alone-in-this-house", "cluster": "work", "importance": "normal" },
+
+    { "id": "maude-the-anti-chatbot", "title": "Maude, the anti-chatbot (2025)", "href": "/maude-the-anti-chatbot", "cluster": "peripheral", "importance": "normal" },
+    { "id": "local-llm-experiment", "title": "Queries // I live \\\\ LLM experiment (2025)", "href": "/local-llm-experiment", "cluster": "peripheral", "importance": "normal" },
+    { "id": "photoshop-neural-animation-one", "title": "I breathe // neural filter experimentation (2024)", "href": "/photoshop-neural-animation-one", "cluster": "peripheral", "importance": "normal" },
+    { "id": "photoshop-neural-animation-two", "title": "Tree Swing // neural filter experimentation (2024)", "href": "/photoshop-neural-animation-two", "cluster": "peripheral", "importance": "normal" },
+    { "id": "pen-polygraph", "title": "Corrupted polygraph (2023)", "href": "/pen-polygraph", "cluster": "peripheral", "importance": "normal" },
+    { "id": "collaberative-ai-portrait", "title": "Collaborative AI self-portrait (2021)", "href": "/collaberative-ai-portrait", "cluster": "peripheral", "importance": "normal" },
+    { "id": "gaugan-animations", "title": "GauGan early AI animations (2020)", "href": "/gaugan-animations", "cluster": "peripheral", "importance": "normal" },
+
+    { "id": "interview-tate", "title": "Interview on Tate Modern Tea + Tech Exchange Residency (2025)", "href": "/interview-tate.html", "cluster": "writing", "importance": "normal" },
+    { "id": "narration-writing", "title": "Audio narration transcript — Then we sat for some time and observed (2025)", "href": "/narration-writing.html", "cluster": "writing", "importance": "normal" },
+    { "id": "simu-proto-writing", "title": "Writing on a prototype of Simulacrum Orbita (2024)", "href": "/simu-proto-writing.html", "cluster": "writing", "importance": "normal" },
+    { "id": "hyper-commercialization", "title": "Resisting hypercommercialization of digital media (2023)", "href": "/hyper-commercialization.html", "cluster": "writing", "importance": "normal" },
+    { "id": "rat-writing", "title": "Robotic exploration into rats and altruism (2023)", "href": "/rat-writing.html", "cluster": "writing", "importance": "normal" },
+    { "id": "youtube-plant-writing", "title": "A plant browsing YouTube (2023)", "href": "/youtube-plant-writing.html", "cluster": "writing", "importance": "normal" },
+    { "id": "who-gets-credit", "title": "Who Gets Credit for AI-Generated Art? (2021)", "href": "/who-gets-credit.html", "cluster": "writing", "importance": "normal" }
+  ]
+}

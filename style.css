@@ -68,7 +68,7 @@ body {
   left: 0;
   width: 87vw;
   height: 33vw;  /* Your reduced height */
-  background-image: url("quack (2).jpg");
+  /*background-image: url("quack (2).jpg");*/
   background-position:63% -1200%;  /* Keep horizontally centered, anchor to top */  background-repeat: no-repeat;
   background-size: 55%;
   z-index: -1;
