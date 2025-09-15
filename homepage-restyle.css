@@ -1,0 +1,273 @@
+/* =========================================================
+   redesigned-homepage / homepage-restyle.css
+   Minimal, semantic, no frameworks. Tinos font. XP-like chrome.
+   ========================================================= */
+
+/* ===== CSS VARIABLES (TWEAKABLE) ===== */
+:root {
+  /* Typography */
+  --font-family: 'Tinos', serif;
+  --font-size-base: 17px;
+  --line-height: 1.45;
+
+  /* Colors (monochrome for now) */
+  --bg: #ffffff;
+  --fg: #111111;
+  --muted: #6b6b6b;
+
+  /* Window chrome */
+  --border-width: 2px;
+  --radius: 6px;
+  --titlebar-h: 28px;
+  --chrome-shadow: 0 6px 14px rgba(0,0,0,.12), 0 2px 4px rgba(0,0,0,.10);
+
+  /* Tile sizing baseline (can override per-tile via --w/--h) */
+  --tile-min-w: 240px;
+  --tile-min-h: 180px;
+
+  /* Hover motion (subtle) */
+  --hover-translate: 6px;   /* px */
+  --hover-rot-deg: 1.2deg;  /* deg */
+  --motion-duration: 180ms;
+  --motion-timing: cubic-bezier(.2,.7,.2,1);
+
+  /* Buttons */
+  --btn-pad-y: 10px;
+  --btn-pad-x: 16px;
+  --btn-gap: 10px;
+
+  /* Layout */
+  --page-max-w: 1400px;
+  --stack-gap: 24px;
+
+  /* Breakpoint (mobile-first list) */
+  --mobile-break: 700px; /* adjust if you prefer */
+
+    /* Global window size (ALL tiles use these by default) */
+  --window-w: 10vw;   /* ← tweak this to resize every window at once */
+  --window-h: 20vh;   /* ← tweak this to resize every window at once */
+
+  /* Optional: page gutters for clamping logic */
+  --page-pad-x: 16px;
+}
+
+/* ===== BASE ===== */
+* { box-sizing: border-box; }
+html { font-size: 100%; }
+body {
+  margin: 0;
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height);
+  color: var(--fg);
+  background: var(--bg);
+}
+/* Desktop: make the page a fixed viewport grid (no scrollbars) */
+@media (min-width: calc(var(--mobile-break) + 1px)) {
+  body {
+    min-height: 100dvh;
+    display: grid;
+    grid-template-rows: auto 1fr auto; /* header / main / footer */
+    overflow: hidden; /* prevent side/down scrolling */
+  }
+  main {
+    position: relative;
+    overflow: hidden; /* if a tile overshoots, hide it rather than scroll */
+  }
+}
+
+/* Accessibly hide (but keep for screen readers) */
+.sr-only {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 1px, 1px);
+  white-space: nowrap; border: 0;
+}
+
+/* ===== HEADER ===== */
+.site-header {
+  max-width: var(--page-max-w);
+  margin: 24px auto 10px;
+  padding: 0 16px;
+}
+.site-title {
+  font-size: clamp(1.4rem, 2.8vw, 2.1rem);
+  margin: 0 0 10px 0;
+  text-align: center;
+}
+.top-actions {
+  display: flex;
+  gap: var(--btn-gap);
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+/* ===== WINDOW CHROME (shared look) ===== */
+.chrome-border {
+  border: var(--border-width) solid #000;
+  border-radius: var(--radius);
+  background: #fff;
+  box-shadow: var(--chrome-shadow);
+}
+
+/* ===== XP BUTTONS (desktop + mobile list) ===== */
+.xp-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: var(--btn-pad-y) var(--btn-pad-x);
+  text-decoration: none;
+  color: var(--fg);
+  background: #fff;
+  border: var(--border-width) solid #000;
+  border-radius: var(--radius);
+  box-shadow: var(--chrome-shadow);
+  font-weight: 700;
+  line-height: 1;
+}
+.xp-btn__label { display: inline-block; }
+.xp-btn__x { font-weight: 700; }
+.xp-btn:hover { transform: translateY(-1px); }
+.xp-btn:active { transform: translateY(0); }
+.xp-btn--block {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+/* ===== FLOATING TILE POSITIONS ===== */
+.tiles {
+  position: relative;
+  max-width: var(--page-max-w);
+  margin: 0 auto;
+  min-height: 78vh; /* gives the windows some space */
+  padding: 8px 16px 24px;
+}
+
+/* ===== WINDOW (project) ===== */
+.window {
+  position: absolute;
+  /* Keep z-index configurable per tile */
+  z-index: var(--z, 1);
+
+  /* Clamp positions so windows always stay on-screen within .tiles */
+  left: clamp(0px, var(--x, 0), calc(100% - var(--window-w)));
+  top:  clamp(0px, var(--y, 0), calc(100% - var(--window-h)));
+
+  /* Single global size for ALL tiles. Optional per-tile override: set --tile-w/--tile-h inline. */
+  width:  clamp(var(--tile-min-w), var(--tile-w, var(--window-w)), 100%);
+  height: clamp(var(--tile-min-h), var(--tile-h, var(--window-h)), 100%);
+
+
+  /* Chrome look */
+  border: var(--border-width) solid #000;
+  border-radius: var(--radius);
+  background: #fff;
+  box-shadow: var(--chrome-shadow);
+  text-decoration: none;
+  color: inherit;
+
+  /* Motion */
+  transition: transform var(--motion-duration) var(--motion-timing),
+              box-shadow var(--motion-duration) var(--motion-timing),
+              filter var(--motion-duration) var(--motion-timing);
+  will-change: transform;
+}
+.window:hover {
+  transform:
+    translate(var(--hover-translate), calc(var(--hover-translate) * -1))
+    rotate(var(--hover-rot-deg));
+  filter: saturate(1.05);
+}
+
+/* Title bar (monochrome XP-ish) */
+.titlebar {
+  height: var(--titlebar-h);
+  border-bottom: var(--border-width) solid #000;
+  border-top-left-radius: calc(var(--radius) - 1px);
+  border-top-right-radius: calc(var(--radius) - 1px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8px;
+  background:
+    linear-gradient(#fff, #fff) padding-box,
+    repeating-linear-gradient(90deg, #000 0 1px, transparent 1px 3px) border-box;
+  /* Note: visually monochrome; swap later with GIMP assets via border-image */
+}
+.titlebar__text {
+  font-size: 0.95rem;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.titlebar__x { font-weight: 700; }
+
+/* Image area */
+.tile__figure {
+  margin: 0;
+  height: calc(100% - var(--titlebar-h));
+  position: relative;
+  display: grid;
+}
+.tile__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-bottom-left-radius: calc(var(--radius) - 1px);
+  border-bottom-right-radius: calc(var(--radius) - 1px);
+}
+
+/* Placeholder (visible behind/below image; useful if img fails to load) */
+.tile__placeholder {
+  position: absolute;
+  inset: 0;
+  border-bottom-left-radius: calc(var(--radius) - 1px);
+  border-bottom-right-radius: calc(var(--radius) - 1px);
+  border: 2px dashed #000;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  color: var(--muted);
+  background:
+    repeating-linear-gradient(45deg, #f6f6f6 0 12px, #ffffff 12px 24px);
+}
+
+/* ===== MOBILE LAYOUT ===== */
+.mobile-list { display: none; }
+
+@media (max-width: var(--mobile-break)) {
+  .tiles { display: none; } /* hide overlapping windows */
+  .mobile-list {
+    display: block;
+    max-width: 700px;
+    margin: 8px auto 80px;
+    padding: 0 14px;
+  }
+  .mobile-list ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 10px;
+  }
+  .top-actions { display: none; } /* top buttons duplicated in mobile list */
+  .site-title { margin-bottom: 16px; }
+}
+
+/* ===== REDUCED MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+  .window, .xp-btn {
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+/* ===== ACCESSIBILITY NOTE =====
+   Decorative “✕” elements use aria-hidden="true" in HTML.
+   Images use meaningful alt="" text (project names).
+*/

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Nikos Antonio Kourous Vázquez</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- ===== FONTS =====
+      Default: Google Fonts (Tinos).
+      To switch to local hosting later, remove these <link> tags and add a local @font-face in CSS.
+    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+    <!-- Main stylesheet -->
+    <link rel="stylesheet" href="homepage-restyle.css" />
+  </head>
+  <body>
+    <!-- =========================================================
+         CONFIG: Per-tile positions (edit values inline on each tile)
+         - Each project tile sets: --x, --y, --z, --w, --h
+         - Units for --x/--y typically vw/vh; for --w/--h px/vw/vh.
+         - Higher --z appears above lower values.
+         - Update names/hrefs/imgs below (data-* + nested <img>).
+         - If an image is missing, the dashed placeholder + alt/label remains visible.
+         ========================================================= -->
+
+    <header class="site-header">
+      <h1 class="site-title">Nikos Antonio Kourous Vázquez</h1>
+
+      <!-- Top buttons (desktop: centered under title; mobile: part of vertical list) -->
+      <nav class="top-actions" aria-label="Primary">
+        <a class="xp-btn" href="https://nikos.kourous.net/">
+          <span class="xp-btn__label">Work</span>
+          <span class="xp-btn__x" aria-hidden="true">✕</span>
+        </a>
+        <a class="xp-btn" href="https://nikos.kourous.net/about-nikos-kourous-vazquez">
+          <span class="xp-btn__label">About</span>
+          <span class="xp-btn__x" aria-hidden="true">✕</span>
+        </a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- ===== FLOATING WINDOWS (Desktop only; hidden on mobile) ===== -->
+      <section class="tiles" aria-label="Projects (floating windows)">
+        <!--
+          NOTE: Replace names/links/images & tweak the --x/--y/--z/--w/--h below.
+          I’ve prefilled href/img based on your message; names are sensible defaults you can edit.
+        -->
+
+        <!-- Project 1 -->
+        <a
+          class="tile window"
+          style="--x: 8vw; --y: 28vh; --z: 3;"
+          data-name="Chorus Inutil"
+          data-href="https://nikos.kourous.net/chorus-inutil"
+          data-img="https://nikos.kourous.net/image_files/chorus-inutil/chorus-inutil-medium%20shot-cropped.jpg"
+          href="https://nikos.kourous.net/chorus-inutil"
+        >
+          <div class="titlebar">
+            <span class="titlebar__text">Chorus Inutil</span>
+            <span class="titlebar__x" aria-hidden="true">✕</span>
+          </div>
+          <figure class="tile__figure">
+            <img
+              class="tile__img"
+              src="https://nikos.kourous.net/image_files/chorus-inutil/chorus-inutil-medium%20shot-cropped.jpg"
+              alt="Chorus Inutil"
+              loading="lazy"
+              decoding="async"
+            />
+            <figcaption class="sr-only">Chorus Inutil</figcaption>
+            <div class="tile__placeholder" aria-hidden="true">Chorus Inutil</div>
+          </figure>
+        </a>
+
+        <!-- Project 2 -->
+        <a
+          class="tile window"
+          style="--x: 38vw; --y: 18vh; --z: 4;"
+          data-name="AI Roaming Street View"
+          data-href="https://nikos.kourous.net/AI-roaming-street-view"
+          data-img="https://nikos.kourous.net/image_files/then_we_sat/Image%2017.jpg"
+          href="https://nikos.kourous.net/AI-roaming-street-view"
+        >
+          <div class="titlebar">
+            <span class="titlebar__text">AI Roaming Street View</span>
+            <span class="titlebar__x" aria-hidden="true">✕</span>
+          </div>
+          <figure class="tile__figure">
+            <img
+              class="tile__img"
+              src="https://nikos.kourous.net/image_files/then_we_sat/Image%2017.jpg"
+              alt="AI Roaming Street View"
+              loading="lazy"
+              decoding="async"
+            />
+            <figcaption class="sr-only">AI Roaming Street View</figcaption>
+            <div class="tile__placeholder" aria-hidden="true">AI Roaming Street View</div>
+          </figure>
+        </a>
+
+        <!-- Project 3 -->
+        <a
+          class="tile window"
+          style="--x: 64vw; --y: 34vh; --z: 2;"
+          data-name="Reginald Gilbert III"
+          data-href="https://nikos.kourous.net/reginald-gilbert-iii"
+          data-img="https://nikos.kourous.net/image_files/reginald/holdingrecipet.png"
+          href="https://nikos.kourous.net/reginald-gilbert-iii"
+        >
+          <div class="titlebar">
+            <span class="titlebar__text">Reginald Gilbert III</span>
+            <span class="titlebar__x" aria-hidden="true">✕</span>
+          </div>
+          <figure class="tile__figure">
+            <img
+              class="tile__img"
+              src="https://nikos.kourous.net/image_files/reginald/holdingrecipet.png"
+              alt="Reginald Gilbert III"
+              loading="lazy"
+              decoding="async"
+            />
+            <figcaption class="sr-only">Reginald Gilbert III</figcaption>
+            <div class="tile__placeholder" aria-hidden="true">Reginald Gilbert III</div>
+          </figure>
+        </a>
+
+        <!-- Project 4 -->
+        <a
+          class="tile window"
+          style="--x: 18vw; --y: 8vh; --z: 5;"
+          data-name="Simulacrum Orbita"
+          data-href="https://nikos.kourous.net/Simulacrum-Orbita"
+          data-img="https://nikos.kourous.net/image_files/simulacrum-orbita/nikos_simulacrum_closeup.jpg"
+          href="https://nikos.kourous.net/Simulacrum-Orbita"
+        >
+          <div class="titlebar">
+            <span class="titlebar__text">Simulacrum Orbita</span>
+            <span class="titlebar__x" aria-hidden="true">✕</span>
+          </div>
+          <figure class="tile__figure">
+            <img
+              class="tile__img"
+              src="https://nikos.kourous.net/image_files/simulacrum-orbita/nikos_simulacrum_closeup.jpg"
+              alt="Simulacrum Orbita"
+              loading="lazy"
+              decoding="async"
+            />
+            <figcaption class="sr-only">Simulacrum Orbita</figcaption>
+            <div class="tile__placeholder" aria-hidden="true">Simulacrum Orbita</div>
+          </figure>
+        </a>
+
+        <!-- Project 5 -->
+        <a
+          class="tile window"
+          style="--x: 52vw; --y: 58vh; --z: 1;"
+          data-name="Flickr Reflections"
+          data-href="https://nikos.kourous.net/Flickr-Reflections"
+          data-img="https://nikos.kourous.net/image_files/flickr-reflections/flickr-reflections-TPG.jpg"
+          href="https://nikos.kourous.net/Flickr-Reflections"
+        >
+          <div class="titlebar">
+            <span class="titlebar__text">Flickr Reflections</span>
+            <span class="titlebar__x" aria-hidden="true">✕</span>
+          </div>
+          <figure class="tile__figure">
+            <img
+              class="tile__img"
+              src="https://nikos.kourous.net/image_files/flickr-reflections/flickr-reflections-TPG.jpg"
+              alt="Flickr Reflections"
+              loading="lazy"
+              decoding="async"
+            />
+            <figcaption class="sr-only">Flickr Reflections</figcaption>
+            <div class="tile__placeholder" aria-hidden="true">Flickr Reflections</div>
+          </figure>
+        </a>
+      </section>
+
+      <!-- ===== MOBILE LIST (Shown under breakpoint) ===== -->
+      <section class="mobile-list" aria-label="Quick links (mobile)">
+        <ol>
+          <li><a class="xp-btn xp-btn--block" href="https://nikos.kourous.net/"><span class="xp-btn__label">Work</span><span class="xp-btn__x" aria-hidden="true">✕</span></a></li>
+          <li><a class="xp-btn xp-btn--block" href="https://nikos.kourous.net/about-nikos-kourous-vazquez"><span class="xp-btn__label">About</span><span class="xp-btn__x" aria-hidden="true">✕</span></a></li>
+          <li><a class="xp-btn xp-btn--block" href="https://nikos.kourous.net/chorus-inutil"><span class="xp-btn__label">Chorus Inutil</span><span class="xp-btn__x" aria-hidden="true">✕</span></a></li>
+          <li><a class="xp-btn xp-btn--block" href="https://nikos.kourous.net/AI-roaming-street-view"><span class="xp-btn__label">AI Roaming Street View</span><span class="xp-btn__x" aria-hidden="true">✕</span></a></li>
+          <li><a class="xp-btn xp-btn--block" href="https://nikos.kourous.net/reginald-gilbert-iii"><span class="xp-btn__label">Reginald Gilbert III</span><span class="xp-btn__x" aria-hidden="true">✕</span></a></li>
+          <li><a class="xp-btn xp-btn--block" href="https://nikos.kourous.net/Simulacrum-Orbita"><span class="xp-btn__label">Simulacrum Orbita</span><span class="xp-btn__x" aria-hidden="true">✕</span></a></li>
+          <li><a class="xp-btn xp-btn--block" href="https://nikos.kourous.net/Flickr-Reflections"><span class="xp-btn__label">Flickr Reflections</span><span class="xp-btn__x" aria-hidden="true">✕</span></a></li>
+        </ol>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <!-- Decorative “X” notes: every ✕ is aria-hidden (purely decorative) -->
+      <p class="sr-only">All decorative ✕ icons are hidden from assistive technologies.</p>
+    </footer>
+  </body>
+</html>
