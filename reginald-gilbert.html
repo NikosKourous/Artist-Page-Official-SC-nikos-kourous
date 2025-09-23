@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Reginald Gilbert the Third</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <style>
+    :root{
+      --bg:#0d0d0d;
+      --fg:#000000;
+      --white:#ffffff;
+      --grey:#d0d0d0;
+      --btn-bg:#b8b8b8;
+
+      --font: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Liberation Mono", monospace;
+      --title: 36px;
+      --subtitle: 14px;
+      --btn: 18px;
+
+      --pad: 20px;
+      --gap: 12px;
+      --radius: 18px;
+
+      --t: 150ms;
+      --transition-duration: 600ms;
+      --ease: cubic-bezier(.2,.8,.2,1);
+      --exit-ease: cubic-bezier(.4,0,.6,1);
+    }
+
+    html, body {
+      height: 100vh;
+      height: 100dvh; /* Dynamic viewport height for mobile */
+      overflow: hidden;
+      margin: 0;
+      background: var(--bg);
+      color: var(--white);
+      font-family: var(--font);
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .wrap {
+      height: 100vh;
+      height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      justify-content: stretch;
+      align-items: stretch;
+      padding: var(--pad);
+      gap: var(--gap);
+      box-sizing: border-box;
+    }
+
+    header {
+      flex: 0 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      text-align: center;
+      gap: 2px;
+      margin-bottom: 16px;
+      transition: transform var(--transition-duration) var(--exit-ease);
+    }
+
+    header.exit-animation {
+      transform: translateY(-150%);
+    }
+
+    h1 {
+      font-size: var(--title);
+      font-weight: 900;
+      margin: 0;
+      padding: 14px 40px;
+      text-align: center;
+      letter-spacing: .5px;
+    }
+
+    .sub {
+      font-size: var(--subtitle);
+      margin: 0;
+      color: #b8b8b8;
+    }
+
+    .sub a {
+      color: var(--white);
+      text-decoration: none;
+      border-bottom: 1px dotted rgba(255,255,255,.35);
+      padding-bottom: 1px;
+    }
+
+    .buttons {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly; /* Equal distribution */
+      gap: var(--gap);
+      min-height: 0; /* Allow flex shrinking */
+      transition: transform var(--transition-duration) var(--exit-ease);
+    }
+
+    .buttons.exit-animation {
+      transform: translateY(150%);
+    }
+
+    .btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      border-radius: var(--radius);
+      font-size: var(--btn);
+      font-weight: 700;
+      line-height: 1.3;
+      padding: 18px 16px;
+      color: var(--white);
+      background: var(--fg);
+      border: 2px solid var(--white);
+      transition: transform var(--t) var(--ease), filter var(--t) var(--ease), background-color var(--t) var(--ease), color var(--t) var(--ease);
+      flex: 1 1 auto; /* Equal height distribution */
+      min-height: 60px;
+      cursor: pointer;
+      gap: 8px; /* Space between elements */
+    }
+
+    .btn.subbtn {
+      padding: 18px 16px;
+      font-size: 16px;
+      background: var(--fg);
+      border: 2px solid var(--white);
+      color: var(--white);
+    }
+
+    .btn:active {
+      transform: scale(.97);
+      filter: brightness(85%);
+      background-color: var(--white);
+      color: var(--fg);
+    }
+
+    .btn-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px; /* Space between icon and text */
+      width: 100%;
+    }
+
+    .btn-icon {
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
+      fill: currentColor;
+    }
+
+    .btn-text {
+      text-align: center;
+      flex-grow: 1;
+    }
+
+    .btn-subtitle {
+      font-size: 12px;
+      font-weight: 400;
+      color: #808080;
+      text-align: center;
+      margin-top: 4px;
+      font-style: italic;
+      opacity: 0.7;
+    }
+
+    /* Disable pointer events during animation */
+    .animating {
+      pointer-events: none;
+    }
+
+    /* Responsive adjustments for smaller screens */
+    @media (max-height: 700px) {
+      :root { 
+        --title: 30px; 
+        --btn: 16px;
+        --gap: 10px;
+      }
+      h1 { padding: 12px 40px; }
+      .btn { 
+        padding: 16px 14px;
+        min-height: 50px;
+        gap: 6px;
+      }
+      .btn-content {
+        gap: 10px;
+      }
+      .btn-icon {
+        width: 20px;
+        height: 20px;
+      }
+      .btn-subtitle {
+        font-size: 11px;
+        font-style: italic;
+        opacity: 0.7;
+      }
+    }
+
+    @media (max-height: 600px) {
+      :root { 
+        --title: 26px; 
+        --btn: 15px;
+        --gap: 8px;
+      }
+      h1 { padding: 10px 40px; }
+      .btn { 
+        padding: 14px 12px;
+        min-height: 45px;
+        gap: 5px;
+      }
+      .btn-content {
+        gap: 8px;
+      }
+      .btn-icon {
+        width: 18px;
+        height: 18px;
+      }
+      .btn-subtitle {
+        font-size: 10px;
+        font-style: italic;
+        opacity: 0.7;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Reginald Gilbert the Third</h1>
+      <p class="sub">
+        by <a href="https://nikos.kourous.net/about-nikos-kourous-vazquez" rel="noopener">Nikos Antonio Kourous Vázquez</a>
+      </p>
+    </header>
+
+    <nav class="buttons" aria-label="Links">
+      <a class="btn subbtn" href="mailto:reginald.gilbert.the.third@gmail.com?subject=Dear%20Reginald%20Gilbert%20the%20Third..." rel="noopener">
+        <div class="btn-content">
+          <svg class="btn-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <!-- Email symbol -->
+            <rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="2" fill="none"/>
+            <path d="M2 6l10 7 10-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+          <span class="btn-text">Email Reginald Gilbert III</span>
+        </div>
+        <div class="btn-subtitle">send Reginald an email using your mail app</div>
+      </a>
+      
+      <a class="btn" href="https://server.kourous.net/" rel="noopener">
+        <div class="btn-content">
+          <svg class="btn-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <!-- Person with arms spread -->
+            <circle cx="12" cy="5" r="3" stroke="currentColor" stroke-width="2" fill="none"/>
+            <path d="M12 8v5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M12 13l-3 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M12 13l3 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M6 10l6 3 6-3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <span class="btn-text">Reginald's character traits</span>
+        </div>
+        <div class="btn-subtitle">observe his growing personality</div>
+      </a>
+      
+      <a class="btn" href="https://server.kourous.net/3D-model-scroller.html" rel="noopener">
+        <div class="btn-content">
+          <svg class="btn-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <!-- 3 stacked cubes in diminishing sizes -->
+            <!-- Bottom cube (largest) -->
+            <path d="M3 15l6-3 6 3v6l-6 3-6-3v-6z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+            <path d="M3 15l6 3 6-3" stroke="currentColor" stroke-width="1.5" fill="none"/>
+            <path d="M15 15v6" stroke="currentColor" stroke-width="1.5"/>
+            <!-- Middle cube -->
+            <path d="M5 9l4-2 4 2v4l-4 2-4-2v-4z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+            <path d="M5 9l4 2 4-2" stroke="currentColor" stroke-width="1.5" fill="none"/>
+            <path d="M13 9v4" stroke="currentColor" stroke-width="1.5"/>
+            <!-- Top cube (smallest) -->
+            <path d="M7 5l2-1 2 1v2l-2 1-2-1v-2z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+            <path d="M7 5l2 1 2-1" stroke="currentColor" stroke-width="1.5" fill="none"/>
+            <path d="M11 5v2" stroke="currentColor" stroke-width="1.5"/>
+          </svg>
+          <span class="btn-text">Reginald's Items</span>
+        </div>
+        <div class="btn-subtitle">3D items he's shared with other viewers</div>
+      </a>
+
+      <a class="btn" href="https://nikos.kourous.net/about-reginald" rel="noopener">
+        <div class="btn-content">
+          <svg class="btn-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <!-- Information 'i' symbol -->
+            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
+            <line x1="12" y1="16" x2="12" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="12" cy="8" r="1" fill="currentColor"/>
+          </svg>
+          <span class="btn-text">About Reginald Gilbert III</span>
+        </div>
+        <div class="btn-subtitle">read more about the project</div>
+      </a>
+      
+      <a class="btn" href="https://nikos.kourous.net/about-reginald#technical-overview" rel="noopener">
+        <div class="btn-content">
+          <svg class="btn-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <!-- Code symbol </> -->
+            <path d="M8 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <path d="M16 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <path d="M14 4l-4 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>
+          </svg>
+          <span class="btn-text">Technical Overview</span>
+        </div>
+      </a>
+    </nav>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const buttons = document.querySelectorAll('.btn');
+      const header = document.querySelector('header');
+      const buttonsContainer = document.querySelector('.buttons');
+      const wrap = document.querySelector('.wrap');
+      
+      // Reset animations on page load to fix blank page issue
+      header.classList.remove('exit-animation');
+      buttonsContainer.classList.remove('exit-animation');
+      wrap.classList.remove('animating');
+      
+      buttons.forEach(button => {
+        button.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          const targetUrl = this.href;
+          
+          // Prevent multiple clicks during animation
+          if (wrap.classList.contains('animating')) {
+            return;
+          }
+          
+          // Add animating class to disable interactions
+          wrap.classList.add('animating');
+          
+          // Trigger exit animations
+          header.classList.add('exit-animation');
+          buttonsContainer.classList.add('exit-animation');
+          
+          // Navigate after animation completes
+          setTimeout(() => {
+            if (targetUrl.startsWith('mailto:')) {
+              window.location.href = targetUrl;
+              // Reset animations for email links (since they don't navigate away)
+              setTimeout(() => {
+                header.classList.remove('exit-animation');
+                buttonsContainer.classList.remove('exit-animation');
+                wrap.classList.remove('animating');
+              }, 100);
+            } else {
+              window.location.href = targetUrl;
+            }
+          }, 600); // Match the CSS transition duration
+        });
+      });
+    });
+  </script>
+</body>
+</html>
