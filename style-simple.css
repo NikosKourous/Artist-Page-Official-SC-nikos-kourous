@@ -1,0 +1,403 @@
+/* style-simple.css
+   Renamed from your existing style.css and SCOPED to #view-simple
+   Notes:
+   - All selectors are prefixed with #view-simple to prevent collisions with the web view.
+   - Any body-level rules are moved to #view-simple so the container paints its own background.
+   - Night mode rules are scoped via body.night-mode #view-simple ...
+*/
+
+/* Ensure default spacing is not too tight or too wide */
+#view-simple{
+  font-family: 'Tinos', serif;
+  margin: 0;
+  padding: 1rem;
+  background-color: #f9f9f9;
+  color: #000000;
+
+  min-height: 100vh;  /* <-- add */
+  width: 100%;        /* <-- add */
+}
+
+/* Center everything in the middle column */
+#view-simple .container{
+  max-width: 300px;
+  width: 100%;            /* Makes it shrink on small screens */
+  margin: 0 auto;
+  padding: 0rem 1rem;
+  text-align: left;
+}
+
+/* Make name stand out */
+#view-simple h1{
+  font-size: clamp(2.1rem, 4vw, 2rem);  /* Scales between 1.5rem–2rem */
+}
+#view-simple .bio{
+  font-size: clamp(0.9rem, 3vw, 1rem);
+}
+#view-simple li{
+  margin: 0.5rem 0;
+}
+#view-simple a{
+  padding: 0.4rem 0.4rem;
+  display: inline-block;
+}
+
+/* Year headers */
+#view-simple h2{
+  font-size: 1.2rem;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Clean list style for project links */
+#view-simple ul{
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#view-simple li{
+  margin: 0.3rem 0;
+}
+
+/* Make links simple but obvious */
+#view-simple a{
+  text-decoration: underline;
+  color: #181818;
+  transition: transform 0.2s ease, font-weight 0.2s ease;
+}
+
+#view-simple a:hover{
+  transform: scale(1.002);
+  font-weight: bold;
+}
+
+#view-simple .background-image{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 87vw;
+  height: 33vw;  /* Your reduced height */
+  /*background-image: url("quack (2).jpg");*/
+  background-position: 63% -1200%;  /* Keep horizontally centered, anchor to top */
+  background-repeat: no-repeat;
+  background-size: 55%;
+  z-index: -1;
+  opacity: 0.2;
+}
+
+/* Ensure foreground content stays readable */
+#view-simple{
+  font-family: 'Tinos', serif;
+  margin: 0;
+  padding: 1rem;
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* === Desktop layout overrides === */
+@media (min-width: 768px){
+  #view-simple .container{
+    max-width: 700px;      /* Allow a wider content column */
+    margin: 3rem 5rem;     /* Push away from top-left corner */
+    text-align: left;      /* Align text to the left */
+  }
+
+  #view-simple h1,
+  #view-simple .bio,
+  #view-simple h2,
+  #view-simple ul,
+  #view-simple li{
+    text-align: left;      /* Override any inherited centering */
+  }
+
+  #view-simple .bio{
+    font-size: 1.1rem;     /* Slightly larger bio on desktop */
+    max-width: 80%;        /* Keep it readable */
+  }
+
+  #view-simple h1{
+    font-size: 2.4rem;
+    margin-bottom: 1rem;
+  }
+
+  #view-simple h2{
+    font-size: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  #view-simple a{
+    font-size: 1rem;
+  }
+}
+
+#view-simple .bio{
+  position: relative;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+#view-simple .floating-about{
+  position: absolute;
+  top: -54px;
+  left: 102%;
+  animation: float-breathe 18s ease-in-out infinite;
+  white-space: nowrap;  /* Prevents text from wrapping to multiple lines */
+}
+
+#view-simple .floating-about a{
+  text-decoration: underline;
+  font-style: italic;
+  color: #000000;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 767px){
+  #view-simple .floating-about{
+    top: -120px;
+    left: 80%;
+    animation: none;  /* This removes the floating animation on mobile */
+  }
+}
+
+/* Combined float + scale animation */
+@keyframes float-breathe{
+  0%   { transform: translate(0px, 0px) scale(1.0); }
+  12%  { transform: translate(-1px, -2px) scale(1.02); }
+  25%  { transform: translate(2px, 1px) scale(1.08); }
+  38%  { transform: translate(-2px, 3px) scale(1.12); }
+  50%  { transform: translate(1px, -1px) scale(1.15); }
+  62%  { transform: translate(-1px, 2px) scale(1.1); }
+  75%  { transform: translate(3px, -2px) scale(1.06); }
+  88%  { transform: translate(-2px, 1px) scale(1.03); }
+  100% { transform: translate(0px, 0px) scale(1.0); }
+}
+
+#view-simple .link-with-tooltip{
+  position: relative;
+  display: inline-block;
+}
+
+#view-simple .link-with-tooltip .tooltip-text{
+  visibility: hidden;
+  opacity: 0;
+  width: 200px;
+  background-color: #f2f2f2;
+  color: #333;
+  text-align: left;
+  border-radius: 6px;
+  padding: 0.5rem;
+  position: absolute;
+  top: 50%;
+  left: 105%;
+  transform: translateY(-50%);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  font-size: 0.8rem;
+  line-height: 1.2;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+}
+
+#view-simple .link-with-tooltip:hover .tooltip-text{
+  visibility: visible;
+  opacity: 1;
+}
+
+#view-simple model-viewer{
+  display: none;
+}
+
+@media (min-width: 768px){
+  #view-simple model-viewer{
+    display: block;
+  }
+}
+
+#view-simple h1 a{
+  color: inherit;
+  text-decoration: none;
+  font: inherit;
+}
+
+#view-simple model-viewer{
+  overflow: visible !important;
+}
+
+/* Apply to links in list items */
+#view-simple ul li a{
+  transition: transform 0.2s ease;
+  will-change: transform;
+}
+
+@media (max-width: 767px){
+  #view-simple .background-image{
+    background-size: 95%;
+    width: 100vw;          /* Make the container take full width */
+    height: 63vw;          /* Make it taller if needed */
+  }
+}
+
+@media (max-width: 767px){
+  #view-simple .floating-about{
+    top: -120px;
+    left: 80%;
+    animation: none;
+  }
+
+  #view-simple .background-image{
+    background-size: 70%;
+  }
+
+  /* Make tooltips appear below on mobile */
+  #view-simple .link-with-tooltip .tooltip-text{
+    top: 100%;                     /* Position below the link */
+    left: 50%;                     /* Center horizontally */
+    transform: translateX(-50%);   /* Center it properly */
+    width: 180px;                  /* Slightly narrower for mobile */
+    margin-top: 5px;               /* Gap between link and tooltip */
+  }
+}
+
+#view-simple #object-tooltip{
+  position: fixed;
+  padding: 0.4rem 0.7rem;
+  background: rgba(255, 255, 255, 0.92) !important;
+  border: 1px solid #999 !important;
+  font-family: 'Tinos', serif;
+  font-size: 0.85rem;
+  color: #111 !important;
+  pointer-events: none;
+  border-radius: 6px;
+  white-space: nowrap;
+  z-index: 9999 !important;
+  opacity: 0;
+  visibility: hidden;
+  display: none;
+}
+#view-simple #object-tooltip.visible{
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+#view-simple #object-tooltip.visible{
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Periphery Work hover effect */
+#view-simple h2 span#periphery-toggle{
+  display: inline-block;
+  transition: transform 0.2s ease;
+  margin-left: 0.4rem;
+}
+
+#view-simple h2:hover span#periphery-toggle{
+  transform: scale(1.6);
+}
+
+#view-simple .collapsible li{
+  opacity: 0;
+  transform: translateY(-5px);
+  transition: opacity 0.05s ease, transform 0.05s ease;
+}
+
+/* Animated in sequence */
+#view-simple .collapsible.show li{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#view-simple .collapsible.show li:nth-child(1){ transition-delay: 0s; }
+#view-simple .collapsible.show li:nth-child(2){ transition-delay: 0.06s; }
+#view-simple .collapsible.show li:nth-child(3){ transition-delay: 0.1s; }
+#view-simple .collapsible.show li:nth-child(4){ transition-delay: 0.15s; }
+#view-simple .collapsible.show li:nth-child(5){ transition-delay: 0.17s; }
+#view-simple .collapsible.show li:nth-child(6){ transition-delay: 0.2s; }
+#view-simple .collapsible.show li:nth-child(7){ transition-delay: 0.23s; }
+
+/* Night toggle button */
+#view-simple .night-toggle-btn{
+  position: fixed;
+  bottom: 10px;
+  right: 15px;
+  width: auto;
+  height: 40px;
+  border-radius: 4px;
+  border: none;
+  background: rgba(163, 180, 255, 0.9);
+  color: #000000;
+  font-size: 17px;
+  cursor: pointer;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  padding: 8px 12px;
+  font-family: inherit;
+  transform: scale(0.8); /* Smaller by default */
+}
+
+#view-simple .night-toggle-btn:hover{
+  transform: scale(1); /* Full size on hover */
+}
+
+/* Night mode */
+body.night-mode #view-simple{
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+body.night-mode #view-simple *{
+  color: #fff !important;
+}
+
+body.night-mode #view-simple a{
+  color: #fff !important;
+}
+
+body.night-mode #view-simple .background-image{
+  filter: invert(1);
+}
+
+body.night-mode #view-simple .night-toggle-btn{
+  background: rgba(255, 89, 247, 0.9);
+  color: #000000;
+}
+
+body.night-mode #view-simple .link-with-tooltip .tooltip-text{
+  color: #000 !important;
+}
+
+#view-simple #cubeContainer{
+  position: fixed;
+  top: -10%;
+  right: 13%;
+  transform: translate(50%, -7%); /* Center horizontally + vertical offset */
+  width: 800px;
+  height: 800px;
+  z-index: 99;
+  pointer-events: none;
+}
+
+/* Mobile only: hide night toggle by default */
+@media (max-width: 767px){
+  #view-simple .night-toggle-btn{
+    opacity: 0;
+    transform: translateY(100%); /* Off screen */
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  #view-simple .night-toggle-btn.visible{
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  /* Make it smaller on small screens */
+  @media (max-width: 768px){
+    #view-simple #cubeContainer{
+      width: 200px;
+      height: 200px;
+      right: 1rem;
+    }
+  }
+}

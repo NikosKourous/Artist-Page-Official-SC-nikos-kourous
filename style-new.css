@@ -1,0 +1,437 @@
+/* style-new.css
+   Extracted from new version web <style> and SCOPED to #view-web
+   Notes:
+   - All rules are prefixed with #view-web to avoid collisions with the simple view.
+   - Night mode variables are applied via body.night-mode #view-web { ... }.
+*/
+
+/* =========================
+   GLOBAL / PAGE CANVAS
+   ========================= */
+#view-web{
+  --canvas-width: 1920px;
+  --min-canvas-height: 1080px;
+  
+  --max-image-width: 400px;   /* requirement #9 */
+  --border-inset: 5px;        /* thinner internal border */
+  --icon-size: 20px;
+
+  --line-stroke: 2px;
+  --line-dash: 2 10;          /* dotted-dash feel */
+  --text-bg: #fff;
+  --text-fg: #000;
+
+  --shadow: 0 10px 30px rgba(0,0,0,0.2);
+
+  /* physics feel */
+  --spring-k: 1.2;            /* lower = slower drift back */
+  --damping: 2.2;             /* higher = less oscillation */
+
+  --hover-scale: 1.1;          /* how big on hover */
+  --hover-speed: 220ms;         /* how fast it grows/shrinks */
+  --hover-ease: cubic-bezier(.2,.8,.2,1);
+
+  --left-gutter: 50px;
+  --initial-x-offset: 2000px;
+  --page-bg: #ffffff;
+  --page-fg: #000000;
+  --line-color: #000000;
+  --card-bg: #ffffff;
+  --border-color: #000000;
+
+  /* In the new version this was set on html/body.
+     We keep font on the container so the view is isolated. */
+  font-family: 'Tinos', serif;
+  color: var(--page-fg);
+}
+
+/* Only on smaller viewports: enable gutter */
+@media (max-width: 1919px), (max-height: 1079px){
+  #view-web{ --left-gutter: 500px;--initial-x-offset: -200px;}
+}
+
+/* All draggables get an inner wrapper that we scale on hover */
+#view-web .draggable .hover-inner{
+  transform: scale(1);
+  transform-origin: center center;
+  transition: transform var(--hover-speed) var(--hover-ease);
+  will-change: transform;
+}
+
+/* Hover grows */
+#view-web .draggable:hover .hover-inner{
+  transform: scale(var(--hover-scale));
+}
+
+/* While dragging, don't do hover scaling (prevents jitter) */
+#view-web .draggable.dragging .hover-inner{
+  transform: scale(1);
+  transition: none;
+}
+
+/* View background paint (kept on the container so it doesn’t affect simple view) */
+#view-web{
+  background: var(--page-bg);
+}
+
+/* Night mode variables (scoped) */
+body.night-mode #view-web{
+  --page-bg: #000000;
+  --page-fg: #ffffff;
+  --line-color: #001aff;
+  --text-bg: #000000;
+  --text-fg: #ffffff;
+  --border-color: #871dff;
+  --shadow: 0 10px 30px rgba(105, 0, 241, 0.466);
+
+  background: var(--page-bg);
+  color: var(--page-fg);
+}
+
+/* Center a fixed-width “canvas”, while still allowing vertical scroll */
+#view-web .page{
+  width: min(var(--canvas-width), 100%);
+  margin: 0 auto;
+  position: relative;
+
+  /* Canvas should be at least 1920 wide when possible */
+  min-width: var(--canvas-width);
+
+  /* Height grows with content; baseline only */
+  min-height: var(--min-canvas-height);
+
+  padding: 40px 40px 400px 40px;
+  padding-left: var(--left-gutter);
+  box-sizing: border-box;
+
+  /* Let #view-web paint the full background; page stays transparent */
+  background: var(--page-bg);
+
+}
+
+/* Grab-to-pan background
+   In combined version, this cursor should only apply when web view is active.
+   We'll toggle body.grab-pan in JS; scoping here avoids affecting other elements. */
+body.grab-pan #view-web{ cursor: grab; }
+body.grab-pan.panning #view-web{ cursor: grabbing; }
+
+/* Offscreen (not display:none) so it stays crawlable/accessibility-friendly */
+#view-web .seo-links{
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* SVG overlay for connection lines */
+#view-web #connections{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: visible;
+}
+#view-web #connections line{
+  color: var(--line-color); /* kept to preserve original; stroke is set via JS to currentColor */
+  stroke-width: var(--line-stroke);
+  stroke-dasharray: var(--line-dash);
+  stroke-linecap: round;
+}
+
+/* =========================
+   DRAGGABLE OBJECTS BASE
+   (images + floating text boxes)
+   ========================= */
+#view-web .draggable{
+  position: absolute;
+  transform: translate3d(0,0,0) scale(1);
+  transform-origin: top left;
+  touch-action: none; /* important for pointer dragging */
+  user-select: none;
+  -webkit-user-drag: none;
+  cursor: grab;
+  will-change: transform;
+}
+#view-web .draggable.dragging{
+  cursor: grabbing;
+}
+
+/* =========================
+   IMAGE CARDS
+   ========================= */
+#view-web{
+  --titlebar-height: 20px;
+}
+
+/* Fake window title bar */
+#view-web .image-card .titlebar{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--titlebar-height);
+  background: var(--text-bg);
+
+  z-index: 5;                 /* above image, below icon if needed */
+  display: flex;
+  align-items: center;
+  padding-left: 8px;
+  box-sizing: border-box;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* Title text in the bar */
+#view-web .image-card .titlebar .titlebar-text{
+  font-size: 19px;
+  font-style: italic;
+  font-weight: 600;
+  color: var(--text-fg);
+
+  line-height: 1;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: calc(100% - var(--icon-size) - 6px);
+}
+
+/* Push the image down so the titlebar doesn't cover the top of it */
+#view-web .image-card img{
+  display: block;
+  width: var(--max-image-width);
+  height: auto;
+  margin-top: var(--titlebar-height);
+}
+
+/* Hide titlebar + icon on hover so the existing overlay is visible */
+#view-web .image-card:hover .titlebar,
+#view-web .image-card:hover .corner-icon{
+  opacity: 0;
+}
+
+/* Make the hide feel clean */
+#view-web .image-card .titlebar,
+#view-web .image-card .corner-icon{
+  transition: opacity 140ms ease;
+}
+
+#view-web .image-card{
+  display: inline-block;
+  border-radius: 0;
+  overflow: visible;  /* allow the whole object to grow on hover */
+  box-shadow: var(--shadow);
+  background: transparent;
+}
+
+/* Inner white border drawn OVER the image */
+/* Border is now a real inner element so it can scale with hover-inner */
+#view-web .image-card::after{ content: none; }
+
+/* Scalable internal border (lives inside hover-inner) */
+#view-web .image-card .inner-border{
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  box-shadow: inset 0 0 0 var(--border-inset) var(--page-bg);
+  z-index: 6;
+}
+
+#view-web .image-card > .hover-inner{
+  position: relative;
+  display: inline-block;
+  overflow: hidden;   /* clip internals like titlebar/image edges */
+  background: var(--card-bg);
+}
+
+#view-web .image-card img{
+  display: block;
+  width: var(--max-image-width);
+  height: auto; /* keep aspect ratio */
+}
+
+#view-web .image-card .corner-icon{
+  position: absolute;
+  top: -20px;      /* flush */
+  right: 5px;      /* flush */
+  width: var(--icon-size);
+  height: var(--icon-size);
+  object-fit: contain;
+  z-index: 6;
+  pointer-events: none;
+  filter: none;
+}
+
+/* hover overlay using description from JSON */
+#view-web .image-card .overlay{
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.86);
+  color: #000;
+  display: flex;
+  align-items: flex-end;
+  padding: 18px;
+  box-sizing: border-box;
+  opacity: 0;
+  transition: opacity 180ms ease;
+  z-index: 2;
+}
+#view-web .image-card:hover .overlay{
+  opacity: 1;
+}
+#view-web .overlay .overlay-inner{
+  width: 100%;
+  display: grid;
+  gap: 6px;
+}
+#view-web .overlay .title{
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.1;
+}
+#view-web .overlay .desc{
+  font-size: 13px;
+  line-height: 1.3;
+  max-width: 360px;
+}
+#view-web .overlay .meta{
+  font-size: 12px;
+  opacity: 0.85;
+}
+
+/* Anchor wrappers should look like regular objects (SEO-friendly links) */
+#view-web a.image-card,
+#view-web a.text-box-link{
+  color: inherit;
+  text-decoration: none;
+  display: block;
+}
+
+/* Make all anchor-draggables inherit theme color */
+#view-web .draggable,
+#view-web .draggable a,
+#view-web a.draggable,
+#view-web a.text-box-link,
+#view-web a.image-card{
+  color: inherit;
+}
+
+/* =========================
+   FLOATING TEXT BOXES
+   (title + subheaders + years)
+   ========================= */
+/* Outer text-box becomes a positioning shell (so hover scaling can happen on inner) */
+#view-web .text-box{
+  background: transparent;
+  border: none;
+  padding: 0;
+  box-shadow: none;
+  color: var(--text-fg);
+  max-width: 560px;
+}
+
+#view-web .text-box.writing-header > .hover-inner{
+  padding: 8px 12px;
+}
+
+/* The actual visible rectangle lives on hover-inner so it scales */
+#view-web .text-box > .hover-inner{
+  background: var(--text-bg);
+  border: 1px solid var(--border-color);
+
+  border-radius: 0;
+  padding: 14px 16px;
+  box-shadow: var(--shadow);
+  box-sizing: border-box;
+  display: inline-block; /* hug content nicely */
+}
+
+/* Link-like styling for specific floating headers */
+#view-web .text-box.linklike{
+  color: #0000EE;
+  text-decoration: underline;
+}
+
+#view-web .text-box.big{
+  font-size: 44px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  padding: 18px 20px;
+}
+#view-web .text-box.h1{
+  font-size: 30px;
+  font-weight: 750;
+  padding: 12px 16px;
+}
+
+#view-web .text-box.h11{
+  font-size: 22px;
+  font-weight: 750;
+  padding: 12px 16px;
+}
+
+#view-web .text-box.h2{
+  font-size: 30px;
+  font-weight: 700;
+  padding: 10px 14px;
+}
+
+#view-web .text-box.h3{
+  font-size: 20px;
+  font-weight: 700;
+  padding: 10px 14px;
+}
+
+/* Writing item headers: slightly smaller than year headings */
+#view-web .text-box.writing-header{
+  font-size: 16px;
+  font-weight: 700;
+  padding: 8px 12px;
+  color: var(--text-fg);
+  line-height: 1.2;
+}
+
+/* Keeps text in DOM for SEO/accessibility but visually hidden */
+#view-web .visually-hidden{
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* =========================
+   DEBUG HUD
+   ========================= */
+#view-web #debugHud{
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  z-index: 9999;
+  display: none;
+  gap: 10px;
+  align-items: center;
+  background: #fff;
+  border: 1px solid #000;
+  border-radius: 0;
+  padding: 10px 12px;
+  box-shadow: var(--shadow);
+  font-family: 'Tinos', serif;
+}
+
+#view-web #debugHud button{
+  font-family: inherit;
+  border: 1px solid #000;
+  background: #fff;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+#view-web #debugHud .hint{
+  font-size: 12px;
+  line-height: 1.2;
+  max-width: 220px;
+}

@@ -1,0 +1,180 @@
+{
+  "homepage-images": [
+    {
+      "title": "and i potato self-portrait",
+      "year": 2026,
+      "number": 1,
+      "image_path": "https://nikos.kourous.net/image_files/potato-portrait/potato1.png",
+      "description": "i potato self-portrait is a durational generative portrait of a potato.",
+      "url": ""
+    },
+    {
+      "title": "Chorus Inútil",
+      "year": 2025,
+      "number": 2,
+      "image_path": "https://nikos.kourous.net/image_files/chorus-inutil/chorus-inutil-medium%20shot-cropped.jpg",
+      "description": "A real-time choir of ChatGPT text-to-speech instances repeating nonsensical syllables and repeating letters.",
+      "url": "https://nikos.kourous.net/chorus-inutil"
+    },
+    {
+      "title": "Then we sat for some time and observed",
+      "year": 2025,
+      "number": 3,
+      "image_path": "https://nikos.kourous.net/image_files/then_we_sat/Image%2017.jpg",
+      "description": "AI explores Street View and emails thoughts as it forms a digital identity.",
+      "url": "https://nikos.kourous.net/AI-roaming-street-view"
+    },
+    {
+      "title": "Reginald Gilbert the Third",
+      "year": 2025,
+      "number": 4,
+      "image_path": "https://nikos.kourous.net/image_files/reginald/reginald.png",
+      "description": "A chatbot whose character grew through hallucinations about itself on Reddit. Exhibited at Tate Modern.",
+      "url": "https://nikos.kourous.net/reginald-gilbert-iii"
+    },
+    {
+      "title": "Democratic AI constitution workshop",
+      "year": 2025,
+      "number": 5,
+      "image_path": "https://nikos.kourous.net/image_files/workshop-tate/workshop4.jpg",
+      "description": "A public workshop hosted at the Tate Modern rewriting AI constitutions democratically.",
+      "url": "https://nikos.kourous.net/democratic-ai-constitution-workshop"
+    },
+    {
+      "title": "Simulacrum Orbita",
+      "year": 2025,
+      "number": 6,
+      "image_path": "https://nikos.kourous.net/image_files/simulacrum-orbita/simufolder.JPG",
+      "description": "A never-ending game of telephone between two AI models: one that sees, one that describes.",
+      "url": "https://nikos.kourous.net/Simulacrum-Orbita"
+    },
+    {
+      "title": "And in the Mist // Flickr Reflections",
+      "year": 2025,
+      "number": 7,
+      "image_path": "https://nikos.kourous.net/image_files/flickr-reflections/flickr-reflections-TPG.jpg",
+      "description": "A back-and-forth between an image model that hallucinates and another that finds images online.",
+      "url": "https://nikos.kourous.net/Flickr-Reflections"
+    },
+    {
+      "title": "Generative found-image collages",
+      "year": 2025,
+      "number": 8,
+      "image_path": "https://nikos.kourous.net/image_files/flickr-collages/overview.jpg",
+      "description": "Generative collages using machine vision and found online images.",
+      "url": "https://nikos.kourous.net/flickr-generative-collages"
+    },
+    {
+      "title": "And I image",
+      "year": 2025,
+      "number": 9,
+      "image_path": "https://nikos.kourous.net/image_files/and-i-image/IMG_1320.jpg",
+      "description": "Two computers transmitting to each other through image exchanges.",
+      "url": "https://nikos.kourous.net/and-i-image"
+    },
+    {
+      "title": "Maude, the anti-chatbot",
+      "year": 2025,
+      "number": 10,
+      "image_path": "no image",
+      "description": "no description",
+      "url": "https://nikos.kourous.net/maude-the-anti-chatbot"
+    },
+    {
+      "title": "Queries // I live \\\\ LLM experiment",
+      "year": 2025,
+      "number": 11,
+      "image_path": "no image",
+      "description": "no description",
+      "url": "https://nikos.kourous.net/local-llm-experiment"
+    },
+    {
+      "title": "Psychogeographical navigation device",
+      "year": 2024,
+      "number": 12,
+      "image_path": "https://nikos.kourous.net/image_files/nav_device/navigation-device.jpg",
+      "description": "A navigation device controlled by statistical randomness and abstract settings.",
+      "url": "https://nikos.kourous.net/psychogeographic-navigation-device"
+    },
+    {
+      "title": "I breathe // neural filter experimentation",
+      "year": 2024,
+      "number": 13,
+      "image_path": "no image",
+      "description": "Animation using Adobe Photoshop's AI transposing tools.",
+      "url": "https://nikos.kourous.net/photoshop-neural-animation-one"
+    },
+    {
+      "title": "Tree Swing // neural filter experimentation",
+      "year": 2024,
+      "number": 14,
+      "image_path": "no image",
+      "description": "AI animation using Photoshop neural filters.",
+      "url": "https://nikos.kourous.net/photoshop-neural-animation-two"
+    },
+    {
+      "title": "Plant scrolling on YouTube",
+      "year": 2023,
+      "number": 15,
+      "image_path": "https://nikos.kourous.net/image_files/yt_plant/plant-scrolling-youtube.jpg",
+      "description": "A plant navigating YouTube using soil and light sensors.",
+      "url": "https://nikos.kourous.net/plant-scrolling-youtube"
+    },
+    {
+      "title": "Corrupted polygraph",
+      "year": 2023,
+      "number": 16,
+      "image_path": "no image",
+      "description": "A custom polygraph machine influenced by data from American prisons.",
+      "url": "https://nikos.kourous.net/pen-polygraph"
+    },
+    {
+      "title": "Field, sky, body, mind",
+      "year": 2022,
+      "number": 17,
+      "image_path": "https://nikos.kourous.net/image_files/field%2Csky%2Cbody%2Cmind/field-sky-body-mind.jpg",
+      "description": "A short-film animation using a custom-built AI text-to-image model.",
+      "url": "https://nikos.kourous.net/field-sky-body-mind"
+    },
+    {
+      "title": "alone, floating",
+      "year": 2022,
+      "number": 18,
+      "image_path": "https://nikos.kourous.net/image_files/alone-floating/alone-floating.jpg",
+      "description": "A short film combining 3D CGI and an early generative adversarial network.",
+      "url": "https://nikos.kourous.net/alone-floating"
+    },
+    {
+      "title": "Rye Lane: a 3D archival exploration",
+      "year": 2022,
+      "number": 19,
+      "image_path": "https://nikos.kourous.net/image_files/peckham_digital_construction/khans-top.jpg",
+      "description": "A 3D exploration of Peckham's shops using archival Google Street View data.",
+      "url": "https://nikos.kourous.net/3d-reconstruction-peckham"
+    },
+    {
+      "title": "i feel so alone in this house",
+      "year": 2021,
+      "number": 20,
+      "image_path": "https://nikos.kourous.net/image_files/so-alone/so-alone1.png",
+      "description": "A short film using an early generative adversarial network.",
+      "url": "https://nikos.kourous.net/i-feel-so-alone-in-this-house"
+    },
+    {
+      "title": "Collaborative AI self-portrait",
+      "year": 2021,
+      "number": 21,
+      "image_path": "no image",
+      "description": "A self-portrait made collaboratively with AI through dice-human computing.",
+      "url": "https://nikos.kourous.net/collaberative-ai-portrait"
+    },
+    {
+      "title": "GauGan early AI animations",
+      "year": 2020,
+      "number": 22,
+      "image_path": "https://nikos.kourous.net/image_files/gaugan/gaugan-frame.jpg",
+      "description": "Animations made with early generative image models using custom tools.",
+      "url": "https://nikos.kourous.net/gaugan-animations"
+    }
+  ]
+}

@@ -1,0 +1,729 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!--
+    Combined 3D scroller with scalable zoom:
+    - Default view per day: GRID of small spinning models
+    - Toggle "Inspect" to switch to the original vertical scroll
+    - In GRID, clicking a tile opens a focused overlay with interactive controls
+    - Desktop-friendly responsive CSS; mobile remains optimized
+  -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Reginald’s Items — VA Weekend (Fri–Sun)</title>
+
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root { color-scheme: dark; }
+    html, body {
+      margin: 0; padding: 0;
+      background: #000; color: #e8e8e8;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Inter, sans-serif;
+      overflow-x: hidden; line-height: 1.35;
+    }
+
+    /* ===== Global Header ===== */
+    header.site {
+      position: sticky; top: 0; z-index: 20;
+      padding: 14px 16px 12px;
+      background: #000;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    header.site h1 {
+      margin: 0 24px 6px;
+      font: 700 28px/1 ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Liberation Mono", monospace;
+      letter-spacing: .2px; text-align: center;
+    }
+    .subtitle {
+      margin: 0 auto 8px; max-width: 900px;
+      font-size: 14px; color: #b9c0c7; text-align: center;
+    }
+    .key {
+      margin: 10px auto 0; max-width: 900px;
+      font-size: 12px; color: #888; text-align: center; line-height: 1.5;
+    }
+    .key-item { display: inline-block; margin: 2px 8px; font-style: italic; opacity: .8; }
+    .key-icon { width: 14px; height: 14px; vertical-align: middle; margin-right: 4px; }
+
+    nav.jump {
+      display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;
+      margin: 10px auto 0; padding-bottom: 4px;
+    }
+    nav.jump a {
+      display: inline-block; font-size: 12px; color: #e8e8e8; text-decoration: none;
+      padding: 6px 10px; border: 1px solid rgba(255,255,255,0.18); border-radius: 999px;
+      background: rgba(20,20,20,0.75); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
+      transition: transform 140ms ease, background 140ms ease, border-color 140ms ease, box-shadow 140ms ease;
+    }
+    nav.jump a:hover { transform: scale(1.05); background: rgba(30,30,30,0.85); border-color: rgba(255,255,255,0.25); }
+
+    /* ===== Day Sections ===== */
+    .day { padding: 10px 8px 0; }
+    header.dayhead {
+      position: sticky; top: 74px; z-index: 15;
+      background: #000;
+      padding: 8px 8px 10px;
+      border-top: 1px dashed rgba(255,255,255,0.1);
+      display: flex; align-items: center; gap: 10px;
+    }
+    header.dayhead h2 {
+      margin: 0;
+      font: 700 16px/1 ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Liberation Mono", monospace;
+      letter-spacing: .2px;
+      display: inline-flex; align-items: center; gap: 8px;
+    }
+    .dayhead .count { font-size: 12px; color: #b9c0c7; opacity: .85; }
+
+    /* View toggle button ("Inspect"/"Grid") */
+    .view-toggle {
+      margin-left: auto;
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 12px; color: #e8e8e8; text-decoration: none;
+      padding: 6px 10px; border: 1px solid rgba(255,255,255,0.18); border-radius: 999px;
+      background: rgba(20,20,20,0.75); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
+      cursor: pointer;
+      transition: transform 140ms ease, background 140ms ease, border-color 140ms ease;
+    }
+    .view-toggle:hover { transform: scale(1.04); background: rgba(30,30,30,0.85); border-color: rgba(255,255,255,0.25); }
+    .view-toggle svg { width: 16px; height: 16px; }
+
+    /* ===== List (Inspect / Scroll) ===== */
+    .list { padding: 8px 8px 64px; display: none; } /* default hidden (grid first) */
+    .mv-block { position: relative; margin: 8px 0 16px; }
+
+    model-viewer {
+      display: block; width: 100%; height: 72vh;
+      background: #000; object-fit: contain;
+      --poster-color: #000;
+      pointer-events: none; touch-action: pan-y;
+    }
+    .mv-block.active model-viewer { pointer-events: auto; }
+
+    model-viewer::part(ar-button),
+    model-viewer [slot="ar-button"] { display: none !important; }
+
+    .mv-btn {
+      position: absolute; z-index: 3; width: 42px; height: 42px;
+      border-radius: 999px; border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(20,20,20,0.75);
+      display: grid; place-items: center; color: #e8e8e8; font-size: 18px;
+      user-select: none; outline: none;
+      transition: transform 140ms ease, background 140ms ease, border-color 140ms ease, box-shadow 140ms ease, opacity 140ms ease;
+      backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
+    }
+    .mv-btn:active { transform: scale(0.96); }
+    .mv-btn svg { width: 20px; height: 20px; opacity: .95; }
+    .mv-eye { top: 10px; right: 10px; }
+    .mv-info { top: 10px; right: 58px; }
+    .mv-block.active .mv-eye {
+      transform: scale(1.08);
+      background: rgba(30,30,30,0.92);
+      border-color: rgba(255,255,255,0.28);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.35);
+    }
+
+    .cap {
+      margin: 6px 2px 0; font-size: 12px; color: #b9c0c7;
+      overflow: hidden; white-space: nowrap; text-overflow: ellipsis;
+      font-variant-numeric: tabular-nums;
+    }
+    .cap .sep { opacity: .6; padding: 0 6px; }
+
+    /* ===== Grid (default per day) ===== */
+    .grid { padding: 10px 8px 40px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .grid-tile {
+      position: relative; border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px; overflow: hidden;
+      background: #050505;
+      transition: transform 140ms ease, border-color 140ms ease, box-shadow 140ms ease;
+      cursor: pointer;
+    }
+    .grid-tile:hover { transform: translateY(-2px); border-color: rgba(255,255,255,0.2); box-shadow: 0 6px 14px rgba(0,0,0,0.35); }
+    .grid-tile model-viewer { height: 28vh; } /* compact spinning preview */
+    .grid-cap {
+      font-size: 11px; color: #b9c0c7; padding: 6px 8px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    /* ===== Focus Overlay (when a grid tile is opened) ===== */
+    .focus-backdrop {
+      position: fixed; inset: 0; background: rgba(0,0,0,0.6);
+      display: none; z-index: 40; opacity: 0;
+      transition: opacity 160ms ease;
+    }
+    .focus-backdrop.show { display: block; opacity: 1; }
+    .focus-card {
+      position: fixed; left: 50%; top: 50%; transform: translate(-50%, -50%) scale(.98);
+      width: min(96vw, 1100px); height: min(85vh, 900px);
+      background: #0d0d0d; color: #e8e8e8;
+      border: 1px solid rgba(255,255,255,0.12); border-radius: 14px;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.6);
+      padding: 10px; z-index: 41; display: none; opacity: 0;
+      transition: opacity 160ms ease, transform 160ms ease;
+    }
+    .focus-card.show { display: block; opacity: 1; transform: translate(-50%, -50%) scale(1); }
+    .focus-inner { position: relative; width: 100%; height: 100%; }
+    .focus-mv { width: 100%; height: calc(100% - 46px); background: #000; }
+    .focus-topbar {
+      position: absolute; top: 8px; left: 8px; right: 8px; height: 0; /* buttons float */
+    }
+    .focus-close {
+      position: absolute; top: 0; left: 0; width: 38px; height: 38px; border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.18); background: rgba(20,20,20,0.75);
+      display: grid; place-items: center; color: #e8e8e8; cursor: pointer; z-index: 2;
+    }
+    .focus-close svg { width: 18px; height: 18px; }
+    .focus-eye  { position: absolute; top: 0; right: 0; }     /* reuse .mv-btn styles */
+    .focus-info { position: absolute; top: 0; right: 48px; }
+
+    .focus-cap {
+      position: absolute; bottom: 8px; left: 12px; right: 12px;
+      font-size: 13px; color: #b9c0c7; background: rgba(0,0,0,0.35);
+      padding: 6px 10px; border-radius: 8px; backdrop-filter: blur(2px);
+    }
+
+    /* ===== Sentinels for list infinite scroll ===== */
+    .sentinel { height: 80px; }
+
+    /* ===== Desktop enhancements ===== */
+    @media (min-width: 768px) {
+      header.site h1 { font-size: 30px; }
+      .grid { grid-template-columns: repeat(3, 1fr); gap: 12px; }
+      .grid-tile model-viewer { height: 240px; }
+      model-viewer { height: 68vh; }
+      header.dayhead { top: 78px; }
+      .list { padding-left: 12px; padding-right: 12px; }
+    }
+    @media (min-width: 1024px) {
+      .grid { grid-template-columns: repeat(4, 1fr); gap: 14px; }
+      .grid-tile model-viewer { height: 260px; }
+      header.site { padding-left: 24px; padding-right: 24px; }
+      header.dayhead { padding-left: 16px; padding-right: 16px; }
+      .subtitle, .key, nav.jump { max-width: 1100px; }
+    }
+    @media (min-width: 1400px) {
+      .grid { grid-template-columns: repeat(5, 1fr); gap: 16px; }
+      .grid-tile model-viewer { height: 280px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- ===== Global header ===== -->
+  <header class="site">
+    <h1>Reginald’s Items</h1>
+    <div class="subtitle">a collection of Reginald Gilbert the Third’s items, created through viewer interactions.</div>
+
+    <div class="key">
+      <span class="key-item">
+        <svg class="key-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="12" y1="16" x2="12" y2="12"></line>
+          <line x1="12" y1="8" x2="12.01" y2="8"></line>
+        </svg>
+        open email context
+      </span>
+      <span class="key-item">
+        <svg class="key-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"></path>
+          <circle cx="12" cy="12" r="3"></circle>
+        </svg>
+        rotate and explore the object
+      </span>
+    </div>
+
+    <nav class="jump" aria-label="Jump to day">
+      <a href="#friday">Friday</a>
+      <a href="#saturday">Saturday</a>
+      <a href="#sunday">Sunday</a>
+    </nav>
+  </header>
+
+  <!-- ===== Day sections (Friday → Saturday → Sunday) ===== -->
+  <section id="friday" class="day" aria-label="Friday">
+    <header class="dayhead">
+      <h2>Friday <span class="count" id="count-friday"></span></h2>
+      <button class="view-toggle" data-target="friday" aria-label="Toggle grid/inspect">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        Inspect
+      </button>
+    </header>
+    <div class="grid" id="grid-friday"></div>
+    <main class="list" id="list-friday"></main>
+    <div class="sentinel" id="sentinel-friday" aria-hidden="true"></div>
+  </section>
+
+  <section id="saturday" class="day" aria-label="Saturday">
+    <header class="dayhead">
+      <h2>Saturday <span class="count" id="count-saturday"></span></h2>
+      <button class="view-toggle" data-target="saturday" aria-label="Toggle grid/inspect">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        Inspect
+      </button>
+    </header>
+    <div class="grid" id="grid-saturday"></div>
+    <main class="list" id="list-saturday"></main>
+    <div class="sentinel" id="sentinel-saturday" aria-hidden="true"></div>
+  </section>
+
+  <section id="sunday" class="day" aria-label="Sunday">
+    <header class="dayhead">
+      <h2>Sunday <span class="count" id="count-sunday"></span></h2>
+      <button class="view-toggle" data-target="sunday" aria-label="Toggle grid/inspect">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        Inspect
+      </button>
+    </header>
+    <div class="grid" id="grid-sunday"></div>
+    <main class="list" id="list-sunday"></main>
+    <div class="sentinel" id="sentinel-sunday" aria-hidden="true"></div>
+  </section>
+
+  <!-- ===== Shared Focus Overlay for Grid Tiles ===== -->
+  <div id="focus-backdrop" class="focus-backdrop" aria-hidden="true"></div>
+  <div id="focus-card" class="focus-card" role="dialog" aria-modal="true" aria-labelledby="focus-title">
+    <div class="focus-inner">
+      <!-- buttons -->
+      <button id="focus-close" class="focus-close" aria-label="Close">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+      <button id="focus-info" class="mv-btn focus-info" aria-label="Show details"></button>
+      <button id="focus-eye" class="mv-btn focus-eye" aria-label="Toggle interaction"></button>
+
+      <!-- model -->
+      <model-viewer id="focus-mv" class="focus-mv" reveal="auto" loading="lazy"
+                    shadow-intensity="0" auto-rotate auto-rotate-speed="500"
+                    auto-rotate-delay="0" interaction-prompt="none"></model-viewer>
+
+      <!-- caption -->
+      <div id="focus-cap" class="focus-cap"></div>
+    </div>
+  </div>
+
+  <!-- ===== Original modal for ℹ details ===== -->
+  <div id="modal-backdrop" class="modal-backdrop" aria-hidden="true"></div>
+  <div id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-body">
+    <button id="modal-close" class="modal-close" aria-label="Close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+    <h2 id="modal-title" class="modal-title"></h2>
+    <div id="modal-sub" class="modal-sub"></div>
+    <div id="modal-body" class="modal-body"></div>
+  </div>
+
+  <script>
+    // ---------- CONFIG ----------
+    const CONFIG = {
+      MANIFESTS: [
+        { id: 'friday',   label: 'Friday',   url: '/reginald-va-models/friday-3Dmanifest_v2.json'   },
+        { id: 'saturday', label: 'Saturday', url: '/reginald-va-models/saturday-3Dmanifest_v2.json' },
+        { id: 'sunday',   label: 'Sunday',   url: '/reginald-va-models/sunday-3Dmanifest_v2.json'   },
+      ],
+      IGNORE: new Set(['latest.glb', 'head.glb']),
+      BATCH_SIZE: 3,
+      REFRESH_MS: 15000,
+      AUTOROTATE_SPEED: 500,
+      CAMERA_CONTROLS: true,
+      DEFAULT_VIEW: 'grid', // 'grid' | 'inspect'
+    };
+
+    // ---------- Icons ----------
+    const eyeIcon = `
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"></path>
+        <circle cx="12" cy="12" r="3"></circle>
+      </svg>`;
+    const closeIconCircle = `
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="10"></circle>
+        <line x1="15" y1="9" x2="9" y2="15"></line>
+        <line x1="9" y1="9" x2="15" y2="15"></line>
+      </svg>`;
+    const infoIcon = `
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="10"></circle>
+        <line x1="12" y1="16" x2="12" y2="12"></line>
+        <line x1="12" y1="8" x2="12.01" y2="8"></line>
+      </svg>`;
+
+    // ---------- Modal (ℹ) ----------
+    const modalBackdrop = document.getElementById('modal-backdrop');
+    const modal = document.getElementById('modal');
+    const modalCloseBtn = document.getElementById('modal-close');
+    const modalTitle = document.getElementById('modal-title');
+    const modalSub   = document.getElementById('modal-sub');
+    const modalBody  = document.getElementById('modal-body');
+
+    function openModal({ object_name, first_name, reply_text }) {
+      modalTitle.textContent = object_name || "";
+      modalSub.textContent = first_name ? `Made for: ${first_name}` : "";
+      modalBody.textContent = reply_text || "";
+      modalBackdrop.classList.add('show'); modal.classList.add('show');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModal() {
+      modalBackdrop.classList.remove('show'); modal.classList.remove('show');
+      document.body.style.overflow = '';
+    }
+    modalBackdrop.addEventListener('click', closeModal);
+    modalCloseBtn.addEventListener('click', closeModal);
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') { closeModal(); closeFocus(); } });
+
+    // ---------- Filename helpers ----------
+    const RE = /^(\d{2})_(\d{2})_(\d{2})_(\d{2})_(.+)\.glb$/i; // HH_MM_SS_DD_name.glb
+    const toKey = (filename) => {
+      const m = String(filename).match(RE);
+      return m ? Number(`${m[1]}${m[2]}${m[3]}${m[4]}`) : null; // HHMMSSDD
+    };
+    const prettyTime = (filename) => {
+      const m = String(filename).match(RE);
+      return m ? `${m[1]}:${m[2]}:${m[3]}` : "";
+    };
+    const dirname = (url) => url.replace(/[#?].*$/, '').replace(/\/[^\/]*$/, '/') // folder of manifest
+
+    // ---------- Per-day state ----------
+    const DAYS = {}; // id -> { url, modelsDir, gridEl, listEl, sentinelEl, countEl, allItems, rendered, view }
+    for (const m of CONFIG.MANIFESTS) {
+      DAYS[m.id] = {
+        id: m.id, label: m.label, url: m.url, modelsDir: dirname(m.url),
+        gridEl: document.getElementById(`grid-${m.id}`),
+        listEl: document.getElementById(`list-${m.id}`),
+        sentinelEl: document.getElementById(`sentinel-${m.id}`),
+        countEl: document.getElementById(`count-${m.id}`),
+        allItems: [],
+        rendered: 0,
+        view: CONFIG.DEFAULT_VIEW, // 'grid' initially
+      };
+    }
+
+    // ---------- Active interaction in list mode ----------
+    let currentActive = null;
+    function setActive(block, on) {
+      if (on) {
+        if (currentActive && currentActive !== block) setActive(currentActive, false);
+        block.classList.add("active");
+        const mv = block.querySelector("model-viewer");
+        if (CONFIG.CAMERA_CONTROLS) mv.setAttribute("camera-controls", "");
+        const btn = block.querySelector(".mv-eye"); if (btn) btn.innerHTML = closeIconCircle;
+        currentActive = block;
+      } else {
+        block.classList.remove("active");
+        const mv = block.querySelector("model-viewer");
+        mv.removeAttribute("camera-controls");
+        const btn = block.querySelector(".mv-eye"); if (btn) btn.innerHTML = eyeIcon;
+        currentActive = (currentActive === block) ? null : currentActive;
+      }
+    }
+
+    const visibilityObserver = new IntersectionObserver((entries) => {
+      for (const e of entries) {
+        if (!currentActive) continue;
+        if (e.target !== currentActive) continue;
+        const visibleEnough = e.intersectionRatio >= 0.35;
+        if (!visibleEnough) setActive(e.target, false);
+      }
+    }, { root: null, threshold: [0, 0.35, 1] });
+
+    // ---------- Fetch & normalize per day ----------
+    async function fetchItemsForDay(day) {
+      try {
+        const res = await fetch(day.url, { cache: "no-store" });
+        if (!res.ok) return [];
+        const arr = await res.json();
+        if (!Array.isArray(arr)) return [];
+
+        const seen = new Set();
+        const valid = [];
+        for (const it of arr) {
+          if (!it || !it.filename) continue;
+          const base = String(it.filename).split('/').pop();
+          if (CONFIG.IGNORE.has(base)) continue;
+          if (seen.has(base)) continue;
+          const key = toKey(base);
+          if (key === null) continue;
+          seen.add(base);
+          valid.push({
+            filename: base,
+            object_name: it.object_name ?? "",
+            first_name: it.first_name ?? "",
+            reply_text: it.reply_text ?? ""
+          });
+        }
+        valid.sort((a, b) => toKey(b.filename) - toKey(a.filename)); // newest-first
+        return valid;
+      } catch { return []; }
+    }
+
+    // ---------- Renderers ----------
+    function renderListBlock(day, item) {
+      const { filename, object_name, first_name, reply_text } = item;
+      const wrap = document.createElement("div");
+      wrap.className = "mv-block";
+      wrap.dataset.filename = filename;
+
+      const mv = document.createElement("model-viewer");
+      mv.setAttribute("reveal", "auto");
+      mv.setAttribute("loading", "lazy");
+      mv.setAttribute("shadow-intensity", "0");
+      mv.setAttribute("auto-rotate", "");
+      mv.setAttribute("auto-rotate-speed", String(CONFIG.AUTOROTATE_SPEED));
+      mv.setAttribute("auto-rotate-delay", "0");
+      mv.setAttribute("interaction-prompt", "none");
+      mv.src = day.modelsDir + filename;
+
+      const btnInfo = document.createElement("button");
+      btnInfo.className = "mv-btn mv-info";
+      btnInfo.setAttribute("aria-label", "Show details");
+      btnInfo.innerHTML = infoIcon;
+      btnInfo.addEventListener("click", (ev) => { ev.stopPropagation(); openModal({ object_name, first_name, reply_text }); });
+
+      const btnEye = document.createElement("button");
+      btnEye.className = "mv-btn mv-eye";
+      btnEye.setAttribute("aria-label", "Toggle interaction");
+      btnEye.innerHTML = eyeIcon;
+      btnEye.addEventListener("click", (ev) => {
+        ev.stopPropagation();
+        const isActive = wrap.classList.contains("active");
+        setActive(wrap, !isActive);
+      });
+
+      visibilityObserver.observe(wrap);
+
+      const cap = document.createElement("div");
+      cap.className = "cap";
+      const timeStr = prettyTime(filename);
+      const nameStr = object_name || filename;
+      const madeFor = first_name ? `Made for: ${first_name}` : "";
+      cap.innerHTML = `${timeStr} <span class="sep">•</span> ${nameStr}${madeFor ? ` <span class="sep">•</span> ${madeFor}` : ""}`;
+
+      wrap.appendChild(mv);
+      wrap.appendChild(btnInfo);
+      wrap.appendChild(btnEye);
+      wrap.appendChild(cap);
+      return wrap;
+    }
+
+    function renderGridTile(day, item) {
+      const { filename, object_name, first_name } = item;
+      const tile = document.createElement("div");
+      tile.className = "grid-tile";
+      tile.dataset.filename = filename;
+
+      const mv = document.createElement("model-viewer");
+      mv.setAttribute("reveal", "auto");
+      mv.setAttribute("loading", "lazy");
+      mv.setAttribute("shadow-intensity", "0");
+      mv.setAttribute("auto-rotate", "");
+      mv.setAttribute("auto-rotate-speed", String(CONFIG.AUTOROTATE_SPEED));
+      mv.setAttribute("auto-rotate-delay", "0");
+      mv.setAttribute("interaction-prompt", "none");
+      mv.src = day.modelsDir + filename;
+
+      const cap = document.createElement("div");
+      cap.className = "grid-cap";
+      const nameStr = object_name || filename;
+      const timeStr = prettyTime(filename);
+      cap.textContent = `${timeStr} • ${nameStr}${first_name ? ` • ${first_name}` : ""}`;
+
+      tile.appendChild(mv);
+      tile.appendChild(cap);
+
+      // Click to open focus overlay
+      tile.addEventListener('click', () => openFocus(day, item));
+      return tile;
+    }
+
+    // ---------- List: append next batch ----------
+    function appendNextBatch(day) {
+      const next = day.allItems.slice(day.rendered, day.rendered + CONFIG.BATCH_SIZE);
+      if (!next.length) return;
+      const frag = document.createDocumentFragment();
+      for (const item of next) frag.appendChild(renderListBlock(day, item));
+      day.listEl.appendChild(frag);
+      day.rendered += next.length;
+    }
+
+    // ---------- Grid: (re)render all tiles ----------
+    function renderGrid(day) {
+      const frag = document.createDocumentFragment();
+      for (const item of day.allItems) frag.appendChild(renderGridTile(day, item));
+      day.gridEl.innerHTML = '';
+      day.gridEl.appendChild(frag);
+    }
+
+    // ---------- Boot per day ----------
+    async function bootDay(day) {
+      day.allItems = await fetchItemsForDay(day);
+      day.countEl.textContent = `(${day.allItems.length})`;
+
+      if (day.view === 'grid') {
+        day.gridEl.style.display = 'grid';
+        day.listEl.style.display = 'none';
+        renderGrid(day);
+      } else {
+        day.gridEl.style.display = 'none';
+        day.listEl.style.display = 'block';
+        day.rendered = 0; day.listEl.innerHTML = '';
+        appendNextBatch(day);
+      }
+    }
+
+    // ---------- Toggle view per day ----------
+    function toggleView(dayId) {
+      const day = DAYS[dayId];
+      if (!day) return;
+      day.view = (day.view === 'grid') ? 'inspect' : 'grid';
+      const toggleBtn = document.querySelector(`.view-toggle[data-target="${dayId}"]`);
+      if (day.view === 'grid') {
+        toggleBtn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg> Inspect`;
+        day.gridEl.style.display = 'grid';
+        day.listEl.style.display = 'none';
+        renderGrid(day);
+      } else {
+        toggleBtn.innerHTML = `⬛ Grid`;
+        day.gridEl.style.display = 'none';
+        day.listEl.style.display = 'block';
+        // if list is empty or switching in, ensure we have content
+        if (day.rendered === 0 || day.listEl.children.length === 0) {
+          day.rendered = 0; day.listEl.innerHTML = '';
+          appendNextBatch(day);
+        }
+      }
+    }
+
+    // Wire the three toggle buttons
+    document.querySelectorAll('.view-toggle').forEach(btn => {
+      btn.addEventListener('click', () => toggleView(btn.dataset.target));
+    });
+
+    // ---------- Infinite scroll (list mode only) ----------
+    const sentinelObserver = new IntersectionObserver((entries) => {
+      for (const e of entries) {
+        if (!e.isIntersecting) continue;
+        const id = e.target.id.replace('sentinel-', '');
+        const day = DAYS[id];
+        if (day && day.view === 'inspect') appendNextBatch(day);
+      }
+    }, { root: null, rootMargin: "800px", threshold: 0 });
+
+    for (const d of Object.values(DAYS)) sentinelObserver.observe(d.sentinelEl);
+
+    // ---------- Refresh (prepend new) per day ----------
+    function idOf(it) { return it.filename; }
+
+    async function refreshDay(day) {
+      const latest = await fetchItemsForDay(day);
+      if (!latest.length) return;
+
+      const have = new Set(day.allItems.map(idOf));
+      const newOnes = latest.filter(it => !have.has(idOf(it)));
+      if (!newOnes.length) return;
+
+      day.allItems = latest;
+      day.countEl.textContent = `(${day.allItems.length})`;
+
+      if (day.view === 'grid') {
+        // Simple: rerender grid
+        renderGrid(day);
+      } else {
+        // Preserve scroll
+        const prevTop = document.scrollingElement.scrollTop;
+        const prevH = document.scrollingElement.scrollHeight;
+
+        const frag = document.createDocumentFragment();
+        for (let i = newOnes.length - 1; i >= 0; i--) {
+          frag.insertBefore(renderListBlock(day, newOnes[i]), frag.firstChild);
+        }
+        day.listEl.insertBefore(frag, day.listEl.firstChild);
+        day.rendered += newOnes.length;
+
+        const newH = document.scrollingElement.scrollHeight;
+        document.scrollingElement.scrollTop = prevTop + (newH - prevH);
+      }
+    }
+
+    // ---------- Focus Overlay (from grid tiles) ----------
+    const focusBackdrop = document.getElementById('focus-backdrop');
+    const focusCard = document.getElementById('focus-card');
+    const focusMV = document.getElementById('focus-mv');
+    const focusCap = document.getElementById('focus-cap');
+    const focusCloseBtn = document.getElementById('focus-close');
+    const focusInfoBtn = document.getElementById('focus-info');
+    const focusEyeBtn  = document.getElementById('focus-eye');
+
+    let focusInteractive = false;
+
+    function openFocus(day, item) {
+      const { filename, object_name, first_name, reply_text } = item;
+      focusMV.src = day.modelsDir + filename;
+      focusMV.removeAttribute('camera-controls'); // start scroll-first
+      focusEyeBtn.innerHTML = eyeIcon;
+      focusInteractive = false;
+
+      focusInfoBtn.innerHTML = infoIcon;
+      focusInfoBtn.onclick = (ev) => { ev.stopPropagation(); openModal({ object_name, first_name, reply_text }); };
+
+      focusEyeBtn.onclick = (ev) => {
+        ev.stopPropagation();
+        focusInteractive = !focusInteractive;
+        if (focusInteractive) {
+          if (CONFIG.CAMERA_CONTROLS) focusMV.setAttribute('camera-controls', '');
+          focusEyeBtn.innerHTML = closeIconCircle;
+        } else {
+          focusMV.removeAttribute('camera-controls');
+          focusEyeBtn.innerHTML = eyeIcon;
+        }
+      };
+
+      const timeStr = prettyTime(filename);
+      const nameStr = object_name || filename;
+      const madeFor = first_name ? ` • ${first_name}` : "";
+      focusCap.textContent = `${timeStr} • ${nameStr}${madeFor}`;
+
+      focusBackdrop.classList.add('show');
+      focusCard.classList.add('show');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeFocus() {
+      focusBackdrop.classList.remove('show');
+      focusCard.classList.remove('show');
+      document.body.style.overflow = '';
+    }
+
+    focusBackdrop.addEventListener('click', closeFocus);
+    focusCloseBtn.addEventListener('click', closeFocus);
+
+    // ---------- Bootstrap ----------
+    (async () => {
+      // Friday → Saturday → Sunday
+      await bootDay(DAYS.friday);
+      await bootDay(DAYS.saturday);
+      await bootDay(DAYS.sunday);
+
+      // Poll each manifest independently
+      setInterval(() => refreshDay(DAYS.friday),   CONFIG.REFRESH_MS);
+      setInterval(() => refreshDay(DAYS.saturday), CONFIG.REFRESH_MS);
+      setInterval(() => refreshDay(DAYS.sunday),   CONFIG.REFRESH_MS);
+    })();
+  </script>
+</body>
+</html>
