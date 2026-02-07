@@ -264,12 +264,15 @@
     html, body{
       margin: 0;
       padding: 0;
-      background: #f9f9f9;
+      background: #ffffff;
     }
 
+    /* make BOTH html and body go black */
+    html.night-mode,
     body.night-mode{
       background: #000;
     }
+
 
 
     /* Toggle stack: bottom-right */
@@ -277,13 +280,19 @@
       position: fixed;
       right: 15px;
       bottom: 10px;
-      z-index: 20000;
+      z-index: 2147483647;      /* sit above everything */
       display: flex;
       flex-direction: column;
       gap: 8px;
       align-items: flex-end;
-      pointer-events: none; /* buttons re-enable */
+      pointer-events: none;
+
+      /* iOS/Safari fixed-position hardening */
+      transform: translateZ(0);
+      -webkit-transform: translateZ(0);
+      will-change: transform;
     }
+
     .toggle-stack button{
       pointer-events: auto;
     }
@@ -519,9 +528,12 @@
         const isNightMode = localStorage.getItem("nightMode") === "true";
         if (isNightMode) {
           document.body.classList.add("night-mode");
+          document.documentElement.classList.add("night-mode"); // <-- add
         } else {
           document.body.classList.remove("night-mode");
+          document.documentElement.classList.remove("night-mode"); // <-- add
         }
+
         if (nightToggleBtn){
           nightToggleBtn.textContent = isNightMode ? "Light Mode" : "Night Mode";
         }
@@ -531,8 +543,11 @@
         if (!nightToggleBtn) return;
         nightToggleBtn.addEventListener("click", function(){
           const nowNight = document.body.classList.toggle("night-mode");
+          document.documentElement.classList.toggle("night-mode", nowNight); // <-- add
+
           localStorage.setItem("nightMode", nowNight);
           nightToggleBtn.textContent = nowNight ? "Light Mode" : "Night Mode";
+
         });
       }
 
@@ -628,7 +643,7 @@
      */
     const LAYOUT_CONFIG = {
       text: {
-        title:   { x: 40,  y: 40,  scale: 1.00, label: "nikos kourous", className: "big" },
+        title:   { x: 40,  y: 40,  scale: 1.00, label: "Nikos Antonio Kourous Vázquez ", className: "big" },
         about:   { x: 520, y: 170, scale: 1.00, label: "about me",     className: "h1 linklike" },
         work:    { x: 260, y: 300, scale: 1.00, label: "work",         className: "h1 linklike" },
         writing: { x: 0,   y: 300, scale: 1.00, label: "writing",      className: "h11 linklike" },
@@ -658,7 +673,7 @@
     const PHREAK_LOGO_URL = "https://nikos.kourous.net/image_files/phreaking/PhreakingLogoWhite.png";
 
     const LAYOUT_OUTPUT_FILENAME = "homepage-images-layout.json";
-    const DEBUG_MANUAL_LAYOUT = false;
+    const DEBUG_MANUAL_LAYOUT = true;
 
     const SAMPLE_WRITING_JSON = {
       "homepage-writing": [
@@ -966,12 +981,26 @@
       const s = String(val).trim().toLowerCase();
       return s !== "" && s !== "no description";
     }
+    
 
-    function createLogoCard({ labelText, imagePath, descriptionText }){
-      const wrap = document.createElement("figure");
+    function createLogoCard({ labelText, imagePath, descriptionText,href }){
+      // const wrap = document.createElement("figure");
+      const wrap = document.createElement("a");
+      wrap.href = href;
+      wrap.target = "_blank";
+      wrap.rel = "noopener noreferrer";
       wrap.className = "image-card";
       wrap.style.position = "absolute";
       wrap.setAttribute("aria-label", labelText);
+
+      wrap.className = "image-card";
+      wrap.style.position = "absolute";
+      wrap.setAttribute("aria-label", labelText);
+
+      const link = document.createElement("a");
+      link.href = href;
+      link.className = "card-link";
+      link.setAttribute("aria-label", labelText);
 
       const img = document.createElement("img");
       img.src = imagePath;
@@ -995,10 +1024,18 @@
       caption.className = "visually-hidden";
       caption.textContent = labelText;
 
-      wrap.appendChild(img);
-      wrap.appendChild(overlay);
-      wrap.appendChild(icon);
-      wrap.appendChild(caption);
+      // wrap.appendChild(img);
+      // wrap.appendChild(overlay);
+      // wrap.appendChild(icon);
+      // wrap.appendChild(caption);
+
+      link.appendChild(img);
+      link.appendChild(overlay);
+      link.appendChild(icon);
+      link.appendChild(caption);
+
+      wrap.appendChild(link);
+
 
       pageEl.appendChild(wrap);
       return wrap;
@@ -1485,7 +1522,7 @@
       {
         const t = LAYOUT_CONFIG.text.about;
         let pos = movablesLayoutMap.get("text:about") || { x: t.x, y: t.y, scale: t.scale };
-        const el = createTextBoxLink({ id: "text:about", text: t.label, className: t.className, href: "/about" });
+        const el = createTextBoxLink({ id: "text:about", text: t.label, className: t.className, href: "https://nikos.kourous.net/about-nikos-kourous-vazquez" });
         registerDraggable({ id: "text:about", el, type: "text", origin: { x: pos.x, y: pos.y, scale: pos.scale ?? 1 } });
       }
       {
@@ -1497,7 +1534,7 @@
       {
         const t = LAYOUT_CONFIG.text.contact;
         let pos = movablesLayoutMap.get("text:contact") || { x: t.x, y: t.y, scale: t.scale };
-        const el = createTextBoxLink({ id: "text:contact", text: t.label, className: t.className, href: "/contact" });
+        const el = createTextBoxLink({ id: "text:contact", text: t.label, className: t.className, href: "/contact.html" });
         registerDraggable({ id: "text:contact", el, type: "text", origin: { x: pos.x, y: pos.y, scale: pos.scale ?? 1 } });
       }
       {
@@ -1511,10 +1548,12 @@
         let pos = movablesLayoutMap.get("text:phreak") || { x: t.x, y: t.y, scale: t.scale };
 
         const el = createLogoCard({
-          labelText: "phreaking collective",
+          labelText: "Phreaking Collective",
           imagePath: PHREAK_LOGO_URL,
-          descriptionText: "Phreaking Collective"
+          descriptionText: "Organizer and member of the computational arts collective Phreaking Collective",
+          href: "https://phreaking.co.uk/"
         });
+
 
         registerDraggable({
           id: "text:phreak",

@@ -27,9 +27,9 @@
   --spring-k: 1.2;            /* lower = slower drift back */
   --damping: 2.2;             /* higher = less oscillation */
 
-  --hover-scale: 1.1;          /* how big on hover */
-  --hover-speed: 220ms;         /* how fast it grows/shrinks */
-  --hover-ease: cubic-bezier(.2,.8,.2,1);
+  --hover-scale: 1.15;          /* how big on hover */
+  --hover-speed: 1220ms;         /* how fast it grows/shrinks */
+  --hover-ease: cubic-bezier(.1,1,1,.001);
 
   --left-gutter: 50px;
   --initial-x-offset: 2000px;
@@ -163,7 +163,7 @@ body.grab-pan.panning #view-web{ cursor: grabbing; }
    IMAGE CARDS
    ========================= */
 #view-web{
-  --titlebar-height: 20px;
+  --titlebar-height: 25px;
 }
 
 /* Fake window title bar */
@@ -182,6 +182,14 @@ body.grab-pan.panning #view-web{ cursor: grabbing; }
   box-sizing: border-box;
   overflow: hidden;
   white-space: nowrap;
+}
+#view-web .card-link{
+  display:block;
+  width:100%;
+  height:100%;
+  color:inherit;
+  text-decoration:none;
+
 }
 
 /* Title text in the bar */
@@ -276,6 +284,7 @@ body.grab-pan.panning #view-web{ cursor: grabbing; }
   opacity: 0;
   transition: opacity 180ms ease;
   z-index: 2;
+  
 }
 #view-web .image-card:hover .overlay{
   opacity: 1;
@@ -354,10 +363,12 @@ body.grab-pan.panning #view-web{ cursor: grabbing; }
 }
 
 #view-web .text-box.big{
-  font-size: 44px;
+  font-size: 40px;
   font-weight: 800;
   letter-spacing: 0.5px;
-  padding: 18px 20px;
+  padding: 18px 18px;
+    max-width: 380px;   /* adjust until it breaks exactly where you want */
+
 }
 #view-web .text-box.h1{
   font-size: 30px;
