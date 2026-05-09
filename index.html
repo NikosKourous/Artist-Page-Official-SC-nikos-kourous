@@ -413,7 +413,7 @@ controls.addEventListener('end', () => {
 const IMAGE_FILTER     = 'saturate(120%) contrast(105%)';
 //   saturate(100%) = normal | 200% = vivid | 50% = muted
 //   contrast(100%) = normal | 120% = punchy
-const POSTERIZE_LEVELS = 6;
+const POSTERIZE_LEVELS = 15;
 //   Lower = stronger: 2 is heavy, 4 is medium, 6+ is subtle
 // ============================================================
 
@@ -481,7 +481,7 @@ let currentTransition = 'cut';
 let currentDuration   = 80;
 let scatterData       = [];
 let slideImages       = [];
-let currentIndex      = 0;
+let remainingSlides = [];
 
 // ── Image processing: applies effects once on load ────────
 function applyPosterize(octx, w, h) {
@@ -500,32 +500,55 @@ async function processImage(src) {
   const img = await new Promise(resolve => {
     const i = new Image();
     i.crossOrigin = 'anonymous';
-    i.onload  = () => resolve(i);
+    i.onload = () => resolve(i);
     i.onerror = () => resolve(null);
     i.src = src;
   });
+
   if (!img) return null;
 
-  const oc   = document.createElement('canvas');
-  oc.width   = screenCanvas.width;
-  oc.height  = screenCanvas.height;
+  const oc = document.createElement('canvas');
+  oc.width = screenCanvas.width;
+  oc.height = screenCanvas.height;
   const octx = oc.getContext('2d');
 
+  // === background ===
   octx.fillStyle = '#000';
   octx.fillRect(0, 0, oc.width, oc.height);
 
-  // Contain-fit: whole image visible, black bars on sides/top
-  const s = Math.min(oc.width / img.width, oc.height / img.height);
-  const w = img.width  * s;
-  const h = img.height * s;
+  // ======================================================
+  // FIXED "WINDOW" AREA (stable, not scaling-shrinking)
+  // ======================================================
+  const windowScale = 0.2;
+
+  const areaW = oc.width * windowScale;
+  const areaH = oc.height * windowScale;
+
+  // center of full canvas
+  const cx = oc.width / 2-310;
+  const cy = oc.height / 2-260;
+
+  // scale image to fit inside window (contain)
+  const s = Math.min(areaW / img.width, areaH / img.height);
+
+  const w = img.width * s;
+  const h = img.height * s-20;
+
+  // center inside canvas (stable anchor)
+  const x = cx - w / 2;
+  const y = cy - h / 2;
+
+  // optional styling
   octx.filter = IMAGE_FILTER;
-  octx.drawImage(img, (oc.width - w) / 2, (oc.height - h) / 2, w, h);
+
+  octx.drawImage(img, x, y, w, h);
+
   octx.filter = 'none';
 
   applyPosterize(octx, oc.width, oc.height);
+
   return oc;
 }
-
 // ── Transitions ───────────────────────────────────────────
 function drawTransition(t, from, to) {
   const W = screenCanvas.width;
@@ -673,19 +696,45 @@ function pickTransition() {
 }
 
 async function advanceSlide() {
-  currentIndex = (currentIndex + 1) % slideImages.length;
-  const next = await processImage(slideImages[currentIndex]);
-  if (next) { pickTransition(); toCanvas = next; fadeStart = performance.now(); isFading = true; }
+
+  // refill pool when empty
+  if (remainingSlides.length === 0) {
+    remainingSlides = shuffleArray([...slideImages]);
+  }
+
+  // pick random next image (no repeats until reshuffle)
+  const nextSrc = remainingSlides.pop();
+
+  const next = await processImage(nextSrc);
+
+  if (next) {
+    pickTransition();
+    toCanvas = next;
+    fadeStart = performance.now();
+    isFading = true;
+  }
+
   setTimeout(advanceSlide, SLIDE_DURATION);
+}
+
+function shuffleArray(arr) {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = (Math.random() * (i + 1)) | 0;
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
 }
 
 async function startSlideshow(paths) {
   slideImages = paths;
   if (!slideImages.length) return;
-  fromCanvas = await processImage(slideImages[0]);
+
+  // create randomized pool
+  remainingSlides = shuffleArray([...slideImages]);
+
+  fromCanvas = await processImage(remainingSlides.pop());
   setTimeout(advanceSlide, SLIDE_DURATION);
 }
-
 fetch('/image_files/slideshow/list.php')
   .then(r => r.json())
   .then(startSlideshow);
@@ -711,8 +760,8 @@ loader.load('image_files/homepage-computer.glb', (gltf) => {
 
   gltf.scene.scale.setScalar(scale);
   gltf.scene.position.sub(center.multiplyScalar(scale));
-  gltf.scene.position.y += 0.7;
-  gltf.scene.position.x += 0.0;
+  gltf.scene.position.y += 0.55;
+  gltf.scene.position.x += 0.7;
 
   gltf.scene.traverse((node) => {
     if (node.isMesh && node.name === 'monitor_screen') {
