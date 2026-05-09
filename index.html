@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- === SEO / META (FROM OLD SIMPLE VERSION — AUTHORITATIVE) === -->
   <link rel="icon" type="image/jpeg" href="favicon.ico">
   <link rel="apple-touch-icon" href="favicon.ico">
 
@@ -10,6 +9,7 @@
   <link rel="canonical" href="https://nikos.kourous.net" />
   <meta name="description" content="Nikos Antonio Kourous Vázquez is a computational artist exploring artificial intelligence through autonomous and evolving machine learning systems, installations, moving image, and more. Nikos Kourous is based in London, UK.">
   <title>Nikos Antonio Kourous Vázquez | Computational Artist | London</title>
+
 
   <meta name="geo.region" content="GB">
   <meta name="geo.placename" content="London">
@@ -24,16 +24,15 @@
   <meta name="twitter:description" content="Nikos Antonio Kourous Vázquez is a computational artist exploring artificial intelligence through autonomous and evolving machine learning systems and digital installations.">
   <meta name="twitter:image" content="https://nikos.kourous.net/image_files/thumbnail-ai-explorer.jpg">
 
-  <!-- Fonts (shared) -->
+
+  <!-- Link to external CSS for clean styling -->
+  <link rel="stylesheet" href="style.css" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-
-  <!-- model-viewer (used by simple view) -->
-  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-
-  <!-- === LD+JSON (FROM OLD SIMPLE VERSION) === -->
-  <script type="application/ld+json">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+<!--TEST FOR GITHUB WROTE THIS ON MY LAPTOP BEEP-->
+<script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Person",
@@ -238,1428 +237,376 @@
   </script>
 
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "url": "https://nikos.kourous.net/",
-    "name": "Nikos Antonio Kourous Vázquez Art Portfolio",
-    "alternateName": [
-      "Nikos Kourous AI",
-      "Nikos Antonio Kourous Vázquez Official Site",
-      "Nikos Kourous Computational Art"
-    ]
-  }
-  </script>
-
-  <!-- === CSS (scoped) === -->
-  <link rel="stylesheet" href="style-simple.css" />
-  <link rel="stylesheet" href="style-new.css" />
-
-  <!-- === Combined view + toggle minimal CSS (scoped, no collisions) === -->
-  <style>
-    /* View switching */
-    body[data-view="web"] #view-simple{ display: none; }
-    body[data-view="simple"] #view-web{ display: none; }
-
-    html, body{
-      margin: 0;
-      padding: 0;
-      background: #ffffff;
-    }
-
-    /* make BOTH html and body go black */
-    html.night-mode,
-    body.night-mode{
-      background: #000;
-    }
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "url": "https://nikos.kourous.net/",
+  "name": "Nikos Antonio Kourous Vázquez Art Portfolio",
+  "alternateName": [
+    "Nikos Kourous AI",
+    "Nikos Antonio Kourous Vázquez Official Site",
+    "Nikos Kourous Computational Art"
+  ]
+}
 
 
+</script>
 
-    /* Toggle stack: bottom-right */
-    .toggle-stack{
-      position: fixed;
-      right: 15px;
-      bottom: 10px;
-      z-index: 2147483647;      /* sit above everything */
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      align-items: flex-end;
-      pointer-events: none;
-
-      /* iOS/Safari fixed-position hardening */
-      transform: translateZ(0);
-      -webkit-transform: translateZ(0);
-      will-change: transform;
-    }
-
-    .toggle-stack button{
-      pointer-events: auto;
-    }
-
-    /* Reuse your existing button styling, but as a shared class */
-    .site-toggle-btn{
-      width: auto;
-      height: 40px;
-      border-radius: 4px;
-      border: none;
-      background: rgba(163, 180, 255, 0.9);
-      color: #000000;
-      font-size: 17px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      backdrop-filter: blur(10px);
-      padding: 8px 12px;
-      font-family: 'Tinos', serif;
-      transform: scale(0.8);
-    }
-    .site-toggle-btn:hover{
-      transform: scale(1);
-    }
-    body.night-mode .site-toggle-btn{
-      background: rgba(255, 89, 247, 0.9);
-      color: #000000;
-    }
-
-    /* Simple view toggle should not appear on phones */
-    @media (max-width: 767px){
-      #view-mode-toggle{ display: none; }
-    }
-  </style>
 </head>
 
 <body>
-  <!-- =========================
-       SIMPLE VIEW (OLD VERSION)
-       ========================= -->
-  <div id="view-simple">
-    <div class="background-image"></div>
-    <!-- <div id="cubeContainer"></div> -->
+  <!-- Background image container -->
+  <div class="background-image"></div>
+    <!--<div id="cubeContainer"></div> --> 
 
-    <main class="container">
-      <h1><a href="about-nikos-kourous-vazquez">Nikos Antonio Kourous Vázquez </a></h1>
-      <p class="bio">
-        <span class="floating-about"><a href="https://nikos.kourous.net/about-nikos-kourous-vazquez">About me</a></span>
-      </p>
+ <main class="container">
 
-      <section>
-        <h2>Work</h2>
-        <ul>
-          <li><span class="link-with-tooltip"><a href="chorus-inutil">Chorus Inútil (2025)</a><span class="tooltip-text">A real-time choir of ChatGPT text-to-speech instances repeating nonsensical syllables and repeating letters.</span></span></li>
-          <li><span class="link-with-tooltip"><a href="AI-roaming-street-view">Then we sat for some time and observed (2025)</a><span class="tooltip-text">AI explores Street View and emails thoughts as it forms a digital identity.</span></span></li>
-          <li><span class="link-with-tooltip"><a href="reginald-gilbert-iii">Reginald Gilbert the Third (2025)</a><span class="tooltip-text">A chatbot whose character grew through hallucinations about itself on Reddit.</span></span></li>
-          <li><span class="link-with-tooltip"><a href="democratic-ai-constitution-workshop">Democratic AI constitution workshop (2025)</a><span class="tooltip-text">A public workshop hosted at the Tate Modern rewriting AI constitutions democratically.</span></span></li>
-          <li><span class="link-with-tooltip"><a href="https://nikos.kourous.net/Simulacrum-Orbita">Simulacrum Orbita (2025)</a><span class="tooltip-text">A never-ending game of telephone between two AI models: one that sees, one that describes.</span></span></li>
-          <li><span class="link-with-tooltip"><a href="https://nikos.kourous.net/Flickr-Reflections">And in the Mist // Flickr Reflections (2025)</a><span class="tooltip-text">A back-and-forth between an image model that hallucinates and another that finds images online.</span></span></li>
-          <li><span class="link-with-tooltip"><a href="flickr-generative-collages">Generative found-image collages (2025)</a><span class="tooltip-text">Generative collages using machine vision and found online images.</span></span></li>
-          <li><span class="link-with-tooltip"><a href="and-i-image">And I image (2025)</a><span class="tooltip-text">Two computers transmitting to each other through image exchanges.</span></span></li>
-          <li><span class="link-with-tooltip"><a href="psychogeographic-navigation-device">Psychogeographical navigation device (2024)</a><span class="tooltip-text">A navigation device controlled by statistical randomness and abstract settings.</span></span></li>
-          <li><span class="link-with-tooltip"><a href="plant-scrolling-youtube">Plant scrolling on YouTube (2023)</a><span class="tooltip-text">A plant navigating YouTube using soil and light sensors.</span></span></li>
-          <li><span class="link-with-tooltip"><a href="field-sky-body-mind">Field, sky, body, mind (2022)</a><span class="tooltip-text">A short-film animation using a custom-built AI text-to-image model.</span></span></li>
-          <li><span class="link-with-tooltip"><a href="alone-floating">alone, floating (2022)</a><span class="tooltip-text">A short film combining 3D CGI and an early generative adversarial network.</span></span></li>
-          <li><span class="link-with-tooltip"><a href="3d-reconstruction-peckham">Rye Lane: a 3D archival exploration (2022)</a><span class="tooltip-text">A 3D exploration of Peckham's shops using archival Google Street View data.</span></span></li>
-          <li><span class="link-with-tooltip"><a href="i-feel-so-alone-in-this-house">i feel so alone in this house (2021)</a><span class="tooltip-text">A short film using an early generative adversarial network.</span></span></li>
-        </ul>
-      </section>
+    <h1><a href="about-nikos-kourous-vazquez">Nikos Antonio Kourous Vázquez </a></h1>
+    <p class="bio">
+    <span class="floating-about"><a href="https://nikos.kourous.net/about-nikos-kourous-vazquez">About me</a></span>
+  </p>
 
-      <section>
-        <h2 style="cursor: pointer;" onclick="togglePeriphery()">
-          Peripheral work <span id="periphery-toggle">+</span>
-        </h2>
-        <ul id="periphery-list" class="collapsible" style="display: none; padding-left: 1rem;">
-          <li><span class="link-with-tooltip"><a href="maude-the-anti-chatbot">Maude, the anti-chatbot (2025)</a><span class="tooltip-text">A chatbot built as the polar opposite of Claude's system prompt.</span></span></li>
-          <li><span class="link-with-tooltip"><a href="local-llm-experiment"> Queries // I live \\ LLM experiment (2025)</a><span class="tooltip-text">An experiment with Meta's LLama 2 local large-language model.</span></span></li>
-          <li><span class="link-with-tooltip"><a href="photoshop-neural-animation-one"> I breathe // neural filter experimentation (2024)</a><span class="tooltip-text">Animation using Adobe Photoshop's AI transposing tools.</span></span></li>
-          <li><span class="link-with-tooltip"><a href="photoshop-neural-animation-two">Tree Swing // neural filter experimentation (2024)</a><span class="tooltip-text">AI animation using Photoshop neural filters.</span></span></li>
-          <li><span class="link-with-tooltip"><a href="pen-polygraph">Corrupted polygraph (2023)</a><span class="tooltip-text">A custom polygraph machine influenced by data from American prisons.</span></span></li>
-          <li><span class="link-with-tooltip"><a href="collaberative-ai-portrait">Collaborative AI self-portrait (2021)</a><span class="tooltip-text">A self-portrait made collaboratively with AI through dice-human computing.</span></span></li>
-          <li><span class="link-with-tooltip"><a href="gaugan-animations">GauGan early AI animations (2020)</a><span class="tooltip-text">Animations made with early generative image models using custom tools.</span></span></li>
-        </ul>
-      </section>
+</p>
+<section>
+  <h2>Work</h2>
+  <ul>
+      <li><span class="link-with-tooltip"><a href="chorus-inutil">Chorus Inútil (2025)</a><span class="tooltip-text">A real-time choir of ChatGPT text-to-speech instances repeating nonsensical syllables and repeating letters.</span></span></li>    
+    <li><span class="link-with-tooltip"><a href="AI-roaming-street-view">Then we sat for some time and observed (2025)</a><span class="tooltip-text">AI explores Street View and emails thoughts as it forms a digital identity.</span></span></li>    
+    <li><span class="link-with-tooltip"><a href="reginald-gilbert-iii">Reginald Gilbert the Third (2025)</a><span class="tooltip-text">A chatbot whose character grew through hallucinations about itself on Reddit.</span></span></li>
+    <li><span class="link-with-tooltip"><a href="democratic-ai-constitution-workshop">Democratic AI constitution workshop (2025)</a><span class="tooltip-text">A public workshop hosted at the Tate Modern rewriting AI constitutions democratically.</span></span></li>
+    <li><span class="link-with-tooltip"><a href="https://nikos.kourous.net/Simulacrum-Orbita">Simulacrum Orbita (2025)</a><span class="tooltip-text">A never-ending game of telephone between two AI models: one that sees, one that describes.</span></span></li>
+    <li><span class="link-with-tooltip"><a href="https://nikos.kourous.net/Flickr-Reflections">And in the Mist // Flickr Reflections (2025)</a><span class="tooltip-text">A back-and-forth between an image model that hallucinates and another that finds images online.</span></span></li>
+    <li><span class="link-with-tooltip"><a href="flickr-generative-collages">Generative found-image collages (2025)</a><span class="tooltip-text">Generative collages using machine vision and found online images.</span></span></li>
+    <li><span class="link-with-tooltip"><a href="and-i-image">And I image (2025)</a><span class="tooltip-text">Two computers transmitting to each other through image exchanges.</span></span></li>
+    <li><span class="link-with-tooltip"><a href="psychogeographic-navigation-device">Psychogeographical navigation device (2024)</a><span class="tooltip-text">A navigation device controlled by statistical randomness and abstract settings.</span></span></li>
+    <li><span class="link-with-tooltip"><a href="plant-scrolling-youtube">Plant scrolling on YouTube (2023)</a><span class="tooltip-text">A plant navigating YouTube using soil and light sensors.</span></span></li>
+    <li><span class="link-with-tooltip"><a href="field-sky-body-mind">Field, sky, body, mind (2022)</a><span class="tooltip-text">A short-film animation using a custom-built AI text-to-image model.</span></span></li>
+    <li><span class="link-with-tooltip"><a href="alone-floating">alone, floating (2022)</a><span class="tooltip-text">A short film combining 3D CGI and an early generative adversarial network.</span></span></li>
+    <li><span class="link-with-tooltip"><a href="3d-reconstruction-peckham">Rye Lane: a 3D archival exploration (2022)</a><span class="tooltip-text">A 3D exploration of Peckham's shops using archival Google Street View data.</span></span></li>
+    <li><span class="link-with-tooltip"><a href="i-feel-so-alone-in-this-house">i feel so alone in this house (2021)</a><span class="tooltip-text">A short film using an early generative adversarial network.</span></span></li>
+  </ul>
+</section>
 
-      <section>
-        <h2>Writing</h2>
-        <ul>
-          <li><a href="interview-tate.html">Interview on Tate Modern Tea + Tech Exchange Residency (2025)</a></li>
-          <li><a href="narration-writing.html">Audio narration transcript for 'then we sat for some time and observed' (2025)</a></li>
-          <li><a href="simu-proto-writing.html">Writing on a prototype of Simulacrum Orbita (2024)</a></li>
-          <li><a href="hyper-commercialization.html">Resisting hypercommercialization of digital media when working through computational mediums (2023)</a></li>
-          <li><a href="rat-writing.html">A robotic exploration into rats and altruistic behaviour in animals (2023)</a></li>
-          <li><a href="youtube-plant-writing.html">A plant browsing YouTube (2023)</a></li>
-          <li><a href="who-gets-credit.html">On 'Who Gets Credit for AI-Generated Art?' (2021)</a></li>
-        </ul>
-      </section>
-    </main>
+  <section>
+  <h2 style="cursor: pointer;" onclick="togglePeriphery()">
+    Peripheral work <span id="periphery-toggle">+</span>
+  </h2>
+  <ul id="periphery-list" class="collapsible" style="display: none; padding-left: 1rem;">
+    <li><span class="link-with-tooltip"><a href="maude-the-anti-chatbot">Maude, the anti-chatbot (2025)</a><span class="tooltip-text">A chatbot built as the polar opposite of Claude's system prompt.</span></span></li>
+    <li><span class="link-with-tooltip"><a href="local-llm-experiment"> Queries // I live \\ LLM experiment (2025)</a><span class="tooltip-text">An experiment with Meta's LLama 2 local large-language model.</span></span></li>
+    <li><span class="link-with-tooltip"><a href="photoshop-neural-animation-one"> I breathe // neural filter experimentation (2024)</a><span class="tooltip-text">Animation using Adobe Photoshop's AI transposing tools.</span></span></li>
+    <li><span class="link-with-tooltip"><a href="photoshop-neural-animation-two">Tree Swing // neural filter experimentation (2024)</a><span class="tooltip-text">AI animation using Photoshop neural filters.</span></span></li>
+    <li><span class="link-with-tooltip"><a href="pen-polygraph">Corrupted polygraph (2023)</a><span class="tooltip-text">A custom polygraph machine influenced by data from American prisons.</span></span></li>
+    <li><span class="link-with-tooltip"><a href="collaberative-ai-portrait">Collaborative AI self-portrait (2021)</a><span class="tooltip-text">A self-portrait made collaboratively with AI through dice-human computing.</span></span></li>
+    <li><span class="link-with-tooltip"><a href="gaugan-animations">GauGan early AI animations (2020)</a><span class="tooltip-text">Animations made with early generative image models using custom tools.</span></span></li>
+  </ul>
+</section>
 
-    <model-viewer
-      src="image_files/then-we-3d-object.glb"
-      auto-rotate
-      auto-rotate-delay="0"
-      camera-controls
-      interaction-prompt="none"
-      interaction-policy="always-allow"
-      touch-action="none"
-      exposure="0.6"
-      shadow-intensity="0"
-      zoom-extents="false"
-      style="
-        position: fixed;
-        right: 0;
-        top: 55%;
-        transform: translateY(-50%);
-        width: 50vw;
-        height: 50vw;
-        z-index: 1;
-        pointer-events: all;
-        overflow: visible;"
-      alt="3D object"
-      camera-orbit="0deg 70deg auto"
-    ></model-viewer>
+    <section>
+      <h2>Writing</h2>
+      <ul>
+        <li><a href="interview-tate.html">Interview on Tate Modern Tea + Tech Exchange Residency (2025)</a></li>
+        <li><a href="narration-writing.html">Audio narration transcript for 'then we sat for some time and observed' (2025)</a></li>
+        <li><a href="simu-proto-writing.html">Writing on a prototype of Simulacrum Orbita (2024)</a></li>
+        <li><a href="hyper-commercialization.html">Resisting hypercommercialization of digital media when working through computational mediums (2023)</a></li>
+        <li><a href="rat-writing.html">A robotic exploration into rats and altruistic behaviour in animals (2023)</a></li>
+        <li><a href="youtube-plant-writing.html">A plant browsing YouTube (2023)</a></li>
+        <li><a href="who-gets-credit.html">On 'Who Gets Credit for AI-Generated Art?' (2021)</a></li>
 
-    <div id="object-tooltip">Then we sat for some time and observed (2025)</div>
-  </div>
 
-  <!-- =========================
-       WEB VIEW (NEW VERSION)
-       ========================= -->
-  <div id="view-web">
-    <div class="page" id="page">
-      <!-- connection layer -->
-      <svg id="connections" aria-hidden="true"></svg>
+      </ul>
+    </section>
+  </main>
+<button id="night-mode-toggle" class="night-toggle-btn">🌙</button>
 
-      <!-- objects injected here -->
-      <nav id="seoLinks" class="seo-links" aria-label="Site links">
-        <ul id="seoLinksList"></ul>
-      </nav>
-    </div>
+<script>
+  const links = document.querySelectorAll("ul li a");
 
-    <div id="debugHud">
-      <button id="captureLayoutBtn" type="button">Capture layout</button>
-      <div class="hint">
-        Debug manual layout is ON.<br/>
-        Drag images into place, then click Capture.
-      </div>
-    </div>
-  </div>
+  links.forEach(link => {
+    function jitter() {
+      const x = Math.floor(Math.random() * 3) - 1; // -1, 0, or 1
+      const y = Math.floor(Math.random() * 3) - 1;
+      link.style.transform = `translate(${x}px, ${y}px)`;
 
-  <!-- =========================
-       TOGGLES (SHARED)
-       ========================= -->
-  <div class="toggle-stack" aria-label="Site controls">
-    <button id="view-mode-toggle" class="site-toggle-btn" type="button">Simple View</button>
-    <button id="night-mode-toggle" class="site-toggle-btn" type="button">Night Mode</button>
-  </div>
 
-  <!-- =========================
-       SHARED JS: view logic + night mode
-       ========================= -->
-  <script>
-    (function(){
-      const PHONE_MQ = window.matchMedia("(max-width: 767px)");
-
-      const viewToggleBtn = document.getElementById("view-mode-toggle");
-      const nightToggleBtn = document.getElementById("night-mode-toggle");
-
-      function setView(view){
-        document.body.dataset.view = view;
-
-        // web-only grab cursor (your web JS toggles body.grab-pan; but only meaningful in web view)
-        if (view !== "web"){
-          document.body.classList.remove("grab-pan", "panning");
-        }
-
-        // toggle label behavior:
-        // - When in web view: show "Simple View"
-        // - When in simple view: show "Default View" (goes back to web)
-        if (viewToggleBtn){
-          viewToggleBtn.textContent = (view === "web") ? "Simple View" : "Default View";
-        }
-
-        // on phones, view toggle hidden by CSS; still set text for consistency
-      }
-
-      function defaultViewForDevice(){
-        // phones => simple, everything else (tablet/desktop) => web
-        return PHONE_MQ.matches ? "simple" : "web";
-      }
-
-      function initView(){
-        // per your instruction: Default View goes back to web (the default),
-        // so we store explicit preferredView when user uses the toggle.
-        const saved = localStorage.getItem("preferredView"); // "web" | "simple" | null
-
-        if (saved === "web" || saved === "simple"){
-          setView(saved);
-        } else {
-          setView(defaultViewForDevice());
-        }
-
-        // Non-phone only: show view toggle (CSS hides on phones anyway)
-        // (No extra JS needed.)
-      }
-
-      function wireViewToggle(){
-        if (!viewToggleBtn) return;
-
-        viewToggleBtn.addEventListener("click", function(){
-          const current = document.body.dataset.view || defaultViewForDevice();
-
-          if (current === "web"){
-            // switch to simple + remember preference
-            localStorage.setItem("preferredView", "simple");
-            setView("simple");
-          } else {
-            // "Default View" => go back to web (default)
-            localStorage.setItem("preferredView", "web");
-            setView("web");
-          }
-        });
-
-        // If device class changes (e.g., resize), only apply default behavior
-        // when user hasn't explicitly chosen a view yet.
-        PHONE_MQ.addEventListener("change", function(){
-          const saved = localStorage.getItem("preferredView");
-          if (saved === "web" || saved === "simple") return;
-          setView(defaultViewForDevice());
-        });
-      }
-
-      function applyNightModeFromStorage(){
-        const isNightMode = localStorage.getItem("nightMode") === "true";
-        if (isNightMode) {
-          document.body.classList.add("night-mode");
-          document.documentElement.classList.add("night-mode"); // <-- add
-        } else {
-          document.body.classList.remove("night-mode");
-          document.documentElement.classList.remove("night-mode"); // <-- add
-        }
-
-        if (nightToggleBtn){
-          nightToggleBtn.textContent = isNightMode ? "Light Mode" : "Night Mode";
-        }
-      }
-
-      function wireNightToggle(){
-        if (!nightToggleBtn) return;
-        nightToggleBtn.addEventListener("click", function(){
-          const nowNight = document.body.classList.toggle("night-mode");
-          document.documentElement.classList.toggle("night-mode", nowNight); // <-- add
-
-          localStorage.setItem("nightMode", nowNight);
-          nightToggleBtn.textContent = nowNight ? "Light Mode" : "Night Mode";
-
-        });
-      }
-
-      document.addEventListener("DOMContentLoaded", function(){
-        initView();
-        wireViewToggle();
-        applyNightModeFromStorage();
-        wireNightToggle();
-      });
-    })();
-  </script>
-
-  <!-- =========================
-       SIMPLE VIEW JS (old, unchanged except runs safely)
-       ========================= -->
-  <script>
-    // Periphery toggle (simple)
-    function togglePeriphery() {
-      const list = document.getElementById("periphery-list");
-      const toggle = document.getElementById("periphery-toggle");
-      if (!list || !toggle) return;
-
-      const isVisible = list.style.display === "block";
-
-      if (isVisible) {
-        list.classList.remove("show");
-        setTimeout(() => { list.style.display = "none"; }, 300);
-        toggle.textContent = "+";
-      } else {
-        list.style.display = "block";
-        requestAnimationFrame(() => list.classList.add("show"));
-        toggle.textContent = "−";
-      }
+      // schedule next jitter in 10–20s
+      const delay = Math.random() * 100000 + 1000000; // 10000–20000ms
+      setTimeout(jitter, delay);
     }
 
-    // Link jitter (simple) - only apply when simple view exists (it always does), harmless if hidden
-    (function(){
-      const viewSimple = document.getElementById("view-simple");
-      if (!viewSimple) return;
+    jitter();
+  });
+</script>
+<div id="computer-viewer" style="
+  position: fixed;
+  right: 0;
+  top: 55%;
+  transform: translateY(-50%);
+  width: 60vw;
+  height: 50vw;
+  z-index: 1;
+  pointer-events: all;
+"></div>
 
-      const links = viewSimple.querySelectorAll("ul li a");
-      links.forEach(link => {
-        function jitter() {
-          const x = Math.floor(Math.random() * 3) - 1;
-          const y = Math.floor(Math.random() * 3) - 1;
-          link.style.transform = `translate(${x}px, ${y}px)`;
-          const delay = Math.random() * 100000 + 1000000;
-          setTimeout(jitter, delay);
-        }
-        jitter();
-      });
-    })();
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
 
-    // Mobile-only: show/hide toggle stack buttons on interaction for simple view, but only on phones
-    (function(){
-      const mq = window.matchMedia("(max-width: 767px)");
-      const nightBtn = document.getElementById("night-mode-toggle");
-      if (!nightBtn) return;
+<script type="module">
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
-      let hideTimeout;
+const container = document.getElementById('computer-viewer');
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+renderer.setPixelRatio(window.devicePixelRatio);
+renderer.setSize(container.clientWidth, container.clientHeight);
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+container.appendChild(renderer.domElement);
 
-      function showButton(){
-        nightBtn.classList.add("visible");
-        clearTimeout(hideTimeout);
-        hideTimeout = setTimeout(() => {
-          nightBtn.classList.remove("visible");
-        }, 3000);
-      }
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 100);
+camera.position.set(0, 0, 5);
 
-      function enableIfPhone(){
-        if (!mq.matches) {
-          nightBtn.classList.remove("visible");
-          return;
-        }
+const ambientLight = new THREE.AmbientLight(0xffffff, 1.5);
+scene.add(ambientLight);
+const dirLight = new THREE.DirectionalLight(0xffffff, 2);
+dirLight.position.set(5, 5, 5);
+scene.add(dirLight);
 
-        window.addEventListener("scroll", showButton, { passive: true });
-        window.addEventListener("touchstart", showButton, { passive: true });
-      }
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableZoom = true;
+controls.enableDamping = true;
+controls.dampingFactor = 0.05;
+controls.zoomSpeed = 0.08;
+controls.minDistance = 2;
+controls.maxDistance = 14;
+controls.enablePan = true;
+controls.autoRotate = false;
+controls.target.set(0, 0, 0);
 
-      // Only activate on phones
-      enableIfPhone();
-    })();
-  </script>
+const originalCameraPos = camera.position.clone();
+const originalTarget = new THREE.Vector3(0, 0, 0);
+let returnTimeout = null;
+let isReturning = false;
 
-  <!-- =========================
-       WEB VIEW JS (new version, moved as-is; only small safe fixes)
-       ========================= -->
-  <script>
-    /**
-     * ============================================================
-     * EDITABLE LAYOUT SECTION
-     * ============================================================
-     */
-    const LAYOUT_CONFIG = {
-      text: {
-        title:   { x: 40,  y: 40,  scale: 1.00, label: "Nikos Antonio Kourous Vázquez ", className: "big" },
-        about:   { x: 520, y: 170, scale: 1.00, label: "about me",     className: "h1 linklike" },
-        work:    { x: 260, y: 300, scale: 1.00, label: "work",         className: "h1 linklike" },
-        writing: { x: 0,   y: 300, scale: 1.00, label: "writing",      className: "h11 linklike" },
-        contact: { x: 820, y: 120, scale: 1.00, label: "contact",      className: "h11 linklike" },
-        phreak:  { x: 660, y: 300, scale: 1.00, label: "phreaking collective", className: "h1" }
-      },
+controls.addEventListener('start', () => {
+  isReturning = false;
+  clearTimeout(returnTimeout);
+});
+controls.addEventListener('end', () => {
+  clearTimeout(returnTimeout);
+  returnTimeout = setTimeout(() => { isReturning = true; }, 3000);
+});
 
-      writingPositions: {
-        1: { x: -75,  y: 420, scale: 1.00 },
-        2: { x: -250, y: 500, scale: 1.00 },
-        3: { x: -50,  y: 559, scale: 1.00 }
-      },
+// === SLIDESHOW ===
+const screenCanvas = document.createElement('canvas');
+screenCanvas.width = 1024;
+screenCanvas.height = 768;
+const ctx = screenCanvas.getContext('2d');
+const screenTexture = new THREE.CanvasTexture(screenCanvas);
+ctx.fillStyle = '#000';
+ctx.fillRect(0, 0, 1024, 768);
 
-      autoLayout: {
-        latestYearAnchor: { x: 340, y: 420 },
-        bounds: { leftX: 120, rightX: 1300 },
-        step: { x: 450, y: 150 },
-        startDirection: +1
-      }
-    };
+const SLIDE_DURATION = 5000;
+const FADE_DURATION  = 800;
+let slideImages  = [];
+let currentIndex = 0;
+let fromImg      = null;
+let toImg        = null;
+let isFading     = false;
+let fadeStart    = 0;
 
-    const JSON_URL = "homepage-images.json";
-    const WRITING_JSON_URL = "homepage-writing.json";
-    const IMAGE_LAYOUT_JSON_URL = "homepage-images-layout.json";
+function coverDraw(img, alpha) {
+  if (!img) return;
+  const s = Math.max(screenCanvas.width / img.width, screenCanvas.height / img.height);
+  const w = img.width * s;
+  const h = img.height * s;
+  ctx.globalAlpha = alpha;
+  ctx.drawImage(img, (screenCanvas.width - w) / 2, (screenCanvas.height - h) / 2, w, h);
+  ctx.globalAlpha = 1;
+}
 
-    const ICON_URL = "https://nikos.kourous.net/image_files/website-icons/x-icon.png";
-    const PHREAK_LOGO_URL = "https://nikos.kourous.net/image_files/phreaking/PhreakingLogoWhite.png";
+function drawSlide(ts) {
+  if (!fromImg) return;
+  ctx.fillStyle = '#000';
+  ctx.fillRect(0, 0, screenCanvas.width, screenCanvas.height);
+  if (isFading && toImg) {
+    const t = Math.min((ts - fadeStart) / FADE_DURATION, 1);
+    coverDraw(fromImg, 1 - t);
+    coverDraw(toImg, t);
+    if (t >= 1) { fromImg = toImg; toImg = null; isFading = false; }
+  } else {
+    coverDraw(fromImg, 1);
+  }
+  screenTexture.needsUpdate = true;
+}
 
-    const LAYOUT_OUTPUT_FILENAME = "homepage-images-layout.json";
-    const DEBUG_MANUAL_LAYOUT = true;
+function loadImg(src) {
+  return new Promise(resolve => {
+    const img = new Image();
+    img.crossOrigin = 'anonymous';
+    img.onload  = () => resolve(img);
+    img.onerror = () => resolve(null);
+    img.src = src;
+  });
+}
 
-    const SAMPLE_WRITING_JSON = {
-      "homepage-writing": [
-        { "title": "Writing 1", "year": 2026, "number": 1, "image_path": "no image", "description": "no description" },
-        { "title": "Writing 2", "year": 2025, "number": 2, "image_path": "no image", "description": "no description" },
-        { "title": "Writing 3", "year": 2024, "number": 3, "image_path": "no image", "description": "no description" }
-      ]
-    };
+async function advanceSlide() {
+  currentIndex = (currentIndex + 1) % slideImages.length;
+  const next = await loadImg(slideImages[currentIndex]);
+  if (next) { toImg = next; fadeStart = performance.now(); isFading = true; }
+  setTimeout(advanceSlide, SLIDE_DURATION);
+}
 
-    const SAMPLE_JSON = {
-      "homepage-images": [
-        {
-          "title": "Synthetic Horizon",
-          "year": 2026,
-          "number": 1,
-          "image_path": "images/image1.jpg",
-          "description": "A generative landscape exploring algorithmic light and spatial ambiguity."
-        },
-        {
-          "title": "Residual Memory",
-          "year": 2025,
-          "number": 2,
-          "image_path": "images/image2.jpg",
-          "description": "An examination of machine recall, where fragments accumulate into unstable visual memory."
-        },
-        {
-          "title": "Signal Bloom",
-          "year": 2024,
-          "number": 3,
-          "image_path": "images/image3.jpg",
-          "description": "Emergent structures unfold from layered noise, suggesting organic growth within digital systems."
-        }
-      ]
-    };
+async function startSlideshow(paths) {
+  slideImages = paths;
+  if (!slideImages.length) return;
+  fromImg = await loadImg(slideImages[0]);
+  setTimeout(advanceSlide, SLIDE_DURATION);
+}
 
-    const pageEl = document.getElementById("page");
-    const svgEl  = document.getElementById("connections");
+fetch('/image_files/slideshow/list.php')
+  .then(r => r.json())
+  .then(startSlideshow);
+// === END SLIDESHOW ===
 
-    const objects = new Map();
-    let connections = [];
-    let mainAutoPositions = new Map();
+const dracoLoader = new DRACOLoader();
+dracoLoader.setDecoderPath('https://www.gstatic.com/draco/versioned/decoders/1.5.6/');
+const loader = new GLTFLoader();
+loader.setDRACOLoader(dracoLoader);
 
-    function getLeftGutterPx(){
-      const v = getComputedStyle(document.documentElement).getPropertyValue("--left-gutter").trim();
-      return Number(v.replace("px","")) || 0;
+loader.load('image_files/homepage-computer.glb', (gltf) => {
+  scene.add(gltf.scene);
+
+  const box = new THREE.Box3().setFromObject(gltf.scene);
+  const center = box.getCenter(new THREE.Vector3());
+  const size = box.getSize(new THREE.Vector3());
+  const maxDim = Math.max(size.x, size.y, size.z);
+  const scale = 4 / maxDim;
+
+  gltf.scene.rotation.x = 0.3;
+  gltf.scene.rotation.y = 4.1;
+  gltf.scene.rotation.z = 0;
+
+  gltf.scene.scale.setScalar(scale);
+  gltf.scene.position.sub(center.multiplyScalar(scale));
+  gltf.scene.position.y += 0.7;
+  gltf.scene.position.x += 0.0;
+
+  gltf.scene.traverse((node) => {
+    if (node.isMesh && node.name === 'monitor_screen') {
+      node.material = new THREE.MeshBasicMaterial({ map: screenTexture });
     }
+  });
+});
 
-    function cssPx(varName){
-        const v = getComputedStyle(document.documentElement).getPropertyValue(varName).trim();
-        const n = Number(v.replace("px",""));
-        return Number.isFinite(n) ? n : 0;
+window.addEventListener('resize', () => {
+  renderer.setSize(container.clientWidth, container.clientHeight);
+  camera.aspect = container.clientWidth / container.clientHeight;
+  camera.updateProjectionMatrix();
+});
+
+function animate() {
+  requestAnimationFrame(animate);
+  if (fromImg) drawSlide(performance.now());
+  if (isReturning) {
+    camera.position.lerp(originalCameraPos, 0.002);
+    controls.target.lerp(originalTarget, 0.04);
+    if (camera.position.distanceTo(originalCameraPos) < 0.005) {
+      camera.position.copy(originalCameraPos);
+      controls.target.copy(originalTarget);
+      isReturning = false;
     }
+  }
+  controls.update();
+  renderer.render(scene, camera);
+}
+animate();
+</script>
+
+
+
+<script>
+
+function togglePeriphery() {
+  const list = document.getElementById("periphery-list");
+  const toggle = document.getElementById("periphery-toggle");
+
+  const isVisible = list.style.display === "block";
+
+  if (isVisible) {
+    list.classList.remove("show");
+    setTimeout(() => { list.style.display = "none"; }, 300); // allow animation to complete
+    toggle.textContent = "+";
+  } else {
+    list.style.display = "block";
+    // wait a frame before adding .show so transition triggers
+    requestAnimationFrame(() => list.classList.add("show"));
+    toggle.textContent = "−";
+  }
+}
+</script> 
+
+
+
+<script>
+// Check for saved night mode preference on page load
+document.addEventListener('DOMContentLoaded', function() {
+  const isNightMode = localStorage.getItem('nightMode') === 'true';
+  const toggleBtn = document.getElementById('night-mode-toggle');
+  
+  if (isNightMode) {
+    document.body.classList.add('night-mode');
+    toggleBtn.textContent = 'Light Mode';
+  } else {
+    toggleBtn.textContent = 'Night Mode';
+  }
+});
+
+// Toggle night mode and save preference
+document.getElementById('night-mode-toggle').addEventListener('click', function() {
+  const isNightMode = document.body.classList.toggle('night-mode');
+  
+  // Save preference to localStorage
+  localStorage.setItem('nightMode', isNightMode);
+  
+  // Update button text
+  this.textContent = isNightMode ? 'Light Mode' : 'Night Mode';
+});
+</script>
+<script>
+// Only apply on mobile
+if (window.matchMedia("(max-width: 767px)").matches) {
+  const nightBtn = document.getElementById('night-mode-toggle');
+  let hideTimeout;
+
+  function showButton() {
+    // Show the button
+    nightBtn.classList.add('visible');
+
+    // Clear any previous hide timer
+    clearTimeout(hideTimeout);
+
+    // Hide again after 3 seconds
+    hideTimeout = setTimeout(() => {
+      nightBtn.classList.remove('visible');
+    }, 3000);
+  }
+
+  // Show on scroll or touch
+  window.addEventListener('scroll', showButton, { passive: true });
+  window.addEventListener('touchstart', showButton, { passive: true });
+}
+
+
+</script>
 
-    function ensureHoverInner(el){
-      if (el.querySelector(":scope > .hover-inner")) return;
-      const inner = document.createElement("div");
-      inner.className = "hover-inner";
-      while (el.firstChild){
-        inner.appendChild(el.firstChild);
-      }
-      el.appendChild(inner);
-    }
-        
-
-    function clamp(n, a, b){ return Math.max(a, Math.min(b, n)); }
-
-    function getObjectCenterInPage(objEl){
-      const pageRect = pageEl.getBoundingClientRect();
-      const r = objEl.getBoundingClientRect();
-      return {
-        x: (r.left - pageRect.left) + (r.width / 2),
-        y: (r.top  - pageRect.top)  + (r.height / 2)
-      };
-    }
-
-    function setPageHeightToFitContent(){
-      let maxBottom = 0;
-      for (const [, obj] of objects){
-        const r = obj.el.getBoundingClientRect();
-        const pageRect = pageEl.getBoundingClientRect();
-        const bottom = (r.bottom - pageRect.top);
-        maxBottom = Math.max(maxBottom, bottom);
-      }
-      pageEl.style.minHeight = Math.max(1080, Math.ceil(maxBottom + 360)) + "px";
-    }
-
-    function applyTransform(obj){
-      const x = obj.state.x;
-      const y = obj.state.y;
-      obj.el.style.transform = `translate(${x}px, ${y}px) scale(${obj.state.scale})`;
-    }
-
-    function registerDraggable({ id, el, type, origin }){
-      el.classList.add("draggable");
-      ensureHoverInner(el);
-      el.dataset.objId = id;
-
-      const state = { x: origin.x, y: origin.y, vx: 0, vy: 0, scale: origin.scale ?? 1 };
-
-      objects.set(id, {
-        id, el, type,
-        origin: { ...origin },
-        state,
-        dragging: false,
-        pointerId: null,
-        dragOffset: { x: 0, y: 0 }
-      });
-
-      if (el.tagName === "A"){
-        applyDragClickGuard(el, () => objects.get(id)?.dragging);
-      }
-
-      applyTransform(objects.get(id));
-      wireDragHandlers(id);
-    }
-
-    function wireDragHandlers(id){
-      const obj = objects.get(id);
-      const el = obj.el;
-
-      el.addEventListener("pointerdown", (e) => {
-        e.preventDefault();
-        el.setPointerCapture(e.pointerId);
-
-        const pageRect = pageEl.getBoundingClientRect();
-        const pointerX = e.clientX - pageRect.left;
-        const pointerY = e.clientY - pageRect.top;
-
-        obj.dragging = true;
-        obj.pointerId = e.pointerId;
-        obj.state.vx = 0;
-        obj.state.vy = 0;
-
-        obj.dragOffset.x = pointerX - obj.state.x;
-        obj.dragOffset.y = pointerY - obj.state.y;
-
-        el.classList.add("dragging");
-      });
-
-      let lastDebugLogT = 0;
-
-      el.addEventListener("pointermove", (e) => {
-        if (!obj.dragging || obj.pointerId !== e.pointerId) return;
-
-        const pageRect = pageEl.getBoundingClientRect();
-        const pointerX = e.clientX - pageRect.left;
-        const pointerY = e.clientY - pageRect.top;
-
-        obj.state.x = pointerX - obj.dragOffset.x;
-        obj.state.y = pointerY - obj.dragOffset.y;
-
-        applyTransform(obj);
-
-        if (DEBUG_MANUAL_LAYOUT){
-          const now = performance.now();
-          if (now - lastDebugLogT > 180){
-            lastDebugLogT = now;
-            console.log(`[move] ${obj.id}`, {
-              x: Math.round(obj.state.x),
-              y: Math.round(obj.state.y),
-              scale: obj.state.scale
-            });
-          }
-        }
-      });
-
-      function endDrag(e){
-        if (!obj.dragging || obj.pointerId !== e.pointerId) return;
-
-        obj.dragging = false;
-        obj.pointerId = null;
-        el.classList.remove("dragging");
-
-        if (DEBUG_MANUAL_LAYOUT){
-          obj.origin.x = obj.state.x;
-          obj.origin.y = obj.state.y;
-
-          console.log(`[drop] ${obj.id}`, {
-            x: Math.round(obj.state.x),
-            y: Math.round(obj.state.y),
-            scale: obj.state.scale
-          });
-        }
-      }
-
-      el.addEventListener("pointerup", endDrag);
-      el.addEventListener("pointercancel", endDrag);
-      el.addEventListener("lostpointercapture", () => {
-        obj.dragging = false;
-        obj.pointerId = null;
-        el.classList.remove("dragging");
-      });
-    }
-
-    function applyDragClickGuard(anchorEl, getIsDraggingFn){
-      let downX = 0, downY = 0, moved = false;
-
-      anchorEl.addEventListener("pointerdown", (e) => {
-        downX = e.clientX;
-        downY = e.clientY;
-        moved = false;
-      });
-
-      anchorEl.addEventListener("pointermove", (e) => {
-        if (moved) return;
-        const dx = Math.abs(e.clientX - downX);
-        const dy = Math.abs(e.clientY - downY);
-        if (dx > 6 || dy > 6) moved = true;
-      });
-
-      anchorEl.addEventListener("click", (e) => {
-        if (moved || (typeof getIsDraggingFn === "function" && getIsDraggingFn())){
-          e.preventDefault();
-          e.stopPropagation();
-        }
-      });
-    }
-
-    function createTextBox({ id, text, className }){
-      const el = document.createElement("div");
-      el.className = `text-box ${className}`;
-      el.textContent = text;
-      pageEl.appendChild(el);
-      return el;
-    }
-
-    function createTextBoxLink({ id, text, className, href }){
-      const el = document.createElement("a");
-      el.className = `text-box text-box-link ${className}`;
-      el.href = href || "#";
-      el.textContent = text;
-      pageEl.appendChild(el);
-      return el;
-    }
-
-    function createImageCard({ id, item }){
-      const wrap = document.createElement("a");
-      wrap.className = "image-card";
-      wrap.style.position = "absolute";
-      wrap.href = item.url || "#";
-      wrap.setAttribute("aria-label", item.title);
-
-      const border = document.createElement("div");
-      border.className = "inner-border";
-
-      const titlebar = document.createElement("div");
-      titlebar.className = "titlebar";
-      titlebar.innerHTML = `<div class="titlebar-text">${escapeHtml(item.title)}</div>`;
-
-      const img = document.createElement("img");
-      img.src = item.image_path;
-      img.alt = item.title;
-
-      const icon = document.createElement("img");
-      icon.className = "corner-icon";
-      icon.src = ICON_URL;
-      icon.alt = "";
-
-      if (hasRealDescription(item.description)){
-        const overlay = document.createElement("div");
-        overlay.className = "overlay";
-        overlay.innerHTML = `
-          <div class="overlay-inner">
-            <div class="title">${escapeHtml(item.title)}</div>
-            <div class="desc">${escapeHtml(item.description)}</div>
-            <div class="meta">${escapeHtml(String(item.year))} · no. ${escapeHtml(String(item.number))}</div>
-          </div>
-        `;
-        wrap.appendChild(overlay);
-      }
-
-      wrap.appendChild(img);
-      wrap.appendChild(border);
-      wrap.appendChild(titlebar);
-      wrap.appendChild(icon);
-
-      pageEl.appendChild(wrap);
-      return wrap;
-    }
-
-    function createHomepageImageTextOnly({ labelText, url }){
-      const el = document.createElement("a");
-      el.className = "text-box h3 text-box-link";
-      el.href = url || "#";
-      el.textContent = labelText;
-      pageEl.appendChild(el);
-      return el;
-    }
-
-    function createWritingObject({ labelText, imagePath, descriptionText, url }){
-      const el = document.createElement("a");
-      el.className = "text-box writing-header text-box-link";
-      el.href = url || "#";
-      el.textContent = labelText;
-      pageEl.appendChild(el);
-      return el;
-    }
-
-    function isNoImage(val){
-      return !val || String(val).trim().toLowerCase() === "no image";
-    }
-
-    function hasRealDescription(val){
-      if (!val) return false;
-      const s = String(val).trim().toLowerCase();
-      return s !== "" && s !== "no description";
-    }
-    
-
-    function createLogoCard({ labelText, imagePath, descriptionText,href }){
-      // const wrap = document.createElement("figure");
-      const wrap = document.createElement("a");
-      wrap.href = href;
-      wrap.target = "_blank";
-      wrap.rel = "noopener noreferrer";
-      wrap.className = "image-card";
-      wrap.style.position = "absolute";
-      wrap.setAttribute("aria-label", labelText);
-
-      wrap.className = "image-card";
-      wrap.style.position = "absolute";
-      wrap.setAttribute("aria-label", labelText);
-
-      const link = document.createElement("a");
-      link.href = href;
-      link.className = "card-link";
-      link.setAttribute("aria-label", labelText);
-
-      const img = document.createElement("img");
-      img.src = imagePath;
-      img.alt = labelText;
-
-      const icon = document.createElement("img");
-      icon.className = "corner-icon";
-      icon.src = ICON_URL;
-      icon.alt = "";
-
-      const overlay = document.createElement("div");
-      overlay.className = "overlay";
-      overlay.innerHTML = `
-        <div class="overlay-inner">
-          <div class="title">${escapeHtml(labelText)}</div>
-          <div class="desc">${escapeHtml(descriptionText)}</div>
-        </div>
-      `;
-
-      const caption = document.createElement("figcaption");
-      caption.className = "visually-hidden";
-      caption.textContent = labelText;
-
-      // wrap.appendChild(img);
-      // wrap.appendChild(overlay);
-      // wrap.appendChild(icon);
-      // wrap.appendChild(caption);
-
-      link.appendChild(img);
-      link.appendChild(overlay);
-      link.appendChild(icon);
-      link.appendChild(caption);
-
-      wrap.appendChild(link);
-
-
-      pageEl.appendChild(wrap);
-      return wrap;
-    }
-
-    function escapeHtml(str){
-      return String(str)
-        .replaceAll("&","&amp;")
-        .replaceAll("<","&lt;")
-        .replaceAll(">","&gt;")
-        .replaceAll('"',"&quot;")
-        .replaceAll("'","&#039;");
-    }
-
-    function rebuildSvgLines(){
-      while (svgEl.firstChild) svgEl.removeChild(svgEl.firstChild);
-
-      for (const c of connections){
-        const fromObj = objects.get(c.fromId);
-        const toObj   = objects.get(c.toId);
-        if (!fromObj || !toObj) continue;
-
-        const a = getObjectCenterInPage(fromObj.el);
-        const b = getObjectCenterInPage(toObj.el);
-
-        const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
-        line.setAttribute("x1", a.x);
-        line.setAttribute("y1", a.y);
-        line.setAttribute("x2", b.x);
-        line.setAttribute("y2", b.y);
-
-        line.setAttribute("stroke", "currentColor");
-        line.setAttribute("stroke-width", getComputedStyle(document.documentElement).getPropertyValue("--line-stroke").trim() || "2");
-        line.setAttribute("stroke-dasharray", getComputedStyle(document.documentElement).getPropertyValue("--line-dash").trim() || "2 10");
-
-        svgEl.appendChild(line);
-      }
-    }
-
-    async function loadData(){
-      try{
-        const res = await fetch(JSON_URL, { cache: "no-store" });
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        return await res.json();
-      }catch(err){
-        console.warn("Could not fetch homepage-images.json. Falling back to embedded JSON.", err);
-        return SAMPLE_JSON;
-      }
-    }
-
-    async function loadWritingData(){
-      try{
-        const res = await fetch(WRITING_JSON_URL, { cache: "no-store" });
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        return await res.json();
-      }catch(err){
-        console.warn("Could not fetch homepage-writing.json. Falling back to embedded writing JSON.", err);
-        return SAMPLE_WRITING_JSON;
-      }
-    }
-
-    async function loadImageLayoutData(){
-      try{
-        const res = await fetch(IMAGE_LAYOUT_JSON_URL, { cache: "no-store" });
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        return await res.json();
-      }catch(err){
-        console.warn("No homepage-images-layout.json found (or fetch blocked). Using generative layout.", err);
-        return null;
-      }
-    }
-
-    function sortAndGroup(items){
-      const byYear = new Map();
-      for (const it of items){
-        const y = Number(it.year);
-        if (!byYear.has(y)) byYear.set(y, []);
-        byYear.get(y).push(it);
-      }
-      for (const [y, arr] of byYear){
-        arr.sort((a,b) => Number(a.number) - Number(b.number));
-      }
-      const years = Array.from(byYear.keys()).sort((a,b) => b - a);
-      return { years, byYear };
-    }
-
-    function ensureDefaultYearPosition(year, index){
-      const id = `year:${year}`;
-      if (LAYOUT_CONFIG.yearPositions && LAYOUT_CONFIG.yearPositions[year]){
-        return LAYOUT_CONFIG.yearPositions[year];
-      }
-      if (mainAutoPositions.has(id)) return mainAutoPositions.get(id);
-      return { x: 340, y: 420 + index * 150, scale: 1.0 };
-    }
-
-    function ensureDefaultImagePosition(number, index){
-      const id = `img:${number}`;
-      if (LAYOUT_CONFIG.imagePositions && LAYOUT_CONFIG.imagePositions[number]){
-        return LAYOUT_CONFIG.imagePositions[number];
-      }
-      if (mainAutoPositions.has(id)) return mainAutoPositions.get(id);
-      return { x: 600, y: 520 + index * 150, scale: 1.0 };
-    }
-
-    function ensureDefaultWritingPosition(number, index){
-      if (LAYOUT_CONFIG.writingPositions && LAYOUT_CONFIG.writingPositions[number]) return LAYOUT_CONFIG.writingPositions[number];
-      const baseX = 80;
-      const baseY = 420;
-      const y = baseY + index * 38;
-      const x = baseX + (index % 2 === 0 ? 0 : 12);
-      return { x, y, scale: 1.0 };
-    }
-
-    function generateZigZagPositions(nodeIds, config){
-      const positions = new Map();
-      const leftX = config.bounds.leftX;
-      const rightX = config.bounds.rightX;
-      const stepX = config.step.x;
-      const stepY = config.step.y;
-
-      let x = config.latestYearAnchor.x;
-      let y = config.latestYearAnchor.y;
-      let dir = config.startDirection ?? +1;
-
-      for (let i = 0; i < nodeIds.length; i++){
-        const id = nodeIds[i];
-        positions.set(id, { x, y, scale: 1.0 });
-
-        const nextX = x + (dir * stepX);
-
-        if (nextX > rightX || nextX < leftX){
-          y += stepY;
-          dir *= -1;
-          const flippedX = x + (dir * stepX);
-          x = Math.max(leftX, Math.min(rightX, flippedX));
-        } else {
-          x = nextX;
-        }
-      }
-      return positions;
-    }
-
-    function buildMainNodeOrder({ years, byYear }){
-      const nodeIds = [];
-      for (const year of years){
-        nodeIds.push(`year:${year}`);
-        const arr = byYear.get(year) || [];
-        for (const it of arr){
-          nodeIds.push(`img:${it.number}`);
-        }
-      }
-      return nodeIds;
-    }
-
-    function buildConnections({ years, byYear, writingItems }){
-      connections = [];
-
-      const titleId = "text:title";
-      const aboutId = "text:about";
-      const workId  = "text:work";
-      const phreakId = "text:phreak";
-
-      connections.push({ fromId: titleId, toId: aboutId });
-      connections.push({ fromId: titleId, toId: workId });
-      connections.push({ fromId: titleId, toId: "text:contact" });
-
-      connections.push({ fromId: workId, toId: phreakId });
-      if (years.length){
-        connections.push({ fromId: workId, toId: `year:${years[0]}` });
-      }
-
-      connections.push({ fromId: "text:title", toId: "text:writing" });
-
-      if (Array.isArray(writingItems) && writingItems.length){
-        const orderedWriting = [...writingItems].sort((a,b) => Number(a.number) - Number(b.number));
-        connections.push({ fromId: "text:writing", toId: `writing:${orderedWriting[0].number}` });
-        for (let i = 0; i < orderedWriting.length - 1; i++){
-          connections.push({ fromId: `writing:${orderedWriting[i].number}`, toId: `writing:${orderedWriting[i+1].number}` });
-        }
-      }
-
-      for (let yi = 0; yi < years.length; yi++){
-        const year = years[yi];
-        const arr = byYear.get(year) || [];
-        if (arr.length){
-          connections.push({ fromId: `year:${year}`, toId: `img:${arr[0].number}` });
-        }
-
-        for (let i = 0; i < arr.length - 1; i++){
-          connections.push({ fromId: `img:${arr[i].number}`, toId: `img:${arr[i+1].number}` });
-        }
-
-        if (yi < years.length - 1 && arr.length){
-          const last = arr[arr.length - 1];
-          const nextYear = years[yi + 1];
-          connections.push({ fromId: `img:${last.number}`, toId: `year:${nextYear}` });
-        }
-      }
-    }
-
-    function buildImageLayoutMap(layoutJson){
-      const map = new Map();
-      const root = layoutJson?.["homepage-layout"];
-      const arr = root?.images;
-      if (!Array.isArray(arr)) return map;
-
-      for (const entry of arr){
-        if (!entry || !entry.title) continue;
-        map.set(String(entry.title).trim(), {
-          x: Number(entry.x) || 0,
-          y: Number(entry.y) || 0,
-          scale: (entry.scale == null) ? 1 : Number(entry.scale)
-        });
-      }
-      return map;
-    }
-
-    function buildYearLayoutMap(layoutJson){
-      const map = new Map();
-      const root = layoutJson?.["homepage-layout"];
-      const arr = root?.years;
-      if (!Array.isArray(arr)) return map;
-
-      for (const entry of arr){
-        const y = Number(entry.year);
-        if (Number.isNaN(y)) continue;
-        map.set(y, {
-          x: Number(entry.x) || 0,
-          y: Number(entry.y) || 0,
-          scale: (entry.scale == null) ? 1 : Number(entry.scale)
-        });
-      }
-      return map;
-    }
-
-    function buildMovablesLayoutMap(layoutJson){
-      const map = new Map();
-      const root = layoutJson?.["homepage-layout"];
-      const arr = root?.movables;
-      if (!Array.isArray(arr)) return map;
-
-      for (const entry of arr){
-        if (!entry || !entry.id) continue;
-        map.set(String(entry.id), {
-          x: Number(entry.x) || 0,
-          y: Number(entry.y) || 0,
-          scale: (entry.scale == null) ? 1 : Number(entry.scale)
-        });
-      }
-      return map;
-    }
-
-    function capturePageLayout(){
-      const images = [];
-      const years = [];
-      const movables = [];
-
-      const CAPTURE_IDS = new Set([
-        "text:title",
-        "text:about",
-        "text:work",
-        "text:writing",
-        "text:contact",
-        "text:phreak"
-      ]);
-
-      for (const [, obj] of objects){
-        if (obj.type === "year"){
-          const yearStr = String(obj.id).split(":")[1];
-          const yearNum = Number(yearStr);
-          if (!Number.isNaN(yearNum)){
-            years.push({
-              year: yearNum,
-              x: Math.round(obj.state.x),
-              y: Math.round(obj.state.y),
-              scale: Number(obj.state.scale.toFixed(4))
-            });
-          }
-          continue;
-        }
-
-        if (obj.type === "image"){
-          const title = obj.el.dataset.imageTitle || null;
-          if (!title) continue;
-
-          images.push({
-            title: String(title).trim(),
-            x: Math.round(obj.state.x),
-            y: Math.round(obj.state.y),
-            scale: Number(obj.state.scale.toFixed(4))
-          });
-          continue;
-        }
-
-        if (CAPTURE_IDS.has(obj.id) || obj.id.startsWith("writing:")){
-          movables.push({
-            id: obj.id,
-            x: Math.round(obj.state.x),
-            y: Math.round(obj.state.y),
-            scale: Number(obj.state.scale.toFixed(4))
-          });
-          continue;
-        }
-      }
-
-      images.sort((a,b) => a.title.localeCompare(b.title));
-      years.sort((a,b) => b.year - a.year);
-      movables.sort((a,b) => a.id.localeCompare(b.id));
-
-      const output = {
-        "homepage-layout": {
-          years,
-          images,
-          movables
-        }
-      };
-
-      console.log(`\n=== ${LAYOUT_OUTPUT_FILENAME} (copy/paste) ===\n`);
-      console.log(JSON.stringify(output, null, 2));
-      console.log("\n=== end ===\n");
-
-      return output;
-    }
-
-    let lastT = performance.now();
-
-    function startAnimationLoop(){
-      requestAnimationFrame(tick);
-    }
-
-    function tick(now){
-      const dt = clamp((now - lastT) / 1000, 0.001, 0.033);
-      lastT = now;
-
-      const k = parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--spring-k")) || 1.2;
-      const d = parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--damping")) || 2.2;
-
-      for (const [, obj] of objects){
-        if (obj.dragging) continue;
-        if (DEBUG_MANUAL_LAYOUT) continue;
-
-        const dx = (obj.origin.x - obj.state.x);
-        const dy = (obj.origin.y - obj.state.y);
-
-        const ax = (k * dx) - (d * obj.state.vx);
-        const ay = (k * dy) - (d * obj.state.vy);
-
-        obj.state.vx += ax * dt;
-        obj.state.vy += ay * dt;
-
-        obj.state.x += obj.state.vx * dt;
-        obj.state.y += obj.state.vy * dt;
-
-        if (Math.abs(dx) < 0.05 && Math.abs(dy) < 0.05 && Math.abs(obj.state.vx) < 0.05 && Math.abs(obj.state.vy) < 0.05){
-          obj.state.x = obj.origin.x;
-          obj.state.y = obj.origin.y;
-          obj.state.vx = 0;
-          obj.state.vy = 0;
-        }
-
-        applyTransform(obj);
-      }
-
-      rebuildSvgLines();
-
-      if (Math.floor(now) % 250 < 16) setPageHeightToFitContent();
-      requestAnimationFrame(tick);
-    }
-
-    window.addEventListener("resize", () => {
-      if (document.body.dataset.view !== "web") return;
-      setPageHeightToFitContent();
-      rebuildSvgLines();
-    });
-    window.addEventListener("scroll", () => {
-      if (document.body.dataset.view !== "web") return;
-      rebuildSvgLines();
-    }, { passive: true });
-
-    function enableGrabToPan(){
-      document.body.classList.add("grab-pan");
-
-      let panning = false;
-      let startX = 0, startY = 0;
-      let startScrollLeft = 0, startScrollTop = 0;
-
-      document.addEventListener("pointerdown", (e) => {
-        if (document.body.dataset.view !== "web") return;
-
-        if (e.target.closest("#night-mode-toggle")) return;
-        if (e.target.closest("#view-mode-toggle")) return;
-
-        const onDraggable = e.target.closest(".draggable");
-        if (onDraggable) return;
-
-        if (e.button !== 0) return;
-
-        panning = true;
-        document.body.classList.add("panning");
-        document.body.setPointerCapture(e.pointerId);
-
-        startX = e.clientX;
-        startY = e.clientY;
-        startScrollLeft = window.scrollX;
-        startScrollTop  = window.scrollY;
-
-        e.preventDefault();
-      });
-
-      document.addEventListener("pointermove", (e) => {
-        if (!panning) return;
-        const dx = e.clientX - startX;
-        const dy = e.clientY - startY;
-        window.scrollTo(startScrollLeft - dx, startScrollTop - dy);
-      });
-
-      function endPan(e){
-        if (!panning) return;
-        panning = false;
-        document.body.classList.remove("panning");
-        try { document.body.releasePointerCapture(e.pointerId); } catch (_) {}
-      }
-
-      document.addEventListener("pointerup", endPan);
-      document.addEventListener("pointercancel", endPan);
-    }
-
-    function populateSeoLinks(items, writingItems){
-      const list = document.getElementById("seoLinksList");
-      if (!list) return;
-
-      const links = [];
-
-      for (const it of items){
-        if (it.url){
-          links.push({ url: it.url, text: `${it.title} (${it.year})` });
-        }
-      }
-      for (const w of writingItems){
-        if (w.url){
-          links.push({ url: w.url, text: `${w.title} (${w.year})` });
-        }
-      }
-
-      links.sort((a,b) => a.text.localeCompare(b.text));
-      list.innerHTML = "";
-
-      for (const l of links){
-        const li = document.createElement("li");
-        const a = document.createElement("a");
-        a.href = l.url;
-        a.textContent = l.text;
-        li.appendChild(a);
-        list.appendChild(li);
-      }
-    }
-
-    async function initWeb(){
-      const data = await loadData();
-      const items = (data && data["homepage-images"]) ? data["homepage-images"] : [];
-
-      const layoutJson = await loadImageLayoutData();
-      const imageLayoutMap = buildImageLayoutMap(layoutJson);
-      const yearLayoutMap  = buildYearLayoutMap(layoutJson);
-      const movablesLayoutMap = buildMovablesLayoutMap(layoutJson);
-
-      const { years, byYear } = sortAndGroup(items);
-
-      const mainNodeOrder = buildMainNodeOrder({ years, byYear });
-      mainAutoPositions = generateZigZagPositions(mainNodeOrder, LAYOUT_CONFIG.autoLayout);
-
-      const writingData = await loadWritingData();
-      const writingItems = (writingData && writingData["homepage-writing"]) ? writingData["homepage-writing"] : [];
-
-      enableGrabToPan();
-
-      // Text objects
-      {
-        const t = LAYOUT_CONFIG.text.title;
-        let pos = movablesLayoutMap.get("text:title") || { x: t.x, y: t.y, scale: t.scale };
-        const el = createTextBox({ id: "text:title", text: t.label, className: t.className });
-        registerDraggable({ id: "text:title", el, type: "text", origin: { x: pos.x, y: pos.y, scale: pos.scale ?? 1 } });
-      }
-      {
-        const t = LAYOUT_CONFIG.text.about;
-        let pos = movablesLayoutMap.get("text:about") || { x: t.x, y: t.y, scale: t.scale };
-        const el = createTextBoxLink({ id: "text:about", text: t.label, className: t.className, href: "https://nikos.kourous.net/about-nikos-kourous-vazquez" });
-        registerDraggable({ id: "text:about", el, type: "text", origin: { x: pos.x, y: pos.y, scale: pos.scale ?? 1 } });
-      }
-      {
-        const t = LAYOUT_CONFIG.text.work;
-        let pos = movables_layout = movablesLayoutMap.get("text:work") || { x: t.x, y: t.y, scale: t.scale };
-        const el = createTextBox({ id: "text:work", text: t.label, className: t.className });
-        registerDraggable({ id: "text:work", el, type: "text", origin: { x: pos.x, y: pos.y, scale: pos.scale ?? 1 } });
-      }
-      {
-        const t = LAYOUT_CONFIG.text.contact;
-        let pos = movablesLayoutMap.get("text:contact") || { x: t.x, y: t.y, scale: t.scale };
-        const el = createTextBoxLink({ id: "text:contact", text: t.label, className: t.className, href: "/contact.html" });
-        registerDraggable({ id: "text:contact", el, type: "text", origin: { x: pos.x, y: pos.y, scale: pos.scale ?? 1 } });
-      }
-      {
-        const t = LAYOUT_CONFIG.text.writing;
-        let pos = movablesLayoutMap.get("text:writing") || { x: t.x, y: t.y, scale: t.scale };
-        const el = createTextBox({ id: "text:writing", text: t.label, className: t.className });
-        registerDraggable({ id: "text:writing", el, type: "text", origin: { x: pos.x, y: pos.y, scale: pos.scale ?? 1 } });
-      }
-      {
-        const t = LAYOUT_CONFIG.text.phreak;
-        let pos = movablesLayoutMap.get("text:phreak") || { x: t.x, y: t.y, scale: t.scale };
-
-        const el = createLogoCard({
-          labelText: "Phreaking Collective",
-          imagePath: PHREAK_LOGO_URL,
-          descriptionText: "Organizer and member of the computational arts collective Phreaking Collective",
-          href: "https://phreaking.co.uk/"
-        });
-
-
-        registerDraggable({
-          id: "text:phreak",
-          el,
-          type: "logo",
-          origin: { x: pos.x, y: pos.y, scale: pos.scale ?? 1 }
-        });
-      }
-
-      // Years
-      years.forEach((year, idx) => {
-        let pos = ensureDefaultYearPosition(year, idx);
-        if (yearLayoutMap.has(year)) pos = yearLayoutMap.get(year);
-
-        const el = createTextBox({ id: `year:${year}`, text: `${year}`, className: "h2" });
-        registerDraggable({ id: `year:${year}`, el, type: "year", origin: { x: pos.x, y: pos.y, scale: pos.scale ?? 1 } });
-      });
-
-      // Ordered images: year desc then number asc
-      const ordered = [];
-      for (const y of years){
-        const arr = byYear.get(y) || [];
-        for (const it of arr) ordered.push(it);
-      }
-
-      ordered.forEach((item, idx) => {
-        let pos = ensureDefaultImagePosition(item.number, idx);
-        const titleKey = String(item.title).trim();
-        if (imageLayoutMap.has(titleKey)) pos = imageLayoutMap.get(titleKey);
-
-        let el;
-        if (isNoImage(item.image_path)){
-          const labelText = `${item.title}, ${item.year}`;
-          el = createHomepageImageTextOnly({ labelText, url: item.url });
-        } else {
-          el = createImageCard({ id: `img:${item.number}`, item });
-        }
-
-        el.dataset.imageTitle = item.title;
-
-        registerDraggable({
-          id: `img:${item.number}`,
-          el,
-          type: "image",
-          origin: { x: pos.x, y: pos.y, scale: pos.scale ?? 1 }
-        });
-      });
-
-      // Writing items
-      const orderedWriting = [...writingItems].sort((a,b) => Number(a.number) - Number(b.number));
-      orderedWriting.forEach((w, idx) => {
-        let pos = ensureDefaultWritingPosition(w.number, idx);
-        const writingId = `writing:${w.number}`;
-        if (movablesLayoutMap.has(writingId)) pos = movablesLayoutMap.get(writingId);
-
-        const labelText = `${w.title}, ${w.year}`;
-        const el = createWritingObject({
-          labelText,
-          imagePath: w.image_path,
-          descriptionText: w.description,
-          url: w.url
-        });
-
-        registerDraggable({
-          id: `writing:${w.number}`,
-          el,
-          type: "writing",
-          origin: { x: pos.x, y: pos.y, scale: pos.scale ?? 1 }
-        });
-      });
-
-      // Debug HUD
-      if (DEBUG_MANUAL_LAYOUT){
-        const hud = document.getElementById("debugHud");
-        const btn = document.getElementById("captureLayoutBtn");
-        if (hud) hud.style.display = "flex";
-        if (btn){
-          btn.addEventListener("click", () => capturePageLayout());
-        }
-      }
-
-      buildConnections({ years, byYear, writingItems });
-      populateSeoLinks(items, writingItems);
-
-      setTimeout(() => {
-        setPageHeightToFitContent();
-        rebuildSvgLines();
-
-        const gutter = getLeftGutterPx();
-        const extra  = 200;
-
-        if (gutter > 0){
-          window.scrollTo(gutter, window.scrollY);
-        } else {
-          window.scrollTo(0 + extra, window.scrollY);
-        }
-      }, 50);
-
-      startAnimationLoop();
-    }
-
-    // Boot web init once DOM is ready; it can run even if view hidden (safe),
-    // but all rebuild/resize/scroll handlers check active view where needed.
-    document.addEventListener("DOMContentLoaded", function(){
-      initWeb();
-    });
-  </script>
 </body>
 </html>
