@@ -406,69 +406,283 @@ controls.addEventListener('end', () => {
 });
 
 // === SLIDESHOW ===
+// ============================================================
+// SLIDESHOW — IMAGE EFFECTS
+// Adjust these to change how all images look on the screen.
+// ============================================================
+const IMAGE_FILTER     = 'saturate(120%) contrast(105%)';
+//   saturate(100%) = normal | 200% = vivid | 50% = muted
+//   contrast(100%) = normal | 120% = punchy
+const POSTERIZE_LEVELS = 6;
+//   Lower = stronger: 2 is heavy, 4 is medium, 6+ is subtle
+// ============================================================
+
+// ============================================================
+// SLIDESHOW — TIMING
+// ============================================================
+const SLIDE_DURATION = 5000; // ms each image is shown
+
+const TRANSITION_DURATIONS = {   // ms per transition type
+  cut:          80,
+  fadeBlack:    1200,
+  wipeH:        1000,
+  wipeV:        1000,
+  blinds:       1400,
+  checkerboard: 1400,
+  clock:        1200,
+  iris:         1000,
+  scatter:      1400,
+};
+// ============================================================
+
+// ============================================================
+// SLIDESHOW — TRANSITION POOL
+// Comment out any line to remove it from the random rotation.
+// ============================================================
+const TRANSITIONS = [
+  'cut',
+  'fadeBlack',
+  'wipeH',
+  'wipeV',
+  'blinds',
+  'checkerboard',
+  'clock',
+  'iris',
+  'scatter',
+];
+// ============================================================
+
+// ============================================================
+// SLIDESHOW — TRANSITION GEOMETRY
+// Controls grid sizes for blinds, checkerboard, and scatter.
+// ============================================================
+const BLINDS_COUNT     = 8;    // number of horizontal strips
+const CHECKER_COLS     = 8;    // checkerboard columns
+const CHECKER_ROWS     = 6;    // checkerboard rows
+const SCATTER_COLS     = 8;    // scatter tile columns
+const SCATTER_ROWS     = 6;    // scatter tile rows
+const SCATTER_MIN_DIST = 600;  // min px each tile travels
+const SCATTER_MAX_DIST = 1000; // max px each tile travels
+// ============================================================
+
 const screenCanvas = document.createElement('canvas');
-screenCanvas.width = 1024;
+screenCanvas.width  = 1024;
 screenCanvas.height = 768;
 const ctx = screenCanvas.getContext('2d');
 const screenTexture = new THREE.CanvasTexture(screenCanvas);
 ctx.fillStyle = '#000';
 ctx.fillRect(0, 0, 1024, 768);
 
-const SLIDE_DURATION = 5000;
-const FADE_DURATION  = 800;
-let slideImages  = [];
-let currentIndex = 0;
-let fromImg      = null;
-let toImg        = null;
-let isFading     = false;
-let fadeStart    = 0;
+let fromCanvas        = null;
+let toCanvas          = null;
+let isFading          = false;
+let fadeStart         = 0;
+let currentTransition = 'cut';
+let currentDuration   = 80;
+let scatterData       = [];
+let slideImages       = [];
+let currentIndex      = 0;
 
-function coverDraw(img, alpha) {
-  if (!img) return;
-  const s = Math.max(screenCanvas.width / img.width, screenCanvas.height / img.height);
-  const w = img.width * s;
+// ── Image processing: applies effects once on load ────────
+function applyPosterize(octx, w, h) {
+  const imageData = octx.getImageData(0, 0, w, h);
+  const d = imageData.data;
+  const factor = 255 / (POSTERIZE_LEVELS - 1);
+  for (let i = 0; i < d.length; i += 4) {
+    d[i]   = Math.round(d[i]   / factor) * factor;
+    d[i+1] = Math.round(d[i+1] / factor) * factor;
+    d[i+2] = Math.round(d[i+2] / factor) * factor;
+  }
+  octx.putImageData(imageData, 0, 0);
+}
+
+async function processImage(src) {
+  const img = await new Promise(resolve => {
+    const i = new Image();
+    i.crossOrigin = 'anonymous';
+    i.onload  = () => resolve(i);
+    i.onerror = () => resolve(null);
+    i.src = src;
+  });
+  if (!img) return null;
+
+  const oc   = document.createElement('canvas');
+  oc.width   = screenCanvas.width;
+  oc.height  = screenCanvas.height;
+  const octx = oc.getContext('2d');
+
+  octx.fillStyle = '#000';
+  octx.fillRect(0, 0, oc.width, oc.height);
+
+  // Contain-fit: whole image visible, black bars on sides/top
+  const s = Math.min(oc.width / img.width, oc.height / img.height);
+  const w = img.width  * s;
   const h = img.height * s;
-  ctx.globalAlpha = alpha;
-  ctx.drawImage(img, (screenCanvas.width - w) / 2, (screenCanvas.height - h) / 2, w, h);
-  ctx.globalAlpha = 1;
+  octx.filter = IMAGE_FILTER;
+  octx.drawImage(img, (oc.width - w) / 2, (oc.height - h) / 2, w, h);
+  octx.filter = 'none';
+
+  applyPosterize(octx, oc.width, oc.height);
+  return oc;
+}
+
+// ── Transitions ───────────────────────────────────────────
+function drawTransition(t, from, to) {
+  const W = screenCanvas.width;
+  const H = screenCanvas.height;
+
+  switch (currentTransition) {
+
+    case 'cut':
+      ctx.drawImage(t < 0.5 ? from : to, 0, 0);
+      break;
+
+    case 'fadeBlack':
+      if (t < 0.5) {
+        ctx.drawImage(from, 0, 0);
+        ctx.fillStyle = `rgba(0,0,0,${t * 2})`;
+        ctx.fillRect(0, 0, W, H);
+      } else {
+        ctx.drawImage(to, 0, 0);
+        ctx.fillStyle = `rgba(0,0,0,${1 - (t - 0.5) * 2})`;
+        ctx.fillRect(0, 0, W, H);
+      }
+      break;
+
+    case 'wipeH':
+      ctx.drawImage(from, 0, 0);
+      ctx.save();
+      ctx.beginPath(); ctx.rect(0, 0, W * t, H); ctx.clip();
+      ctx.drawImage(to, 0, 0);
+      ctx.restore();
+      break;
+
+    case 'wipeV':
+      ctx.drawImage(from, 0, 0);
+      ctx.save();
+      ctx.beginPath(); ctx.rect(0, 0, W, H * t); ctx.clip();
+      ctx.drawImage(to, 0, 0);
+      ctx.restore();
+      break;
+
+    case 'blinds': {
+      ctx.drawImage(from, 0, 0);
+      const bh = H / BLINDS_COUNT;
+      for (let i = 0; i < BLINDS_COUNT; i++) {
+        const delay = (i / BLINDS_COUNT) * 0.4;
+        const bt = Math.max(0, Math.min(1, (t - delay) / 0.6));
+        ctx.save();
+        ctx.beginPath(); ctx.rect(0, i * bh, W * bt, bh); ctx.clip();
+        ctx.drawImage(to, 0, 0);
+        ctx.restore();
+      }
+      break;
+    }
+
+    case 'checkerboard': {
+      ctx.drawImage(from, 0, 0);
+      const tw = W / CHECKER_COLS;
+      const th = H / CHECKER_ROWS;
+      for (let r = 0; r < CHECKER_ROWS; r++) {
+        for (let c = 0; c < CHECKER_COLS; c++) {
+          if (t > (c + r) / (CHECKER_COLS + CHECKER_ROWS - 2)) {
+            ctx.save();
+            ctx.beginPath(); ctx.rect(c * tw, r * th, tw, th); ctx.clip();
+            ctx.drawImage(to, 0, 0);
+            ctx.restore();
+          }
+        }
+      }
+      break;
+    }
+
+    case 'clock':
+      ctx.drawImage(from, 0, 0);
+      ctx.save();
+      ctx.beginPath();
+      ctx.moveTo(W / 2, H / 2);
+      ctx.arc(W / 2, H / 2, Math.sqrt(W ** 2 + H ** 2), -Math.PI / 2, -Math.PI / 2 + Math.PI * 2 * t);
+      ctx.closePath(); ctx.clip();
+      ctx.drawImage(to, 0, 0);
+      ctx.restore();
+      break;
+
+    case 'iris': {
+      const maxR = Math.sqrt((W / 2) ** 2 + (H / 2) ** 2) * 1.05;
+      ctx.drawImage(from, 0, 0);
+      ctx.save();
+      ctx.beginPath(); ctx.arc(W / 2, H / 2, maxR * t, 0, Math.PI * 2); ctx.clip();
+      ctx.drawImage(to, 0, 0);
+      ctx.restore();
+      break;
+    }
+
+    case 'scatter': {
+      ctx.drawImage(to, 0, 0);
+      const stw  = W / SCATTER_COLS;
+      const sth  = H / SCATTER_ROWS;
+      const ease = t * t; // tiles accelerate as they leave
+      let i = 0;
+      for (let r = 0; r < SCATTER_ROWS; r++) {
+        for (let c = 0; c < SCATTER_COLS; c++) {
+          const { dx, dy } = scatterData[i++];
+          ctx.save();
+          ctx.translate(c * stw + dx * ease, r * sth + dy * ease);
+          ctx.drawImage(from, c * stw, r * sth, stw, sth, 0, 0, stw, sth);
+          ctx.restore();
+        }
+      }
+      break;
+    }
+  }
 }
 
 function drawSlide(ts) {
-  if (!fromImg) return;
+  if (!fromCanvas) return;
   ctx.fillStyle = '#000';
   ctx.fillRect(0, 0, screenCanvas.width, screenCanvas.height);
-  if (isFading && toImg) {
-    const t = Math.min((ts - fadeStart) / FADE_DURATION, 1);
-    coverDraw(fromImg, 1 - t);
-    coverDraw(toImg, t);
-    if (t >= 1) { fromImg = toImg; toImg = null; isFading = false; }
-  } else {
-    coverDraw(fromImg, 1);
+
+  if (!isFading || !toCanvas) {
+    ctx.drawImage(fromCanvas, 0, 0);
+    screenTexture.needsUpdate = true;
+    return;
   }
+
+  const t = Math.min((ts - fadeStart) / currentDuration, 1);
+  drawTransition(t, fromCanvas, toCanvas);
+  if (t >= 1) { fromCanvas = toCanvas; toCanvas = null; isFading = false; }
   screenTexture.needsUpdate = true;
 }
 
-function loadImg(src) {
-  return new Promise(resolve => {
-    const img = new Image();
-    img.crossOrigin = 'anonymous';
-    img.onload  = () => resolve(img);
-    img.onerror = () => resolve(null);
-    img.src = src;
-  });
+// ── Slideshow control ─────────────────────────────────────
+function pickTransition() {
+  const name = TRANSITIONS[Math.floor(Math.random() * TRANSITIONS.length)];
+  currentTransition = name;
+  currentDuration   = TRANSITION_DURATIONS[name] ?? 1000;
+
+  if (name === 'scatter') {
+    scatterData = [];
+    for (let r = 0; r < SCATTER_ROWS; r++) {
+      for (let c = 0; c < SCATTER_COLS; c++) {
+        const angle = Math.random() * Math.PI * 2;
+        const dist  = SCATTER_MIN_DIST + Math.random() * (SCATTER_MAX_DIST - SCATTER_MIN_DIST);
+        scatterData.push({ dx: Math.cos(angle) * dist, dy: Math.sin(angle) * dist });
+      }
+    }
+  }
 }
 
 async function advanceSlide() {
   currentIndex = (currentIndex + 1) % slideImages.length;
-  const next = await loadImg(slideImages[currentIndex]);
-  if (next) { toImg = next; fadeStart = performance.now(); isFading = true; }
+  const next = await processImage(slideImages[currentIndex]);
+  if (next) { pickTransition(); toCanvas = next; fadeStart = performance.now(); isFading = true; }
   setTimeout(advanceSlide, SLIDE_DURATION);
 }
 
 async function startSlideshow(paths) {
   slideImages = paths;
   if (!slideImages.length) return;
-  fromImg = await loadImg(slideImages[0]);
+  fromCanvas = await processImage(slideImages[0]);
   setTimeout(advanceSlide, SLIDE_DURATION);
 }
 
@@ -515,7 +729,7 @@ window.addEventListener('resize', () => {
 
 function animate() {
   requestAnimationFrame(animate);
-  if (fromImg) drawSlide(performance.now());
+  if (fromCanvas) drawSlide(performance.now());
   if (isReturning) {
     camera.position.lerp(originalCameraPos, 0.002);
     controls.target.lerp(originalTarget, 0.04);
