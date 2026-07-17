@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Canonical + meta -->
+  <link rel="canonical" href="https://nikos.kourous.net/i-potato-self-portrait"/>
+  <meta name="description" content="i potato self-portrait is a durational generative portrait installation powered by a wall of potatoes wired into a battery array, feeding a custom-trained diffusion model that renders a potato as healthy or diseased in real time.">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Nikos Antonio Kourous Vázquez">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="i potato self-portrait (2026) | Nikos Kourous Vázquez">
+  <meta property="og:description" content="A wall of potatoes wired into a battery array powers a custom diffusion model that generates a potato portrait in real time, decaying from health to disease as the potatoes dry out over three weeks.">
+  <meta property="og:url" content="https://nikos.kourous.net/i-potato-self-portrait">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://nikos.kourous.net/image_files/potato-portrait/i_potato_portrait_image5_nikos_kourous.webp">
+
+  <!-- Basic -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>i potato self-portrait | A Generative Potato Battery Installation | Nikos Antonio Kourous Vázquez</title>
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+  <!-- Schema.org CreativeWork -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "name": "i potato self-portrait",
+    "creator": {
+      "@type": "Person",
+      "name": "Nikos Antonio Kourous Vázquez",
+      "url": "https://nikos.kourous.net"
+    },
+    "url": "https://nikos.kourous.net/i-potato-self-portrait",
+    "image": "https://nikos.kourous.net/image_files/potato-portrait/i_potato_portrait_image5_nikos_kourous.webp",
+    "description": "i potato self-portrait is an installation for a durational generative portrait of a potato, exhibited at Does Cloud Computer (ever) Precipitate 2026. A wall of potatoes wired into a zinc-to-copper battery array powers a custom-trained image diffusion model that generates a potato portrait ranging from healthy to diseased, tracking the declining voltage of the decaying potatoes over a three week exhibition.",
+    "dateCreated": "2026",
+    "inLanguage": "en",
+    "keywords": [
+      "i potato self-portrait",
+      "Nikos Antonio Kourous Vázquez",
+      "Nikos Kourous",
+      "potato battery art",
+      "potato battery array",
+      "zinc copper electrode art",
+      "generative portrait",
+      "durational installation",
+      "custom trained diffusion model",
+      "image diffusion art",
+      "AI diffusion model potato",
+      "machine learning art installation",
+      "diseased potato dataset",
+      "healthy and diseased potato imagery",
+      "real-time generative art",
+      "voltage-driven generative art",
+      "electrochemical art installation",
+      "bio-battery art",
+      "kinetic sculpture AI",
+      "data-driven generative portrait",
+      "Does Cloud Computer ever Precipitate",
+      "critique of machine learning",
+      "AI art critique",
+      "sustainable technology critique",
+      "resource exploitation and AI",
+      "generative video installation",
+      "training data art",
+      "custom locally trained model",
+      "London AI art",
+      "contemporary AI art",
+      "AI art portfolio",
+      "bio-electric sculpture",
+      "potato disease imaging",
+      "agricultural imagery machine learning",
+      "decay and technology art",
+      "unstable systems art"
+    ]
+  }
+  </script>
+
+  <!-- Breadcrumbs (optional for consistency) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://nikos.kourous.net/" },
+      { "@type": "ListItem", "position": 2, "name": "i potato self-portrait | A durational generative potato portrait | Nikos Antonio Kourous Vázquez" }
+    ]
+  }
+  </script>
+
+  <style>
+    /* Page-scoped styles (unchanged desktop behavior) */
+    body {
+      font-family: 'Tinos', serif;
+      margin: 0;
+      padding: 1rem;
+      background-color: #f9f9f9;
+      color: #000000;
+    }
+
+    main { padding: 0; }
+
+    h1 {
+      text-align: left;
+      font-size: 2rem;
+      margin-top: 0;
+      margin-bottom: 0.8rem;
+    }
+
+    p {
+      text-align: justify;
+      font-size: 1.1rem;
+      line-height: 1.55;
+    }
+
+    h2 {
+      text-align: left;
+      margin: 3rem 0 1.5rem 0;
+      font-size: 1.4rem;
+    }
+
+    .media-block {
+      margin: 1rem 0;
+      margin-left: -2rem;            /* desktop-specific indentation remains */
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    /* First image tuned for desktop text width alignment */
+    .media-block.first-image img {
+      max-width: 110%;
+      margin-left: -0.5rem;
+      margin-bottom: -2rem;
+      margin-top: -1rem;
+      display: block;
+    }
+
+    img, video {
+      max-width: 100%;
+      height: auto;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+      display: block;
+    }
+    img:hover { transform: scale(1.005); }
+
+    figcaption {
+      font-size: 0.65rem;
+      opacity: 0.5;
+      text-align: right;
+      margin-top: 0rem;
+    }
+
+    figcaptionfirst {
+      font-size: 0.65rem;
+      opacity: 0.5;
+      text-align: right;
+      margin-top: 2rem;
+    }
+
+    /* Row of three smaller images sharing the width of one normal image */
+    .media-row-three {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: 0.8rem;
+      margin: 1rem 0;
+      margin-left: 0;
+    }
+    .media-row-three figure {
+      flex: 1 1 0;
+      min-width: 0;
+      margin: 0;
+    }
+    .media-row-three img {
+      width: 100%;
+      height: auto;
+    }
+
+    /* Modal (image zoom) */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      inset: 0;
+      background: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content img {
+      max-width: 95vw;
+      max-height: 85vh;
+      object-fit: contain;
+      border-radius: 4px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    }
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 35px;
+      color: #fff;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    /* Desktop container width */
+    @media (min-width: 768px) {
+      body { padding: 3rem 4rem; }
+      main, header, footer {
+        max-width: 700px;
+        margin-left: 0;
+        margin-right: auto;
+      }
+    }
+
+    /* i potato self-portrait links look like plain text (leave as-is) */
+    main a {
+      padding: 0 !important;
+      display: inline !important;
+      color: #000 !important;
+      text-decoration: underline !important;
+      font-weight: normal !important;
+      transition: none !important;
+      transform: none !important;
+    }
+    main a:hover,
+    main a:focus,
+    main a:active {
+      color: #000 !important;
+      text-decoration: underline !important;
+      font-weight: normal !important;
+      transform: none !important;
+      outline: none;
+    }
+
+    /* Night mode */
+    body.night-mode { background-color: #000 !important; color: #fff !important; }
+    body.night-mode * { color: #fff !important; }
+    body.night-mode a { color: #fff !important; }
+    body.night-mode .json-block { background-color: #222 !important; border-color: #444 !important; color: #fff !important; }
+    body.night-mode .json-block .json-id { color: #4CAF50 !important; }
+
+    /* Toggle button */
+    .night-toggle-btn {
+      position: fixed;
+      bottom: 15px;
+      left: 15px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(255, 255, 255, 0.9);
+      color: #000;
+      font-size: 16px;
+      cursor: pointer;
+      z-index: 1000;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+    .night-toggle-btn:hover { transform: scale(1.1); }
+    body.night-mode .night-toggle-btn { background: rgba(0,0,0,0.9); color: #fff; }
+
+    /* ===== MOBILE-ONLY FIXES (no desktop changes) ===== */
+    @media (max-width: 767px) {
+      /* Remove desktop left indent so media spans the mobile column */
+      .media-block {
+        margin: 1rem 0 !important;
+        margin-left: 0 !important;
+        justify-content: center;
+      }
+
+      /* Make figures and media truly full-width inside the padded body */
+      .media-block figure {
+        width: 100%;
+        margin: 0; /* kill any residual spacing */
+      }
+
+      .media-block img,
+      .media-block iframe,
+      .media-block video {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto;
+        display: block;
+      }
+
+      /* Neutralize first-image desktop offsets on phones */
+      .media-block.first-image img {
+        max-width: 100% !important;
+        margin-left: 0 !important;
+        margin-bottom: 0 !important;
+        margin-top: 0 !important;
+      }
+
+      /* Ensure YouTube matches images: full width, 16:9 */
+      .media-block iframe {
+        aspect-ratio: 16 / 9;
+        border: 0;
+      }
+
+      /* Optional: give figcaptions a touch more room on narrow screens */
+      figcaption {
+        padding-right: 0.25rem;
+      }
+
+      /* Row of three collapses to full-width stack on mobile */
+      .media-row-three {
+        flex-direction: column;
+        margin-left: 0 !important;
+        gap: 1rem;
+      }
+      .media-row-three img {
+        width: 100% !important;
+      }
+    }
+
+    /* === Mobile-only fixes === */
+@media (max-width: 767px) {
+  /* Stop any horizontal scrolling caused by inline widths/margins */
+  html, body { overflow-x: hidden; }
+
+  /* Neutralize inline widths/margins on media wrappers */
+  .media-block,
+  .media-block[style] {
+    width: 100% !important;
+    margin-left: 0 !important;
+    overflow: hidden; /* safety net */
+  }
+
+  /* Make YouTube iframes behave like images: full-width, 16:9 */
+  .media-block iframe {
+    display: block;
+    width: 100% !important;
+    max-width: 100vw !important;
+    height: auto !important;
+    aspect-ratio: 16 / 9;
+    border: 0;
+  }
+
+  /* Bump the first image caption closer to the image on mobile */
+  .first-image figcaption {
+    margin-top: 0.6rem !important;   /* was larger; brings it up */
+    margin-right: 0 !important;      /* avoids pushing off-screen */
+  }
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- Modal for images -->
+  <div id="image-modal" class="modal" onclick="closeImageModal()">
+    <span class="close">&times;</span>
+    <div class="modal-content">
+      <img id="modal-img" src="" alt="Expanded view" />
+    </div>
+  </div>
+
+  <main>
+    <nav style="margin-bottom: 1rem;">
+      <a href="index.html" style="text-decoration: none; color: #333; font-size: 1rem; display: inline-block;">← Back to home</a>
+    </nav>
+
+    <header>
+      <h1>i potato self-portrait</h1>
+    </header>
+
+        <!-- First image (exact width of text block on desktop; full-width on mobile via overrides) -->
+    <div class="media-block first-image">
+      <figure>
+        <img src="https://nikos.kourous.net/image_files/potato-portrait/i_potato_portrait_image5_nikos_kourous.webp"
+             alt="i potato self-portrait (2026) installation view of a wall of potatoes wired into a battery array by Nikos Antonio Kourous Vázquez" />
+        <figcaption style="margin-top: 2.1rem; margin-right: -1.3rem;">i potato self-portrait (2026) © Nikos Antonio Kourous Vázquez</figcaption>
+      </figure>
+    </div>
+
+
+    <p>
+      i potato self-portrait is an installation for a durational generative portrait of a potato exhibited at Does Cloud Computer (ever) Precipitate 2026.
+    </p>
+
+    <p>
+      The installation featured a wall of potatoes, pinned to the wall, connected to each other via zinc to copper wiring, forming one large potato battery array. Embedded into the wall of potatoes was a monitor endlessly generating an image of a potato.
+    </p>
+
+
+    <p>
+      The potatoes were generated using a custom, locally trained image diffusion model trained on a dataset of 10,117 images of both healthy, and diseased potatoes. During its training, the model learned features of healthy and diseased potatoes, and everything in between, mapping them to a value between 0 and 1. When the model receives an input closer to 1, it produces healthy potatoes. When it receives an input closer to 0 it produces diseased potatoes.
+    </p>
+
+
+    <div class="media-block">
+      <figure>
+        <video
+          src="https://nikos.kourous.net/image_files/potato-portrait/generatingvideo.webm"
+          autoplay
+          loop
+          muted
+          playsinline
+          disablepictureinpicture
+          aria-label="Looping video of the diffusion model generating a potato portrait in real time">
+        </video>
+      </figure>
+    </div>
+    
+    <div class="media-block">
+      <figure>
+        <img src="https://nikos.kourous.net/image_files/potato-portrait/i_potato_portrait_image7_nikos_kourous.webp"
+             loading="lazy"
+             alt="Monitor embedded in the potato wall generating an image of a potato, i potato self-portrait (2026) by Nikos Antonio Kourous Vázquez" />
+        <figcaption>i potato self-portrait (2026) © Nikos Antonio Kourous Vázquez</figcaption>
+      </figure>
+    </div>
+
+    <p>
+      The installation actively monitors the voltage of the potato battery array, and feeds that data to the machine learning model, which maps it to the learned 0 - 1 potato scale.
+    </p>
+
+    <p>
+      On the first day of exhibiting, the voltage of the potato battery array was the highest it could be. The model, therefore, reflected this, producing images of healthy potatoes.
+    </p>
+
+    <p>
+      As time passed, however, the potatoes dried up, reducing the conductivity, and combined voltage of the potato battery array.
+    </p>
+
+    <p>
+      As the voltage dropped, the generated potatoes began showing symptoms of disease. First just a couple of ragged edges, then a slight loss in color, then black spots.
+    </p>
+
+    <p>
+      Eventually, towards the end of the three week installation, healthy potatoes could no longer be generated, and the physical potatoes were left wrinkled and limp.
+    </p>
+
+    <!-- Row of three smaller images -->
+    <div class="media-row-three">
+      <figure>
+        <img src="https://nikos.kourous.net/image_files/potato-portrait/i_potato_portrait_image9_nikos_kourous.webp"
+             loading="lazy"
+             alt="Generated potato portrait showing early signs of disease, i potato self-portrait (2026) by Nikos Antonio Kourous Vázquez" />
+        <figcaption>© Nikos Antonio Kourous Vázquez</figcaption>
+      </figure>
+      <figure>
+        <img src="https://nikos.kourous.net/image_files/potato-portrait/i_potato_portrait_image11_nikos_kourous.webp"
+             loading="lazy"
+             alt="Generated potato portrait with black spots and discoloration, i potato self-portrait (2026) by Nikos Antonio Kourous Vázquez" />
+        <figcaption>© Nikos Antonio Kourous Vázquez</figcaption>
+      </figure>
+      <figure>
+        <img src="https://nikos.kourous.net/image_files/potato-portrait/i_potato_portrait_image10_nikos_kourous.webp"
+             loading="lazy"
+             alt="Generated diseased potato portrait late in the exhibition, i potato self-portrait (2026) by Nikos Antonio Kourous Vázquez" />
+        <figcaption>© Nikos Antonio Kourous Vázquez</figcaption>
+      </figure>
+    </div>
+
+    <div class="media-block">
+      <figure>
+        <img src="https://nikos.kourous.net/image_files/potato-portrait/i_potato_portrait_image8_nikos_kourous.webp"
+             loading="lazy"
+             alt="The wrinkled and limp physical potatoes at the end of the three week installation, i potato self-portrait (2026) by Nikos Antonio Kourous Vázquez" />
+        <figcaption>i potato self-portrait (2026) © Nikos Antonio Kourous Vázquez</figcaption>
+      </figure>
+    </div>
+
+    <p>
+      This work emerged from the evolution of a long and tiresome artistic relationship with machine learning. What was once a technology of mystery, intrigue, and possibility had evolved into an all-consuming, weaponized entity. I felt uncomfortable that making artwork with state-of-the-art technology involves supporting companies and tools that profit off the exploitation of resources, labour, and data. And so, as my gaze towards it turned sour, I no longer felt compelled to showcase the technology on a pedestal.
+    </p>
+
+    <div class="media-block">
+      <figure>
+        <img src="https://nikos.kourous.net/image_files/potato-portrait/i_potato_portrait_image2_nikos_kourous.webp"
+             loading="lazy"
+             alt="Installation view of i potato self-portrait (2026) by Nikos Antonio Kourous Vázquez" />
+        <figcaption>i potato self-portrait (2026) © Nikos Antonio Kourous Vázquez</figcaption>
+      </figure>
+    </div>
+
+    <div class="media-block">
+      <figure>
+        <img src="https://nikos.kourous.net/image_files/potato-portrait/i_potato_portrait_image4_nikos_kourous.webp"
+             loading="lazy"
+             alt="Detail view of the potato battery wiring, i potato self-portrait (2026) by Nikos Antonio Kourous Vázquez" />
+        <figcaption>i potato self-portrait (2026) © Nikos Antonio Kourous Vázquez</figcaption>
+      </figure>
+    </div>
+
+    <div class="media-block">
+      <figure>
+        <img src="https://nikos.kourous.net/image_files/potato-portrait/i_potato_portrait_image3_nikos_kourous.webp"
+             loading="lazy"
+             alt="Installation view of i potato self-portrait (2026) by Nikos Antonio Kourous Vázquez" />
+        <figcaption>i potato self-portrait (2026) © Nikos Antonio Kourous Vázquez</figcaption>
+      </figure>
+    </div>
+
+    <div class="media-block" style="margin-left: 0.71rem; margin-top:3rem ; width: 650px;">
+      <iframe
+        width="700"
+        height="394"
+        src="https://www.youtube.com/embed/w3tWtfBU5OQ?rel=0&modestbranding=1"
+        title="i potato self-portrait video documentation"
+        frameborder="0"
+        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen>
+      </iframe>
+    </div>
+
+  </main>
+
+  <footer style="text-align: center; font-size: 0.8rem; margin-top: 2rem;">
+    <p>© 2026 Nikos Antonio Kourous-Vázquez</p>
+    <p><i><a href="https://instagram.com/nikoskourous" target="_blank" rel="noopener noreferrer">@nikoskourous</a></i></p>
+  </footer>
+
+  <button id="night-mode-toggle" class="night-toggle-btn">🌙</button>
+
+  <script>
+    // Image modal activation
+    document.addEventListener("DOMContentLoaded", function () {
+      const modal = document.getElementById("image-modal");
+      const modalImg = document.getElementById("modal-img");
+
+      document.querySelectorAll("img").forEach((img) => {
+        img.addEventListener("click", function () {
+          if (this.closest('figure')) {
+            modal.style.display = "flex";
+            modalImg.src = img.src;
+            modalImg.alt = img.alt || "Expanded image";
+          }
+        });
+      });
+    });
+
+    function closeImageModal() {
+      document.getElementById("image-modal").style.display = "none";
+    }
+  </script>
+
+  <!-- Night mode persistence (exact script) -->
+  <script>
+  // Check for saved night mode preference on page load
+  document.addEventListener('DOMContentLoaded', function() {
+    const isNightMode = localStorage.getItem('nightMode') === 'true';
+    const toggleBtn = document.getElementById('night-mode-toggle');
+
+    if (isNightMode) {
+      document.body.classList.add('night-mode');
+      toggleBtn.textContent = '☀️';
+    } else {
+      toggleBtn.textContent = '🌙';
+    }
+  });
+
+  // Toggle night mode and save preference
+  document.getElementById('night-mode-toggle').addEventListener('click', function() {
+    const isNightMode = document.body.classList.toggle('night-mode');
+
+    // Save preference to localStorage
+    localStorage.setItem('nightMode', isNightMode);
+
+    // Update button icon
+    this.textContent = isNightMode ? '☀️' : '🌙';
+  });
+  </script>
+</body>
+</html>

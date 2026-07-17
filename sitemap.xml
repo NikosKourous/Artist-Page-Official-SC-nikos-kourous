@@ -10,6 +10,68 @@
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
+
+
+  <url>
+  <loc>https://nikos.kourous.net/i-potato-self-portrait</loc>
+  <lastmod>2026-07-17</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.90</priority>
+
+  <image:image>
+    <image:loc>https://nikos.kourous.net/image_files/potato-portrait/i_potato_portrait_image5_nikos_kourous.webp</image:loc>
+    <image:caption>i potato self-portrait (2026) © Nikos Antonio Kourous Vázquez</image:caption>
+    <image:title>i potato self-portrait, generative AI potato battery installation, shown at Does Cloud Computer (ever) Precipitate</image:title>
+  </image:image>
+
+  <image:image>
+    <image:loc>https://nikos.kourous.net/image_files/potato-portrait/i_potato_portrait_image7_nikos_kourous.webp</image:loc>
+    <image:caption>i potato self-portrait (2026) © Nikos Antonio Kourous Vázquez</image:caption>
+    <image:title>Monitor generating a potato portrait, i potato self-portrait, artwork by Nikos Kourous</image:title>
+  </image:image>
+
+  <image:image>
+    <image:loc>https://nikos.kourous.net/image_files/potato-portrait/i_potato_portrait_image9_nikos_kourous.webp</image:loc>
+    <image:caption>i potato self-portrait (2026) © Nikos Antonio Kourous Vázquez</image:caption>
+    <image:title>Generated potato portrait showing early disease, i potato self-portrait by Nikos Kourous</image:title>
+  </image:image>
+
+  <image:image>
+    <image:loc>https://nikos.kourous.net/image_files/potato-portrait/i_potato_portrait_image11_nikos_kourous.webp</image:loc>
+    <image:caption>i potato self-portrait (2026) © Nikos Antonio Kourous Vázquez</image:caption>
+    <image:title>Generated potato portrait with black spots, i potato self-portrait by Nikos Kourous</image:title>
+  </image:image>
+
+  <image:image>
+    <image:loc>https://nikos.kourous.net/image_files/potato-portrait/i_potato_portrait_image10_nikos_kourous.webp</image:loc>
+    <image:caption>i potato self-portrait (2026) © Nikos Antonio Kourous Vázquez</image:caption>
+    <image:title>Generated diseased potato portrait late in the exhibition, i potato self-portrait by Nikos Kourous</image:title>
+  </image:image>
+
+  <image:image>
+    <image:loc>https://nikos.kourous.net/image_files/potato-portrait/i_potato_portrait_image8_nikos_kourous.webp</image:loc>
+    <image:caption>i potato self-portrait (2026) © Nikos Antonio Kourous Vázquez</image:caption>
+    <image:title>Wrinkled and limp potatoes at the end of the installation, i potato self-portrait by Nikos Kourous</image:title>
+  </image:image>
+
+  <image:image>
+    <image:loc>https://nikos.kourous.net/image_files/potato-portrait/i_potato_portrait_image2_nikos_kourous.webp</image:loc>
+    <image:caption>i potato self-portrait (2026) © Nikos Antonio Kourous Vázquez</image:caption>
+    <image:title>Installation view of i potato self-portrait, generative AI artwork by Nikos Kourous</image:title>
+  </image:image>
+
+  <image:image>
+    <image:loc>https://nikos.kourous.net/image_files/potato-portrait/i_potato_portrait_image4_nikos_kourous.webp</image:loc>
+    <image:caption>i potato self-portrait (2026) © Nikos Antonio Kourous Vázquez</image:caption>
+    <image:title>Detail of the potato battery wiring, i potato self-portrait by Nikos Kourous</image:title>
+  </image:image>
+
+  <image:image>
+    <image:loc>https://nikos.kourous.net/image_files/potato-portrait/i_potato_portrait_image3_nikos_kourous.webp</image:loc>
+    <image:caption>i potato self-portrait (2026) © Nikos Antonio Kourous Vázquez</image:caption>
+    <image:title>Installation view of i potato self-portrait, generative AI artwork by Nikos Kourous</image:title>
+  </image:image>
+</url>
   
 <url>
   <loc>https://nikos.kourous.net/chorus-inutil</loc>
