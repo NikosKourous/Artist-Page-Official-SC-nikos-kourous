@@ -125,7 +125,6 @@
   <meta name="robots" content="index, follow">
   <meta name="author" content="Nikos Antonio Kourous Vázquez">
 
-  <!-- Open Graph for socials -->
   <meta property="og:title" content="Collaborative AI Self Portrait | Nikos Kourous Vázquez">
   <meta property="og:description" content="Human-AI collaboration self portrait using human-computing methodology to merge hand-drawn and AI generated imagery">
   <meta property="og:url" content="https://nikos.kourous.net/collaberative-ai-portrait">
@@ -154,7 +153,6 @@
       text-align: center;
     }
 
-    /* Media blocks for images and videos */
     .media-block {
       margin: 2rem 0;
       display: flex;
@@ -175,7 +173,6 @@
       width: 100%;
     }
 
-    /* Desktop layout */
     @media (min-width: 768px) {
       body {
         padding: 3rem 6rem;
@@ -225,13 +222,11 @@
   </header>
 
   <main>
-    <!-- First image: drawnportrait -->
     <figure class="media-block">
       <img src="image_files/portrait/drawnportrait.jpeg" alt="Collaborative AI Self Portrait by Nikos Antonio Kourous Vázquez - original hand-drawn self portrait before AI collaboration" />
       <figcaption>Collaborative AI Self Portrait (2021) © Nikos Antonio Kourous Vázquez</figcaption>
     </figure>
 
-    <!-- Second image: drawn-ai-portrait -->
     <figure class="media-block">
       <img src="image_files/portrait/drawn-ai-portrait.jpeg" alt="Collaborative AI Self Portrait by Nikos Antonio Kourous Vázquez - final human-AI collaboration combining hand-drawn and generated imagery" />
       <figcaption>Collaborative AI Self Portrait (2021) © Nikos Antonio Kourous Vázquez</figcaption>
@@ -243,9 +238,8 @@
   </footer>
 
 <script>
-// Check for saved night mode preference on page load
 document.addEventListener('DOMContentLoaded', function() {
-  const isNightMode = localStorage.getItem('nightMode') === 'true';
+  const isNightMode=localStorage.getItem('nightMode') === 'true';
   
   if (isNightMode) {
     document.body.classList.add('night-mode');

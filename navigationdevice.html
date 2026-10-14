@@ -120,7 +120,6 @@
     ]
   }
   </script>
-  <!-- Open Graph for socials -->
   <meta property="og:title" content="Psychogeographical navigation device | Nikos Kourous Vázquez">
   <meta property="og:description" content="A psychogeographical navigation device powered by statistical randomness and abstract user input. ">
   <meta property="og:url" content="https://nikos.kourous.net/psychogeographic-navigation-device">
@@ -158,7 +157,6 @@ body {
       height: auto;
     }
 
-    /* Desktop layout */
     @media (min-width: 768px) {
       body {
         padding: 3rem 6rem;
@@ -213,20 +211,17 @@ body.night-mode .background-image {
   </header>
 
   <main>
-    <!-- 1. preedit good overview.mp4 -->
     <div class="media-block">
       <video src="image_files/nav_device/preedit good overview.mp4" autoplay muted loop playsinline></video>
     </div>
 
     <p>A psychogeographical navigation device powered by statistical randomness and abstract user input. Based on 4 input settings -- emotion, urgency, difficulty, and either poetic, wanderer, or adventurer style -- the device guides you to random places, objects, has you meditate, and more.</p>
 
-    <!-- 2. birdseye click.mp4 -->
     <div class="media-block">
       <video src="image_files/nav_device/birdseye click.mp4" autoplay muted loop playsinline></video>
     </div>
 
     </p>
-    <!-- 3. demo_park_1_demonstration.gif -->
     <div class="media-block">
       <img src="image_files/nav_device/demo_park_1_demonstration.gif" alt="Demo Park GIF" />
     </div>
@@ -234,7 +229,6 @@ body.night-mode .background-image {
     <p>trying out my psychogeographic navigation device in peckham rye park – it guided me to the only daisy in the whole field, to a lost dog collar, to an interesting collection of sticks, and made me slowly watch the sunset for 4 minutes and 55 seconds.
 
 
-    <!-- 4. beeping still angle 2.mp4 -->
     <div class="media-block">
       <video src="image_files/nav_device/beeping still angle 2.mp4" autoplay muted loop playsinline></video>
     </div>
@@ -248,9 +242,8 @@ body.night-mode .background-image {
   </footer>
 
   <script>
-// Check for saved night mode preference on page load
 document.addEventListener('DOMContentLoaded', function() {
-  const isNightMode = localStorage.getItem('nightMode') === 'true';
+  const isNightMode=localStorage.getItem('nightMode') === 'true';
   
   if (isNightMode) {
     document.body.classList.add('night-mode');

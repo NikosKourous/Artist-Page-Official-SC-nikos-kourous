@@ -158,10 +158,7 @@
   <meta name="robots" content="index, follow">
   <meta name="author" content="Nikos Antonio Kourous Vázquez">
 
-  <!-- Open Graph for socials -->
-<!-- Replace the existing Open Graph tags with these improved ones: -->
 
-<!-- Open Graph for socials -->
 <meta property="og:title" content="And I Image | Nikos Kourous Vázquez">
 <meta property="og:description" content="AI web scraping art installation featuring digital entities in conversation through found internet imagery">
 <meta property="og:url" content="https://nikos.kourous.net/and-i-image">
@@ -171,7 +168,6 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 
-<!-- Additional Open Graph images -->
 <meta property="og:image" content="https://nikos.kourous.net/image_files/and-i-image/closeup%204.jpg">
 <meta property="og:image" content="https://nikos.kourous.net/image_files/and-i-image/IMG_1320.jpg">
 <meta property="og:image" content="https://nikos.kourous.net/image_files/and-i-image/vert%203_.jpg">
@@ -196,7 +192,6 @@ body {
       text-align: center;
     }
 
-    /* Media blocks for images and videos */
     .media-block {
       margin: 2rem 0;
       display: flex;
@@ -217,7 +212,6 @@ body {
       width: 100%;
     }
 
-    /* Desktop layout */
     @media (min-width: 768px) {
       body {
         padding: 3rem 6rem;
@@ -262,7 +256,6 @@ body {
 </head>
 <body>
 
-        <!-- Back to homepage link -->
 <nav style="margin-bottom: 1rem;">
     <a href="index.html" style="
       text-decoration: none;
@@ -279,13 +272,11 @@ body {
   </header>
 
   <main>
-    <!-- 1. gallery watch -->
     <figure class="media-block">
       <img src="image_files/and-i-image/gallery watch.jpg" alt="And I Image by Nikos Antonio Kourous Vázquez - digital entity web scraping art installation" />
       <figcaption>And I Image (2025) © Nikos Antonio Kourous Vázquez</figcaption>
     </figure>
 
-    <!-- 2. text block -->
     <p>
       Two digital entities in conversation with each other, scraping images from the
       web and sharing them with one another in an attempt to convery meaning — to
@@ -304,19 +295,16 @@ body {
     </p>
     <p>Developed in response to <em><a href="/Simulacrum-Orbita">Simulacrum Orbita (2025)</a></em> and as part of <em><a href="/Flickr-Reflections">and in the mist // Flickr Reflections (2025)</em></a> made for the <a href= "https://thephotographersgallery.org.uk/whats-on/flickr-foundation-x-camberwell-computational-arts-takeover">Flickr Foundation anniversary event at the Photographer's Gallery.</a> </em> </em></p>
     
-    <!-- 3. closeup 4 -->
     <figure class="media-block">
       <img src="image_files/and-i-image/closeup 4.jpg" alt="And I Image by Nikos Antonio Kourous Vázquez - close-up view of AI web scraping installation" />
       <figcaption>And I Image (2025) © Nikos Antonio Kourous Vázquez</figcaption>
     </figure>
 
-    <!-- 4. IMG_1320 -->
     <figure class="media-block">
       <img src="image_files/and-i-image/IMG_1320.jpg" alt="And I Image by Nikos Antonio Kourous Vázquez - digital entities conversation through scraped imagery" />
       <figcaption>And I Image (2025) © Nikos Antonio Kourous Vázquez</figcaption>
     </figure>
 
-    <!-- 5. vert 3 -->
     <figure class="media-block">
       <img src="image_files/and-i-image/vert 3_.jpg" alt="And I Image by Nikos Antonio Kourous Vázquez - vertical view of web scraping art installation" />
       <figcaption>And I Image (2025) © Nikos Antonio Kourous Vázquez</figcaption>
@@ -329,9 +317,8 @@ body {
   </footer>
 
   <script>
-// Check for saved night mode preference on page load
 document.addEventListener('DOMContentLoaded', function() {
-  const isNightMode = localStorage.getItem('nightMode') === 'true';
+  const isNightMode=localStorage.getItem('nightMode') === 'true';
   
   if (isNightMode) {
     document.body.classList.add('night-mode');

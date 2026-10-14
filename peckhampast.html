@@ -9,7 +9,6 @@
   <meta name="robots" content="index, follow">
   <meta name="author" content="Nikos Antonio Kourous Vázquez">
 
-  <!-- Open Graph for socials -->
   <meta property="og:title" content="Rye Lane: a 3D archival exploration | Nikos Kourous Vázquez">
   <meta property="og:description" content="A 3D reconstrucion of Rye Lane, Peckham, using archival Google Street View data to explore the past history of shops.">
   <meta property="og:url" content="https://nikos.kourous.net/3d-reconstruction-peckham">
@@ -207,7 +206,6 @@ body {
       display: block;
     }
   
-    /* Desktop layout */
     @media (min-width: 768px) {
       body {
         padding: 3rem 6rem;
@@ -330,7 +328,6 @@ body.night-mode .background-image {
       A 3D construction of Rye Lane and the streets / rails around it were compiled using
       Google Earth data.
     </p>
-<!-- One image per line -->
 <div class="media-block">
     <img src="image_files/peckham_digital_construction/prerender.jpg" alt="Pre-render" />
   </div>
@@ -344,7 +341,6 @@ body.night-mode .background-image {
     <img src="image_files/peckham_digital_construction/screenshot2-1024x509.jpg" alt="Screenshot 2" />
   </div>
   
-  <!-- One video per line -->
   <div class="media-block">
     <video src="image_files/peckham_digital_construction/khans-final-export.mp4" controls autoplay muted loop playsinline></video>
   </div>
@@ -371,9 +367,8 @@ body.night-mode .background-image {
     <p><i><a href="https://instagram.com/nikoskourous" target="_blank" rel="noopener noreferrer">@nikoskourous</a></i></p>
   </footer>
   <script>
-// Check for saved night mode preference on page load
 document.addEventListener('DOMContentLoaded', function() {
-  const isNightMode = localStorage.getItem('nightMode') === 'true';
+  const isNightMode=localStorage.getItem('nightMode') === 'true';
   
   if (isNightMode) {
     document.body.classList.add('night-mode');

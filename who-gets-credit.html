@@ -75,9 +75,8 @@ I’ve come to a similar conclusion myself when it comes to determining the role
   </main>
 
   <script>
-// Check for saved night mode preference on page load
 document.addEventListener('DOMContentLoaded', function() {
-  const isNightMode = localStorage.getItem('nightMode') === 'true';
+  const isNightMode=localStorage.getItem('nightMode') === 'true';
   
   if (isNightMode) {
     document.body.classList.add('night-mode');

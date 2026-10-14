@@ -109,7 +109,6 @@
   <meta name="robots" content="index, follow">
   <meta name="author" content="Nikos Antonio Kourous Vázquez">
 
-  <!-- Open Graph for socials -->
   <meta property="og:title" content="Flickr Reflections | Nikos Kourous Vázquez">
   <meta property="og:description" content="Two digital entities, one that hallucinates images, and the other that finds them, stuck in conversation.">
   <meta property="og:url" content="https://nikos.kourous.net/Flickr-Reflections">
@@ -118,25 +117,21 @@
 
 
   <meta charset="UTF-8" />
-  <!-- The viewport meta tag is essential for responsive design on mobile devices -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Flickr Reflections</title>
   <style>
     :root {
-      /* This CSS variable will be updated via JS */
       --grid-item-min-size: 300px;
     }
     
-    /* Style for the clickable telephone text */
     #telephone {
       color: blue;
       text-decoration: underline;
       cursor: pointer;
     }
     
-    /* Popover container styling */
     #popover {
-      display: none; /* Hidden by default */
+      display: none;
       position: absolute;
       background: #fff;
       border: 1px solid #ccc;
@@ -154,7 +149,7 @@ body {
   background-color: #f9f9f9;
   color: #000;
   transition: padding 0.3s ease;
-  font-size: 1.1rem; /* make text one size bigger overall */
+  font-size: 1.1rem;
 }
 
     
@@ -182,10 +177,8 @@ body {
       }
     }
     
-    /* --- Styles for the image grid --- */
     .grid-container {
       display: grid;
-      /* The grid uses the CSS variable for the minimum width */
       grid-template-columns: repeat(auto-fit, minmax(var(--grid-item-min-size), 1fr));
       gap: 1rem;
       margin-top: 2rem;
@@ -208,7 +201,6 @@ body {
       display: block;
     }
     
-    /* Captions are visible by default */
     .caption {
       display: block;
       margin-top: 0.5rem;
@@ -217,7 +209,6 @@ body {
       transition: display 0.3s ease;
     }
     
-    /* --- Scroll to Top Button --- */
     #scrollToTop {
       position: fixed;
       top: 1rem;
@@ -229,7 +220,6 @@ body {
       z-index: 2000;
     }
     
-    /* --- Zoom Controls Container --- */
     #zoomControls {
       position: fixed;
       bottom: 1rem;
@@ -246,18 +236,17 @@ body {
       cursor: pointer;
     }
     
-    /* --- Styles for max zoom out (Level 3) --- */
     body.maxZoomOut .grid-container {
-      gap: 0.2rem; /* Very small gap between images */
+      gap: 0.2rem;
     }
     
     body.maxZoomOut .grid-item {
       border: none;
-      padding: 0;  /* Remove extra padding */
+      padding: 0;
     }
     
     body.maxZoomOut .caption {
-      display: none; /* Hide captions */
+      display: none;
     }
 
 .slides-container {
@@ -269,7 +258,7 @@ body {
 }
 
 .slides-container img {
-  width: 300px; /* or smaller, adjust as needed */
+  width: 300px;
   height: auto;
   display: block;
   border-radius: 4px;
@@ -285,11 +274,10 @@ body {
 
     .line-image {
       width: 300px;
-      display: block;  /* ensures the image is treated as a block element */
-      margin: 0 auto;  /* centers the image horizontally if desired */
+      display: block;
+      margin: 0 auto;
     }
 
-    /* === Desktop Layout Overrides === */
 @media (min-width: 768px) {
   body {
     max-width: none;
@@ -465,48 +453,43 @@ figcaption {
 </figure>
 
   
-    <!-- Image grid container -->
     <div class="grid-container" id="imageGrid">
-      <!-- Grid items will be generated here from JSON -->
     </div>
 
   </main>
   
-  <!-- Scroll To Top Button -->
   <button id="scrollToTop">Top</button>
   
 
   <script>
-    // --- Popover functionality for "telephone" ---
-    const telephone = document.getElementById('telephone');
-    const popover = document.getElementById('popover');
+    const telephone=document.getElementById('telephone');
+    const popover=document.getElementById('popover');
   
     telephone.addEventListener('click', (e) => {
-      const rect = telephone.getBoundingClientRect();
-      popover.style.top = (rect.bottom + window.scrollY) + 'px';
-      popover.style.left = (rect.left + window.scrollX) + 'px';
-      popover.style.display = 'block';
+      const rect=telephone.getBoundingClientRect();
+      popover.style.top=(rect.bottom + window.scrollY) + 'px';
+      popover.style.left=(rect.left + window.scrollX) + 'px';
+      popover.style.display='block';
       e.stopPropagation();
     });
   
     document.addEventListener('click', (event) => {
       if (!popover.contains(event.target) && event.target !== telephone) {
-        popover.style.display = 'none';
+        popover.style.display='none';
       }
     });
   
-    // --- Image Grid with Captions Visible by Default ---
     function createGridItem(imageData) {
-      const gridItem = document.createElement('div');
-      gridItem.className = 'grid-item';
+      const gridItem=document.createElement('div');
+      gridItem.className='grid-item';
       
-      const img = document.createElement('img');
-      img.src = imageData.filename;
-      img.alt = imageData.filename.split('\\').pop().split('/').pop();
+      const img=document.createElement('img');
+      img.src=imageData.filename;
+      img.alt=imageData.filename.split('\\').pop().split('/').pop();
       
-      const captionDiv = document.createElement('div');
-      captionDiv.className = 'caption';
-      captionDiv.textContent = imageData.caption;
+      const captionDiv=document.createElement('div');
+      captionDiv.className='caption';
+      captionDiv.textContent=imageData.caption;
       
       gridItem.appendChild(img);
       gridItem.appendChild(captionDiv);
@@ -518,30 +501,29 @@ figcaption {
       .then(response => response.json())
       .then(data => {
         data.sort((a, b) => {
-          const regex = /duo(\d+)\.jpg$/;
-          const matchA = a.filename.match(regex);
-          const matchB = b.filename.match(regex);
+          const regex=/duo(\d+)\.jpg$/;
+          const matchA=a.filename.match(regex);
+          const matchB=b.filename.match(regex);
           if (matchA && matchB) {
-            const numA = parseInt(matchA[1], 10);
-            const numB = parseInt(matchB[1], 10);
+            const numA=parseInt(matchA[1], 10);
+            const numB=parseInt(matchB[1], 10);
             return numA - numB;
           }
           return a.filename.localeCompare(b.filename);
         });
         
-        const gridContainer = document.getElementById('imageGrid');
+        const gridContainer=document.getElementById('imageGrid');
         data.forEach(imageData => {
-          const gridItem = createGridItem(imageData);
+          const gridItem=createGridItem(imageData);
           gridContainer.appendChild(gridItem);
         });
       })
       .catch(error => console.error('Error loading images:', error));
   
-    // --- Scroll Behavior for "Scroll to Top" Button ---
-    const scrollToTopButton = document.getElementById('scrollToTop');
-    const fixedThreshold = 200;
+    const scrollToTopButton=document.getElementById('scrollToTop');
+    const fixedThreshold=200;
     window.addEventListener('scroll', () => {
-      scrollToTopButton.style.display = window.scrollY > fixedThreshold ? 'block' : 'none';
+      scrollToTopButton.style.display=window.scrollY > fixedThreshold ? 'block' : 'none';
     });
     scrollToTopButton.addEventListener('click', () => {
       window.scrollTo({
@@ -550,34 +532,23 @@ figcaption {
       });
     });
   
-    // --- Zoom Controls ---
-    const zoomInButton = document.getElementById('zoomIn');
-    const zoomOutButton = document.getElementById('zoomOut');
+    const zoomInButton=document.getElementById('zoomIn');
+    const zoomOutButton=document.getElementById('zoomOut');
     
-    // Define four zoom levels:
-    // Level 0: ~1 image per row (max zoom in) => "300px"
-    // Level 1: ~3 images per row           => "200px"
-    // Level 2: ~5 images per row           => "120px"
-    // Level 3: ~9 images per row (max zoom out) => "66.67px"
-    const zoomLevels = ["300px", "200px", "120px", "66.67px"];
-    // Start at maximum zoom out (level 3)
-    let currentZoomLevel = zoomLevels.length - 1;
+    const zoomLevels=["300px", "200px", "120px", "66.67px"];
+    let currentZoomLevel=zoomLevels.length - 1;
     
     function updateGridZoom() {
       document.documentElement.style.setProperty('--grid-item-min-size', zoomLevels[currentZoomLevel]);
       
-      // Toggle the "maxZoomOut" class on body at level 3 (max zoom out)
       if (currentZoomLevel === zoomLevels.length - 1) {
         document.body.classList.add('maxZoomOut');
       } else {
         document.body.classList.remove('maxZoomOut');
       }
       
-      // Show/hide buttons accordingly:
-      // At max zoom out, hide the Zoom Out button;
-      // at max zoom in, hide the Zoom In button.
-      zoomOutButton.style.display = (currentZoomLevel === zoomLevels.length - 1) ? "none" : "block";
-      zoomInButton.style.display = (currentZoomLevel === 0) ? "none" : "block";
+      zoomOutButton.style.display=(currentZoomLevel === zoomLevels.length - 1) ? "none" : "block";
+      zoomInButton.style.display=(currentZoomLevel === 0) ? "none" : "block";
     }
     
     zoomInButton.addEventListener('click', () => {
@@ -594,18 +565,15 @@ figcaption {
       }
     });
     
-    // Initialize zoom level on page load
     updateGridZoom();
   
-    // --- Hide Zoom Controls When Scrolling Past the Grid ---
-    const zoomControlsDiv = document.getElementById('zoomControls');
+    const zoomControlsDiv=document.getElementById('zoomControls');
     window.addEventListener('scroll', () => {
-      const gridRect = document.getElementById('imageGrid').getBoundingClientRect();
-      // If the bottom of the grid is above the viewport (i.e. scrolled past), hide zoom controls.
+      const gridRect=document.getElementById('imageGrid').getBoundingClientRect();
       if (gridRect.bottom < 0) {
-        zoomControlsDiv.style.display = 'none';
+        zoomControlsDiv.style.display='none';
       } else {
-        zoomControlsDiv.style.display = 'flex';
+        zoomControlsDiv.style.display='flex';
       }
     });
   </script>
@@ -616,9 +584,8 @@ figcaption {
 
   </footer>
   <script>
-// Check for saved night mode preference on page load
 document.addEventListener('DOMContentLoaded', function() {
-  const isNightMode = localStorage.getItem('nightMode') === 'true';
+  const isNightMode=localStorage.getItem('nightMode') === 'true';
   
   if (isNightMode) {
     document.body.classList.add('night-mode');

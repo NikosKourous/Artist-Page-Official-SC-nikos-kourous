@@ -161,7 +161,6 @@
   <meta name="robots" content="index, follow">
   <meta name="author" content="Nikos Antonio Kourous Vázquez">
 
-<!-- Open Graph for socials -->
 <meta property="og:title" content="Simulacrum Orbita | Nikos Kourous Vázquez">
 <meta property="og:description" content="A never-ending game of telephone between two AI models">
 <meta property="og:url" content="https://nikos.kourous.net/Simulacrum-Orbita">
@@ -218,7 +217,6 @@
       font-weight: bold;
     }
 
-    /* Media blocks for images and videos */
     .media-block {
       margin: 2rem 0;
       display: flex;
@@ -245,7 +243,6 @@
       width: 100%;
     }
 
-    /* Slides container styling */
     .slides-container {
       width: 300px;
       display: flex;
@@ -265,7 +262,6 @@
       transform: scale(1.005);
     }
 
-    /* Telephone popover styles */
     #telephone {
       color: #181818;
       text-decoration: underline;
@@ -290,7 +286,6 @@
       z-index: 1000;
     }
 
-    /* Grid container styles */
     :root {
       --grid-item-min-size: 66.67px;
     }
@@ -348,7 +343,6 @@
       transition: display 0.3s ease;
     }
 
-    /* Zoom controls */
     #scrollToTop {
       position: fixed;
       top: 1rem;
@@ -385,7 +379,6 @@
       display: none;
     }
 
-    /* Image modal */
     .modal {
       display: none;
       position: fixed;
@@ -429,7 +422,6 @@
       opacity: 0.7;
     }
 
-    /* Night mode */
     body.night-mode {
       background-color: #000000 !important;
       color: #ffffff !important;
@@ -454,7 +446,6 @@
       color: #ccc !important;
     }
 
-    /* Desktop layout */
     @media (min-width: 768px) {
       body {
         padding: 3rem 4rem;
@@ -499,7 +490,6 @@
       }
     }
 
-    /* Mobile responsive for grid and controls */
     @media (max-width: 767px) {
       .grid-and-controls {
         flex-direction: column;
@@ -601,20 +591,16 @@
     <h2><i>Example run</i></h2>
     <p>Below are the images from a one hour uninterrupted run. Zoom in to see the captions, or zoom out to see the overall evolution of imagery!</p>
 
-    <!-- Popover for the telephone text -->
     <div id="popover">
       <p>
         Also called 'broken telephone' or 'chinese whispers,' although this term connotes non-western language and culture to ideas of confusion and incomprehensibility.
       </p>
     </div>
 
-    <!-- Image grid container with zoom controls -->
     <div class="grid-and-controls">
       <div class="grid-container" id="imageGrid">
-        <!-- Grid items will be generated here from JSON -->
       </div>
       
-      <!-- Zoom Controls -->
       <div id="zoomControls">
         <button id="zoomIn">zoom in!</button>
         <button id="zoomOut">zoom out!</button>
@@ -673,7 +659,6 @@
     </figure>
   </main>
 
-  <!-- Image Modal -->
   <div id="imageModal" class="modal">
     <div class="modal-content">
       <span class="close">&times;</span>
@@ -681,7 +666,6 @@
     </div>
   </div>
 
-  <!-- Scroll To Top Button -->
   <button id="scrollToTop">Top</button>
 
   <footer style="text-align: center; font-size: 0.8rem; margin-top: 2rem;">
@@ -690,63 +674,58 @@
   </footer>
 
   <script>
-    // Image modal functionality
-    const modal = document.getElementById('imageModal');
-    const modalImg = document.getElementById('modalImage');
-    const closeBtn = document.getElementsByClassName('close')[0];
+    const modal=document.getElementById('imageModal');
+    const modalImg=document.getElementById('modalImage');
+    const closeBtn=document.getElementsByClassName('close')[0];
 
-    // Add click listeners to all images
     function addImageClickListeners() {
-      const images = document.querySelectorAll('img');
+      const images=document.querySelectorAll('img');
       images.forEach(img => {
         img.addEventListener('click', function() {
-          modal.style.display = 'flex';
-          modalImg.src = this.src;
+          modal.style.display='flex';
+          modalImg.src=this.src;
         });
       });
     }
 
-    // Close modal
-    closeBtn.onclick = function() {
-      modal.style.display = 'none';
+    closeBtn.onclick=function() {
+      modal.style.display='none';
     }
 
-    modal.onclick = function(event) {
+    modal.onclick=function(event) {
       if (event.target === modal) {
-        modal.style.display = 'none';
+        modal.style.display='none';
       }
     }
 
-    // --- Popover functionality for "telephone" ---
-    const telephone = document.getElementById('telephone');
-    const popover = document.getElementById('popover');
+    const telephone=document.getElementById('telephone');
+    const popover=document.getElementById('popover');
 
     telephone.addEventListener('click', (e) => {
-      const rect = telephone.getBoundingClientRect();
-      popover.style.top = (rect.bottom + window.scrollY) + 'px';
-      popover.style.left = (rect.left + window.scrollX) + 'px';
-      popover.style.display = 'block';
+      const rect=telephone.getBoundingClientRect();
+      popover.style.top=(rect.bottom + window.scrollY) + 'px';
+      popover.style.left=(rect.left + window.scrollX) + 'px';
+      popover.style.display='block';
       e.stopPropagation();
     });
 
     document.addEventListener('click', (event) => {
       if (!popover.contains(event.target) && event.target !== telephone) {
-        popover.style.display = 'none';
+        popover.style.display='none';
       }
     });
 
-    // --- Image Grid with Captions Visible by Default ---
     function createGridItem(imageData) {
-      const gridItem = document.createElement('div');
-      gridItem.className = 'grid-item';
+      const gridItem=document.createElement('div');
+      gridItem.className='grid-item';
 
-      const img = document.createElement('img');
-      img.src = imageData.filename;
-      img.alt = imageData.filename.split('\\').pop().split('/').pop();
+      const img=document.createElement('img');
+      img.src=imageData.filename;
+      img.alt=imageData.filename.split('\\').pop().split('/').pop();
 
-      const captionDiv = document.createElement('div');
-      captionDiv.className = 'caption';
-      captionDiv.textContent = imageData.caption;
+      const captionDiv=document.createElement('div');
+      captionDiv.className='caption';
+      captionDiv.textContent=imageData.caption;
 
       gridItem.appendChild(img);
       gridItem.appendChild(captionDiv);
@@ -758,36 +737,33 @@
       .then(response => response.json())
       .then(data => {
         data.sort((a, b) => {
-          const regex = /duo(\d+)\.jpg$/;
-          const matchA = a.filename.match(regex);
-          const matchB = b.filename.match(regex);
+          const regex=/duo(\d+)\.jpg$/;
+          const matchA=a.filename.match(regex);
+          const matchB=b.filename.match(regex);
           if (matchA && matchB) {
-            const numA = parseInt(matchA[1], 10);
-            const numB = parseInt(matchB[1], 10);
+            const numA=parseInt(matchA[1], 10);
+            const numB=parseInt(matchB[1], 10);
             return numA - numB;
           }
           return a.filename.localeCompare(b.filename);
         });
 
-        const gridContainer = document.getElementById('imageGrid');
+        const gridContainer=document.getElementById('imageGrid');
         data.forEach(imageData => {
-          const gridItem = createGridItem(imageData);
+          const gridItem=createGridItem(imageData);
           gridContainer.appendChild(gridItem);
         });
 
-        // Add click listeners after grid is populated
         addImageClickListeners();
       })
       .catch(error => console.error('Error loading images:', error));
 
-    // Initialize image click listeners for existing images
     addImageClickListeners();
 
-    // --- Scroll Behavior for "Scroll to Top" Button ---
-    const scrollToTopButton = document.getElementById('scrollToTop');
-    const fixedThreshold = 200;
+    const scrollToTopButton=document.getElementById('scrollToTop');
+    const fixedThreshold=200;
     window.addEventListener('scroll', () => {
-      scrollToTopButton.style.display = window.scrollY > fixedThreshold ? 'block' : 'none';
+      scrollToTopButton.style.display=window.scrollY > fixedThreshold ? 'block' : 'none';
     });
     scrollToTopButton.addEventListener('click', () => {
       window.scrollTo({
@@ -796,12 +772,11 @@
       });
     });
 
-    // --- Zoom Controls ---
-    const zoomInButton = document.getElementById('zoomIn');
-    const zoomOutButton = document.getElementById('zoomOut');
+    const zoomInButton=document.getElementById('zoomIn');
+    const zoomOutButton=document.getElementById('zoomOut');
 
-    const zoomLevels = ["300px", "200px", "120px", "66.67px"];
-    let currentZoomLevel = zoomLevels.length - 1;
+    const zoomLevels=["300px", "200px", "120px", "66.67px"];
+    let currentZoomLevel=zoomLevels.length - 1;
 
     function updateGridZoom() {
       document.documentElement.style.setProperty('--grid-item-min-size', zoomLevels[currentZoomLevel]);
@@ -812,8 +787,8 @@
         document.body.classList.remove('maxZoomOut');
       }
 
-      zoomOutButton.style.display = (currentZoomLevel === zoomLevels.length - 1) ? "none" : "block";
-      zoomInButton.style.display = (currentZoomLevel === 0) ? "none" : "block";
+      zoomOutButton.style.display=(currentZoomLevel === zoomLevels.length - 1) ? "none" : "block";
+      zoomInButton.style.display=(currentZoomLevel === 0) ? "none" : "block";
     }
 
     zoomInButton.addEventListener('click', () => {
@@ -832,9 +807,8 @@
 
     updateGridZoom();
 
-    // Check for saved night mode preference on page load
     document.addEventListener('DOMContentLoaded', function() {
-      const isNightMode = localStorage.getItem('nightMode') === 'true';
+      const isNightMode=localStorage.getItem('nightMode') === 'true';
 
       if (isNightMode) {
         document.body.classList.add('night-mode');

@@ -25,13 +25,11 @@
   <meta name="twitter:image" content="https://nikos.kourous.net/image_files/thumbnail-ai-explorer.jpg">
 
 
-  <!-- Link to external CSS for clean styling -->
   <link rel="stylesheet" href="style.css" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-<!--TEST FOR GITHUB WROTE THIS ON MY LAPTOP BEEP-->
 <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -237,9 +235,7 @@
 </head>
 
 <body>
-  <!-- Background image container -->
   <div class="background-image"></div>
-    <!--<div id="cubeContainer"></div> --> 
 
  <main class="container">
 
@@ -305,17 +301,16 @@
 <button id="night-mode-toggle" class="night-toggle-btn">🌙</button>
 
 <script>
-  const links = document.querySelectorAll("ul li a");
+  const links=document.querySelectorAll("ul li a");
 
   links.forEach(link => {
     function jitter() {
-      const x = Math.floor(Math.random() * 3) - 1; // -1, 0, or 1
-      const y = Math.floor(Math.random() * 3) - 1;
-      link.style.transform = `translate(${x}px, ${y}px)`;
+      const x=Math.floor(Math.random() * 3) - 1;
+      const y=Math.floor(Math.random() * 3) - 1;
+      link.style.transform=`translate(${x}px, ${y}px)`;
 
 
-      // schedule next jitter in 10–20s
-      const delay = Math.random() * 100000 + 1000000; // 10000–20000ms
+      const delay=Math.random() * 100000 + 1000000;
       setTimeout(jitter, delay);
     }
 
@@ -343,71 +338,59 @@
 </script>
 
 <script type="module">
-import * as THREE from 'three';
+import * as three from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
-const container = document.getElementById('computer-viewer');
-const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+const container=document.getElementById('computer-viewer');
+const renderer=new three.WebGLRenderer({ antialias: true, alpha: true });
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(container.clientWidth, container.clientHeight);
-renderer.outputColorSpace = THREE.SRGBColorSpace;
+renderer.outputColorSpace=three.SRGBColorSpace;
 container.appendChild(renderer.domElement);
 
-const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 100);
+const scene=new three.Scene();
+const camera=new three.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 100);
 camera.position.set(0, 0, 5);
 
-const ambientLight = new THREE.AmbientLight(0xffffff, 1.5);
+const ambientLight=new three.AmbientLight(0xffffff, 1.5);
 scene.add(ambientLight);
-const dirLight = new THREE.DirectionalLight(0xffffff, 2);
+const dirLight=new three.DirectionalLight(0xffffff, 2);
 dirLight.position.set(5, 5, 5);
 scene.add(dirLight);
 
-const controls = new OrbitControls(camera, renderer.domElement);
-controls.enableZoom = true;
-controls.enableDamping = true;
-controls.dampingFactor = 0.05;
-controls.zoomSpeed = 0.08;
-controls.minDistance = 2;
-controls.maxDistance = 14;
-controls.enablePan = true;
-controls.autoRotate = false;
+const controls=new OrbitControls(camera, renderer.domElement);
+controls.enableZoom=true;
+controls.enableDamping=true;
+controls.dampingFactor=0.05;
+controls.zoomSpeed=0.08;
+controls.minDistance=2;
+controls.maxDistance=14;
+controls.enablePan=true;
+controls.autoRotate=false;
 controls.target.set(0, 0, 0);
 
-const originalCameraPos = camera.position.clone();
-const originalTarget = new THREE.Vector3(0, 0, 0);
-let returnTimeout = null;
-let isReturning = false;
+const originalCameraPos=camera.position.clone();
+const originalTarget=new three.Vector3(0, 0, 0);
+let returnTimeout=null;
+let isReturning=false;
 
 controls.addEventListener('start', () => {
-  isReturning = false;
+  isReturning=false;
   clearTimeout(returnTimeout);
 });
 controls.addEventListener('end', () => {
   clearTimeout(returnTimeout);
-  returnTimeout = setTimeout(() => { isReturning = true; }, 3000);
+  returnTimeout=setTimeout(() => { isReturning=true; }, 3000);
 });
 
-// === SLIDESHOW ===
-// ============================================================
-// SLIDESHOW — IMAGE EFFECTS
-// Adjust these to change how all images look on the screen.
-// ============================================================
-const IMAGE_FILTER     = 'saturate(120%) contrast(105%)';
-//   saturate(100%) = normal | 200% = vivid | 50% = muted
-//   contrast(100%) = normal | 120% = punchy
-const POSTERIZE_LEVELS = 15;
-//   Lower = stronger: 2 is heavy, 4 is medium, 6+ is subtle
-// ============================================================
+const image_filter='saturate(120%) contrast(105%)';
+const posterize_levels=15;
 
-// ============================================================
-// SLIDESHOW — TIMING
-// ============================================================
-const SLIDE_DURATION = 5000; // ms each image is shown
+const slide_duration=5000;
 
-const TRANSITION_DURATIONS = {   // ms per transition type
+const transition_durations={
   cut:          80,
   fadeBlack:    1200,
   wipeH:        1000,
@@ -418,13 +401,8 @@ const TRANSITION_DURATIONS = {   // ms per transition type
   iris:         1000,
   scatter:      1400,
 };
-// ============================================================
 
-// ============================================================
-// SLIDESHOW — TRANSITION POOL
-// Comment out any line to remove it from the random rotation.
-// ============================================================
-const TRANSITIONS = [
+const transitions=[
   'cut',
   'fadeBlack',
   'wipeH',
@@ -435,109 +413,93 @@ const TRANSITIONS = [
   'iris',
   'scatter',
 ];
-// ============================================================
 
-// ============================================================
-// SLIDESHOW — TRANSITION GEOMETRY
-// Controls grid sizes for blinds, checkerboard, and scatter.
-// ============================================================
-const BLINDS_COUNT     = 8;    // number of horizontal strips
-const CHECKER_COLS     = 8;    // checkerboard columns
-const CHECKER_ROWS     = 6;    // checkerboard rows
-const SCATTER_COLS     = 8;    // scatter tile columns
-const SCATTER_ROWS     = 6;    // scatter tile rows
-const SCATTER_MIN_DIST = 600;  // min px each tile travels
-const SCATTER_MAX_DIST = 1000; // max px each tile travels
-// ============================================================
+const blinds_count=8;
+const checker_cols=8;
+const checker_rows=6;
+const scatter_cols=8;
+const scatter_rows=6;
+const scatter_min_dist=600;
+const scatter_max_dist=1000;
 
-const screenCanvas = document.createElement('canvas');
-screenCanvas.width  = 1024;
-screenCanvas.height = 768;
-const ctx = screenCanvas.getContext('2d');
-const screenTexture = new THREE.CanvasTexture(screenCanvas);
-ctx.fillStyle = '#000';
+const screenCanvas=document.createElement('canvas');
+screenCanvas.width=1024;
+screenCanvas.height=768;
+const ctx=screenCanvas.getContext('2d');
+const screenTexture=new three.CanvasTexture(screenCanvas);
+ctx.fillStyle='#000';
 ctx.fillRect(0, 0, 1024, 768);
 
-let fromCanvas        = null;
-let toCanvas          = null;
-let isFading          = false;
-let fadeStart         = 0;
-let currentTransition = 'cut';
-let currentDuration   = 80;
-let scatterData       = [];
-let slideImages       = [];
-let remainingSlides = [];
+let fromCanvas=null;
+let toCanvas=null;
+let isFading=false;
+let fadeStart=0;
+let currentTransition='cut';
+let currentDuration=80;
+let scatterData=[];
+let slideImages=[];
+let remainingSlides=[];
 
-// ── Image processing: applies effects once on load ────────
 function applyPosterize(octx, w, h) {
-  const imageData = octx.getImageData(0, 0, w, h);
-  const d = imageData.data;
-  const factor = 255 / (POSTERIZE_LEVELS - 1);
-  for (let i = 0; i < d.length; i += 4) {
-    d[i]   = Math.round(d[i]   / factor) * factor;
-    d[i+1] = Math.round(d[i+1] / factor) * factor;
-    d[i+2] = Math.round(d[i+2] / factor) * factor;
+  const imageData=octx.getImageData(0, 0, w, h);
+  const d=imageData.data;
+  const factor=255 / (posterize_levels - 1);
+  for (let i=0; i < d.length; i += 4) {
+    d[i]=Math.round(d[i]   / factor) * factor;
+    d[i+1]=Math.round(d[i+1] / factor) * factor;
+    d[i+2]=Math.round(d[i+2] / factor) * factor;
   }
   octx.putImageData(imageData, 0, 0);
 }
 
 async function processImage(src) {
-  const img = await new Promise(resolve => {
-    const i = new Image();
-    i.crossOrigin = 'anonymous';
-    i.onload = () => resolve(i);
-    i.onerror = () => resolve(null);
-    i.src = src;
+  const img=await new Promise(resolve => {
+    const i=new Image();
+    i.crossOrigin='anonymous';
+    i.onload=() => resolve(i);
+    i.onerror=() => resolve(null);
+    i.src=src;
   });
 
   if (!img) return null;
 
-  const oc = document.createElement('canvas');
-  oc.width = screenCanvas.width;
-  oc.height = screenCanvas.height;
-  const octx = oc.getContext('2d');
+  const oc=document.createElement('canvas');
+  oc.width=screenCanvas.width;
+  oc.height=screenCanvas.height;
+  const octx=oc.getContext('2d');
 
-  // === background ===
-  octx.fillStyle = '#000';
+  octx.fillStyle='#000';
   octx.fillRect(0, 0, oc.width, oc.height);
 
-  // ======================================================
-  // FIXED "WINDOW" AREA (stable, not scaling-shrinking)
-  // ======================================================
-  const windowScale = 0.2;
+  const windowScale=0.2;
 
-  const areaW = oc.width * windowScale;
-  const areaH = oc.height * windowScale;
+  const areaW=oc.width * windowScale;
+  const areaH=oc.height * windowScale;
 
-  // center of full canvas
-  const cx = oc.width / 2-310;
-  const cy = oc.height / 2-260;
+  const cx=oc.width / 2-310;
+  const cy=oc.height / 2-260;
 
-  // scale image to fit inside window (contain)
-  const s = Math.min(areaW / img.width, areaH / img.height);
+  const s=Math.min(areaW / img.width, areaH / img.height);
 
-  const w = img.width * s;
-  const h = img.height * s-20;
+  const w=img.width * s;
+  const h=img.height * s-20;
 
-  // center inside canvas (stable anchor)
-  const x = cx - w / 2;
-  const y = cy - h / 2;
+  const x=cx - w / 2;
+  const y=cy - h / 2;
 
-  // optional styling
-  octx.filter = IMAGE_FILTER;
+  octx.filter=image_filter;
 
   octx.drawImage(img, x, y, w, h);
 
-  octx.filter = 'none';
+  octx.filter='none';
 
   applyPosterize(octx, oc.width, oc.height);
 
   return oc;
 }
-// ── Transitions ───────────────────────────────────────────
 function drawTransition(t, from, to) {
-  const W = screenCanvas.width;
-  const H = screenCanvas.height;
+  const w=screenCanvas.width;
+  const h=screenCanvas.height;
 
   switch (currentTransition) {
 
@@ -548,19 +510,19 @@ function drawTransition(t, from, to) {
     case 'fadeBlack':
       if (t < 0.5) {
         ctx.drawImage(from, 0, 0);
-        ctx.fillStyle = `rgba(0,0,0,${t * 2})`;
-        ctx.fillRect(0, 0, W, H);
+        ctx.fillStyle=`rgba(0,0,0,${t * 2})`;
+        ctx.fillRect(0, 0, w, h);
       } else {
         ctx.drawImage(to, 0, 0);
-        ctx.fillStyle = `rgba(0,0,0,${1 - (t - 0.5) * 2})`;
-        ctx.fillRect(0, 0, W, H);
+        ctx.fillStyle=`rgba(0,0,0,${1 - (t - 0.5) * 2})`;
+        ctx.fillRect(0, 0, w, h);
       }
       break;
 
     case 'wipeH':
       ctx.drawImage(from, 0, 0);
       ctx.save();
-      ctx.beginPath(); ctx.rect(0, 0, W * t, H); ctx.clip();
+      ctx.beginPath(); ctx.rect(0, 0, w * t, h); ctx.clip();
       ctx.drawImage(to, 0, 0);
       ctx.restore();
       break;
@@ -568,19 +530,19 @@ function drawTransition(t, from, to) {
     case 'wipeV':
       ctx.drawImage(from, 0, 0);
       ctx.save();
-      ctx.beginPath(); ctx.rect(0, 0, W, H * t); ctx.clip();
+      ctx.beginPath(); ctx.rect(0, 0, w, h * t); ctx.clip();
       ctx.drawImage(to, 0, 0);
       ctx.restore();
       break;
 
     case 'blinds': {
       ctx.drawImage(from, 0, 0);
-      const bh = H / BLINDS_COUNT;
-      for (let i = 0; i < BLINDS_COUNT; i++) {
-        const delay = (i / BLINDS_COUNT) * 0.4;
-        const bt = Math.max(0, Math.min(1, (t - delay) / 0.6));
+      const bh=h / blinds_count;
+      for (let i=0; i < blinds_count; i++) {
+        const delay=(i / blinds_count) * 0.4;
+        const bt=Math.max(0, Math.min(1, (t - delay) / 0.6));
         ctx.save();
-        ctx.beginPath(); ctx.rect(0, i * bh, W * bt, bh); ctx.clip();
+        ctx.beginPath(); ctx.rect(0, i * bh, w * bt, bh); ctx.clip();
         ctx.drawImage(to, 0, 0);
         ctx.restore();
       }
@@ -589,11 +551,11 @@ function drawTransition(t, from, to) {
 
     case 'checkerboard': {
       ctx.drawImage(from, 0, 0);
-      const tw = W / CHECKER_COLS;
-      const th = H / CHECKER_ROWS;
-      for (let r = 0; r < CHECKER_ROWS; r++) {
-        for (let c = 0; c < CHECKER_COLS; c++) {
-          if (t > (c + r) / (CHECKER_COLS + CHECKER_ROWS - 2)) {
+      const tw=w / checker_cols;
+      const th=h / checker_rows;
+      for (let r=0; r < checker_rows; r++) {
+        for (let c=0; c < checker_cols; c++) {
+          if (t > (c + r) / (checker_cols + checker_rows - 2)) {
             ctx.save();
             ctx.beginPath(); ctx.rect(c * tw, r * th, tw, th); ctx.clip();
             ctx.drawImage(to, 0, 0);
@@ -608,18 +570,18 @@ function drawTransition(t, from, to) {
       ctx.drawImage(from, 0, 0);
       ctx.save();
       ctx.beginPath();
-      ctx.moveTo(W / 2, H / 2);
-      ctx.arc(W / 2, H / 2, Math.sqrt(W ** 2 + H ** 2), -Math.PI / 2, -Math.PI / 2 + Math.PI * 2 * t);
+      ctx.moveTo(w / 2, h / 2);
+      ctx.arc(w / 2, h / 2, Math.sqrt(w ** 2 + h ** 2), -Math.PI / 2, -Math.PI / 2 + Math.PI * 2 * t);
       ctx.closePath(); ctx.clip();
       ctx.drawImage(to, 0, 0);
       ctx.restore();
       break;
 
     case 'iris': {
-      const maxR = Math.sqrt((W / 2) ** 2 + (H / 2) ** 2) * 1.05;
+      const maxR=Math.sqrt((w / 2) ** 2 + (h / 2) ** 2) * 1.05;
       ctx.drawImage(from, 0, 0);
       ctx.save();
-      ctx.beginPath(); ctx.arc(W / 2, H / 2, maxR * t, 0, Math.PI * 2); ctx.clip();
+      ctx.beginPath(); ctx.arc(w / 2, h / 2, maxR * t, 0, Math.PI * 2); ctx.clip();
       ctx.drawImage(to, 0, 0);
       ctx.restore();
       break;
@@ -627,13 +589,13 @@ function drawTransition(t, from, to) {
 
     case 'scatter': {
       ctx.drawImage(to, 0, 0);
-      const stw  = W / SCATTER_COLS;
-      const sth  = H / SCATTER_ROWS;
-      const ease = t * t; // tiles accelerate as they leave
-      let i = 0;
-      for (let r = 0; r < SCATTER_ROWS; r++) {
-        for (let c = 0; c < SCATTER_COLS; c++) {
-          const { dx, dy } = scatterData[i++];
+      const stw=w / scatter_cols;
+      const sth=h / scatter_rows;
+      const ease=t * t;
+      let i=0;
+      for (let r=0; r < scatter_rows; r++) {
+        for (let c=0; c < scatter_cols; c++) {
+          const { dx, dy }=scatterData[i++];
           ctx.save();
           ctx.translate(c * stw + dx * ease, r * sth + dy * ease);
           ctx.drawImage(from, c * stw, r * sth, stw, sth, 0, 0, stw, sth);
@@ -647,33 +609,32 @@ function drawTransition(t, from, to) {
 
 function drawSlide(ts) {
   if (!fromCanvas) return;
-  ctx.fillStyle = '#000';
+  ctx.fillStyle='#000';
   ctx.fillRect(0, 0, screenCanvas.width, screenCanvas.height);
 
   if (!isFading || !toCanvas) {
     ctx.drawImage(fromCanvas, 0, 0);
-    screenTexture.needsUpdate = true;
+    screenTexture.needsUpdate=true;
     return;
   }
 
-  const t = Math.min((ts - fadeStart) / currentDuration, 1);
+  const t=Math.min((ts - fadeStart) / currentDuration, 1);
   drawTransition(t, fromCanvas, toCanvas);
-  if (t >= 1) { fromCanvas = toCanvas; toCanvas = null; isFading = false; }
-  screenTexture.needsUpdate = true;
+  if (t >= 1) { fromCanvas=toCanvas; toCanvas=null; isFading=false; }
+  screenTexture.needsUpdate=true;
 }
 
-// ── Slideshow control ─────────────────────────────────────
 function pickTransition() {
-  const name = TRANSITIONS[Math.floor(Math.random() * TRANSITIONS.length)];
-  currentTransition = name;
-  currentDuration   = TRANSITION_DURATIONS[name] ?? 1000;
+  const name=transitions[Math.floor(Math.random() * transitions.length)];
+  currentTransition=name;
+  currentDuration=transition_durations[name] ?? 1000;
 
   if (name === 'scatter') {
-    scatterData = [];
-    for (let r = 0; r < SCATTER_ROWS; r++) {
-      for (let c = 0; c < SCATTER_COLS; c++) {
-        const angle = Math.random() * Math.PI * 2;
-        const dist  = SCATTER_MIN_DIST + Math.random() * (SCATTER_MAX_DIST - SCATTER_MIN_DIST);
+    scatterData=[];
+    for (let r=0; r < scatter_rows; r++) {
+      for (let c=0; c < scatter_cols; c++) {
+        const angle=Math.random() * Math.PI * 2;
+        const dist=scatter_min_dist + Math.random() * (scatter_max_dist - scatter_min_dist);
         scatterData.push({ dx: Math.cos(angle) * dist, dy: Math.sin(angle) * dist });
       }
     }
@@ -682,66 +643,62 @@ function pickTransition() {
 
 async function advanceSlide() {
 
-  // refill pool when empty
   if (remainingSlides.length === 0) {
-    remainingSlides = shuffleArray([...slideImages]);
+    remainingSlides=shuffleArray([...slideImages]);
   }
 
-  // pick random next image (no repeats until reshuffle)
-  const nextSrc = remainingSlides.pop();
+  const nextSrc=remainingSlides.pop();
 
-  const next = await processImage(nextSrc);
+  const next=await processImage(nextSrc);
 
   if (next) {
     pickTransition();
-    toCanvas = next;
-    fadeStart = performance.now();
-    isFading = true;
+    toCanvas=next;
+    fadeStart=performance.now();
+    isFading=true;
   }
 
-  setTimeout(advanceSlide, SLIDE_DURATION);
+  setTimeout(advanceSlide, slide_duration);
 }
 
 function shuffleArray(arr) {
-  for (let i = arr.length - 1; i > 0; i--) {
-    const j = (Math.random() * (i + 1)) | 0;
-    [arr[i], arr[j]] = [arr[j], arr[i]];
+  for (let i=arr.length - 1; i > 0; i--) {
+    const j=(Math.random() * (i + 1)) | 0;
+    [arr[i], arr[j]]=[arr[j], arr[i]];
   }
   return arr;
 }
 
 async function startSlideshow(paths) {
-  slideImages = paths;
+  slideImages=paths;
   if (!slideImages.length) return;
 
-  // create randomized pool
-  remainingSlides = shuffleArray([...slideImages]);
+  remainingSlides=shuffleArray([...slideImages]);
 
-  fromCanvas = await processImage(remainingSlides.pop());
-  setTimeout(advanceSlide, SLIDE_DURATION);
+  fromCanvas=await processImage(remainingSlides.pop());
+  setTimeout(advanceSlide, slide_duration);
 }
 fetch('/image_files/slideshow/list.php')
   .then(r => r.json())
   .then(startSlideshow);
-// === END SLIDESHOW ===
 
-const dracoLoader = new DRACOLoader();
+const dracoLoader=new DRACOLoader();
 dracoLoader.setDecoderPath('https://www.gstatic.com/draco/versioned/decoders/1.5.6/');
-const loader = new GLTFLoader();
+const loader=new GLTFLoader();
 loader.setDRACOLoader(dracoLoader);
 
 loader.load('image_files/homepage-computer.glb', (gltf) => {
   scene.add(gltf.scene);
 
-  const box = new THREE.Box3().setFromObject(gltf.scene);
-  const center = box.getCenter(new THREE.Vector3());
-  const size = box.getSize(new THREE.Vector3());
-  const maxDim = Math.max(size.x, size.y, size.z);
-  const scale = 4 / maxDim;
+  const box=new three.Box3().setFromObject(gltf.scene);
+  const center=box.getCenter(new three.Vector3());
+  const size=box.getSize(new three.Vector3());
+  const maxDim=Math.max(size.x, size.y, size.z);
+  const scale=4 / maxDim;
 
-  gltf.scene.rotation.x = 0.3;
-  gltf.scene.rotation.y = 4.1;
-  gltf.scene.rotation.z = 0;
+  gltf.scene.rotation.x=0.3;
+  gltf.scene.rotation.y=4.1;
+  gltf.scene.rotation.z=0;
 
   gltf.scene.scale.setScalar(scale);
   gltf.scene.position.sub(center.multiplyScalar(scale));
@@ -750,14 +707,14 @@ loader.load('image_files/homepage-computer.glb', (gltf) => {
 
   gltf.scene.traverse((node) => {
     if (node.isMesh && node.name === 'monitor_screen') {
-      node.material = new THREE.MeshBasicMaterial({ map: screenTexture });
+      node.material=new three.MeshBasicMaterial({ map: screenTexture });
     }
   });
 });
 
 window.addEventListener('resize', () => {
   renderer.setSize(container.clientWidth, container.clientHeight);
-  camera.aspect = container.clientWidth / container.clientHeight;
+  camera.aspect=container.clientWidth / container.clientHeight;
   camera.updateProjectionMatrix();
 });
 
@@ -770,7 +727,7 @@ function animate() {
     if (camera.position.distanceTo(originalCameraPos) < 0.005) {
       camera.position.copy(originalCameraPos);
       controls.target.copy(originalTarget);
-      isReturning = false;
+      isReturning=false;
     }
   }
   controls.update();
@@ -784,20 +741,19 @@ animate();
 <script>
 
 function togglePeriphery() {
-  const list = document.getElementById("periphery-list");
-  const toggle = document.getElementById("periphery-toggle");
+  const list=document.getElementById("periphery-list");
+  const toggle=document.getElementById("periphery-toggle");
 
-  const isVisible = list.style.display === "block";
+  const isVisible=list.style.display === "block";
 
   if (isVisible) {
     list.classList.remove("show");
-    setTimeout(() => { list.style.display = "none"; }, 300); // allow animation to complete
-    toggle.textContent = "+";
+    setTimeout(() => { list.style.display="none"; }, 300);
+    toggle.textContent="+";
   } else {
-    list.style.display = "block";
-    // wait a frame before adding .show so transition triggers
+    list.style.display="block";
     requestAnimationFrame(() => list.classList.add("show"));
-    toggle.textContent = "−";
+    toggle.textContent="−";
   }
 }
 </script> 
@@ -805,50 +761,41 @@ function togglePeriphery() {
 
 
 <script>
-// Check for saved night mode preference on page load
 document.addEventListener('DOMContentLoaded', function() {
-  const isNightMode = localStorage.getItem('nightMode') === 'true';
-  const toggleBtn = document.getElementById('night-mode-toggle');
+  const isNightMode=localStorage.getItem('nightMode') === 'true';
+  const toggleBtn=document.getElementById('night-mode-toggle');
   
   if (isNightMode) {
     document.body.classList.add('night-mode');
-    toggleBtn.textContent = 'Light Mode';
+    toggleBtn.textContent='Light Mode';
   } else {
-    toggleBtn.textContent = 'Night Mode';
+    toggleBtn.textContent='Night Mode';
   }
 });
 
-// Toggle night mode and save preference
 document.getElementById('night-mode-toggle').addEventListener('click', function() {
-  const isNightMode = document.body.classList.toggle('night-mode');
+  const isNightMode=document.body.classList.toggle('night-mode');
   
-  // Save preference to localStorage
   localStorage.setItem('nightMode', isNightMode);
   
-  // Update button text
-  this.textContent = isNightMode ? 'Light Mode' : 'Night Mode';
+  this.textContent=isNightMode ? 'Light Mode' : 'Night Mode';
 });
 </script>
 <script>
-// Only apply on mobile
 if (window.matchMedia("(max-width: 767px)").matches) {
-  const nightBtn = document.getElementById('night-mode-toggle');
+  const nightBtn=document.getElementById('night-mode-toggle');
   let hideTimeout;
 
   function showButton() {
-    // Show the button
     nightBtn.classList.add('visible');
 
-    // Clear any previous hide timer
     clearTimeout(hideTimeout);
 
-    // Hide again after 3 seconds
-    hideTimeout = setTimeout(() => {
+    hideTimeout=setTimeout(() => {
       nightBtn.classList.remove('visible');
     }, 3000);
   }
 
-  // Show on scroll or touch
   window.addEventListener('scroll', showButton, { passive: true });
   window.addEventListener('touchstart', showButton, { passive: true });
 }
@@ -857,25 +804,24 @@ if (window.matchMedia("(max-width: 767px)").matches) {
 </script>
 
 <script>
-// Shift + click on the name header copies the name instead of navigating
 (function () {
-  const link = document.querySelector('#name-header a');
-  const msg = document.getElementById('copied-msg');
+  const link=document.querySelector('#name-header a');
+  const msg=document.getElementById('copied-msg');
   let timer;
   link.addEventListener('click', function (e) {
     if (!e.shiftKey) return;
     e.preventDefault();
-    const text = link.textContent.trim();
-    const done = () => {
-      msg.style.opacity = '1';
+    const text=link.textContent.trim();
+    const done=() => {
+      msg.style.opacity='1';
       clearTimeout(timer);
-      timer = setTimeout(() => { msg.style.opacity = '0'; }, 1000);
+      timer=setTimeout(() => { msg.style.opacity='0'; }, 1000);
     };
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(text).then(done, done);
     } else {
-      const ta = document.createElement('textarea');
-      ta.value = text; document.body.appendChild(ta); ta.select();
+      const ta=document.createElement('textarea');
+      ta.value=text; document.body.appendChild(ta); ta.select();
       try { document.execCommand('copy'); } catch (_) {}
       ta.remove(); done();
     }

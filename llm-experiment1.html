@@ -140,7 +140,6 @@
       margin: 1rem 0;
     }
 
-    /* Desktop layout */
     @media (min-width: 768px) {
       body {
         padding: 3rem 6rem;
@@ -217,9 +216,8 @@ body.night-mode .background-image {
   </main>
 
   <script>
-// Check for saved night mode preference on page load
 document.addEventListener('DOMContentLoaded', function() {
-  const isNightMode = localStorage.getItem('nightMode') === 'true';
+  const isNightMode=localStorage.getItem('nightMode') === 'true';
   
   if (isNightMode) {
     document.body.classList.add('night-mode');

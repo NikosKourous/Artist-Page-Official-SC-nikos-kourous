@@ -102,23 +102,21 @@ margin: 3rem 0 3rem 3rem;
     © 2025 Nikos Antonio Kourous Vázquez — <a href="https://instagram.com/nikoskourous">@nikoskourous</a>
   </footer>
   <script>
-  // Check for saved night mode preference on page load
   document.addEventListener('DOMContentLoaded', function() {
-    const isNightMode = localStorage.getItem('nightMode') === 'true';
-    const toggleBtn = document.getElementById('night-mode-toggle');
+    const isNightMode=localStorage.getItem('nightMode') === 'true';
+    const toggleBtn=document.getElementById('night-mode-toggle');
     if (isNightMode) {
       document.body.classList.add('night-mode');
-      if (toggleBtn) toggleBtn.textContent = '☀️';
+      if (toggleBtn) toggleBtn.textContent='☀️';
     } else {
-      if (toggleBtn) toggleBtn.textContent = '🌙';
+      if (toggleBtn) toggleBtn.textContent='🌙';
     }
   });
-  // Toggle night mode and save preference
   if (document.getElementById('night-mode-toggle')) {
     document.getElementById('night-mode-toggle').addEventListener('click', function() {
-      const isNightMode = document.body.classList.toggle('night-mode');
+      const isNightMode=document.body.classList.toggle('night-mode');
       localStorage.setItem('nightMode', isNightMode);
-      this.textContent = isNightMode ? '☀️' : '🌙';
+      this.textContent=isNightMode ? '☀️' : '🌙';
     });
   }
   </script>

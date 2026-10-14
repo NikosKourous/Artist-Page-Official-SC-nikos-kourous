@@ -127,7 +127,6 @@
   <meta name="robots" content="index, follow">
   <meta name="author" content="Nikos Antonio Kourous Vázquez">
 
-  <!-- Open Graph for socials -->
   <meta property="og:title" content="Field, sky, body, mind | Nikos Kourous Vázquez">
   <meta property="og:description" content="A short animated film made with early generative AI imagery">
   <meta property="og:url" content="https://nikos.kourous.net/field-sky-body-mind">
@@ -145,7 +144,7 @@ body {
   padding: 1rem;
   background-color: #f9f9f9;
   color: #000000;
-  font-size: 1.1rem; /* Increased base font size */
+  font-size: 1.1rem;
 }
 
     main {
@@ -156,10 +155,9 @@ body {
       text-align: center;
     }
 
-    /* Responsive YouTube embed */
     .video-container {
       position: relative;
-      padding-bottom: 56.25%; /* 16:9 ratio */
+      padding-bottom: 56.25%;
       height: 0;
       overflow: hidden;
       max-width: 100%;
@@ -175,7 +173,6 @@ body {
       border: 0;
     }
 
-    /* New text section styles */
     .poem-section {
       margin: 3rem 0;
       padding: 2rem;
@@ -188,7 +185,7 @@ body {
       font-style: italic;
       line-height: 1.6;
       position: relative;
-      font-size: 0.9rem; /* Smaller than regular text */
+      font-size: 0.9rem;
     }
 
     .poem-preview {
@@ -255,7 +252,7 @@ body {
       font-weight: bold;
       margin-top: 1.5rem;
       margin-bottom: 0.5rem;
-      font-size: 1rem; /* Keep labels regular size */
+      font-size: 1rem;
     }
 
     .ai-confidence {
@@ -277,7 +274,6 @@ body {
       text-align: center;
       margin-top: -2rem;
     }
-    /* Image styles */
     .gallery-images {
       margin: 3rem 0;
     }
@@ -294,11 +290,10 @@ body {
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
 
-    /* Desktop override */
     @media (min-width: 768px) {
       body {
         padding: 3rem 6rem;
-        font-size: 1.2rem; /* Even larger on desktop */
+        font-size: 1.2rem;
       }
 
       main, header, footer {
@@ -359,7 +354,6 @@ body {
         filter: invert(1);
       }
 
-      /* Special override for tooltips in night mode */
       body.night-mode .tooltip {
         background: #000 !important;
         color: #000 !important;
@@ -450,10 +444,8 @@ body {
         <br><br>The soundtrack for this film was created and composed by<a href="https://uk.linkedin.com/in/tommaso-sarram-3aaa3a2b4#:~:text=Recording%20Artist&text=I%20composed%2C%20produced%20and%20self,Piano%20Melodies%20for%20Deep%20Focus.%22">Tom Sarram.</a>
       </p>
 
-      <!-- New collaborative text section -->
      
 
-      <!-- Gallery images -->
       <div class="gallery-images">
         <figure>
           <img src="image_files/field,sky,body,mind/fieldimage3.jpg" alt="field, sky, body, mind exhibited in copeland gallery 2022, people watching with headphones">
@@ -474,9 +466,8 @@ body {
   </footer>
 
   <script>
-// Check for saved night mode preference on page load
 document.addEventListener('DOMContentLoaded', function() {
-  const isNightMode = localStorage.getItem('nightMode') === 'true';
+  const isNightMode=localStorage.getItem('nightMode') === 'true';
   
   if (isNightMode) {
     document.body.classList.add('night-mode');
@@ -484,15 +475,15 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function togglePoem() {
-  const section = document.getElementById('poemSection');
-  const btn = section.querySelector('.expand-btn');
+  const section=document.getElementById('poemSection');
+  const btn=section.querySelector('.expand-btn');
   
   if (section.classList.contains('expanded')) {
     section.classList.remove('expanded');
-    btn.textContent = '+';
+    btn.textContent='+';
   } else {
     section.classList.add('expanded');
-    btn.textContent = '−';
+    btn.textContent='−';
   }
 }
 </script>

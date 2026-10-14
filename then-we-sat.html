@@ -195,7 +195,6 @@
   <meta name="geo.region" content="GB">
   <meta name="geo.placename" content="London">
 
-  <!-- Open Graph for socials -->
   <meta property="og:title" content="Then We Sat For Some Time And Observed (2025) | Nikos Kourous Vázquez">
   <meta property="og:description" content="A large-language model roaming the world on Google Street View, gaining memory, experience, and personality over time.">
   <meta property="og:url" content="https://nikos.kourous.net/AI-roaming-street-view">
@@ -251,11 +250,10 @@
       height: auto;
     }
 
-    /* Monitor overlay container */
   .monitor-stack {
   position: relative;
   margin: 0rem 0;
-  text-align: center; /* This will center the images */
+  text-align: center;
 }
 
 .monitor-layer {
@@ -278,7 +276,6 @@
       margin: 0 auto;
     }
 
-    /* Tooltip styles */
     .tooltip {
       position: relative;
       display: inline-block;
@@ -319,7 +316,6 @@
       opacity: 1;
     }
 
-    /* JSON styling */
     .json-block {
       background-color: #f4f4f4;
       border: 1px solid #ddd;
@@ -336,7 +332,6 @@
       font-weight: bold;
     }
 
-    /* Email screenshot styles */
     .email-screenshots {
       display: flex;
       gap: 1rem;
@@ -362,7 +357,6 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
 
-    /* Modal styles */
     .modal {
       display: none;
       position: fixed;
@@ -408,7 +402,6 @@
       opacity: 0.7;
     }
 
-    /* Hover grow effect */
     .hover-grow {
       transition: transform 0.3s ease;
     }
@@ -417,7 +410,6 @@
       transform: scale(1.02);
     }
 
-    /* Figcaption styles */
     figcaption {
       font-size: 0.65rem;
       opacity: 0.5;
@@ -425,7 +417,6 @@
       margin-top: 0rem;
     }
 
-    /* Desktop layout */
     @media (min-width: 768px) {
       body {
         padding: 3rem 4rem;
@@ -455,14 +446,14 @@
   width: 200%;
   max-width: 900px;
   margin: 2rem auto;
-  aspect-ratio: 16/9; /* Maintain layout ratio */
+  aspect-ratio: 16/9;
 }
 
 .video-timelapse-wrapper video {
-  width: 77%; /* Zoom in slightly to allow cropping */
+  width: 77%;
   height: 100%;
   object-fit: cover;
-  object-position: center; /* default center crop */
+  object-position: center;
   display: block;
   border-radius: 28px;
   transition: opacity 0.3s ease;
@@ -543,7 +534,7 @@ body.night-mode .json-block {
 }
 
 body.night-mode .json-block .json-id {
-  color: #4CAF50 !important; /* Green color for JSON keys */
+  color: #4CAF50 !important;
 }
     }
   </style>
@@ -553,7 +544,6 @@ body.night-mode .json-block .json-id {
 </head>
 <body>
 
-  <!-- Generic modal for all other images -->
 <div id="image-modal" class="modal" onclick="closeImageModal()">
   <span class="close">&times;</span>
   <div class="modal-content">
@@ -606,7 +596,6 @@ body.night-mode .json-block .json-id {
 
     <p>The work consists of 4, vertically stacked monitors that follow a vertical gradient of embodiment. The bottom screen displays raw code, the entity's computational foundation. Above it, word webs crystallize as the AI forms its sense of self through connections in language. The third monitor tracks physical exploration as the entity navigates Street View. Lastly, at the top, the entity writes out email messages as an expression of self-hood.</p>
 
-    <!-- Monitor Stack Interactive Section -->
     <div class="monitor-stack">
 
   
@@ -778,7 +767,6 @@ body.night-mode .json-block .json-id {
 
   </main>
 
-  <!-- Modals for email screenshots -->
   <div id="modal1" class="modal" onclick="closeModal('modal1')">
     <span class="close">&times;</span>
     <div class="modal-content">
@@ -807,85 +795,76 @@ body.night-mode .json-block .json-id {
 
   <script>
     function openModal(modalId) {
-      document.getElementById(modalId).style.display = 'flex';
+      document.getElementById(modalId).style.display='flex';
     }
 
     function closeModal(modalId) {
-      document.getElementById(modalId).style.display = 'none';
+      document.getElementById(modalId).style.display='none';
     }
 
-    // Close modal when clicking outside the image
-    window.onclick = function(event) {
+    window.onclick=function(event) {
       if (event.target.classList.contains('modal')) {
-        event.target.style.display = 'none';
+        event.target.style.display='none';
       }
     }
   </script>
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    const vid = document.getElementById("timelapse-video");
+    const vid=document.getElementById("timelapse-video");
 
-    // When metadata is loaded, pick random start time
     vid.addEventListener("loadedmetadata", function () {
-      const duration = vid.duration;
-      const randomTime = Math.random() * duration;
-      vid.currentTime = randomTime;
+      const duration=vid.duration;
+      const randomTime=Math.random() * duration;
+      vid.currentTime=randomTime;
     });
 
-    // Show controls only on hover
     vid.addEventListener("mouseenter", () => {
-      vid.controls = true;
+      vid.controls=true;
     });
 
     vid.addEventListener("mouseleave", () => {
-      vid.controls = false;
+      vid.controls=false;
     });
   });
 </script>
 
 <script>
-  // Attach to all images not already handled (e.g., screenshots)
   document.addEventListener("DOMContentLoaded", function () {
-    const modal = document.getElementById("image-modal");
-    const modalImg = document.getElementById("modal-img");
+    const modal=document.getElementById("image-modal");
+    const modalImg=document.getElementById("modal-img");
 
-    // Select all images that are NOT inside .email-screenshot
     document.querySelectorAll("img:not(.email-screenshot img)").forEach((img) => {
       img.addEventListener("click", function () {
-        modal.style.display = "flex";
-        modalImg.src = img.src;
-        modalImg.alt = img.alt || "Expanded image";
+        modal.style.display="flex";
+        modalImg.src=img.src;
+        modalImg.alt=img.alt || "Expanded image";
       });
     });
   });
 
   function closeImageModal() {
-    document.getElementById("image-modal").style.display = "none";
+    document.getElementById("image-modal").style.display="none";
   }
 </script>
 <script>
-// Check for saved night mode preference on page load
 document.addEventListener('DOMContentLoaded', function() {
-  const isNightMode = localStorage.getItem('nightMode') === 'true';
-  const toggleBtn = document.getElementById('night-mode-toggle');
+  const isNightMode=localStorage.getItem('nightMode') === 'true';
+  const toggleBtn=document.getElementById('night-mode-toggle');
   
   if (isNightMode) {
     document.body.classList.add('night-mode');
-    toggleBtn.textContent = '☀️';
+    toggleBtn.textContent='☀️';
   } else {
-    toggleBtn.textContent = '🌙';
+    toggleBtn.textContent='🌙';
   }
 });
 
-// Toggle night mode and save preference
 document.getElementById('night-mode-toggle').addEventListener('click', function() {
-  const isNightMode = document.body.classList.toggle('night-mode');
+  const isNightMode=document.body.classList.toggle('night-mode');
   
-  // Save preference to localStorage
   localStorage.setItem('nightMode', isNightMode);
   
-  // Update button icon
-  this.textContent = isNightMode ? '☀️' : '🌙';
+  this.textContent=isNightMode ? '☀️' : '🌙';
 });
 </script>
 </body>

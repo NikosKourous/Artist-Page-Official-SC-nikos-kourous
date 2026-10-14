@@ -26,7 +26,7 @@ body {
 
     .gif-container {
   display: flex;
-  justify-content: flex-start; /* aligns left by default */
+  justify-content: flex-start;
   margin: 0rem 0;
 }
 
@@ -36,7 +36,6 @@ body {
       height: auto;
     }
 
-    /* Desktop override */
     @media (min-width: 768px) {
       body {
         padding: 0rem 6rem;
@@ -110,9 +109,8 @@ body.night-mode .background-image {
     <p>© 2025 Nikos Antonio Kourous-Vázquez</p>
   </footer>
   <script>
-// Check for saved night mode preference on page load
 document.addEventListener('DOMContentLoaded', function() {
-  const isNightMode = localStorage.getItem('nightMode') === 'true';
+  const isNightMode=localStorage.getItem('nightMode') === 'true';
   
   if (isNightMode) {
     document.body.classList.add('night-mode');

@@ -142,7 +142,6 @@
   ]
 }</script>
 
-  <!-- Open Graph for socials -->
   <meta property="og:title" content="i feel so alone in this house | Nikos Kourous Vázquez">
   <meta property="og:description" content="A short animated film made using early generative adversarial networks">
   <meta property="og:url" content="https://nikos.kourous.net/i-feel-so-alone-in-this-house">
@@ -183,10 +182,9 @@ body {
       text-align: justify;
     }
 
-    /* Responsive YouTube embed */
     .video-container {
       position: relative;
-      padding-bottom: 56.25%; /* 16:9 ratio */
+      padding-bottom: 56.25%;
       height: 0;
       overflow: hidden;
       max-width: 100%;
@@ -208,30 +206,26 @@ body {
   text-align: right;
   margin-top: 0rem;
 }
-/* Container to match video and text alignment */
 .media-block.solo-images {
   max-width: 700px;
   margin: 1rem 0;
   margin-left: -2.6rem;
   padding: 0;
-  display: block; /* Remove flex centering */
+  display: block;
 }
 
-/* Images inside this block */
 .media-block.solo-images img {
   width: 100%;
   height: auto;
   display: block;
 }
 
-/* Captions left-aligned */
 .media-block.solo-images figcaption {
   text-align: left;
 }
 
 
 
-    /* Desktop override */
     @media (min-width: 768px) {
       body {
         padding: 3rem 6rem;
@@ -339,9 +333,8 @@ overlap between my own psyche and consciousness to its own.<br><br><br>
     <p><i><a href="https://instagram.com/nikoskourous" target="_blank" rel="noopener noreferrer">@nikoskourous</a></i></p>
   </footer>
   <script>
-// Check for saved night mode preference on page load
 document.addEventListener('DOMContentLoaded', function() {
-  const isNightMode = localStorage.getItem('nightMode') === 'true';
+  const isNightMode=localStorage.getItem('nightMode') === 'true';
   
   if (isNightMode) {
     document.body.classList.add('night-mode');

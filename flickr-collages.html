@@ -127,7 +127,6 @@
   <meta name="robots" content="index, follow">
   <meta name="author" content="Nikos Antonio Kourous Vázquez">
 
-  <!-- Open Graph for socials -->
   <meta property="og:title" content="Flickr Generative Collages | Nikos Kourous Vázquez">
   <meta property="og:description" content="Generative collages of famous paintings using machine learning object detection and images from Flickr. ">
   <meta property="og:url" content="https://nikos.kourous.net/flickr-generative-collages">
@@ -165,7 +164,6 @@ body {
       height: auto;
     }
 
-    /* Desktop layout */
     @media (min-width: 768px) {
       body {
         padding: 3rem 6rem;
@@ -220,18 +218,15 @@ body.night-mode .background-image {
 
 <p> Shown at The Photographers Gallery // Flickr Foundation anniversary event 2025. </p>
 
-    <!-- overview image -->
     <div class="media-block">
       <img src="image_files/flickr-collages/overview.jpg" alt="overview" />
     </div>
 
 
-    <!-- image1 -->
     <div class="media-block">
       <img src="image_files/flickr-collages/image1.jpg" alt="collage 1" />
     </div>
 
-    <!-- image2 -->
     <div class="media-block">
       <img src="image_files/flickr-collages/image2.jpg" alt="collage 2" />
     </div>
@@ -242,9 +237,8 @@ body.night-mode .background-image {
     <p><i><a href="https://instagram.com/nikoskourous" target="_blank" rel="noopener noreferrer">@nikoskourous</a></i></p>
   </footer>
   <script>
-// Check for saved night mode preference on page load
 document.addEventListener('DOMContentLoaded', function() {
-  const isNightMode = localStorage.getItem('nightMode') === 'true';
+  const isNightMode=localStorage.getItem('nightMode') === 'true';
   
   if (isNightMode) {
     document.body.classList.add('night-mode');

@@ -39,7 +39,6 @@ body {
       height: auto;
     }
 
-    /* Desktop override */
     @media (min-width: 768px) {
       body {
         padding: 1rem 6rem;
@@ -109,9 +108,8 @@ body.night-mode .background-image {
     <p><i><a href="https://instagram.com/nikoskourous" target="_blank" rel="noopener noreferrer">@nikoskourous</a></i></p>
   </footer>
   <script>
-// Check for saved night mode preference on page load
 document.addEventListener('DOMContentLoaded', function() {
-  const isNightMode = localStorage.getItem('nightMode') === 'true';
+  const isNightMode=localStorage.getItem('nightMode') === 'true';
   
   if (isNightMode) {
     document.body.classList.add('night-mode');

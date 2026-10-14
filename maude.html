@@ -107,7 +107,6 @@
   }
 </script>
 
-  <!-- Open Graph for socials -->
   <meta property="og:title" content="Maude, the anti-chatbot | Nikos Kourous Vázquez">
   <meta property="og:description" content="a custom chatbot built off the inverse of Anthropic's Claude system prompt.">
   <meta property="og:url" content="https://nikos.kourous.net/maude-the-anti-chatbot">
@@ -147,7 +146,6 @@
       margin: 1rem 0;
     }
 
-    /* Desktop layout */
     @media (min-width: 768px) {
       body {
         padding: 3rem 6rem;
@@ -228,9 +226,8 @@ body.night-mode .background-image {
     </div>
   </main>
   <script>
-// Check for saved night mode preference on page load
 document.addEventListener('DOMContentLoaded', function() {
-  const isNightMode = localStorage.getItem('nightMode') === 'true';
+  const isNightMode=localStorage.getItem('nightMode') === 'true';
   
   if (isNightMode) {
     document.body.classList.add('night-mode');

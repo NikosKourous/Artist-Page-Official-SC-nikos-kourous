@@ -152,7 +152,6 @@
   <meta name="geo.region" content="GB">
   <meta name="geo.placename" content="London">
 
-  <!-- Open Graph for socials -->
   <meta property="og:title" content="Reginald Gilbert III| Nikos Kourous Vázquez">
   <meta property="og:description" content="Reginald Gilbert the Third is an installation housing a large-language model gaining character lore and personality by browsing and commenting on Reddit.">
   <meta property="og:url" content="https://nikos.kourous.net/reginald-gilbert-iii">
@@ -223,7 +222,6 @@
       padding: 0;
     }
 
-    /* Desktop layout */
     @media (min-width: 400px) {
       body {
         padding: 3rem 6rem;
@@ -450,9 +448,9 @@ body.night-mode .background-image {
 <script>
   document.querySelectorAll('.zoomable').forEach(img => {
     img.addEventListener('click', () => {
-      const lightbox = document.getElementById('lightbox');
-      const lightboxImg = document.getElementById('lightbox-img');
-      lightboxImg.src = img.src;
+      const lightbox=document.getElementById('lightbox');
+      const lightboxImg=document.getElementById('lightbox-img');
+      lightboxImg.src=img.src;
       lightbox.classList.add('active');
     });
   });
@@ -463,9 +461,8 @@ body.night-mode .background-image {
 </div>
 
 <script>
-// Check for saved night mode preference on page load
 document.addEventListener('DOMContentLoaded', function() {
-  const isNightMode = localStorage.getItem('nightMode') === 'true';
+  const isNightMode=localStorage.getItem('nightMode') === 'true';
   
   if (isNightMode) {
     document.body.classList.add('night-mode');

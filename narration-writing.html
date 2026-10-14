@@ -150,7 +150,6 @@
   }
 </script>
 
-  <!-- Open Graph for socials -->
   <meta property="og:title" content="'Then we say for some time' -- Audio Narration | Nikos Kourous Vázquez">
   <meta property="og:description" content="The accompanying audio narration to 'then we sat for some time and observed' (2025), an installation showcasing a large-language model roaming the world on Google Street view and gaining experience and selfhood.">
   <meta property="og:url" content="https://nikos.kourous.net/narration-writing.html">
@@ -406,9 +405,8 @@ body.night-mode .quote {
 
   </main>
   <script>
-// Check for saved night mode preference on page load
 document.addEventListener('DOMContentLoaded', function() {
-  const isNightMode = localStorage.getItem('nightMode') === 'true';
+  const isNightMode=localStorage.getItem('nightMode') === 'true';
   
   if (isNightMode) {
     document.body.classList.add('night-mode');

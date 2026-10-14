@@ -130,7 +130,6 @@
   }
 </script>
 
-  <!-- Open Graph for socials -->
   <meta property="og:title" content="Youtube Plant | Nikos Kourous Vázquez">
   <meta property="og:description" content="A plant browsing and scrolling through YouTube videos.">
   <meta property="og:url" content="https://nikos.kourous.net/plant-scrolling-youtube">
@@ -166,7 +165,6 @@ body {
       height: auto;
     }
 
-    /* Desktop layout */
     @media (min-width: 768px) {
       body {
         padding: 3rem 6rem;
@@ -221,12 +219,10 @@ body.night-mode .background-image {
   </header>
 
   <main>
-    <!-- 1. Introductory Essay Text -->
     <p>
       A struggling houseplant, in a pot no larger than a mug of tea filled with dry ashy dirt, sits lifelessly in front of a laptop screen. Luckily, I’ve equipped it with cables and its very own Arduino. A soil moisture sensor and a light-dependent resistor stick out from its sad collection of dirt, desperately informing the Arduino and laptop of the plant’s poor condition. By bestowing this plant with this sophisticated technology, I’ve lent it agency to take matters into its own hands. The plant slowly opens YouTube windows, frantically searching for answers to improve its condition. One by one, videos start playing; ‘Teen’s invention makes water out of thin air,’ ‘This bottle makes water out of the air,’ and ‘Top 10 Types of Water’. 
     </p>
 
-    <!-- 2. good night light mp4 -->
     <div class="media-block">
       <video src="image_files/yt_plant/good_night_light_compressed.mp4" autoplay muted loop playsinline></video>
     </div>
@@ -250,9 +246,8 @@ body.night-mode .background-image {
     <p><i><a href="https://instagram.com/nikoskourous" target="_blank" rel="noopener noreferrer">@nikoskourous</a></i></p>
   </footer>
   <script>
-// Check for saved night mode preference on page load
 document.addEventListener('DOMContentLoaded', function() {
-  const isNightMode = localStorage.getItem('nightMode') === 'true';
+  const isNightMode=localStorage.getItem('nightMode') === 'true';
   
   if (isNightMode) {
     document.body.classList.add('night-mode');

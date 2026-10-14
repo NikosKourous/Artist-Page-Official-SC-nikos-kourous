@@ -56,18 +56,17 @@
     fetch("image_files/writing/rat.txt")
       .then(response => response.text())
       .then(text => {
-        document.getElementById("essay-text").textContent = text;
+        document.getElementById("essay-text").textContent=text;
       })
       .catch(error => {
-        document.getElementById("essay-text").textContent = "Failed to load essay.";
+        document.getElementById("essay-text").textContent="Failed to load essay.";
         console.error(error);
       });
   </script>
 
   <script>
-// Check for saved night mode preference on page load
 document.addEventListener('DOMContentLoaded', function() {
-  const isNightMode = localStorage.getItem('nightMode') === 'true';
+  const isNightMode=localStorage.getItem('nightMode') === 'true';
   
   if (isNightMode) {
     document.body.classList.add('night-mode');

@@ -112,7 +112,6 @@
   }
 </script>
 
-  <!-- Open Graph for socials -->
   <meta property="og:title" content="GAUGAN animations | Nikos Kourous Vázquez">
   <meta property="og:description" content="Animation experiments using Nvidia's early GAUGAN drawing-to-landscape AI model.">
   <meta property="og:url" content="https://nikos.kourous.net/gaugan-animations">
@@ -153,7 +152,6 @@
       height: 3rem;
     }
 
-    /* Desktop layout */
     @media (min-width: 768px) {
       body {
         padding: 3rem 6rem;
@@ -175,7 +173,7 @@
 .media-block img,
 .media-block video {
   width: 100%;
-  max-width: 900px; /* or whatever width you prefer */
+  max-width: 900px;
   height: auto;
 }
 
@@ -245,9 +243,8 @@ body.night-mode .background-image {
   </main>
 
   <script>
-// Check for saved night mode preference on page load
 document.addEventListener('DOMContentLoaded', function() {
-  const isNightMode = localStorage.getItem('nightMode') === 'true';
+  const isNightMode=localStorage.getItem('nightMode') === 'true';
   
   if (isNightMode) {
     document.body.classList.add('night-mode');

@@ -3,31 +3,26 @@
 <head>
   <link rel="stylesheet" href="style.css" />
 
-  <!-- Canonical + meta -->
   <link rel="canonical" href="https://nikos.kourous.net/i-potato-self-portrait"/>
   <meta name="description" content="i potato self-portrait is a durational generative portrait installation powered by a wall of potatoes wired into a battery array, feeding a custom-trained diffusion model that renders a potato as healthy or diseased in real time.">
   <meta name="robots" content="index, follow">
   <meta name="author" content="Nikos Antonio Kourous Vázquez">
 
-  <!-- Open Graph -->
   <meta property="og:title" content="i potato self-portrait (2026) | Nikos Kourous Vázquez">
   <meta property="og:description" content="A wall of potatoes wired into a battery array powers a custom diffusion model that generates a potato portrait in real time, decaying from health to disease as the potatoes dry out over three weeks.">
   <meta property="og:url" content="https://nikos.kourous.net/i-potato-self-portrait">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://nikos.kourous.net/image_files/potato-portrait/i_potato_portrait_image5_nikos_kourous.webp">
 
-  <!-- Basic -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>i potato self-portrait | A Generative Potato Battery Installation | Nikos Antonio Kourous Vázquez</title>
 
-  <!-- Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 
-  <!-- Schema.org CreativeWork -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -84,7 +79,6 @@
   }
   </script>
 
-  <!-- Breadcrumbs (optional for consistency) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -97,7 +91,6 @@
   </script>
 
   <style>
-    /* Page-scoped styles (unchanged desktop behavior) */
     body {
       font-family: 'Tinos', serif;
       margin: 0;
@@ -129,12 +122,11 @@
 
     .media-block {
       margin: 1rem 0;
-      margin-left: -2rem;            /* desktop-specific indentation remains */
+      margin-left: -2rem;
       display: flex;
       justify-content: flex-start;
     }
 
-    /* First image tuned for desktop text width alignment */
     .media-block.first-image img {
       max-width: 110%;
       margin-left: -0.5rem;
@@ -166,7 +158,6 @@
       margin-top: 2rem;
     }
 
-    /* Row of three smaller images sharing the width of one normal image */
     .media-row-three {
       display: flex;
       justify-content: flex-start;
@@ -185,7 +176,6 @@
       height: auto;
     }
 
-    /* Modal (image zoom) */
     .modal {
       display: none;
       position: fixed;
@@ -212,7 +202,6 @@
       cursor: pointer;
     }
 
-    /* Desktop container width */
     @media (min-width: 768px) {
       body { padding: 3rem 4rem; }
       main, header, footer {
@@ -222,7 +211,6 @@
       }
     }
 
-    /* i potato self-portrait links look like plain text (leave as-is) */
     main a {
       padding: 0 !important;
       display: inline !important;
@@ -242,14 +230,12 @@
       outline: none;
     }
 
-    /* Night mode */
     body.night-mode { background-color: #000 !important; color: #fff !important; }
     body.night-mode * { color: #fff !important; }
     body.night-mode a { color: #fff !important; }
     body.night-mode .json-block { background-color: #222 !important; border-color: #444 !important; color: #fff !important; }
     body.night-mode .json-block .json-id { color: #4CAF50 !important; }
 
-    /* Toggle button */
     .night-toggle-btn {
       position: fixed;
       bottom: 15px;
@@ -269,19 +255,16 @@
     .night-toggle-btn:hover { transform: scale(1.1); }
     body.night-mode .night-toggle-btn { background: rgba(0,0,0,0.9); color: #fff; }
 
-    /* ===== MOBILE-ONLY FIXES (no desktop changes) ===== */
     @media (max-width: 767px) {
-      /* Remove desktop left indent so media spans the mobile column */
       .media-block {
         margin: 1rem 0 !important;
         margin-left: 0 !important;
         justify-content: center;
       }
 
-      /* Make figures and media truly full-width inside the padded body */
       .media-block figure {
         width: 100%;
-        margin: 0; /* kill any residual spacing */
+        margin: 0;
       }
 
       .media-block img,
@@ -293,7 +276,6 @@
         display: block;
       }
 
-      /* Neutralize first-image desktop offsets on phones */
       .media-block.first-image img {
         max-width: 100% !important;
         margin-left: 0 !important;
@@ -301,18 +283,15 @@
         margin-top: 0 !important;
       }
 
-      /* Ensure YouTube matches images: full width, 16:9 */
       .media-block iframe {
         aspect-ratio: 16 / 9;
         border: 0;
       }
 
-      /* Optional: give figcaptions a touch more room on narrow screens */
       figcaption {
         padding-right: 0.25rem;
       }
 
-      /* Row of three collapses to full-width stack on mobile */
       .media-row-three {
         flex-direction: column;
         margin-left: 0 !important;
@@ -323,20 +302,16 @@
       }
     }
 
-    /* === Mobile-only fixes === */
 @media (max-width: 767px) {
-  /* Stop any horizontal scrolling caused by inline widths/margins */
   html, body { overflow-x: hidden; }
 
-  /* Neutralize inline widths/margins on media wrappers */
   .media-block,
   .media-block[style] {
     width: 100% !important;
     margin-left: 0 !important;
-    overflow: hidden; /* safety net */
+    overflow: hidden;
   }
 
-  /* Make YouTube iframes behave like images: full-width, 16:9 */
   .media-block iframe {
     display: block;
     width: 100% !important;
@@ -346,10 +321,9 @@
     border: 0;
   }
 
-  /* Bump the first image caption closer to the image on mobile */
   .first-image figcaption {
-    margin-top: 0.6rem !important;   /* was larger; brings it up */
-    margin-right: 0 !important;      /* avoids pushing off-screen */
+    margin-top: 0.6rem !important;
+    margin-right: 0 !important;
   }
 }
 
@@ -357,7 +331,6 @@
 </head>
 <body>
 
-  <!-- Modal for images -->
   <div id="image-modal" class="modal" onclick="closeImageModal()">
     <span class="close">&times;</span>
     <div class="modal-content">
@@ -374,7 +347,6 @@
       <h1>i potato self-portrait</h1>
     </header>
 
-        <!-- First image (exact width of text block on desktop; full-width on mobile via overrides) -->
     <div class="media-block first-image">
       <figure>
         <img src="https://nikos.kourous.net/image_files/potato-portrait/i_potato_portrait_image5_nikos_kourous.webp"
@@ -441,7 +413,6 @@
       Eventually, towards the end of the three week installation, healthy potatoes could no longer be generated, and the physical potatoes were left wrinkled and limp.
     </p>
 
-    <!-- Row of three smaller images -->
     <div class="media-row-three">
       <figure>
         <img src="https://nikos.kourous.net/image_files/potato-portrait/i_potato_portrait_image9_nikos_kourous.webp"
@@ -526,51 +497,45 @@
   <button id="night-mode-toggle" class="night-toggle-btn">🌙</button>
 
   <script>
-    // Image modal activation
     document.addEventListener("DOMContentLoaded", function () {
-      const modal = document.getElementById("image-modal");
-      const modalImg = document.getElementById("modal-img");
+      const modal=document.getElementById("image-modal");
+      const modalImg=document.getElementById("modal-img");
 
       document.querySelectorAll("img").forEach((img) => {
         img.addEventListener("click", function () {
           if (this.closest('figure')) {
-            modal.style.display = "flex";
-            modalImg.src = img.src;
-            modalImg.alt = img.alt || "Expanded image";
+            modal.style.display="flex";
+            modalImg.src=img.src;
+            modalImg.alt=img.alt || "Expanded image";
           }
         });
       });
     });
 
     function closeImageModal() {
-      document.getElementById("image-modal").style.display = "none";
+      document.getElementById("image-modal").style.display="none";
     }
   </script>
 
-  <!-- Night mode persistence (exact script) -->
   <script>
-  // Check for saved night mode preference on page load
   document.addEventListener('DOMContentLoaded', function() {
-    const isNightMode = localStorage.getItem('nightMode') === 'true';
-    const toggleBtn = document.getElementById('night-mode-toggle');
+    const isNightMode=localStorage.getItem('nightMode') === 'true';
+    const toggleBtn=document.getElementById('night-mode-toggle');
 
     if (isNightMode) {
       document.body.classList.add('night-mode');
-      toggleBtn.textContent = '☀️';
+      toggleBtn.textContent='☀️';
     } else {
-      toggleBtn.textContent = '🌙';
+      toggleBtn.textContent='🌙';
     }
   });
 
-  // Toggle night mode and save preference
   document.getElementById('night-mode-toggle').addEventListener('click', function() {
-    const isNightMode = document.body.classList.toggle('night-mode');
+    const isNightMode=document.body.classList.toggle('night-mode');
 
-    // Save preference to localStorage
     localStorage.setItem('nightMode', isNightMode);
 
-    // Update button icon
-    this.textContent = isNightMode ? '☀️' : '🌙';
+    this.textContent=isNightMode ? '☀️' : '🌙';
   });
   </script>
 </body>
