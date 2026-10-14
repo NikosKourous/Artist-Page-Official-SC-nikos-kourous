@@ -243,18 +243,18 @@
 
  <main class="container">
 
-    <h1><a href="about-nikos-kourous-vazquez">Nikos Antonio Kourous Vázquez </a></h1>
+    <h1 id="name-header" style="position: relative;"><a href="about-nikos-kourous-vazquez">Nikos Antonio Kourous Vázquez </a><span id="copied-msg" style="position:absolute;left:0;top:100%;font-size:0.8rem;font-weight:normal;opacity:0;transition:opacity 0.3s;pointer-events:none;">copied!</span></h1>
     <p class="bio">
     <span class="floating-about"><a href="https://nikos.kourous.net/about-nikos-kourous-vazquez">About me</a></span>
   </p>
 
 </p>
 <section>
-  <h2>Work</h2>
+  <h2>Selected Work</h2>
   <ul>
     <li><span class="link-with-tooltip"><a href="i-potato-self-portrait">i potato self-portrait (2026)</a><span class="tooltip-text">A potato battery powered machine learning installation.</span></span></li>    
-    <li><span class="link-with-tooltip"><a href="chorus-inutil">Chorus Inútil (2025)</a><span class="tooltip-text">A real-time choir of ChatGPT text-to-speech instances repeating nonsensical syllables and repeating letters.</span></span></li>    
-    <li><span class="link-with-tooltip"><a href="AI-roaming-street-view">Then we sat for some time and observed (2025)</a><span class="tooltip-text">AI explores Street View and emails thoughts as it forms a digital identity.</span></span></li>    
+    <li><span class="link-with-tooltip"><a href="chorus-inutil">Chorus Inútil (2025)</a><span class="tooltip-text">A choir of ChatGPT text-to-speech instances repeating nonsensical syllables and repeating letters.</span></span></li>    
+    <li><span class="link-with-tooltip"><a href="AI-roaming-street-view">Then we sat for some time and observed (2025)</a><span class="tooltip-text">An LLM model exploring Street View, forming hallucinated memories and personality.</span></span></li>    
     <li><span class="link-with-tooltip"><a href="reginald-gilbert-iii">Reginald Gilbert the Third (2025)</a><span class="tooltip-text">A chatbot whose character grew through hallucinations about itself on Reddit.</span></span></li>
     <li><span class="link-with-tooltip"><a href="democratic-ai-constitution-workshop">Democratic AI constitution workshop (2025)</a><span class="tooltip-text">A public workshop hosted at the Tate Modern rewriting AI constitutions democratically.</span></span></li>
     <li><span class="link-with-tooltip"><a href="https://nikos.kourous.net/Simulacrum-Orbita">Simulacrum Orbita (2025)</a><span class="tooltip-text">A never-ending game of telephone between two AI models: one that sees, one that describes.</span></span></li>
@@ -275,12 +275,12 @@
     Peripheral work <span id="periphery-toggle">+</span>
   </h2>
   <ul id="periphery-list" class="collapsible" style="display: none; padding-left: 1rem;">
-    <li><span class="link-with-tooltip"><a href="maude-the-anti-chatbot">Maude, the anti-chatbot (2025)</a><span class="tooltip-text">A chatbot built as the polar opposite of Claude's system prompt.</span></span></li>
+    <li><span class="link-with-tooltip"><a href="maude-the-anti-chatbot">Maude, the anti-chatbot (2025)</a><span class="tooltip-text">A chatbot built using a system prompt that inverts Claude's system prompt.</span></span></li>
     <li><span class="link-with-tooltip"><a href="local-llm-experiment"> Queries // I live \\ LLM experiment (2025)</a><span class="tooltip-text">An experiment with Meta's LLama 2 local large-language model.</span></span></li>
     <li><span class="link-with-tooltip"><a href="photoshop-neural-animation-one"> I breathe // neural filter experimentation (2024)</a><span class="tooltip-text">Animation using Adobe Photoshop's AI transposing tools.</span></span></li>
-    <li><span class="link-with-tooltip"><a href="photoshop-neural-animation-two">Tree Swing // neural filter experimentation (2024)</a><span class="tooltip-text">AI animation using Photoshop neural filters.</span></span></li>
+    <li><span class="link-with-tooltip"><a href="photoshop-neural-animation-two">Tree Swing // neural filter experimentation (2024)</a><span class="tooltip-text">Experimenting with an animation that uses early Photoshop neural filters.</span></span></li>
     <li><span class="link-with-tooltip"><a href="pen-polygraph">Corrupted polygraph (2023)</a><span class="tooltip-text">A custom polygraph machine influenced by data from American prisons.</span></span></li>
-    <li><span class="link-with-tooltip"><a href="collaberative-ai-portrait">Collaborative AI self-portrait (2021)</a><span class="tooltip-text">A self-portrait made collaboratively with AI through dice-human computing.</span></span></li>
+    <li><span class="link-with-tooltip"><a href="collaberative-ai-portrait">Collaborative AI self-portrait (2021)</a><span class="tooltip-text">A self-portrait made collaboratively with an early generative image model through dice-human computing.</span></span></li>
     <li><span class="link-with-tooltip"><a href="gaugan-animations">GauGan early AI animations (2020)</a><span class="tooltip-text">Animations made with early generative image models using custom tools.</span></span></li>
   </ul>
 </section>
@@ -856,5 +856,31 @@ if (window.matchMedia("(max-width: 767px)").matches) {
 
 </script>
 
+<script>
+// Shift + click on the name header copies the name instead of navigating
+(function () {
+  const link = document.querySelector('#name-header a');
+  const msg = document.getElementById('copied-msg');
+  let timer;
+  link.addEventListener('click', function (e) {
+    if (!e.shiftKey) return;
+    e.preventDefault();
+    const text = link.textContent.trim();
+    const done = () => {
+      msg.style.opacity = '1';
+      clearTimeout(timer);
+      timer = setTimeout(() => { msg.style.opacity = '0'; }, 1000);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done, done);
+    } else {
+      const ta = document.createElement('textarea');
+      ta.value = text; document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); } catch (_) {}
+      ta.remove(); done();
+    }
+  });
+})();
+</script>
 </body>
 </html>
